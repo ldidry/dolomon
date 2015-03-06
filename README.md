@@ -1,6 +1,6 @@
 # Dolomon
 
-![Dolomon mascot](https://git.framasoft.org/uploads/project/avatar/180/dolo.png)
+![Zag, the Dolomon mascot](https://git.framasoft.org/luc/dolomon/raw/master/public/img/zag.png)
 
 ## What Dolomon means?
 
