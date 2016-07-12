@@ -1,0 +1,133 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Dolos').' · Dolomon';
+
+%= include 'partial/modModal'
+%= include 'partial/rmModal'
+% if (defined $dolo->user_id) {
+<div>
+    <dl>
+        <dt><%= l('URL') %></dt>
+        <dd><a href="<%= $dolo->url %>"><%= $dolo->url %></a></dd>
+        <dt><%= l('Dolomon URL') %></dt>
+        <dd><a href="<%= url_for('hit', short => $dolo->short)->to_abs %>"><%= url_for('hit', short => $dolo->short)->to_abs %></a></dt>
+        <dt><%= l('Name') %></dt>
+        <dd><%= $dolo->name %></dt>
+        <dt><%= l('Free field') %></dt>
+        <dd><%= $dolo->extra %></dt>
+        <dt><%= l('Total hits') %></dt>
+        <dd><%= $dolo->count %></dt>
+        <dt><%= l('Category') %></dt>
+        <dd><a href="<%= url_for('show_cat', id => $dolo->category_id) %>"><%= $dolo->category_name %></a></dd>
+        <dt><%= l('Tags') %></dt>
+        <dd>
+            <ul id="doloTagList">
+            % my @tags;
+            % for my $tag (@{$dolo->tags}) {
+                <li><a href="<%= url_for('show_tag', id => $tag->{id}) %>"><%= $tag->{name} %></a></li>
+            %     push @tags, $tag->{id};
+            % }
+            </ul>
+        </dd>
+    </dl>
+    <a class="action-modify btn btn-info" href="#" data-id="<%= $dolo->id %>" data-action="<%= url_for('mod_dolo') %>" data-mod="dolo" data-name="<%= $dolo->name %>" data-url="<%= $dolo->url %>" data-short="<%= $dolo->short %>" data-cat="<%= $dolo->category_id %>" data-tags="<%= join(',', @tags) %>">
+        <%= l('Modify dolo') %>
+    </a>
+    <a class="action-remove btn btn-danger" href="#" data-id="<%= $dolo->id %>" data-action="<%= url_for('del_dolo') %>" data-rm="dolo" data-name="<%= $dolo->name %>" data-url="<%= $dolo->url %>" data-short="<%= $dolo->short %>">
+        <%= l('Delete dolo') %>
+    </a>
+
+% if ($dolo->count) {
+    <div style="position:relative;">
+        <ul class="nav nav-tabs" role="tablist" id="tablist">
+            <li role="presentation" class="disabled">
+                <a href="#uber" aria-controls="uber" role="tab" data-toggle="tab" data-targetid="uber">
+                    <%= l('Last %1 days', config('keep_hits')->{uber_precision}) %>
+                </a>
+            </li>
+            <li role="presentation" class="disabled">
+                <a href="#days" aria-controls="days" role="tab" data-targetid="days">
+                    <%= l('Last %1 days', config('keep_hits')->{day_precision}) %>
+                </a>
+            </li>
+            <li role="presentation" class="disabled">
+                <a href="#weeks" aria-controls="weeks" role="tab" data-targetid="weeks">
+                    <%= l('Last %1 weeks', config('keep_hits')->{week_precision}) %>
+                </a>
+            </li>
+            <li role="presentation" class="disabled">
+                <a href="#months" aria-controls="months" role="tab" data-targetid="months">
+                    <%= l('Last %1 months', config('keep_hits')->{month_precision}) %>
+                </a>
+            </li>
+            <li role="presentation" class="active">
+                <a href="#years" aria-controls="years" role="tab" data-targetid="years">
+                    <%= l('Per year') %>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="uber">
+                <div class="alert alert-info">
+                    <p><%= l('Please wait') %><p>
+                </div>
+                <form class="form-inline">
+                % for my $id (qw(uber days weeks months years)) {
+                    <span class="<%= $id %> datepicker hidden">
+                    % if ($id eq 'uber') {
+                        <div class="form-group" id="aggregate-group">
+                            <label for="aggregate_by"><%= l('Aggregate data per') %></label>
+                            <select id="aggregate_by" class="form-control" name="aggregate_by">
+                                <option value="180"><%= l('%1 hours', '3') %></option>
+                                <option value="120"><%= l('%1 hours', 2) %></option>
+                                <option value="60" selected="selected"><%= l('hour') %></option>
+                                <option value="30"><%= l('%1 minutes', '30') %></option>
+                                <option value="15"><%= l('%1 minutes', '15') %></option>
+                                <option value="10"><%= l('%1 minutes', '10') %></option>
+                                <option value="5"><%= l('%1 minutes', '5') %></option>
+                                <option value="1"><%= l('1 minute') %></option>
+                            </select>
+                        </div>
+                    % }
+                        <div class="form-group">
+                            <label for="<%= $id %>-graph-start"><%= l('Start graph at') %></label>
+                            <input id="<%= $id %>-graph-start" class="form-control" name="<%= $id %>-graph-start" type="text"></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="<%= $id %>-graph-stop"><%= l('Stop graph at') %></label>
+                            <input id="<%= $id %>-graph-stop" class="form-control" name="<%= $id %>-graph-stop" type="text"></input>
+                        </div>
+                    </span>
+                % }
+                </form>
+                <div class="mo-graph" id="graph"></div>
+                <div>
+                    <a href="<%= url_for('get_dolo_zip', id => $dolo->id) %>" class="btn btn-default" id="download"><%= l('Download datas in CSV format') %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th><%= l('Referrer') %></th>
+                    <th><%= l('Count (on last %1 days)', config('keep_hits')->{uber_precision}) %></th>
+                </tr>
+            </thead>
+            <tbody>
+                % for my $key (sort keys %{$referrers}) {
+                <tr>
+                    <td><%= $key %></td>
+                    <td><%= $referrers->{$key} %></td>
+                </tr>
+                % }
+            </tbody>
+        </table>
+    </div>
+% }
+</div>
+    %= javascript begin
+        var dataUrl = '<%= url_for('get_dolo_data', id => $dolo->id) %>';
+    % end
+% }

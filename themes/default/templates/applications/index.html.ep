@@ -1,0 +1,51 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Applications').' · Dolomon';
+
+%= include 'partial/modModal'
+%= include 'partial/rmModal'
+<p>
+    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#addModal" data-add="app" data-action="<%= url_for('add_app') %>">
+        <%= l('Add an application') %>
+    </a>
+</p>
+<div class="table-responsive">
+    <table class="table table-hover table-condensed sortable">
+        <thead>
+            <tr>
+                <th><%= l('Name') %></th>
+                <th>app_id</th>
+                <th>app_secret</th>
+            </tr>
+            <tr>
+                <td><input class="form-control filter" data-filter=".name" type="text" placeholder="<%= l('filter') %>"></td>
+                <td><input class="form-control filter" data-filter=".app-id" type="text" placeholder="<%= l('filter') %>"></td>
+                <td><input class="form-control filter" data-filter=".app-secret" type="text" placeholder="<%= l('filter') %>"></td>
+            </tr>
+        </thead>
+        <tbody id="appTbody">
+        % $apps->each(sub {
+            % my ($e, $num) = @_;
+            <tr>
+                <td class="name"><%= $e->name %></td>
+                <td class="app-id"><%= $e->app_id %></td>
+                <td class="app-secret">
+                    <%= $e->app_secret %>
+                    <div class="pull-right">
+                        <a class="action-modify" href="#" data-id="<%= $e->id %>" data-action="<%= url_for('mod_app') %>" data-mod="app" data-name="<%= $e->name %>">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="<%= l('Rename application') %>"></span>
+                        </a>
+                        <a class="action-remove" href="#" data-id="<%= $e->id %>" data-action="<%= url_for('del_app') %>" data-rm="app" data-name="<%= $e->name %>">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="<%= l('Delete application') %>"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        % });
+        </tbody>
+    </table>
+</div>
+%= javascript begin
+    window.mod_url      = '<%= url_for('mod_app') %>';
+    window.del_url      = '<%= url_for('del_app') %>';
+% end

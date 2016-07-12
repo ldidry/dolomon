@@ -1,0 +1,65 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Dashboard').' · Dolomon';
+
+% my $h = current_user->get_stats;
+<div class="row text-center">
+    <div class="col-sm-6 col-md-2 col-md-offset-1">
+        <div class="thumbnail">
+            <div class="caption">
+                <h1 id="dolo_nb"><%= $h->{dolos} %></h1>
+                <p>
+                    <a href="<%= url_for('dolo') %>">
+                        <%= l('Dolo(s)') %>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+            <div class="caption">
+                <h1><%= $h->{total} %></h1>
+                <p>
+                    <%= l('Total count of hits on your dolos') %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+            <div class="caption">
+                <h1 id="cat_nb"><%= $h->{cats} %></h1>
+                <p>
+                    <a href="<%= url_for('categories') %>">
+                        <%= l('Categorie(s)') %>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+            <div class="caption">
+                <h1 id="tag_nb"><%= $h->{tags} %></h1>
+                <p>
+                    <a href="<%= url_for('tags') %>">
+                        <%= l('Tag(s)') %>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+            <div class="caption">
+                <h1 id="app_nb"><%= $h->{apps} %></h1>
+                <p>
+                    <a href="<%= url_for('apps') %>">
+                        <%= l('Application(s)') %>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+# vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
+{
+    ####################
+    # Hypnotoad settings
+    ####################
+    hypnotoad => {
+        # array of IP addresses and ports you want to listen to
+        listen => ['http://127.0.0.1:3000'],
+        proxy => 1,
+    },
+    secrets        => ['s3cr3ts'],
+    db => {
+        database => 'dolomon',
+        host     => 'localhost',
+        user     => 'dolomon',
+        passwd   => 'dolomon'
+    },
+    minion_db => {
+        database => 'minion_dolomon',
+        host     => 'localhost',
+        user     => 'dolomon',
+        passwd   => 'dolomon'
+    },
+    ldap => {
+        uri         => 'ldaps://mail.exemple.org',
+        user_tree   => 'ou=users,dc=exemple,dc=org',
+        bind_dn     => ',ou=users,dc=exemple,dc=org',
+        bind_user   => 'uid=ldap',
+        bind_pwd    => 'password',
+        user_filter => '(!(uid=ldap))'
+    },
+
+    # If counter_delay is set to more than 0, we set a cookie on visitors
+    # to not increment counter on the same dolo before `counter_delay` seconds.
+    # optional, default is 0
+    counter_delay => 180,
+
+    # Set to 1 if you don't want to count bots visits.
+    # Please note that curl and wget visits still increment counters
+    # (the author of Dolomon often uses curl or wget for downloading things on the web)
+    # optional, default is 0
+    do_not_count_spiders => 1,
+
+    keep_hits => {
+        uber_precision  => 3,
+        day_precision   => 90,
+        week_precision  => 12,
+        month_precision => 36,
+    }
+}

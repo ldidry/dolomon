@@ -1,0 +1,199 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Tags').' · Dolomon';
+
+%= include 'partial/modModal'
+%= include 'partial/rmModal'
+% if (defined $tag->user_id) {
+<dl>
+    <dt><%= l('Name') %></dt>
+    <dd><%= $tag->name %></dt>
+    <dt><%= l('Total hits') %></dt>
+    <dd><%= $tag->count %></dt>
+</dl>
+
+<a class="action-modify btn btn-info" href="#" data-id="<%= $tag->id %>" data-action="<%= url_for('mod_tag') %>" data-mod="tag" data-name="<%= $tag->name %>">
+    <%= l('Rename tag') %>
+</a>
+<a class="action-remove btn btn-danger" href="#" data-id="<%= $tag->id %>" data-action="<%= url_for('del_tag') %>" data-rm="tag" data-name="<%= $tag->name %>">
+    <%= l('Delete tag') %>
+</a>
+
+% if ($tag->count) {
+<div style="position:relative;">
+    <ul class="nav nav-tabs" role="tablist" id="tablist">
+        <li role="presentation" class="disabled">
+            <a href="#uber" aria-controls="uber" role="tab" data-toggle="tab" data-targetid="uber">
+                <%= l('Last %1 days', config('keep_hits')->{uber_precision}) %>
+            </a>
+        </li>
+        <li role="presentation" class="disabled">
+            <a href="#days" aria-controls="days" role="tab" data-targetid="days">
+                <%= l('Last %1 days', config('keep_hits')->{day_precision}) %>
+            </a>
+        </li>
+        <li role="presentation" class="disabled">
+            <a href="#weeks" aria-controls="weeks" role="tab" data-targetid="weeks">
+                <%= l('Last %1 weeks', config('keep_hits')->{week_precision}) %>
+            </a>
+        </li>
+        <li role="presentation" class="disabled">
+            <a href="#months" aria-controls="months" role="tab" data-targetid="months">
+                <%= l('Last %1 months', config('keep_hits')->{month_precision}) %>
+            </a>
+        </li>
+        <li role="presentation" class="active">
+            <a href="#years" aria-controls="years" role="tab" data-targetid="years">
+                <%= l('Per year') %>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="uber">
+            <div class="alert alert-info">
+                <p><%= l('Please wait') %><p>
+            </div>
+            <form class="form-inline">
+            % for my $id (qw(uber days weeks months years)) {
+                <span class="<%= $id %> datepicker hidden">
+                % if ($id eq 'uber') {
+                    <div class="form-group" id="aggregate-group">
+                        <label for="aggregate_by"><%= l('Aggregate data per') %></label>
+                        <select id="aggregate_by" class="form-control" name="aggregate_by">
+                            <option value="180"><%= l('%1 hours', '3') %></option>
+                            <option value="120"><%= l('%1 hours', 2) %></option>
+                            <option value="60" selected="selected"><%= l('hour') %></option>
+                            <option value="30"><%= l('%1 minutes', '30') %></option>
+                            <option value="15"><%= l('%1 minutes', '15') %></option>
+                            <option value="10"><%= l('%1 minutes', '10') %></option>
+                            <option value="5"><%= l('%1 minutes', '5') %></option>
+                            <option value="1"><%= l('1 minute') %></option>
+                        </select>
+                    </div>
+                % }
+                    <div class="form-group">
+                        <label for="<%= $id %>-graph-start"><%= l('Start graph at') %></label>
+                        <input id="<%= $id %>-graph-start" class="form-control" name="<%= $id %>-graph-start" type="text"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="<%= $id %>-graph-stop"><%= l('Stop graph at') %></label>
+                        <input id="<%= $id %>-graph-stop" class="form-control" name="<%= $id %>-graph-stop" type="text"></input>
+                    </div>
+                </span>
+            % }
+            </form>
+            <div class="mo-graph" id="graph"></div>
+            <div>
+                <a href="<%= url_for('get_tag_zip', id => $tag->id) %>" class="btn btn-default" id="download"><%= l('Download datas in CSV format') %></a>
+            </div>
+        </div>
+    </div>
+</div>
+% }
+<div>
+    <h5><%= l('Dolos') %></h5>
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed sortable">
+            <thead>
+                <tr>
+                    <th><%= l('URL') %></th>
+                    <th><%= l('Dolomon URL') %></th>
+                    <th><%= l('Name') %></th>
+                    <th><%= l('Free field') %></th>
+                    <th><%= l('Total hits') %></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input class="form-control filter" data-filter=".url" type="text" placeholder="<%= l('filter') %>"></td>
+                    <td><input class="form-control filter" data-filter=".durl" type="text" placeholder="<%= l('filter') %>"></td>
+                    <td><input class="form-control filter" data-filter=".name" type="text" placeholder="<%= l('filter') %>"></td>
+                    <td><input class="form-control filter" data-filter=".extra" type="text" placeholder="<%= l('filter') %>"></td>
+                    <td><input class="form-control filter" data-filter=".hits" type="text" placeholder="<%= l('filter') %>"></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody id="tag_id_<%= $tag->id %>">
+        % $tag->dolos->each(sub {
+            % my ($d, $n) = @_;
+            % my @tags;
+            % for my $tag (@{$d->tags}) {
+            %     push @tags, $tag->{id};
+            % }
+            % unless (defined $d->parent_id) {
+                % my $dhs = $d->get_raw_dhs;
+                <tr id="dolo_id_<%= $d->id %>">
+                    <td class="url"><%= $d->url %></td>
+                    <td class="durl"><%= url_for('hit', short => $d->short)->to_abs %></td>
+                    <td class="name"><%= $d->name %></td>
+                    <td class="extra"><%= $d->extra %></td>
+                    <td class="hits"><%= $d->count %></td>
+                    <td>
+                    % if ($d->children->size) {
+                        <a class="pull-right" role="button" href="#" onclick="$('.collapse<%= $n %>').toggleClass('hidden');" aria-expanded="false" aria-controls="collapse<%= $n %>">
+                            <%= l('Show children') %>
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                    % }
+                        <div class="pull-right">
+                            <a href="<%= url_for('show_dolo', id => $d->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                            <a class="action-modify" href="#" data-id="<%= $d->id %>" data-action="<%= url_for('mod_dolo') %>" data-mod="dolo" data-name="<%= $d->name %>" data-url="<%= $d->url %>" data-short="<%= $d->short %>" data-cat="<%= $d->category_id %>" data-tags="<%= join(',', @tags) %>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="<%= l('Modify dolo') %>"></span></a>
+                            <a class="action-remove" href="#" data-id="<%= $d->id %>" data-action="<%= url_for('del_dolo') %>" data-rm="dolo" data-name="<%= $d->name %>" data-url="<%= $d->url %>" data-short="<%= $d->short %>"><span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="<%= l('Delete dolo') %>"></span></a>
+                        </div>
+                    </td>
+                </tr>
+                % if ($d->children->size) {
+                    % $d->children->each(sub {
+                    % my ($f, $m) = @_;
+                    % my @tags;
+                    % for my $tag (@{$f->tags}) {
+                    %     push @tags, $tag->{id};
+                    % }
+                <tr class="hidden collapse<%= $n %>" id="dolo_id_<%= $f->id %>">
+                    <td class="url">
+                        <%= ($m == $d->children->size) ? '└' : '├' %>
+                        <%= $f->url %>
+                    </td>
+                    <td class="durl"><%= url_for('hit', short => $f->short)->to_abs %></td>
+                    <td class="name"><%= $f->name %></td>
+                    <td class="extra"><%= $f->extra %></td>
+                    <td class="hits"><%= $f->count %></td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="<%= url_for('show_dolo', id => $f->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                            <a class="action-modify" href="#" data-id="<%= $f->id %>" data-action="<%= url_for('mod_dolo') %>" data-mod="dolo" data-name="<%= $f->name %>" data-url="<%= $f->url %>" data-short="<%= $f->short %>" data-cat="<%= $f->category_id %>" data-tags="<%= join(',', @tags) %>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="<%= l('Modify dolo') %>"></span></a>
+                            <a class="action-remove" href="#" data-id="<%= $f->id %>" data-action="<%= url_for('del_dolo') %>" data-rm="dolo" data-name="<%= $f->name %>" data-url="<%= $f->url %>" data-short="<%= $f->short %>"><span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="<%= l('Delete dolo') %>"></span></a>
+                        </div>
+                    </td>
+                    % });
+                </tr>
+                % }
+            % }
+        % });
+            </tbody>
+        </table>
+    </div>
+% if ($tag->count) {
+    <div class="table-responsive">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th><%= l('Referrer') %></th>
+                    <th><%= l('Count (on last %1 days)', config('keep_hits')->{uber_precision}) %></th>
+                </tr>
+            </thead>
+            <tbody>
+                % for my $key (sort keys %{$referrers}) {
+                <tr>
+                    <td><%= $key %></td>
+                    <td><%= $referrers->{$key} %></td>
+                </tr>
+                % }
+            </tbody>
+        </table>
+    </div>
+% }
+</div>
+%= javascript begin
+    var dataUrl = '<%= url_for('get_tag_data', id => $tag->id) %>';
+% end
+% }

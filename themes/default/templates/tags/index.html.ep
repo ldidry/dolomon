@@ -1,0 +1,122 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Tags').' · Dolomon';
+
+%= include 'partial/modModal'
+%= include 'partial/rmModal'
+<p>
+    <a class="btn btn-default" href="#" data-toggle="modal" data-target="#addModal" data-add="tag" data-action="<%= url_for('add_tag') %>">
+        <%= l('Add a tag') %>
+    </a>
+</p>
+<!-- List of tags -->
+<div class="panel-group" id="tagAccordion" role="tablist" aria-multiselectable="true">
+% $tags->each(sub {
+    % my ($e, $num) = @_;
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading<%= $num %>">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#tagAccordion" href="#collapse<%= $num %>" aria-expanded="true" aria-controls="collapse<%= $num %>">
+                    <%= $e->name %>
+                </a>
+                <span class="caret" aria-hidden="true" aria-label="<%= l('Show more') %>"></span>
+                <span class="badge" id="tag_badge_<%= $e->id %>" data-count="<%= $e->dolos->size %>"><%= l('%1 dolo(s)', $e->dolos->size) %></span>
+                <div class="pull-right">
+                    <a href="<%= url_for('show_tag', id => $e->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show tag') %>"></span></a>
+                    <a class="action-modify" href="#" data-id="<%= $e->id %>" data-action="<%= url_for('mod_tag') %>" data-mod="tag" data-name="<%= $e->name %>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="<%= l('Rename tag') %>"></span></a>
+                    <a class="action-remove" href="#" data-id="<%= $e->id %>" data-action="<%= url_for('del_tag') %>" data-rm="tag" data-name="<%= $e->name %>"><span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="<%= l('Delete tag') %>"></span></a>
+                </div>
+            </h4>
+        </div>
+        <div id="collapse<%= $num %>" class="panel-collapse collapse" role="tabpanel">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-condensed sortable">
+                        <thead>
+                            <tr>
+                                <th><%= l('URL') %></th>
+                                <th><%= l('Dolomon URL') %></th>
+                                <th><%= l('Name') %></th>
+                                <th><%= l('Free field') %></th>
+                                <th><%= l('Total hits') %></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control filter" data-filter=".url" type="text" placeholder="<%= l('filter') %>"></td>
+                                <td><input class="form-control filter" data-filter=".durl" type="text" placeholder="<%= l('filter') %>"></td>
+                                <td><input class="form-control filter" data-filter=".name" type="text" placeholder="<%= l('filter') %>"></td>
+                                <td><input class="form-control filter" data-filter=".extra" type="text" placeholder="<%= l('filter') %>"></td>
+                                <td><input class="form-control filter" data-filter=".hits" type="text" placeholder="<%= l('filter') %>"></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody id="tag_id_<%= $e->id %>">
+                    % $e->dolos->each(sub {
+                        % my ($d, $n) = @_;
+                        % my @tags;
+                        % for my $tag (@{$d->tags}) {
+                        %     push @tags, $tag->{id};
+                        % }
+                        % unless (defined $d->parent_id) {
+                            <tr id="dolo_id_<%= $d->id %>">
+                                <td class="url"><%= $d->url %></td>
+                                <td class="durl"><%= url_for('hit', short => $d->short)->to_abs %></td>
+                                <td class="name"><%= $d->name %></td>
+                                <td class="extra"><%= $d->extra %></td>
+                                <td class="hits"><%= $d->count %></td>
+                                <td>
+                                % if ($d->children->size) {
+                                    <a class="pull-right" role="button" href="#" onclick="$('.collapse<%= $num.'x'.$n %>').toggleClass('hidden');" aria-expanded="false" aria-controls="collapse<%= $num.'x'.$n %>">
+                                        <%= l('Show children') %>
+                                        <span class="caret" aria-hidden="true"></span>
+                                    </a>
+                                % }
+                                    <div class="pull-right">
+                                        <a href="<%= url_for('show_dolo', id => $d->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                                        <a class="action-modify" href="#" data-id="<%= $d->id %>" data-action="<%= url_for('mod_dolo') %>" data-mod="dolo" data-name="<%= $d->name %>" data-extra="<%= $d->extra %>" data-url="<%= $d->url %>" data-short="<%= $d->short %>" data-cat="<%= $d->category_id %>" data-tags="<%= join(',', @tags) %>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="<%= l('Modify dolo') %>"></span></a>
+                                        <a class="action-remove" href="#" data-id="<%= $d->id %>" data-action="<%= url_for('del_dolo') %>" data-rm="dolo" data-name="<%= $d->name %>" data-extra="<%= $d->extra %>" data-url="<%= $d->url %>" data-short="<%= $d->short %>"><span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="<%= l('Delete dolo') %>"></span></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            % if ($d->children->size) {
+                                % $d->children->each(sub {
+                                % my ($f, $m) = @_;
+                                % my @tags;
+                                % for my $tag (@{$f->tags}) {
+                                %     push @tags, $tag->{id};
+                                % }
+                            <tr class="hidden collapse<%= $num.'x'.$n %>" id="dolo_id_<%= $f->id %>">
+                                <td class="url">
+                                    <%= ($m == $d->children->size) ? '└' : '├' %>
+                                    <%= $f->url %>
+                                </td>
+                                <td class="durl"><%= url_for('hit', short => $f->short)->to_abs %></td>
+                                <td class="name"><%= $f->name %></td>
+                                <td class="extra"><%= $f->extra %></td>
+                                <td class="hits"><%= $f->count %></td>
+                                <td>
+                                    <div class="pull-right">
+                                        <a href="<%= url_for('show_dolo', id => $f->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                                        <a class="action-modify" href="#" data-id="<%= $f->id %>" data-action="<%= url_for('mod_dolo') %>" data-mod="dolo" data-name="<%= $f->name %>" data-extra="<%= $f->extra %>" data-url="<%= $f->url %>" data-short="<%= $f->short %>" data-cat="<%= $f->category_id %>" data-tags="<%= join(',', @tags) %>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="<%= l('Modify dolo') %>"></span></a>
+                                        <a class="action-remove" href="#" data-id="<%= $f->id %>" data-action="<%= url_for('del_dolo') %>" data-rm="dolo" data-name="<%= $f->name %>" data-extra="<%= $f->extra %>" data-url="<%= $f->url %>" data-short="<%= $f->short %>"><span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="<%= l('Delete dolo') %>"></span></a>
+                                    </div>
+                                </td>
+                                % });
+                            </tr>
+                            % }
+                        % }
+                    % });
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+% });
+</div>
+<!-- List of tags -->
+%= javascript begin
+    window.nextCollapse = <%= $tags->size + 1 %>;
+    window.mod_url      = '<%= url_for('mod_tag') %>';
+    window.del_url      = '<%= url_for('del_tag') %>';
+% end

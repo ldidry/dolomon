@@ -1,0 +1,14 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Authentication');
+<form class="form-signin" action='/' method='POST'>
+    <h2 class="form-signin-heading text-center"><%= l('Authentication') %></h2>
+    <label for="inputLogin" class="sr-only"><%= l('Login') %></label>
+    <input type="text" id="inputLogin" name="login" class="form-control" required autofocus placeholder="<%= l('Login') %>">
+    <label for="inputPassword" class="sr-only"><%= l('Password') %></label>
+    <input type="password" id="inputPassword" name="password" class="form-control" required placeholder="<%= l('Password') %>">
+% if (defined $goto) {
+    <input type="hidden" name="goto" value="<%= $goto %>">
+% }
+    <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Go') %></button>
+</form>
