@@ -1,6 +1,6 @@
 # Dolomon
 
-![Zag, the Dolomon mascot](https://git.framasoft.org/luc/dolomon/raw/master/public/img/zag.png)
+![Zag, the Dolomon mascot](https://framagit.org/luc/dolomon/raw/master/themes/default/public/img/dolomon.png)
 
 ## What Dolomon means?
 
@@ -21,7 +21,7 @@ Check the INSTALL.md file
 
 ## Mascot
 
-The Dolomon mascot is called Zag. It has been designed by [Renê Gustavo Miszczak](https://openclipart.org/user-detail/rMiszczak) under the name of [Red Oso](https://openclipart.org/detail/204548/Red%20Oso), have been proposed by [Cyrille Largillier](http://cyrille.largillier.org/) and is in [Public Domain](https://openclipart.org/share)
+The Dolomon mascot is called Zag. It has been initially designed by [Renê Gustavo Miszczak](https://openclipart.org/user-detail/rMiszczak) under the name of [Red Oso](https://openclipart.org/detail/204548/Red%20Oso), have been proposed by [Cyrille Largillier](http://cyrille.largillier.org/) and is in [Public Domain](https://openclipart.org/share) and slightly modified for Dolomon.
 
 ## License
 
