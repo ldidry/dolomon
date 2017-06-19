@@ -12,7 +12,7 @@ use Net::LDAP;
 use DateTime;
 use DateTime::Format::Pg;
 use Mojo::JSON qw(true false);
-use Mojo::Util qw(spurt);
+use Mojo::File;
 use Data::Entropy qw(entropy_source);
 
 # This method will run once at server start
@@ -125,15 +125,15 @@ sub startup {
     shift @{$self->renderer->paths};
     shift @{$self->static->paths};
     if ($config->{theme} ne 'default') {
-        my $theme = $self->home->rel_dir('themes/'.$config->{theme});
+        my $theme = $self->home->rel_file('themes/'.$config->{theme});
         push @{$self->renderer->paths}, $theme.'/templates' if -d $theme.'/templates';
         push @{$self->static->paths}, $theme.'/public' if -d $theme.'/public';
     }
-    push @{$self->renderer->paths}, $self->home->rel_dir('themes/default/templates');
-    push @{$self->static->paths}, $self->home->rel_dir('themes/default/public');
+    push @{$self->renderer->paths}, $self->home->rel_file('themes/default/templates');
+    push @{$self->static->paths}, $self->home->rel_file('themes/default/public');
 
     # Internationalization
-    my $lib = $self->home->rel_dir('themes/'.$config->{theme}.'/lib');
+    my $lib = $self->home->rel_file('themes/'.$config->{theme}.'/lib');
     eval qq(use lib "$lib");
     $self->plugin('I18N');
 
@@ -192,7 +192,7 @@ sub startup {
 
                 # Uber precision stats
                 $c->pg->db->query("DELETE FROM dolos_hits WHERE ts < (CURRENT_TIMESTAMP - INTERVAL '".$job->app->config('keep_hits')->{uber_precision}." days')");
-                spurt $job->app->config('keep_hits')->{uber_precision}, $file;
+                Mojo::File->new($file)->spurt($job->app->config('keep_hits')->{uber_precision});
             }
         }
     );
@@ -326,7 +326,7 @@ sub startup {
     #}
 
     # Be sure last_cleaning_time.txt file exists
-    spurt time, 'last_cleaning_time.txt' unless -e 'last_cleaning_time.txt';
+    Mojo::File->new('last_cleaning_time.txt')->spurt(time) unless -e 'last_cleaning_time.txt';
 
     # Router
     my $r = $self->routes;
