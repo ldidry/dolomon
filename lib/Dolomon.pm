@@ -318,12 +318,12 @@ sub startup {
 
     # Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
-    #if ($self->mode eq 'production') {
-        $migrations->from_file('migrations.sql')->migrate(1);
-    #} else {
-    #    $migrations->from_file('migrations.sql')->migrate(0)->migrate(1);
-    #    $self->app->minion->reset;
-    #}
+    if ($self->mode eq 'production') {
+        $migrations->from_file('utilities/migrations.sql')->migrate(1);
+    } elsif ($ENV{DOLOMON_DEV}) {
+        $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(1);
+        $self->app->minion->reset;
+    }
 
     # Be sure last_cleaning_time.txt file exists
     Mojo::File->new('last_cleaning_time.txt')->spurt(time) unless -e 'last_cleaning_time.txt';
