@@ -400,6 +400,7 @@
     "close.less",
     "component-animations.less",
     "dropdowns.less",
+    "tooltip.less",
     "modals.less"
   ],
   "js": [
@@ -410,5 +411,5 @@
     "collapse.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=d0233f03ca13abfc4f1d0e29f5acb783"
+  "customizerUrl": "<none>"
 }
