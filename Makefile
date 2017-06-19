@@ -1,4 +1,4 @@
-EXTRACTFILES=utilities/locales_files.txt
+EXTRACTDIR=-D lib -D themes/default/templates
 EN=themes/default/lib/Dolomon/I18N/en.po
 FR=themes/default/lib/Dolomon/I18N/fr.po
 XGETTEXT=carton exec local/bin/xgettext.pl
@@ -7,9 +7,8 @@ REAL_DOLOMON=script/dolomon
 DOLOMON=script/mounter
 
 locales:
-	find lib themes/default/templates/ > $(EXTRACTFILES)
-	$(XGETTEXT) -f $(EXTRACTFILES) -o $(EN) 2>/dev/null
-	$(XGETTEXT) -f $(EXTRACTFILES) -o $(FR) 2>/dev/null
+	$(XGETTEXT) $(EXTRACTDIR) -o $(EN) 2>/dev/null
+	$(XGETTEXT) $(EXTRACTDIR) -o $(FR) 2>/dev/null
 
 dev:
 	$(CARTON) morbo $(DOLOMON) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch dolomon.conf
