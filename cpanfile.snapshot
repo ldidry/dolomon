@@ -9,21 +9,21 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test::More 0.47
       perl 5.006
-  Archive-Zip-1.57
-    pathname: P/PH/PHRED/Archive-Zip-1.57.tar.gz
+  Archive-Zip-1.59
+    pathname: P/PH/PHRED/Archive-Zip-1.59.tar.gz
     provides:
-      Archive::Zip 1.57
-      Archive::Zip::Archive 1.57
-      Archive::Zip::BufferedFileHandle 1.57
-      Archive::Zip::DirectoryMember 1.57
-      Archive::Zip::FileMember 1.57
-      Archive::Zip::Member 1.57
-      Archive::Zip::MemberRead 1.57
-      Archive::Zip::MockFileHandle 1.57
-      Archive::Zip::NewFileMember 1.57
-      Archive::Zip::StringMember 1.57
-      Archive::Zip::Tree 1.57
-      Archive::Zip::ZipFileMember 1.57
+      Archive::Zip 1.59
+      Archive::Zip::Archive 1.59
+      Archive::Zip::BufferedFileHandle 1.59
+      Archive::Zip::DirectoryMember 1.59
+      Archive::Zip::FileMember 1.59
+      Archive::Zip::Member 1.59
+      Archive::Zip::MemberRead 1.59
+      Archive::Zip::MockFileHandle 1.59
+      Archive::Zip::NewFileMember 1.59
+      Archive::Zip::StringMember 1.59
+      Archive::Zip::Tree 1.59
+      Archive::Zip::ZipFileMember 1.59
     requirements:
       Compress::Raw::Zlib 2.017
       ExtUtils::MakeMaker 0
@@ -36,8 +36,6 @@ DISTRIBUTIONS
       IO::File 0
       IO::Handle 0
       IO::Seekable 0
-      Test::MockModule 0
-      Test::More 0.88
       Time::Local 0
       perl 5.006
   Authen-SASL-2.16
@@ -75,29 +73,6 @@ DISTRIBUTIONS
       Sub::Exporter::Progressive 0.001006
       Variable::Magic 0.48
       strict 0
-      warnings 0
-  CPAN-Meta-2.143240
-    pathname: D/DA/DAGOLDEN/CPAN-Meta-2.143240.tar.gz
-    provides:
-      CPAN::Meta 2.143240
-      CPAN::Meta::Converter 2.143240
-      CPAN::Meta::Feature 2.143240
-      CPAN::Meta::History 2.143240
-      CPAN::Meta::Merge 2.143240
-      CPAN::Meta::Prereqs 2.143240
-      CPAN::Meta::Spec 2.143240
-      CPAN::Meta::Validator 2.143240
-    requirements:
-      CPAN::Meta::Requirements 2.121
-      CPAN::Meta::YAML 0.008
-      Carp 0
-      ExtUtils::MakeMaker 6.17
-      JSON::PP 2.27200
-      Parse::CPAN::Meta 1.4414
-      Scalar::Util 0
-      perl 5.008
-      strict 0
-      version 0.88
       warnings 0
   Class-Accessor-0.34
     pathname: K/KA/KASEI/Class-Accessor-0.34.tar.gz
@@ -154,6 +129,12 @@ DISTRIBUTIONS
       MRO::Compat 0
       Test::Exception 0
       perl 5.006002
+  Class-Data-Inheritable-0.08
+    pathname: T/TM/TMTM/Class-Data-Inheritable-0.08.tar.gz
+    provides:
+      Class::Data::Inheritable 0.08
+    requirements:
+      ExtUtils::MakeMaker 0
   Class-Factory-Util-1.7
     pathname: D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
     provides:
@@ -374,10 +355,10 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.48
       Test::Simple 0.90
       perl 5.008
-  DBIx-Class-0.082821
-    pathname: R/RI/RIBASUSHI/DBIx-Class-0.082821.tar.gz
+  DBIx-Class-0.082840
+    pathname: R/RI/RIBASUSHI/DBIx-Class-0.082840.tar.gz
     provides:
-      DBIx::Class 0.082821
+      DBIx::Class 0.082840
       DBIx::Class::AccessorGroup undef
       DBIx::Class::Admin undef
       DBIx::Class::CDBICompat undef
@@ -596,35 +577,43 @@ DISTRIBUTIONS
       Data::Validate::Domain 0
       Data::Validate::IP 0
       ExtUtils::MakeMaker 0
-  DateTime-1.28
-    pathname: D/DR/DROLSKY/DateTime-1.28.tar.gz
+  DateTime-1.43
+    pathname: D/DR/DROLSKY/DateTime-1.43.tar.gz
     provides:
-      DateTime 1.28
-      DateTime::Duration 1.28
-      DateTime::Helpers 1.28
-      DateTime::Infinite 1.28
-      DateTime::Infinite::Future 1.28
-      DateTime::Infinite::Past 1.28
-      DateTime::LeapSecond 1.28
-      DateTime::PP 1.28
-      DateTime::PPExtra 1.28
+      DateTime 1.43
+      DateTime::Duration 1.43
+      DateTime::Helpers 1.43
+      DateTime::Infinite 1.43
+      DateTime::Infinite::Future 1.43
+      DateTime::Infinite::Past 1.43
+      DateTime::LeapSecond 1.43
+      DateTime::PP 1.43
+      DateTime::PPExtra 1.43
+      DateTime::Types 1.43
     requirements:
       Carp 0
-      DateTime::Locale 0.41
-      DateTime::TimeZone 1.74
+      DateTime::Locale 1.06
+      DateTime::TimeZone 2.02
+      Dist::CheckConflicts 0.02
       ExtUtils::MakeMaker 0
       POSIX 0
-      Params::Validate 1.03
+      Params::ValidationCompiler 0.13
       Scalar::Util 0
+      Specio 0.18
+      Specio::Declare 0
+      Specio::Exporter 0
+      Specio::Library::Builtins 0
+      Specio::Library::Numeric 0
+      Specio::Library::String 0
       Try::Tiny 0
       XSLoader 0
       base 0
-      constant 0
       integer 0
+      namespace::autoclean 0.19
       overload 0
-      perl 5.008001
+      parent 0
+      perl 5.008004
       strict 0
-      vars 0
       warnings 0
       warnings::register 0
   DateTime-Format-Builder-0.81
@@ -651,23 +640,16 @@ DISTRIBUTIONS
       strict 0
       vars 0
       warnings 0
-  DateTime-Format-ISO8601-0.08
-    pathname: J/JH/JHOBLITT/DateTime-Format-ISO8601-0.08.tar.gz
+  DateTime-Format-Pg-0.16013
+    pathname: D/DM/DMAKI/DateTime-Format-Pg-0.16013.tar.gz
     provides:
-      DateTime::Format::ISO8601 0.08
-    requirements:
-      DateTime 0.18
-      DateTime::Format::Builder 0.77
-  DateTime-Format-Pg-0.16011
-    pathname: D/DM/DMAKI/DateTime-Format-Pg-0.16011.tar.gz
-    provides:
-      DateTime::Format::Pg 0.16011
+      DateTime::Format::Pg 0.16013
     requirements:
       DateTime 0.10
       DateTime::Format::Builder 0.72
       DateTime::TimeZone 0.05
       ExtUtils::MakeMaker 6.36
-      Module::Build 0.38
+      Module::Build::Tiny 0.035
       Test::More 0
   DateTime-Format-Strptime-1.68
     pathname: D/DR/DROLSKY/DateTime-Format-Strptime-1.68.tar.gz
@@ -686,394 +668,403 @@ DISTRIBUTIONS
       constant 0
       strict 0
       warnings 0
-  DateTime-Locale-1.03
-    pathname: D/DR/DROLSKY/DateTime-Locale-1.03.tar.gz
+  DateTime-Locale-1.16
+    pathname: D/DR/DROLSKY/DateTime-Locale-1.16.tar.gz
     provides:
-      DateTime::Locale 1.03
-      DateTime::Locale::Base 1.03
-      DateTime::Locale::Catalog 1.03
-      DateTime::Locale::Data 1.03
-      DateTime::Locale::FromData 1.03
-      DateTime::Locale::Util 1.03
+      DateTime::Locale 1.16
+      DateTime::Locale::Base 1.16
+      DateTime::Locale::Catalog 1.16
+      DateTime::Locale::Data 1.16
+      DateTime::Locale::FromData 1.16
+      DateTime::Locale::Util 1.16
     requirements:
       Carp 0
       Dist::CheckConflicts 0.02
       Exporter 0
       ExtUtils::MakeMaker 0
-      List::MoreUtils 0
-      Params::Validate 0
-      perl 5.008001
+      File::ShareDir 0
+      File::ShareDir::Install 0.06
+      List::Util 1.45
+      Params::ValidationCompiler 0.13
+      Specio::Declare 0
+      Specio::Library::String 0
+      namespace::autoclean 0.19
+      perl 5.008004
       strict 0
       warnings 0
-  DateTime-TimeZone-1.98
-    pathname: D/DR/DROLSKY/DateTime-TimeZone-1.98.tar.gz
+  DateTime-TimeZone-2.13
+    pathname: D/DR/DROLSKY/DateTime-TimeZone-2.13.tar.gz
     provides:
-      DateTime::TimeZone 1.98
-      DateTime::TimeZone::Africa::Abidjan 1.98
-      DateTime::TimeZone::Africa::Accra 1.98
-      DateTime::TimeZone::Africa::Algiers 1.98
-      DateTime::TimeZone::Africa::Bissau 1.98
-      DateTime::TimeZone::Africa::Cairo 1.98
-      DateTime::TimeZone::Africa::Casablanca 1.98
-      DateTime::TimeZone::Africa::Ceuta 1.98
-      DateTime::TimeZone::Africa::El_Aaiun 1.98
-      DateTime::TimeZone::Africa::Johannesburg 1.98
-      DateTime::TimeZone::Africa::Khartoum 1.98
-      DateTime::TimeZone::Africa::Lagos 1.98
-      DateTime::TimeZone::Africa::Maputo 1.98
-      DateTime::TimeZone::Africa::Monrovia 1.98
-      DateTime::TimeZone::Africa::Nairobi 1.98
-      DateTime::TimeZone::Africa::Ndjamena 1.98
-      DateTime::TimeZone::Africa::Tripoli 1.98
-      DateTime::TimeZone::Africa::Tunis 1.98
-      DateTime::TimeZone::Africa::Windhoek 1.98
-      DateTime::TimeZone::America::Adak 1.98
-      DateTime::TimeZone::America::Anchorage 1.98
-      DateTime::TimeZone::America::Araguaina 1.98
-      DateTime::TimeZone::America::Argentina::Buenos_Aires 1.98
-      DateTime::TimeZone::America::Argentina::Catamarca 1.98
-      DateTime::TimeZone::America::Argentina::Cordoba 1.98
-      DateTime::TimeZone::America::Argentina::Jujuy 1.98
-      DateTime::TimeZone::America::Argentina::La_Rioja 1.98
-      DateTime::TimeZone::America::Argentina::Mendoza 1.98
-      DateTime::TimeZone::America::Argentina::Rio_Gallegos 1.98
-      DateTime::TimeZone::America::Argentina::Salta 1.98
-      DateTime::TimeZone::America::Argentina::San_Juan 1.98
-      DateTime::TimeZone::America::Argentina::San_Luis 1.98
-      DateTime::TimeZone::America::Argentina::Tucuman 1.98
-      DateTime::TimeZone::America::Argentina::Ushuaia 1.98
-      DateTime::TimeZone::America::Asuncion 1.98
-      DateTime::TimeZone::America::Atikokan 1.98
-      DateTime::TimeZone::America::Bahia 1.98
-      DateTime::TimeZone::America::Bahia_Banderas 1.98
-      DateTime::TimeZone::America::Barbados 1.98
-      DateTime::TimeZone::America::Belem 1.98
-      DateTime::TimeZone::America::Belize 1.98
-      DateTime::TimeZone::America::Blanc_Sablon 1.98
-      DateTime::TimeZone::America::Boa_Vista 1.98
-      DateTime::TimeZone::America::Bogota 1.98
-      DateTime::TimeZone::America::Boise 1.98
-      DateTime::TimeZone::America::Cambridge_Bay 1.98
-      DateTime::TimeZone::America::Campo_Grande 1.98
-      DateTime::TimeZone::America::Cancun 1.98
-      DateTime::TimeZone::America::Caracas 1.98
-      DateTime::TimeZone::America::Cayenne 1.98
-      DateTime::TimeZone::America::Chicago 1.98
-      DateTime::TimeZone::America::Chihuahua 1.98
-      DateTime::TimeZone::America::Costa_Rica 1.98
-      DateTime::TimeZone::America::Creston 1.98
-      DateTime::TimeZone::America::Cuiaba 1.98
-      DateTime::TimeZone::America::Curacao 1.98
-      DateTime::TimeZone::America::Danmarkshavn 1.98
-      DateTime::TimeZone::America::Dawson 1.98
-      DateTime::TimeZone::America::Dawson_Creek 1.98
-      DateTime::TimeZone::America::Denver 1.98
-      DateTime::TimeZone::America::Detroit 1.98
-      DateTime::TimeZone::America::Edmonton 1.98
-      DateTime::TimeZone::America::Eirunepe 1.98
-      DateTime::TimeZone::America::El_Salvador 1.98
-      DateTime::TimeZone::America::Fort_Nelson 1.98
-      DateTime::TimeZone::America::Fortaleza 1.98
-      DateTime::TimeZone::America::Glace_Bay 1.98
-      DateTime::TimeZone::America::Godthab 1.98
-      DateTime::TimeZone::America::Goose_Bay 1.98
-      DateTime::TimeZone::America::Grand_Turk 1.98
-      DateTime::TimeZone::America::Guatemala 1.98
-      DateTime::TimeZone::America::Guayaquil 1.98
-      DateTime::TimeZone::America::Guyana 1.98
-      DateTime::TimeZone::America::Halifax 1.98
-      DateTime::TimeZone::America::Havana 1.98
-      DateTime::TimeZone::America::Hermosillo 1.98
-      DateTime::TimeZone::America::Indiana::Indianapolis 1.98
-      DateTime::TimeZone::America::Indiana::Knox 1.98
-      DateTime::TimeZone::America::Indiana::Marengo 1.98
-      DateTime::TimeZone::America::Indiana::Petersburg 1.98
-      DateTime::TimeZone::America::Indiana::Tell_City 1.98
-      DateTime::TimeZone::America::Indiana::Vevay 1.98
-      DateTime::TimeZone::America::Indiana::Vincennes 1.98
-      DateTime::TimeZone::America::Indiana::Winamac 1.98
-      DateTime::TimeZone::America::Inuvik 1.98
-      DateTime::TimeZone::America::Iqaluit 1.98
-      DateTime::TimeZone::America::Jamaica 1.98
-      DateTime::TimeZone::America::Juneau 1.98
-      DateTime::TimeZone::America::Kentucky::Louisville 1.98
-      DateTime::TimeZone::America::Kentucky::Monticello 1.98
-      DateTime::TimeZone::America::La_Paz 1.98
-      DateTime::TimeZone::America::Lima 1.98
-      DateTime::TimeZone::America::Los_Angeles 1.98
-      DateTime::TimeZone::America::Maceio 1.98
-      DateTime::TimeZone::America::Managua 1.98
-      DateTime::TimeZone::America::Manaus 1.98
-      DateTime::TimeZone::America::Martinique 1.98
-      DateTime::TimeZone::America::Matamoros 1.98
-      DateTime::TimeZone::America::Mazatlan 1.98
-      DateTime::TimeZone::America::Menominee 1.98
-      DateTime::TimeZone::America::Merida 1.98
-      DateTime::TimeZone::America::Metlakatla 1.98
-      DateTime::TimeZone::America::Mexico_City 1.98
-      DateTime::TimeZone::America::Miquelon 1.98
-      DateTime::TimeZone::America::Moncton 1.98
-      DateTime::TimeZone::America::Monterrey 1.98
-      DateTime::TimeZone::America::Montevideo 1.98
-      DateTime::TimeZone::America::Nassau 1.98
-      DateTime::TimeZone::America::New_York 1.98
-      DateTime::TimeZone::America::Nipigon 1.98
-      DateTime::TimeZone::America::Nome 1.98
-      DateTime::TimeZone::America::Noronha 1.98
-      DateTime::TimeZone::America::North_Dakota::Beulah 1.98
-      DateTime::TimeZone::America::North_Dakota::Center 1.98
-      DateTime::TimeZone::America::North_Dakota::New_Salem 1.98
-      DateTime::TimeZone::America::Ojinaga 1.98
-      DateTime::TimeZone::America::Panama 1.98
-      DateTime::TimeZone::America::Pangnirtung 1.98
-      DateTime::TimeZone::America::Paramaribo 1.98
-      DateTime::TimeZone::America::Phoenix 1.98
-      DateTime::TimeZone::America::Port_au_Prince 1.98
-      DateTime::TimeZone::America::Port_of_Spain 1.98
-      DateTime::TimeZone::America::Porto_Velho 1.98
-      DateTime::TimeZone::America::Puerto_Rico 1.98
-      DateTime::TimeZone::America::Rainy_River 1.98
-      DateTime::TimeZone::America::Rankin_Inlet 1.98
-      DateTime::TimeZone::America::Recife 1.98
-      DateTime::TimeZone::America::Regina 1.98
-      DateTime::TimeZone::America::Resolute 1.98
-      DateTime::TimeZone::America::Rio_Branco 1.98
-      DateTime::TimeZone::America::Santarem 1.98
-      DateTime::TimeZone::America::Santiago 1.98
-      DateTime::TimeZone::America::Santo_Domingo 1.98
-      DateTime::TimeZone::America::Sao_Paulo 1.98
-      DateTime::TimeZone::America::Scoresbysund 1.98
-      DateTime::TimeZone::America::Sitka 1.98
-      DateTime::TimeZone::America::St_Johns 1.98
-      DateTime::TimeZone::America::Swift_Current 1.98
-      DateTime::TimeZone::America::Tegucigalpa 1.98
-      DateTime::TimeZone::America::Thule 1.98
-      DateTime::TimeZone::America::Thunder_Bay 1.98
-      DateTime::TimeZone::America::Tijuana 1.98
-      DateTime::TimeZone::America::Toronto 1.98
-      DateTime::TimeZone::America::Vancouver 1.98
-      DateTime::TimeZone::America::Whitehorse 1.98
-      DateTime::TimeZone::America::Winnipeg 1.98
-      DateTime::TimeZone::America::Yakutat 1.98
-      DateTime::TimeZone::America::Yellowknife 1.98
-      DateTime::TimeZone::Antarctica::Casey 1.98
-      DateTime::TimeZone::Antarctica::Davis 1.98
-      DateTime::TimeZone::Antarctica::DumontDUrville 1.98
-      DateTime::TimeZone::Antarctica::Macquarie 1.98
-      DateTime::TimeZone::Antarctica::Mawson 1.98
-      DateTime::TimeZone::Antarctica::Palmer 1.98
-      DateTime::TimeZone::Antarctica::Rothera 1.98
-      DateTime::TimeZone::Antarctica::Syowa 1.98
-      DateTime::TimeZone::Antarctica::Troll 1.98
-      DateTime::TimeZone::Antarctica::Vostok 1.98
-      DateTime::TimeZone::Asia::Almaty 1.98
-      DateTime::TimeZone::Asia::Amman 1.98
-      DateTime::TimeZone::Asia::Anadyr 1.98
-      DateTime::TimeZone::Asia::Aqtau 1.98
-      DateTime::TimeZone::Asia::Aqtobe 1.98
-      DateTime::TimeZone::Asia::Ashgabat 1.98
-      DateTime::TimeZone::Asia::Baghdad 1.98
-      DateTime::TimeZone::Asia::Baku 1.98
-      DateTime::TimeZone::Asia::Bangkok 1.98
-      DateTime::TimeZone::Asia::Barnaul 1.98
-      DateTime::TimeZone::Asia::Beirut 1.98
-      DateTime::TimeZone::Asia::Bishkek 1.98
-      DateTime::TimeZone::Asia::Brunei 1.98
-      DateTime::TimeZone::Asia::Chita 1.98
-      DateTime::TimeZone::Asia::Choibalsan 1.98
-      DateTime::TimeZone::Asia::Colombo 1.98
-      DateTime::TimeZone::Asia::Damascus 1.98
-      DateTime::TimeZone::Asia::Dhaka 1.98
-      DateTime::TimeZone::Asia::Dili 1.98
-      DateTime::TimeZone::Asia::Dubai 1.98
-      DateTime::TimeZone::Asia::Dushanbe 1.98
-      DateTime::TimeZone::Asia::Gaza 1.98
-      DateTime::TimeZone::Asia::Hebron 1.98
-      DateTime::TimeZone::Asia::Ho_Chi_Minh 1.98
-      DateTime::TimeZone::Asia::Hong_Kong 1.98
-      DateTime::TimeZone::Asia::Hovd 1.98
-      DateTime::TimeZone::Asia::Irkutsk 1.98
-      DateTime::TimeZone::Asia::Jakarta 1.98
-      DateTime::TimeZone::Asia::Jayapura 1.98
-      DateTime::TimeZone::Asia::Jerusalem 1.98
-      DateTime::TimeZone::Asia::Kabul 1.98
-      DateTime::TimeZone::Asia::Kamchatka 1.98
-      DateTime::TimeZone::Asia::Karachi 1.98
-      DateTime::TimeZone::Asia::Kathmandu 1.98
-      DateTime::TimeZone::Asia::Khandyga 1.98
-      DateTime::TimeZone::Asia::Kolkata 1.98
-      DateTime::TimeZone::Asia::Krasnoyarsk 1.98
-      DateTime::TimeZone::Asia::Kuala_Lumpur 1.98
-      DateTime::TimeZone::Asia::Kuching 1.98
-      DateTime::TimeZone::Asia::Macau 1.98
-      DateTime::TimeZone::Asia::Magadan 1.98
-      DateTime::TimeZone::Asia::Makassar 1.98
-      DateTime::TimeZone::Asia::Manila 1.98
-      DateTime::TimeZone::Asia::Nicosia 1.98
-      DateTime::TimeZone::Asia::Novokuznetsk 1.98
-      DateTime::TimeZone::Asia::Novosibirsk 1.98
-      DateTime::TimeZone::Asia::Omsk 1.98
-      DateTime::TimeZone::Asia::Oral 1.98
-      DateTime::TimeZone::Asia::Pontianak 1.98
-      DateTime::TimeZone::Asia::Pyongyang 1.98
-      DateTime::TimeZone::Asia::Qatar 1.98
-      DateTime::TimeZone::Asia::Qyzylorda 1.98
-      DateTime::TimeZone::Asia::Rangoon 1.98
-      DateTime::TimeZone::Asia::Riyadh 1.98
-      DateTime::TimeZone::Asia::Sakhalin 1.98
-      DateTime::TimeZone::Asia::Samarkand 1.98
-      DateTime::TimeZone::Asia::Seoul 1.98
-      DateTime::TimeZone::Asia::Shanghai 1.98
-      DateTime::TimeZone::Asia::Singapore 1.98
-      DateTime::TimeZone::Asia::Srednekolymsk 1.98
-      DateTime::TimeZone::Asia::Taipei 1.98
-      DateTime::TimeZone::Asia::Tashkent 1.98
-      DateTime::TimeZone::Asia::Tbilisi 1.98
-      DateTime::TimeZone::Asia::Tehran 1.98
-      DateTime::TimeZone::Asia::Thimphu 1.98
-      DateTime::TimeZone::Asia::Tokyo 1.98
-      DateTime::TimeZone::Asia::Tomsk 1.98
-      DateTime::TimeZone::Asia::Ulaanbaatar 1.98
-      DateTime::TimeZone::Asia::Urumqi 1.98
-      DateTime::TimeZone::Asia::Ust_Nera 1.98
-      DateTime::TimeZone::Asia::Vladivostok 1.98
-      DateTime::TimeZone::Asia::Yakutsk 1.98
-      DateTime::TimeZone::Asia::Yekaterinburg 1.98
-      DateTime::TimeZone::Asia::Yerevan 1.98
-      DateTime::TimeZone::Atlantic::Azores 1.98
-      DateTime::TimeZone::Atlantic::Bermuda 1.98
-      DateTime::TimeZone::Atlantic::Canary 1.98
-      DateTime::TimeZone::Atlantic::Cape_Verde 1.98
-      DateTime::TimeZone::Atlantic::Faroe 1.98
-      DateTime::TimeZone::Atlantic::Madeira 1.98
-      DateTime::TimeZone::Atlantic::Reykjavik 1.98
-      DateTime::TimeZone::Atlantic::South_Georgia 1.98
-      DateTime::TimeZone::Atlantic::Stanley 1.98
-      DateTime::TimeZone::Australia::Adelaide 1.98
-      DateTime::TimeZone::Australia::Brisbane 1.98
-      DateTime::TimeZone::Australia::Broken_Hill 1.98
-      DateTime::TimeZone::Australia::Currie 1.98
-      DateTime::TimeZone::Australia::Darwin 1.98
-      DateTime::TimeZone::Australia::Eucla 1.98
-      DateTime::TimeZone::Australia::Hobart 1.98
-      DateTime::TimeZone::Australia::Lindeman 1.98
-      DateTime::TimeZone::Australia::Lord_Howe 1.98
-      DateTime::TimeZone::Australia::Melbourne 1.98
-      DateTime::TimeZone::Australia::Perth 1.98
-      DateTime::TimeZone::Australia::Sydney 1.98
-      DateTime::TimeZone::CET 1.98
-      DateTime::TimeZone::CST6CDT 1.98
-      DateTime::TimeZone::Catalog 1.98
-      DateTime::TimeZone::EET 1.98
-      DateTime::TimeZone::EST 1.98
-      DateTime::TimeZone::EST5EDT 1.98
-      DateTime::TimeZone::Europe::Amsterdam 1.98
-      DateTime::TimeZone::Europe::Andorra 1.98
-      DateTime::TimeZone::Europe::Astrakhan 1.98
-      DateTime::TimeZone::Europe::Athens 1.98
-      DateTime::TimeZone::Europe::Belgrade 1.98
-      DateTime::TimeZone::Europe::Berlin 1.98
-      DateTime::TimeZone::Europe::Brussels 1.98
-      DateTime::TimeZone::Europe::Bucharest 1.98
-      DateTime::TimeZone::Europe::Budapest 1.98
-      DateTime::TimeZone::Europe::Chisinau 1.98
-      DateTime::TimeZone::Europe::Copenhagen 1.98
-      DateTime::TimeZone::Europe::Dublin 1.98
-      DateTime::TimeZone::Europe::Gibraltar 1.98
-      DateTime::TimeZone::Europe::Helsinki 1.98
-      DateTime::TimeZone::Europe::Istanbul 1.98
-      DateTime::TimeZone::Europe::Kaliningrad 1.98
-      DateTime::TimeZone::Europe::Kiev 1.98
-      DateTime::TimeZone::Europe::Kirov 1.98
-      DateTime::TimeZone::Europe::Lisbon 1.98
-      DateTime::TimeZone::Europe::London 1.98
-      DateTime::TimeZone::Europe::Luxembourg 1.98
-      DateTime::TimeZone::Europe::Madrid 1.98
-      DateTime::TimeZone::Europe::Malta 1.98
-      DateTime::TimeZone::Europe::Minsk 1.98
-      DateTime::TimeZone::Europe::Monaco 1.98
-      DateTime::TimeZone::Europe::Moscow 1.98
-      DateTime::TimeZone::Europe::Oslo 1.98
-      DateTime::TimeZone::Europe::Paris 1.98
-      DateTime::TimeZone::Europe::Prague 1.98
-      DateTime::TimeZone::Europe::Riga 1.98
-      DateTime::TimeZone::Europe::Rome 1.98
-      DateTime::TimeZone::Europe::Samara 1.98
-      DateTime::TimeZone::Europe::Simferopol 1.98
-      DateTime::TimeZone::Europe::Sofia 1.98
-      DateTime::TimeZone::Europe::Stockholm 1.98
-      DateTime::TimeZone::Europe::Tallinn 1.98
-      DateTime::TimeZone::Europe::Tirane 1.98
-      DateTime::TimeZone::Europe::Ulyanovsk 1.98
-      DateTime::TimeZone::Europe::Uzhgorod 1.98
-      DateTime::TimeZone::Europe::Vienna 1.98
-      DateTime::TimeZone::Europe::Vilnius 1.98
-      DateTime::TimeZone::Europe::Volgograd 1.98
-      DateTime::TimeZone::Europe::Warsaw 1.98
-      DateTime::TimeZone::Europe::Zaporozhye 1.98
-      DateTime::TimeZone::Europe::Zurich 1.98
-      DateTime::TimeZone::Floating 1.98
-      DateTime::TimeZone::HST 1.98
-      DateTime::TimeZone::Indian::Chagos 1.98
-      DateTime::TimeZone::Indian::Christmas 1.98
-      DateTime::TimeZone::Indian::Cocos 1.98
-      DateTime::TimeZone::Indian::Kerguelen 1.98
-      DateTime::TimeZone::Indian::Mahe 1.98
-      DateTime::TimeZone::Indian::Maldives 1.98
-      DateTime::TimeZone::Indian::Mauritius 1.98
-      DateTime::TimeZone::Indian::Reunion 1.98
-      DateTime::TimeZone::Local 1.98
-      DateTime::TimeZone::Local::Android 1.98
-      DateTime::TimeZone::Local::Unix 1.98
-      DateTime::TimeZone::Local::VMS 1.98
-      DateTime::TimeZone::MET 1.98
-      DateTime::TimeZone::MST 1.98
-      DateTime::TimeZone::MST7MDT 1.98
-      DateTime::TimeZone::OffsetOnly 1.98
-      DateTime::TimeZone::OlsonDB 1.98
-      DateTime::TimeZone::OlsonDB::Change 1.98
-      DateTime::TimeZone::OlsonDB::Observance 1.98
-      DateTime::TimeZone::OlsonDB::Rule 1.98
-      DateTime::TimeZone::OlsonDB::Zone 1.98
-      DateTime::TimeZone::PST8PDT 1.98
-      DateTime::TimeZone::Pacific::Apia 1.98
-      DateTime::TimeZone::Pacific::Auckland 1.98
-      DateTime::TimeZone::Pacific::Bougainville 1.98
-      DateTime::TimeZone::Pacific::Chatham 1.98
-      DateTime::TimeZone::Pacific::Chuuk 1.98
-      DateTime::TimeZone::Pacific::Easter 1.98
-      DateTime::TimeZone::Pacific::Efate 1.98
-      DateTime::TimeZone::Pacific::Enderbury 1.98
-      DateTime::TimeZone::Pacific::Fakaofo 1.98
-      DateTime::TimeZone::Pacific::Fiji 1.98
-      DateTime::TimeZone::Pacific::Funafuti 1.98
-      DateTime::TimeZone::Pacific::Galapagos 1.98
-      DateTime::TimeZone::Pacific::Gambier 1.98
-      DateTime::TimeZone::Pacific::Guadalcanal 1.98
-      DateTime::TimeZone::Pacific::Guam 1.98
-      DateTime::TimeZone::Pacific::Honolulu 1.98
-      DateTime::TimeZone::Pacific::Kiritimati 1.98
-      DateTime::TimeZone::Pacific::Kosrae 1.98
-      DateTime::TimeZone::Pacific::Kwajalein 1.98
-      DateTime::TimeZone::Pacific::Majuro 1.98
-      DateTime::TimeZone::Pacific::Marquesas 1.98
-      DateTime::TimeZone::Pacific::Nauru 1.98
-      DateTime::TimeZone::Pacific::Niue 1.98
-      DateTime::TimeZone::Pacific::Norfolk 1.98
-      DateTime::TimeZone::Pacific::Noumea 1.98
-      DateTime::TimeZone::Pacific::Pago_Pago 1.98
-      DateTime::TimeZone::Pacific::Palau 1.98
-      DateTime::TimeZone::Pacific::Pitcairn 1.98
-      DateTime::TimeZone::Pacific::Pohnpei 1.98
-      DateTime::TimeZone::Pacific::Port_Moresby 1.98
-      DateTime::TimeZone::Pacific::Rarotonga 1.98
-      DateTime::TimeZone::Pacific::Tahiti 1.98
-      DateTime::TimeZone::Pacific::Tarawa 1.98
-      DateTime::TimeZone::Pacific::Tongatapu 1.98
-      DateTime::TimeZone::Pacific::Wake 1.98
-      DateTime::TimeZone::Pacific::Wallis 1.98
-      DateTime::TimeZone::UTC 1.98
-      DateTime::TimeZone::WET 1.98
+      DateTime::TimeZone 2.13
+      DateTime::TimeZone::Africa::Abidjan 2.13
+      DateTime::TimeZone::Africa::Accra 2.13
+      DateTime::TimeZone::Africa::Algiers 2.13
+      DateTime::TimeZone::Africa::Bissau 2.13
+      DateTime::TimeZone::Africa::Cairo 2.13
+      DateTime::TimeZone::Africa::Casablanca 2.13
+      DateTime::TimeZone::Africa::Ceuta 2.13
+      DateTime::TimeZone::Africa::El_Aaiun 2.13
+      DateTime::TimeZone::Africa::Johannesburg 2.13
+      DateTime::TimeZone::Africa::Khartoum 2.13
+      DateTime::TimeZone::Africa::Lagos 2.13
+      DateTime::TimeZone::Africa::Maputo 2.13
+      DateTime::TimeZone::Africa::Monrovia 2.13
+      DateTime::TimeZone::Africa::Nairobi 2.13
+      DateTime::TimeZone::Africa::Ndjamena 2.13
+      DateTime::TimeZone::Africa::Tripoli 2.13
+      DateTime::TimeZone::Africa::Tunis 2.13
+      DateTime::TimeZone::Africa::Windhoek 2.13
+      DateTime::TimeZone::America::Adak 2.13
+      DateTime::TimeZone::America::Anchorage 2.13
+      DateTime::TimeZone::America::Araguaina 2.13
+      DateTime::TimeZone::America::Argentina::Buenos_Aires 2.13
+      DateTime::TimeZone::America::Argentina::Catamarca 2.13
+      DateTime::TimeZone::America::Argentina::Cordoba 2.13
+      DateTime::TimeZone::America::Argentina::Jujuy 2.13
+      DateTime::TimeZone::America::Argentina::La_Rioja 2.13
+      DateTime::TimeZone::America::Argentina::Mendoza 2.13
+      DateTime::TimeZone::America::Argentina::Rio_Gallegos 2.13
+      DateTime::TimeZone::America::Argentina::Salta 2.13
+      DateTime::TimeZone::America::Argentina::San_Juan 2.13
+      DateTime::TimeZone::America::Argentina::San_Luis 2.13
+      DateTime::TimeZone::America::Argentina::Tucuman 2.13
+      DateTime::TimeZone::America::Argentina::Ushuaia 2.13
+      DateTime::TimeZone::America::Asuncion 2.13
+      DateTime::TimeZone::America::Atikokan 2.13
+      DateTime::TimeZone::America::Bahia 2.13
+      DateTime::TimeZone::America::Bahia_Banderas 2.13
+      DateTime::TimeZone::America::Barbados 2.13
+      DateTime::TimeZone::America::Belem 2.13
+      DateTime::TimeZone::America::Belize 2.13
+      DateTime::TimeZone::America::Blanc_Sablon 2.13
+      DateTime::TimeZone::America::Boa_Vista 2.13
+      DateTime::TimeZone::America::Bogota 2.13
+      DateTime::TimeZone::America::Boise 2.13
+      DateTime::TimeZone::America::Cambridge_Bay 2.13
+      DateTime::TimeZone::America::Campo_Grande 2.13
+      DateTime::TimeZone::America::Cancun 2.13
+      DateTime::TimeZone::America::Caracas 2.13
+      DateTime::TimeZone::America::Cayenne 2.13
+      DateTime::TimeZone::America::Chicago 2.13
+      DateTime::TimeZone::America::Chihuahua 2.13
+      DateTime::TimeZone::America::Costa_Rica 2.13
+      DateTime::TimeZone::America::Creston 2.13
+      DateTime::TimeZone::America::Cuiaba 2.13
+      DateTime::TimeZone::America::Curacao 2.13
+      DateTime::TimeZone::America::Danmarkshavn 2.13
+      DateTime::TimeZone::America::Dawson 2.13
+      DateTime::TimeZone::America::Dawson_Creek 2.13
+      DateTime::TimeZone::America::Denver 2.13
+      DateTime::TimeZone::America::Detroit 2.13
+      DateTime::TimeZone::America::Edmonton 2.13
+      DateTime::TimeZone::America::Eirunepe 2.13
+      DateTime::TimeZone::America::El_Salvador 2.13
+      DateTime::TimeZone::America::Fort_Nelson 2.13
+      DateTime::TimeZone::America::Fortaleza 2.13
+      DateTime::TimeZone::America::Glace_Bay 2.13
+      DateTime::TimeZone::America::Godthab 2.13
+      DateTime::TimeZone::America::Goose_Bay 2.13
+      DateTime::TimeZone::America::Grand_Turk 2.13
+      DateTime::TimeZone::America::Guatemala 2.13
+      DateTime::TimeZone::America::Guayaquil 2.13
+      DateTime::TimeZone::America::Guyana 2.13
+      DateTime::TimeZone::America::Halifax 2.13
+      DateTime::TimeZone::America::Havana 2.13
+      DateTime::TimeZone::America::Hermosillo 2.13
+      DateTime::TimeZone::America::Indiana::Indianapolis 2.13
+      DateTime::TimeZone::America::Indiana::Knox 2.13
+      DateTime::TimeZone::America::Indiana::Marengo 2.13
+      DateTime::TimeZone::America::Indiana::Petersburg 2.13
+      DateTime::TimeZone::America::Indiana::Tell_City 2.13
+      DateTime::TimeZone::America::Indiana::Vevay 2.13
+      DateTime::TimeZone::America::Indiana::Vincennes 2.13
+      DateTime::TimeZone::America::Indiana::Winamac 2.13
+      DateTime::TimeZone::America::Inuvik 2.13
+      DateTime::TimeZone::America::Iqaluit 2.13
+      DateTime::TimeZone::America::Jamaica 2.13
+      DateTime::TimeZone::America::Juneau 2.13
+      DateTime::TimeZone::America::Kentucky::Louisville 2.13
+      DateTime::TimeZone::America::Kentucky::Monticello 2.13
+      DateTime::TimeZone::America::La_Paz 2.13
+      DateTime::TimeZone::America::Lima 2.13
+      DateTime::TimeZone::America::Los_Angeles 2.13
+      DateTime::TimeZone::America::Maceio 2.13
+      DateTime::TimeZone::America::Managua 2.13
+      DateTime::TimeZone::America::Manaus 2.13
+      DateTime::TimeZone::America::Martinique 2.13
+      DateTime::TimeZone::America::Matamoros 2.13
+      DateTime::TimeZone::America::Mazatlan 2.13
+      DateTime::TimeZone::America::Menominee 2.13
+      DateTime::TimeZone::America::Merida 2.13
+      DateTime::TimeZone::America::Metlakatla 2.13
+      DateTime::TimeZone::America::Mexico_City 2.13
+      DateTime::TimeZone::America::Miquelon 2.13
+      DateTime::TimeZone::America::Moncton 2.13
+      DateTime::TimeZone::America::Monterrey 2.13
+      DateTime::TimeZone::America::Montevideo 2.13
+      DateTime::TimeZone::America::Nassau 2.13
+      DateTime::TimeZone::America::New_York 2.13
+      DateTime::TimeZone::America::Nipigon 2.13
+      DateTime::TimeZone::America::Nome 2.13
+      DateTime::TimeZone::America::Noronha 2.13
+      DateTime::TimeZone::America::North_Dakota::Beulah 2.13
+      DateTime::TimeZone::America::North_Dakota::Center 2.13
+      DateTime::TimeZone::America::North_Dakota::New_Salem 2.13
+      DateTime::TimeZone::America::Ojinaga 2.13
+      DateTime::TimeZone::America::Panama 2.13
+      DateTime::TimeZone::America::Pangnirtung 2.13
+      DateTime::TimeZone::America::Paramaribo 2.13
+      DateTime::TimeZone::America::Phoenix 2.13
+      DateTime::TimeZone::America::Port_au_Prince 2.13
+      DateTime::TimeZone::America::Port_of_Spain 2.13
+      DateTime::TimeZone::America::Porto_Velho 2.13
+      DateTime::TimeZone::America::Puerto_Rico 2.13
+      DateTime::TimeZone::America::Punta_Arenas 2.13
+      DateTime::TimeZone::America::Rainy_River 2.13
+      DateTime::TimeZone::America::Rankin_Inlet 2.13
+      DateTime::TimeZone::America::Recife 2.13
+      DateTime::TimeZone::America::Regina 2.13
+      DateTime::TimeZone::America::Resolute 2.13
+      DateTime::TimeZone::America::Rio_Branco 2.13
+      DateTime::TimeZone::America::Santarem 2.13
+      DateTime::TimeZone::America::Santiago 2.13
+      DateTime::TimeZone::America::Santo_Domingo 2.13
+      DateTime::TimeZone::America::Sao_Paulo 2.13
+      DateTime::TimeZone::America::Scoresbysund 2.13
+      DateTime::TimeZone::America::Sitka 2.13
+      DateTime::TimeZone::America::St_Johns 2.13
+      DateTime::TimeZone::America::Swift_Current 2.13
+      DateTime::TimeZone::America::Tegucigalpa 2.13
+      DateTime::TimeZone::America::Thule 2.13
+      DateTime::TimeZone::America::Thunder_Bay 2.13
+      DateTime::TimeZone::America::Tijuana 2.13
+      DateTime::TimeZone::America::Toronto 2.13
+      DateTime::TimeZone::America::Vancouver 2.13
+      DateTime::TimeZone::America::Whitehorse 2.13
+      DateTime::TimeZone::America::Winnipeg 2.13
+      DateTime::TimeZone::America::Yakutat 2.13
+      DateTime::TimeZone::America::Yellowknife 2.13
+      DateTime::TimeZone::Antarctica::Casey 2.13
+      DateTime::TimeZone::Antarctica::Davis 2.13
+      DateTime::TimeZone::Antarctica::DumontDUrville 2.13
+      DateTime::TimeZone::Antarctica::Macquarie 2.13
+      DateTime::TimeZone::Antarctica::Mawson 2.13
+      DateTime::TimeZone::Antarctica::Palmer 2.13
+      DateTime::TimeZone::Antarctica::Rothera 2.13
+      DateTime::TimeZone::Antarctica::Syowa 2.13
+      DateTime::TimeZone::Antarctica::Troll 2.13
+      DateTime::TimeZone::Antarctica::Vostok 2.13
+      DateTime::TimeZone::Asia::Almaty 2.13
+      DateTime::TimeZone::Asia::Amman 2.13
+      DateTime::TimeZone::Asia::Anadyr 2.13
+      DateTime::TimeZone::Asia::Aqtau 2.13
+      DateTime::TimeZone::Asia::Aqtobe 2.13
+      DateTime::TimeZone::Asia::Ashgabat 2.13
+      DateTime::TimeZone::Asia::Atyrau 2.13
+      DateTime::TimeZone::Asia::Baghdad 2.13
+      DateTime::TimeZone::Asia::Baku 2.13
+      DateTime::TimeZone::Asia::Bangkok 2.13
+      DateTime::TimeZone::Asia::Barnaul 2.13
+      DateTime::TimeZone::Asia::Beirut 2.13
+      DateTime::TimeZone::Asia::Bishkek 2.13
+      DateTime::TimeZone::Asia::Brunei 2.13
+      DateTime::TimeZone::Asia::Chita 2.13
+      DateTime::TimeZone::Asia::Choibalsan 2.13
+      DateTime::TimeZone::Asia::Colombo 2.13
+      DateTime::TimeZone::Asia::Damascus 2.13
+      DateTime::TimeZone::Asia::Dhaka 2.13
+      DateTime::TimeZone::Asia::Dili 2.13
+      DateTime::TimeZone::Asia::Dubai 2.13
+      DateTime::TimeZone::Asia::Dushanbe 2.13
+      DateTime::TimeZone::Asia::Famagusta 2.13
+      DateTime::TimeZone::Asia::Gaza 2.13
+      DateTime::TimeZone::Asia::Hebron 2.13
+      DateTime::TimeZone::Asia::Ho_Chi_Minh 2.13
+      DateTime::TimeZone::Asia::Hong_Kong 2.13
+      DateTime::TimeZone::Asia::Hovd 2.13
+      DateTime::TimeZone::Asia::Irkutsk 2.13
+      DateTime::TimeZone::Asia::Jakarta 2.13
+      DateTime::TimeZone::Asia::Jayapura 2.13
+      DateTime::TimeZone::Asia::Jerusalem 2.13
+      DateTime::TimeZone::Asia::Kabul 2.13
+      DateTime::TimeZone::Asia::Kamchatka 2.13
+      DateTime::TimeZone::Asia::Karachi 2.13
+      DateTime::TimeZone::Asia::Kathmandu 2.13
+      DateTime::TimeZone::Asia::Khandyga 2.13
+      DateTime::TimeZone::Asia::Kolkata 2.13
+      DateTime::TimeZone::Asia::Krasnoyarsk 2.13
+      DateTime::TimeZone::Asia::Kuala_Lumpur 2.13
+      DateTime::TimeZone::Asia::Kuching 2.13
+      DateTime::TimeZone::Asia::Macau 2.13
+      DateTime::TimeZone::Asia::Magadan 2.13
+      DateTime::TimeZone::Asia::Makassar 2.13
+      DateTime::TimeZone::Asia::Manila 2.13
+      DateTime::TimeZone::Asia::Nicosia 2.13
+      DateTime::TimeZone::Asia::Novokuznetsk 2.13
+      DateTime::TimeZone::Asia::Novosibirsk 2.13
+      DateTime::TimeZone::Asia::Omsk 2.13
+      DateTime::TimeZone::Asia::Oral 2.13
+      DateTime::TimeZone::Asia::Pontianak 2.13
+      DateTime::TimeZone::Asia::Pyongyang 2.13
+      DateTime::TimeZone::Asia::Qatar 2.13
+      DateTime::TimeZone::Asia::Qyzylorda 2.13
+      DateTime::TimeZone::Asia::Riyadh 2.13
+      DateTime::TimeZone::Asia::Sakhalin 2.13
+      DateTime::TimeZone::Asia::Samarkand 2.13
+      DateTime::TimeZone::Asia::Seoul 2.13
+      DateTime::TimeZone::Asia::Shanghai 2.13
+      DateTime::TimeZone::Asia::Singapore 2.13
+      DateTime::TimeZone::Asia::Srednekolymsk 2.13
+      DateTime::TimeZone::Asia::Taipei 2.13
+      DateTime::TimeZone::Asia::Tashkent 2.13
+      DateTime::TimeZone::Asia::Tbilisi 2.13
+      DateTime::TimeZone::Asia::Tehran 2.13
+      DateTime::TimeZone::Asia::Thimphu 2.13
+      DateTime::TimeZone::Asia::Tokyo 2.13
+      DateTime::TimeZone::Asia::Tomsk 2.13
+      DateTime::TimeZone::Asia::Ulaanbaatar 2.13
+      DateTime::TimeZone::Asia::Urumqi 2.13
+      DateTime::TimeZone::Asia::Ust_Nera 2.13
+      DateTime::TimeZone::Asia::Vladivostok 2.13
+      DateTime::TimeZone::Asia::Yakutsk 2.13
+      DateTime::TimeZone::Asia::Yangon 2.13
+      DateTime::TimeZone::Asia::Yekaterinburg 2.13
+      DateTime::TimeZone::Asia::Yerevan 2.13
+      DateTime::TimeZone::Atlantic::Azores 2.13
+      DateTime::TimeZone::Atlantic::Bermuda 2.13
+      DateTime::TimeZone::Atlantic::Canary 2.13
+      DateTime::TimeZone::Atlantic::Cape_Verde 2.13
+      DateTime::TimeZone::Atlantic::Faroe 2.13
+      DateTime::TimeZone::Atlantic::Madeira 2.13
+      DateTime::TimeZone::Atlantic::Reykjavik 2.13
+      DateTime::TimeZone::Atlantic::South_Georgia 2.13
+      DateTime::TimeZone::Atlantic::Stanley 2.13
+      DateTime::TimeZone::Australia::Adelaide 2.13
+      DateTime::TimeZone::Australia::Brisbane 2.13
+      DateTime::TimeZone::Australia::Broken_Hill 2.13
+      DateTime::TimeZone::Australia::Currie 2.13
+      DateTime::TimeZone::Australia::Darwin 2.13
+      DateTime::TimeZone::Australia::Eucla 2.13
+      DateTime::TimeZone::Australia::Hobart 2.13
+      DateTime::TimeZone::Australia::Lindeman 2.13
+      DateTime::TimeZone::Australia::Lord_Howe 2.13
+      DateTime::TimeZone::Australia::Melbourne 2.13
+      DateTime::TimeZone::Australia::Perth 2.13
+      DateTime::TimeZone::Australia::Sydney 2.13
+      DateTime::TimeZone::CET 2.13
+      DateTime::TimeZone::CST6CDT 2.13
+      DateTime::TimeZone::Catalog 2.13
+      DateTime::TimeZone::EET 2.13
+      DateTime::TimeZone::EST 2.13
+      DateTime::TimeZone::EST5EDT 2.13
+      DateTime::TimeZone::Europe::Amsterdam 2.13
+      DateTime::TimeZone::Europe::Andorra 2.13
+      DateTime::TimeZone::Europe::Astrakhan 2.13
+      DateTime::TimeZone::Europe::Athens 2.13
+      DateTime::TimeZone::Europe::Belgrade 2.13
+      DateTime::TimeZone::Europe::Berlin 2.13
+      DateTime::TimeZone::Europe::Brussels 2.13
+      DateTime::TimeZone::Europe::Bucharest 2.13
+      DateTime::TimeZone::Europe::Budapest 2.13
+      DateTime::TimeZone::Europe::Chisinau 2.13
+      DateTime::TimeZone::Europe::Copenhagen 2.13
+      DateTime::TimeZone::Europe::Dublin 2.13
+      DateTime::TimeZone::Europe::Gibraltar 2.13
+      DateTime::TimeZone::Europe::Helsinki 2.13
+      DateTime::TimeZone::Europe::Istanbul 2.13
+      DateTime::TimeZone::Europe::Kaliningrad 2.13
+      DateTime::TimeZone::Europe::Kiev 2.13
+      DateTime::TimeZone::Europe::Kirov 2.13
+      DateTime::TimeZone::Europe::Lisbon 2.13
+      DateTime::TimeZone::Europe::London 2.13
+      DateTime::TimeZone::Europe::Luxembourg 2.13
+      DateTime::TimeZone::Europe::Madrid 2.13
+      DateTime::TimeZone::Europe::Malta 2.13
+      DateTime::TimeZone::Europe::Minsk 2.13
+      DateTime::TimeZone::Europe::Monaco 2.13
+      DateTime::TimeZone::Europe::Moscow 2.13
+      DateTime::TimeZone::Europe::Oslo 2.13
+      DateTime::TimeZone::Europe::Paris 2.13
+      DateTime::TimeZone::Europe::Prague 2.13
+      DateTime::TimeZone::Europe::Riga 2.13
+      DateTime::TimeZone::Europe::Rome 2.13
+      DateTime::TimeZone::Europe::Samara 2.13
+      DateTime::TimeZone::Europe::Saratov 2.13
+      DateTime::TimeZone::Europe::Simferopol 2.13
+      DateTime::TimeZone::Europe::Sofia 2.13
+      DateTime::TimeZone::Europe::Stockholm 2.13
+      DateTime::TimeZone::Europe::Tallinn 2.13
+      DateTime::TimeZone::Europe::Tirane 2.13
+      DateTime::TimeZone::Europe::Ulyanovsk 2.13
+      DateTime::TimeZone::Europe::Uzhgorod 2.13
+      DateTime::TimeZone::Europe::Vienna 2.13
+      DateTime::TimeZone::Europe::Vilnius 2.13
+      DateTime::TimeZone::Europe::Volgograd 2.13
+      DateTime::TimeZone::Europe::Warsaw 2.13
+      DateTime::TimeZone::Europe::Zaporozhye 2.13
+      DateTime::TimeZone::Europe::Zurich 2.13
+      DateTime::TimeZone::Floating 2.13
+      DateTime::TimeZone::HST 2.13
+      DateTime::TimeZone::Indian::Chagos 2.13
+      DateTime::TimeZone::Indian::Christmas 2.13
+      DateTime::TimeZone::Indian::Cocos 2.13
+      DateTime::TimeZone::Indian::Kerguelen 2.13
+      DateTime::TimeZone::Indian::Mahe 2.13
+      DateTime::TimeZone::Indian::Maldives 2.13
+      DateTime::TimeZone::Indian::Mauritius 2.13
+      DateTime::TimeZone::Indian::Reunion 2.13
+      DateTime::TimeZone::Local 2.13
+      DateTime::TimeZone::Local::Android 2.13
+      DateTime::TimeZone::Local::Unix 2.13
+      DateTime::TimeZone::Local::VMS 2.13
+      DateTime::TimeZone::MET 2.13
+      DateTime::TimeZone::MST 2.13
+      DateTime::TimeZone::MST7MDT 2.13
+      DateTime::TimeZone::OffsetOnly 2.13
+      DateTime::TimeZone::OlsonDB 2.13
+      DateTime::TimeZone::OlsonDB::Change 2.13
+      DateTime::TimeZone::OlsonDB::Observance 2.13
+      DateTime::TimeZone::OlsonDB::Rule 2.13
+      DateTime::TimeZone::OlsonDB::Zone 2.13
+      DateTime::TimeZone::PST8PDT 2.13
+      DateTime::TimeZone::Pacific::Apia 2.13
+      DateTime::TimeZone::Pacific::Auckland 2.13
+      DateTime::TimeZone::Pacific::Bougainville 2.13
+      DateTime::TimeZone::Pacific::Chatham 2.13
+      DateTime::TimeZone::Pacific::Chuuk 2.13
+      DateTime::TimeZone::Pacific::Easter 2.13
+      DateTime::TimeZone::Pacific::Efate 2.13
+      DateTime::TimeZone::Pacific::Enderbury 2.13
+      DateTime::TimeZone::Pacific::Fakaofo 2.13
+      DateTime::TimeZone::Pacific::Fiji 2.13
+      DateTime::TimeZone::Pacific::Funafuti 2.13
+      DateTime::TimeZone::Pacific::Galapagos 2.13
+      DateTime::TimeZone::Pacific::Gambier 2.13
+      DateTime::TimeZone::Pacific::Guadalcanal 2.13
+      DateTime::TimeZone::Pacific::Guam 2.13
+      DateTime::TimeZone::Pacific::Honolulu 2.13
+      DateTime::TimeZone::Pacific::Kiritimati 2.13
+      DateTime::TimeZone::Pacific::Kosrae 2.13
+      DateTime::TimeZone::Pacific::Kwajalein 2.13
+      DateTime::TimeZone::Pacific::Majuro 2.13
+      DateTime::TimeZone::Pacific::Marquesas 2.13
+      DateTime::TimeZone::Pacific::Nauru 2.13
+      DateTime::TimeZone::Pacific::Niue 2.13
+      DateTime::TimeZone::Pacific::Norfolk 2.13
+      DateTime::TimeZone::Pacific::Noumea 2.13
+      DateTime::TimeZone::Pacific::Pago_Pago 2.13
+      DateTime::TimeZone::Pacific::Palau 2.13
+      DateTime::TimeZone::Pacific::Pitcairn 2.13
+      DateTime::TimeZone::Pacific::Pohnpei 2.13
+      DateTime::TimeZone::Pacific::Port_Moresby 2.13
+      DateTime::TimeZone::Pacific::Rarotonga 2.13
+      DateTime::TimeZone::Pacific::Tahiti 2.13
+      DateTime::TimeZone::Pacific::Tarawa 2.13
+      DateTime::TimeZone::Pacific::Tongatapu 2.13
+      DateTime::TimeZone::Pacific::Wake 2.13
+      DateTime::TimeZone::Pacific::Wallis 2.13
+      DateTime::TimeZone::UTC 2.13
+      DateTime::TimeZone::WET 2.13
     requirements:
       Class::Singleton 1.03
       Cwd 3
@@ -1084,13 +1075,15 @@ DISTRIBUTIONS
       File::Spec 0
       List::Util 1.33
       Module::Runtime 0
-      Params::Validate 0.72
+      Params::ValidationCompiler 0.13
+      Specio::Library::Builtins 0
+      Specio::Library::String 0
       Try::Tiny 0
       constant 0
+      namespace::autoclean 0
       parent 0
-      perl 5.006
+      perl 5.008004
       strict 0
-      vars 0
       warnings 0
   Devel-GlobalDestruction-0.13
     pathname: H/HA/HAARG/Devel-GlobalDestruction-0.13.tar.gz
@@ -1101,6 +1094,19 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Sub::Exporter::Progressive 0.001011
       perl 5.006
+  Devel-StackTrace-2.02
+    pathname: D/DR/DROLSKY/Devel-StackTrace-2.02.tar.gz
+    provides:
+      Devel::StackTrace 2.02
+      Devel::StackTrace::Frame 2.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      Scalar::Util 0
+      overload 0
+      perl 5.006
+      strict 0
+      warnings 0
   Digest-HMAC-1.03
     pathname: G/GA/GAAS/Digest-HMAC-1.03.tar.gz
     provides:
@@ -1133,6 +1139,34 @@ DISTRIBUTIONS
       Encode::Alias 0
       ExtUtils::MakeMaker 0
       perl 5.008
+  Eval-Closure-0.14
+    pathname: D/DO/DOY/Eval-Closure-0.14.tar.gz
+    provides:
+      Eval::Closure 0.14
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Scalar::Util 0
+      constant 0
+      overload 0
+      strict 0
+      warnings 0
+  Exception-Class-1.42
+    pathname: D/DR/DROLSKY/Exception-Class-1.42.tar.gz
+    provides:
+      Exception::Class 1.42
+      Exception::Class::Base 1.42
+    requirements:
+      Class::Data::Inheritable 0.02
+      Devel::StackTrace 2.00
+      ExtUtils::MakeMaker 0
+      Scalar::Util 0
+      base 0
+      overload 0
+      perl 5.008001
+      strict 0
+      warnings 0
   Exporter-Tiny-0.042
     pathname: T/TO/TOBYINK/Exporter-Tiny-0.042.tar.gz
     provides:
@@ -1141,6 +1175,45 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.17
       perl 5.006001
+  ExtUtils-Config-0.008
+    pathname: L/LE/LEONT/ExtUtils-Config-0.008.tar.gz
+    provides:
+      ExtUtils::Config 0.008
+    requirements:
+      Data::Dumper 0
+      ExtUtils::MakeMaker 6.30
+      strict 0
+      warnings 0
+  ExtUtils-Helpers-0.026
+    pathname: L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz
+    provides:
+      ExtUtils::Helpers 0.026
+      ExtUtils::Helpers::Unix 0.026
+      ExtUtils::Helpers::VMS 0.026
+      ExtUtils::Helpers::Windows 0.026
+    requirements:
+      Carp 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Copy 0
+      File::Spec::Functions 0
+      Text::ParseWords 3.24
+      perl 5.006
+      strict 0
+      warnings 0
+  ExtUtils-InstallPaths-0.011
+    pathname: L/LE/LEONT/ExtUtils-InstallPaths-0.011.tar.gz
+    provides:
+      ExtUtils::InstallPaths 0.011
+    requirements:
+      Carp 0
+      ExtUtils::Config 0.002
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      perl 5.006
+      strict 0
+      warnings 0
   File-Listing-6.04
     pathname: G/GA/GAAS/File-Listing-6.04.tar.gz
     provides:
@@ -1154,6 +1227,31 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       HTTP::Date 6
       perl 5.006002
+  File-ShareDir-1.102
+    pathname: R/RE/REHSACK/File-ShareDir-1.102.tar.gz
+    provides:
+      File::ShareDir 1.102
+    requirements:
+      Carp 0
+      Class::Inspector 1.12
+      ExtUtils::MakeMaker 0
+      File::ShareDir::Install 0.03
+      File::Spec 0.80
+      perl 5.008001
+      warnings 0
+  File-ShareDir-Install-0.11
+    pathname: E/ET/ETHER/File-ShareDir-Install-0.11.tar.gz
+    provides:
+      File::ShareDir::Install 0.11
+    requirements:
+      Carp 0
+      Exporter 0
+      File::Spec 0
+      IO::Dir 0
+      Module::Build::Tiny 0.034
+      perl 5.008
+      strict 0
+      warnings 0
   HTML-Parser-3.71
     pathname: G/GA/GAAS/HTML-Parser-3.71.tar.gz
     provides:
@@ -1289,30 +1387,6 @@ DISTRIBUTIONS
       Encode 2.10
       Exporter 5.57
       ExtUtils::MakeMaker 6.30
-  IO-Socket-INET6-2.72
-    pathname: S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz
-    provides:
-      IO::Socket::INET6 2.72
-    requirements:
-      Carp 0
-      Errno 0
-      Exporter 0
-      IO::Socket 0
-      Module::Build 0.36
-      Socket 0
-      Socket6 0.12
-      Test::More 0
-      perl 5.008
-      strict 0
-      warnings 0
-  IO-Socket-IP-0.37
-    pathname: P/PE/PEVANS/IO-Socket-IP-0.37.tar.gz
-    provides:
-      IO::Socket::IP 0.37
-    requirements:
-      IO::Socket 0
-      Socket 1.97
-      Test::More 0.88
   IO-Socket-SSL-2.012
     pathname: S/SU/SULLR/IO-Socket-SSL-2.012.tar.gz
     provides:
@@ -1327,6 +1401,7 @@ DISTRIBUTIONS
       IO::Socket::SSL::Utils 0.031
     requirements:
       ExtUtils::MakeMaker 0
+      Mozilla::CA 0
       Net::SSLeay 1.46
       Scalar::Util 0
   JSON-2.90
@@ -1404,10 +1479,13 @@ DISTRIBUTIONS
       Math::Round 0.07
     requirements:
       ExtUtils::MakeMaker 0
-  Minion-4.06
-    pathname: S/SR/SRI/Minion-4.06.tar.gz
+  Minion-7.0
+    pathname: S/SR/SRI/Minion-7.0.tar.gz
     provides:
-      Minion 4.06
+      LinkCheck undef
+      LinkCheck::Controller::Links undef
+      LinkCheck::Task::CheckLinks undef
+      Minion 7.0
       Minion::Backend undef
       Minion::Backend::Pg undef
       Minion::Command::minion undef
@@ -1418,7 +1496,8 @@ DISTRIBUTIONS
       Mojolicious::Plugin::Minion undef
     requirements:
       ExtUtils::MakeMaker 0
-      Mojolicious 6.0
+      Mojolicious 7.29
+      perl 5.010001
   Module-Build-0.4211
     pathname: L/LE/LEONT/Module-Build-0.4211.tar.gz
     provides:
@@ -1469,6 +1548,31 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008000
       version 0.87
+  Module-Build-Tiny-0.039
+    pathname: L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
+    provides:
+      Module::Build::Tiny 0.039
+    requirements:
+      CPAN::Meta 0
+      DynaLoader 0
+      Exporter 5.57
+      ExtUtils::CBuilder 0
+      ExtUtils::Config 0.003
+      ExtUtils::Helpers 0.020
+      ExtUtils::Install 0
+      ExtUtils::InstallPaths 0.002
+      ExtUtils::ParseXS 0
+      File::Basename 0
+      File::Find 0
+      File::Path 0
+      File::Spec::Functions 0
+      Getopt::Long 2.36
+      JSON::PP 2
+      Pod::Man 0
+      TAP::Harness::Env 0
+      perl 5.006
+      strict 0
+      warnings 0
   Module-Find-0.12
     pathname: C/CR/CRENZ/Module-Find-0.12.tar.gz
     provides:
@@ -1515,10 +1619,10 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  Mojo-Pg-2.27
-    pathname: S/SR/SRI/Mojo-Pg-2.27.tar.gz
+  Mojo-Pg-3.06
+    pathname: S/SR/SRI/Mojo-Pg-3.06.tar.gz
     provides:
-      Mojo::Pg 2.27
+      Mojo::Pg 3.06
       Mojo::Pg::Database undef
       Mojo::Pg::Migrations undef
       Mojo::Pg::PubSub undef
@@ -1527,9 +1631,11 @@ DISTRIBUTIONS
     requirements:
       DBD::Pg 3.005001
       ExtUtils::MakeMaker 0
-      Mojolicious 6.0
-  Mojolicious-6.63
-    pathname: S/SR/SRI/Mojolicious-6.63.tar.gz
+      Mojolicious 7.32
+      SQL::Abstract 1.81
+      perl 5.010001
+  Mojolicious-7.33
+    pathname: S/SR/SRI/Mojolicious-7.33.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -1551,6 +1657,7 @@ DISTRIBUTIONS
       Mojo::Date undef
       Mojo::EventEmitter undef
       Mojo::Exception undef
+      Mojo::File undef
       Mojo::Headers undef
       Mojo::HelloWorld undef
       Mojo::Home undef
@@ -1559,6 +1666,8 @@ DISTRIBUTIONS
       Mojo::IOLoop::Delay undef
       Mojo::IOLoop::Server undef
       Mojo::IOLoop::Stream undef
+      Mojo::IOLoop::Subprocess undef
+      Mojo::IOLoop::TLS undef
       Mojo::JSON undef
       Mojo::JSON::Pointer undef
       Mojo::Loader undef
@@ -1576,6 +1685,8 @@ DISTRIBUTIONS
       Mojo::Server::Daemon undef
       Mojo::Server::Hypnotoad undef
       Mojo::Server::Morbo undef
+      Mojo::Server::Morbo::Backend undef
+      Mojo::Server::Morbo::Backend::Poll undef
       Mojo::Server::PSGI undef
       Mojo::Server::PSGI::_IO undef
       Mojo::Server::Prefork undef
@@ -1592,7 +1703,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 6.63
+      Mojolicious 7.33
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
@@ -1614,7 +1725,6 @@ DISTRIBUTIONS
       Mojolicious::Controller undef
       Mojolicious::Lite undef
       Mojolicious::Plugin undef
-      Mojolicious::Plugin::Charset undef
       Mojolicious::Plugin::Config undef
       Mojolicious::Plugin::Config::Sandbox undef
       Mojolicious::Plugin::DefaultHelpers undef
@@ -1644,13 +1754,15 @@ DISTRIBUTIONS
       JSON::PP 2.27103
       Pod::Simple 3.09
       Time::Local 1.2
-  Mojolicious-Plugin-Authentication-1.29
-    pathname: M/MA/MADCAT/Mojolicious-Plugin-Authentication-1.29.tar.gz
+      perl 5.010001
+  Mojolicious-Plugin-Authentication-1.32
+    pathname: J/JJ/JJATRIA/Mojolicious-Plugin-Authentication-1.32.tar.gz
     provides:
-      Mojolicious::Plugin::Authentication 1.29
+      Mojolicious::Plugin::Authentication 1.32
     requirements:
       ExtUtils::MakeMaker 0
       Mojo::Base 0
+      perl 5.010
       strict 0
       warnings 0
   Mojolicious-Plugin-DebugDumperHelper-0.03
@@ -1701,6 +1813,14 @@ DISTRIBUTIONS
       Role::Tiny 2
       Scalar::Util 0
       perl 5.006
+  Mozilla-CA-20160104
+    pathname: A/AB/ABH/Mozilla-CA-20160104.tar.gz
+    provides:
+      Mozilla::CA 20160104
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test 0
+      perl 5.006
   Net-Domain-TLD-1.74
     pathname: A/AL/ALEXP/Net-Domain-TLD-1.74.tar.gz
     provides:
@@ -1724,10 +1844,10 @@ DISTRIBUTIONS
       IO::Socket::INET 0
       URI 0
       perl 5.006002
-  Net-SSLeay-1.68
-    pathname: M/MI/MIKEM/Net-SSLeay-1.68.tar.gz
+  Net-SSLeay-1.81
+    pathname: M/MI/MIKEM/Net-SSLeay-1.81.tar.gz
     provides:
-      Net::SSLeay 1.68
+      Net::SSLeay 1.81
       Net::SSLeay::Handle 0.61
     requirements:
       ExtUtils::MakeMaker 6.36
@@ -1836,6 +1956,24 @@ DISTRIBUTIONS
       strict 0
       vars 0
       warnings 0
+  Params-ValidationCompiler-0.24
+    pathname: D/DR/DROLSKY/Params-ValidationCompiler-0.24.tar.gz
+    provides:
+      Params::ValidationCompiler 0.24
+      Params::ValidationCompiler::Compiler 0.24
+      Params::ValidationCompiler::Exceptions 0.24
+    requirements:
+      B 0
+      Carp 0
+      Eval::Closure 0
+      Exception::Class 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      List::Util 1.29
+      Scalar::Util 0
+      overload 0
+      strict 0
+      warnings 0
   Path-Class-0.35
     pathname: K/KW/KWILLIAMS/Path-Class-0.35.tar.gz
     provides:
@@ -1899,6 +2037,17 @@ DISTRIBUTIONS
       Sub::Identify 0.03
       Test::Simple 0.61
       perl v5.6.2
+  Scalar-List-Utils-1.47
+    pathname: P/PE/PEVANS/Scalar-List-Utils-1.47.tar.gz
+    provides:
+      List::Util 1.47
+      List::Util::XS 1.47
+      Scalar::Util 1.47
+      Sub::Util 1.47
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      perl 5.006
   Scope-Guard-0.20
     pathname: C/CH/CHOCOLATE/Scope-Guard-0.20.tar.gz
     provides:
@@ -1907,12 +2056,73 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test::More 0
       perl 5.006001
-  Socket6-0.27
-    pathname: U/UM/UMEMOTO/Socket6-0.27.tar.gz
+  Specio-0.37
+    pathname: D/DR/DROLSKY/Specio-0.37.tar.gz
     provides:
-      Socket6 0.27
+      Specio 0.37
+      Specio::Coercion 0.37
+      Specio::Constraint::AnyCan 0.37
+      Specio::Constraint::AnyDoes 0.37
+      Specio::Constraint::AnyIsa 0.37
+      Specio::Constraint::Enum 0.37
+      Specio::Constraint::Intersection 0.37
+      Specio::Constraint::ObjectCan 0.37
+      Specio::Constraint::ObjectDoes 0.37
+      Specio::Constraint::ObjectIsa 0.37
+      Specio::Constraint::Parameterizable 0.37
+      Specio::Constraint::Parameterized 0.37
+      Specio::Constraint::Role::CanType 0.37
+      Specio::Constraint::Role::DoesType 0.37
+      Specio::Constraint::Role::Interface 0.37
+      Specio::Constraint::Role::IsaType 0.37
+      Specio::Constraint::Simple 0.37
+      Specio::Constraint::Structurable 0.37
+      Specio::Constraint::Structured 0.37
+      Specio::Constraint::Union 0.37
+      Specio::Declare 0.37
+      Specio::DeclaredAt 0.37
+      Specio::Exception 0.37
+      Specio::Exporter 0.37
+      Specio::Helpers 0.37
+      Specio::Library::Builtins 0.37
+      Specio::Library::Numeric 0.37
+      Specio::Library::Perl 0.37
+      Specio::Library::String 0.37
+      Specio::Library::Structured 0.37
+      Specio::Library::Structured::Dict 0.37
+      Specio::Library::Structured::Map 0.37
+      Specio::Library::Structured::Tuple 0.37
+      Specio::OO 0.37
+      Specio::PartialDump 0.37
+      Specio::Registry 0.37
+      Specio::Role::Inlinable 0.37
+      Specio::Subs 0.37
+      Specio::TypeChecks 0.37
+      Test::Specio 0.37
     requirements:
+      B 0
+      Carp 0
+      Devel::StackTrace 0
+      Eval::Closure 0
+      Exporter 0
       ExtUtils::MakeMaker 0
+      IO::File 0
+      List::Util 1.33
+      MRO::Compat 0
+      Module::Runtime 0
+      Role::Tiny 1.003003
+      Role::Tiny::With 0
+      Scalar::Util 0
+      Storable 0
+      Test::Fatal 0
+      Test::More 0.96
+      overload 0
+      parent 0
+      perl 5.008
+      re 0
+      strict 0
+      version 0.83
+      warnings 0
   Sub-Exporter-Progressive-0.001011
     pathname: F/FR/FREW/Sub-Exporter-Progressive-0.001011.tar.gz
     provides:
@@ -2033,6 +2243,18 @@ DISTRIBUTIONS
       perl 5.006001
       strict 0
       warnings 0
+  Test-Fatal-0.014
+    pathname: R/RJ/RJBS/Test-Fatal-0.014.tar.gz
+    provides:
+      Test::Fatal 0.014
+    requirements:
+      Carp 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      Test::Builder 0
+      Try::Tiny 0.07
+      strict 0
+      warnings 0
   Test-MockModule-0.11
     pathname: G/GF/GFRANKS/Test-MockModule-0.11.tar.gz
     provides:
@@ -2043,28 +2265,6 @@ DISTRIBUTIONS
       SUPER 0
       Scalar::Util 0
       Test::More 0.45
-      perl 5.006
-  Test-Simple-1.001014
-    pathname: E/EX/EXODIST/Test-Simple-1.001014.tar.gz
-    provides:
-      Test::Builder 1.001014
-      Test::Builder::IO::Scalar 2.113
-      Test::Builder::Module 1.001014
-      Test::Builder::Tester 1.28
-      Test::Builder::Tester::Color 1.290001
-      Test::Builder::Tester::Tie 1.28
-      Test::More 1.001014
-      Test::Simple 1.001014
-      Test::Tester 0.114
-      Test::Tester::Capture undef
-      Test::Tester::CaptureRunner undef
-      Test::Tester::Delegate undef
-      Test::use::ok 0.16
-      ok 0.16
-    requirements:
-      ExtUtils::MakeMaker 0
-      Scalar::Util 1.13
-      Test::Harness 2.03
       perl 5.006
   Test-Warn-0.30
     pathname: C/CH/CHORNY/Test-Warn-0.30.tar.gz
@@ -2347,7 +2547,6 @@ DISTRIBUTIONS
     requirements:
       Authen::SASL 2.00
       Convert::ASN1 0.2
-      Digest::HMAC_MD5 0
       Digest::MD5 0
       ExtUtils::MakeMaker 6.42
       File::Basename 0
@@ -2357,7 +2556,6 @@ DISTRIBUTIONS
       HTTP::Response 0
       HTTP::Status 0
       IO::File 0
-      IO::Socket::INET6 0
       IO::Socket::SSL 1.26
       JSON 0
       LWP 0
