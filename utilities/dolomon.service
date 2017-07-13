@@ -1,0 +1,18 @@
+[Unit]
+Description=DOwnLOad MONitor
+Documentation=https://framagit.org/luc/dolomon
+Requires=network.target postgresql.service
+After=network.target postgresql.service
+
+[Service]
+Type=forking
+User=www-data
+RemainAfterExit=yes
+WorkingDirectory=/var/www/dolomon
+PIDFile=/var/www/dolomon/script/hypnotoad.pid
+ExecStart=/usr/local/bin/carton exec hypnotoad script/mounter
+ExecStop=/usr/local/bin/carton exec hypnotoad -s script/mounter
+ExecReload=/usr/local/bin/carton exec hypnotoad script/mounter
+
+[Install]
+WantedBy=multi-user.target
