@@ -41,7 +41,7 @@ sub update {
 
     my $q = join(', ', @{$fields});
 
-    my $r = $c->app->pg->db->query('UPDATE '.$c->table.' SET '.$q.' WHERE id = (?) RETURNING *;', @{$params});
+    my $r = $c->app->pg->db->query('UPDATE '.$c->table.' SET '.$q.' WHERE id = ? RETURNING *;', @{$params});
 
     if ($r->rows == 1) {
         $c->map_fields_to_attr($r->hash);
@@ -132,14 +132,14 @@ sub map_fields_to_attr {
 }
 
 # Transform hash reference as two array refs:
-# ['field1 = (?)', 'field2' = (?)'] and [value1, value2]
+# ['field1 = ?, 'field2' = ?'] and [value1, value2]
 sub map_fields_for_update {
     my $c = shift;
     my $f = shift;
 
     my @fields = ();
     for my $key (keys %{$f}) {
-        push @fields, $key.' = (?)';
+        push @fields, $key.' = ?';
     }
     my @params = values %{$f};
 
@@ -164,7 +164,7 @@ sub map_fields_for_insert {
 
 # Transform array reference as a string and an array ref providing 
 # corresponding object attribute value;
-# 'field1 = (?) AND field2 = (2)' and [attribute_field1, attribute_field2]
+# 'field1 = ? AND field2 = ?' and [attribute_field1, attribute_field2]
 sub map_attr_for_select {
     my $c = shift;
     my $h = shift;
@@ -172,7 +172,7 @@ sub map_attr_for_select {
     my @fields = ();
     my @values = ();
     for my $key (@{$h}) {
-        push @fields, $key.' = (?)';
+        push @fields, $key.' = ?';
         push @values, $c->{$key};
     }
 

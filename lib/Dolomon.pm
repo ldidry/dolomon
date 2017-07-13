@@ -13,7 +13,7 @@ use DateTime;
 use DateTime::Format::Pg;
 use Mojo::JSON qw(true false);
 use Mojo::File;
-use Data::Entropy qw(entropy_source);
+use Crypt::PBKDF2;
 
 # This method will run once at server start
 sub startup {
@@ -22,8 +22,14 @@ sub startup {
     my $config = $self->plugin('Config' => {
         default => {
             theme                => 'default',
+            no_register          => 0,
             counter_delay        => 0,
             do_not_count_spiders => 0,
+            mail      => {
+                how  => 'sendmail',
+                from => 'noreply@dolomon.org'
+            },
+            signature => 'Dolomon',
             keep_hits => {
                 uber_precision  => 3,
                 day_precision   => 90,
@@ -32,96 +38,10 @@ sub startup {
             }
         }
     });
-    $self->plugin('I18N');
 
-    my $addr  = 'postgresql://';
-    $addr    .= $self->config->{minion_db}->{user};
-    $addr    .= ':'.$self->config->{minion_db}->{passwd};
-    $addr    .= '@'.$self->config->{minion_db}->{host};
-    $addr    .= '/'.$self->config->{minion_db}->{database};
-    $self->plugin('Minion' => {Pg => $addr});
+    die "You need to provide a contact information in dolomon.conf !" unless (defined($config->{contact}));
 
-    $self->plugin('Dolomon::Plugin::Helpers');
-
-    $self->plugin('authentication' =>
-        {
-            autoload_user => 1,
-            session_key   => 'Dolomon',
-            stash_key     => '__authentication__',
-            load_user     => sub {
-                my ($c, $uid) = @_;
-
-                my $user = Dolomon::User->new(app => $c->app, 'id', $uid);
-
-                return $user;
-            },
-            validate_user => sub {
-                my ($c, $username, $password, $extradata) = @_;
-
-                my $ldap = Net::LDAP->new($c->config->{ldap}->{uri});
-                my $mesg = $ldap->bind($c->config->{ldap}->{bind_user}.$c->config->{ldap}->{bind_dn},
-                    password => $c->config->{ldap}->{bind_pwd}
-                );
-
-                $mesg->code && die $mesg->error;
-
-                $mesg = $ldap->search(
-                    base => $c->config->{ldap}->{user_tree},
-                    filter => "(&(uid=$username)".$c->config->{ldap}->{user_filter}.")"
-                );
-
-                return undef if ($mesg->code);
-
-                # Now we know that the user exists
-                $mesg = $ldap->bind('uid='.$username.$c->config->{ldap}->{bind_dn},
-                    password => $password
-                );
-
-                if ($mesg->code) {
-                    $c->app->log->error($mesg->error);
-                    return undef;
-                }
-
-                my $res = $ldap->search(
-                    base => $c->config->{ldap}->{user_tree},
-                    filter => "(&(uid=$username)".$c->config->{ldap}->{user_filter}.")"
-                )->as_struct->{'uid='.$username.$c->config->{ldap}->{bind_dn}};
-
-                my $infos = {
-                    first_name => $res->{givenname}->[0],
-                    last_name  => $res->{sn}->[0],
-                    mail       => $res->{mail}->[0]
-                };
-
-                my $user = Dolomon::User->new(app => $c->app)->find_by_('login', $username);
-
-                if (defined($user->id)) {
-                    $user = $user->update($infos, 'login');
-                } else {
-                    $user = $user->create(
-                        {
-                            login      => $username,
-                            first_name => $res->{givenname}->[0],
-                            last_name  => $res->{sn}->[0],
-                            mail       => $res->{mail}->[0]
-                        }
-                    );
-                    my $cat = Dolomon::Category->new(app => $c->app)->create(
-                        {
-                            name    => $c->l('Default'),
-                            user_id => $user->id
-                        }
-                    );
-                }
-
-                return $user->id;
-            }
-        }
-    );
-
-    $self->app->sessions->default_expiration(86400*31); # set expiry to 31 days
-
-    # Themes handling
+    ## Themes handling
     shift @{$self->renderer->paths};
     shift @{$self->static->paths};
     if ($config->{theme} ne 'default') {
@@ -132,30 +52,150 @@ sub startup {
     push @{$self->renderer->paths}, $self->home->rel_file('themes/default/templates');
     push @{$self->static->paths}, $self->home->rel_file('themes/default/public');
 
+    ## Plugins
     # Internationalization
     my $lib = $self->home->rel_file('themes/'.$config->{theme}.'/lib');
     eval qq(use lib "$lib");
     $self->plugin('I18N');
 
-    # Debug
+    # Mail config
+    my $mail_config = {
+        type     => 'text/plain',
+        encoding => 'base64',
+        how      => $self->config('mail')->{'how'},
+        from     => $self->config('mail')->{'from'}
+    };
+    $mail_config->{howargs} = $self->config('mail')->{'howargs'} if (defined $self->config('mail')->{'howargs'});
+    $self->plugin('Mail' => $mail_config);
+
+    $self->plugin('StaticCache');
+
+    $self->plugin('PgURLHelper');
+
     $self->plugin('DebugDumperHelper');
 
-    # Helpers
-    $self->helper(
-        shortener => sub {
-            my $c      = shift;
-            my $length = shift;
+    $self->plugin('Dolomon::Plugin::Helpers');
 
-            my @chars  = ('a'..'z','A'..'Z','0'..'9', '-', '_');
-            my $result = '';
-            foreach (1..$length) {
-                $result .= $chars[entropy_source->get_int(scalar(@chars))];
+    $self->plugin('Minion' => {Pg => $self->pg_url($self->config->{minion_db})});
+
+    $self->plugin('authentication' =>
+        {
+            autoload_user => 1,
+            session_key   => 'Dolomon',
+            stash_key     => '__authentication__',
+            load_user     => sub {
+                my ($c, $uid) = @_;
+
+                return undef unless defined $uid;
+
+                my $user = Dolomon::User->new(app => $c->app, 'id', $uid);
+
+                return $user;
+            },
+            validate_user => sub {
+                my ($c, $username, $password, $extradata) = @_;
+
+                my $method = $extradata->{method} || 'standard';
+
+                if ($method eq 'ldap') {
+                    my $ldap = Net::LDAP->new($c->config->{ldap}->{uri});
+                    my $mesg;
+                    if (defined($c->config->{ldap}->{bind_user}) && defined($c->config->{ldap}->{bind_dn}) && defined($c->config->{ldap}->{bind_pwd})) {
+                        $mesg = $ldap->bind($c->config->{ldap}->{bind_user}.$c->config->{ldap}->{bind_dn},
+                            password => $c->config->{ldap}->{bind_pwd}
+                        );
+                    } else {
+                        $mesg = $ldap->bind;
+                    }
+
+                    if ($mesg->code) {
+                        $c->app->log->error('[LDAP ERROR] '.$mesg->error);
+                        return undef;
+                    }
+
+                    my $uid = $c->config->{ldap}->{user_key} || 'uid';
+                    $mesg = $ldap->search(
+                        base => $c->config->{ldap}->{user_tree},
+                        filter => "(&($uid=$username)".$c->config->{ldap}->{user_filter}.")"
+                    );
+
+                    if ($mesg->code) {
+                        $c->app->log->error('[LDAP ERROR] '.$mesg->error);
+                        return undef;
+                    }
+
+                    my $res = $mesg->as_struct->{"$uid=$username".$c->config->{ldap}->{bind_dn}};
+
+                    # Now we know that the user exists
+                    $mesg = $ldap->bind("$uid=$username".$c->config->{ldap}->{bind_dn},
+                        password => $password
+                    );
+
+                    if ($mesg->code) {
+                        $c->app->log->error('[LDAP ERROR] '.$mesg->error);
+                        return undef;
+                    }
+
+                    my $givenname = $c->config->{ldap}->{first_name} || 'givenname';
+                    my $sn        = $c->config->{ldap}->{last_name} || 'sn';
+                    my $mail      = $c->config->{ldap}->{mail} || 'mail';
+                    my $infos    = {
+                        first_name => $res->{$givenname}->[0],
+                        last_name  => $res->{$sn}->[0],
+                        mail       => $res->{$mail}->[0]
+                    };
+
+                    my $user = Dolomon::User->new(app => $c->app)->find_by_('login', $username);
+
+                    if (defined($user->id)) {
+                        $user = $user->update($infos, 'login');
+                    } else {
+                        $user = $user->create(
+                            {
+                                login      => $username,
+                                first_name => $res->{$givenname}->[0],
+                                last_name  => $res->{$sn}->[0],
+                                mail       => $res->{$mail}->[0],
+                                confirmed  => 'true'
+                            }
+                        );
+                        my $cat = Dolomon::Category->new(app => $c->app)->create(
+                            {
+                                name    => $c->l('Default'),
+                                user_id => $user->id
+                            }
+                        );
+                    }
+
+                    return $user->id;
+                } elsif ($method eq 'standard') {
+                    my $user = Dolomon::User->new(app => $c->app)->find_by_('login', $username);
+
+                    if (defined($user->id)) {
+                        return undef unless $user->confirmed;
+
+                        my $hash = $user->password; # means that this is a LDAP user
+                        return undef unless $hash;
+
+                        my $pbkdf2 = Crypt::PBKDF2->new;
+
+                        if ($pbkdf2->validate($hash, $password)) {
+                            $user = $user->update({}, 'login');
+                            return $user->id;
+                        } else {
+                            return undef;
+                        }
+                    } else {
+                        return undef;
+                    }
+                }
             }
-            return $result;
         }
     );
 
-    #Hooks
+    $self->app->sessions->default_expiration(86400*31); # set expiry to 31 days
+
+    ## Hooks
     $self->app->hook(
         before_dispatch => sub {
             my $c = shift;
@@ -164,7 +204,7 @@ sub startup {
         }
     );
 
-    # Minion tasks
+    ## Minion tasks
     $self->app->minion->add_task(
         clean_stats => sub {
             my $job   = shift;
@@ -175,14 +215,17 @@ sub startup {
 
             # Clean stats every two hours max
             if (($time - $mtime) > 7200) {
+                # Create a job to expire dolos that need it
+                $job->app->minion->enqueue('expire_dolos');
+
                 # Months stats
                 my $dt = DateTime->from_epoch(epoch => $time);
-                $dt->subtract_duration(DateTime::Duration->new(days => $job->app->config('keep_hits')->{month_precision}));
+                $dt->subtract_duration(DateTime::Duration->new(months => $job->app->config('keep_hits')->{month_precision}));
                 $c->pg->db->query('DELETE FROM dolos_month WHERE year < ? OR (year = ? AND month < ?)', ($dt->year(), $dt->year(), $dt->month()));
 
                 # Weeks stats
                 $dt = DateTime->from_epoch(epoch => $time);
-                $dt->subtract_duration(DateTime::Duration->new(days => $job->app->config('keep_hits')->{week_precision}));
+                $dt->subtract_duration(DateTime::Duration->new(weeks => $job->app->config('keep_hits')->{week_precision}));
                 $c->pg->db->query('DELETE FROM dolos_week WHERE year < ? OR (year = ? AND week < ?)', ($dt->year(), $dt->year(), $dt->week_number()));
 
                 # Days stats
@@ -194,6 +237,14 @@ sub startup {
                 $c->pg->db->query("DELETE FROM dolos_hits WHERE ts < (CURRENT_TIMESTAMP - INTERVAL '".$job->app->config('keep_hits')->{uber_precision}." days')");
                 Mojo::File->new($file)->spurt($job->app->config('keep_hits')->{uber_precision});
             }
+        }
+    );
+    $self->app->minion->add_task(
+        expire_dolos => sub {
+            my $job   = shift;
+            my $c     = $job->app;
+
+            $c->pg->db->query("UPDATE dolos SET expired = true WHERE expired IS false AND (created_at + (INTERVAL '1 day' * expires_at)) < current_timestamp;");
         }
     );
 
@@ -223,6 +274,14 @@ sub startup {
                 $job->app->minion->enqueue(add_hit_month => [$p->id, $date]);
                 $job->app->minion->enqueue(add_hit_year  => [$p->id, $date]);
                 $job->app->minion->enqueue(add_hit       => [$p->id, $date, $ref]);
+            }
+
+            if (defined($d->expires_after) && !defined($d->expires_at)) {
+                my $expires_at = DateTime->now()->add(days => $d->expires_after);
+                my $duration   = $expires_at->subtract_datetime(DateTime::Format::Pg->parse_timestamp_with_time_zone($d->created_at))->in_units('days');
+                $d->update({
+                    expires_at => $duration
+                });
             }
         }
     );
@@ -315,20 +374,28 @@ sub startup {
             });
         }
     );
+    $self->app->minion->add_task(
+        delete_user => sub {
+            my $job     = shift;
+            my $user_id = shift;
 
-    # Database migration
+            my $c = Dolomon::User->new(app => $job->app, id => $user_id)->delete_cascade();
+        }
+    );
+
+    ## Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
-    if ($self->mode eq 'production') {
-        $migrations->from_file('utilities/migrations.sql')->migrate(1);
-    } elsif ($ENV{DOLOMON_DEV}) {
+    if ($ENV{DOLOMON_DEV}) {
         $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(1);
         $self->app->minion->reset;
+    } else {
+        $migrations->from_file('utilities/migrations.sql')->migrate(1);
     }
 
-    # Be sure last_cleaning_time.txt file exists
+    ## Be sure last_cleaning_time.txt file exists
     Mojo::File->new('last_cleaning_time.txt')->spurt(time) unless -e 'last_cleaning_time.txt';
 
-    # Router
+    ## Router
     my $r = $self->routes;
 
     $r->add_condition(authenticated_or_application => sub {
@@ -375,6 +442,60 @@ sub startup {
 
     $r->post('/')->
         to('Misc#login');
+
+    $r->get('/about')->
+        name('about')->
+        to('Misc#about');
+
+    unless ($self->config('no_register')) {
+        $r->post('/register')->
+            to('Users#register');
+
+        $r->get('/confirm/:token')->
+            name('confirm')->
+            to('Users#confirm');
+
+        $r->get('/forgot_password' => sub {
+            return shift->render(
+                template => 'users/send_mail',
+                action   => 'password',
+            );
+        })->name('forgot_password');
+
+        $r->post('/forgot_password')->
+            to('Users#forgot_password');
+
+        $r->get('/renew_password/:token' => sub {
+            my $c = shift;
+            return $c->render(
+                template => 'users/send_mail',
+                action   => 'renew',
+                token    => $c->param('token')
+            );
+        })->name('renew_password');
+
+        $r->post('/renew_password')->
+            to('Users#renew_password');
+
+        $r->get('/send_again' => sub {
+            return shift->render(
+                template => 'users/send_mail',
+                action   => 'token'
+            );
+        })->name('send_again');
+
+        $r->post('/send_again')->
+            to('Users#send_again');
+    }
+
+    $r->get('/partial/js/:file' => sub {
+        my $c = shift;
+        $c->render(
+            template => 'js/'.$c->param('file'),
+            format   => 'js',
+            layout   => undef,
+        );
+    })->name('partial');
 
     $r->get('/dashboard')->
         over(authenticated_or_application => 1)->
@@ -536,7 +657,23 @@ sub startup {
         name('del_app')->
         to('Applications#delete');
 
-    $r->get('/hit/:short')->
+    $r->get('/user')->
+        over(authenticated_or_application => 1)->
+        name('user')->
+        to('Users#index');
+
+    unless ($self->config('no_register')) {
+        $r->post('/user')->
+            over(authenticated_or_application => 1)->
+            to('Users#modify');
+
+        $r->get('/delete/:token')->
+            over(authenticated_or_application => 1)->
+            name('confirm_delete')->
+            to('Users#confirm_delete');
+    }
+
+    $r->get('/h/:short')->
         name('hit')->
         to('Dolos#hit');
 }

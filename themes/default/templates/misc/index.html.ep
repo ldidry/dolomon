@@ -1,14 +1,53 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
 % layout 'default';
 % title $self->l('Authentication');
-<form class="form-signin" action='/' method='POST'>
-    <h2 class="form-signin-heading text-center"><%= l('Authentication') %></h2>
-    <label for="inputLogin" class="sr-only"><%= l('Login') %></label>
-    <input type="text" id="inputLogin" name="login" class="form-control" required autofocus placeholder="<%= l('Login') %>">
-    <label for="inputPassword" class="sr-only"><%= l('Password') %></label>
-    <input type="password" id="inputPassword" name="password" class="form-control" required placeholder="<%= l('Password') %>">
-% if (defined $goto) {
-    <input type="hidden" name="goto" value="<%= $goto %>">
-% }
-    <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Go') %></button>
-</form>
+% $method = (config('no_register')) ? 'ldap' : $method;
+<div class="row">
+    <div id="authent" class="form-signin">
+        <h1 class="h3 form-signin-heading text-center"><%= l('Authentication') %></h1>
+        <ul class="nav nav-tabs">
+        % if (defined config('ldap')) {
+            <li role="presentation"<%== ($method eq 'ldap')     ? ' class="active"' : '' %>><a href="#" id="m_ldap"><%= l('LDAP') %></a></li>
+        % }
+        % unless (config('no_register')) {
+            <li role="presentation"<%== ($method eq 'standard') ? ' class="active"' : '' %>><a href="#" id="m_standard"><%= l('Standard') %></a></li>
+            <li role="presentation"<%== ($method eq 'register') ? ' class="active"' : '' %>><a href="#" id="m_register"><%= l('Register') %></a></li>
+        % }
+        </ul>
+        <form action="/" method="POST" id="signin"<%== ($method eq 'register') ? 'class="hidden"' : '' %>>
+            <label for="inputLogin" class="sr-only"><%= l('Login') %></label>
+            <input type="text" id="inputLogin" name="login" class="form-control first-input" required autofocus placeholder="<%= l('Login') %>">
+            <label for="inputPassword" class="sr-only"><%= l('Password') %></label>
+            <input type="password" id="inputPassword" name="password" class="form-control last-input" required placeholder="<%= l('Password') %>">
+        % if (defined $goto) {
+            <input type="hidden" name="goto" value="<%= $goto %>">
+        % }
+            <input type="hidden" name="method" value="<%= $method %>">
+            %= csrf_field
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Go') %></button>
+        </form>
+    % unless (config('no_register')) {
+        <form action="/register" method="POST" id="signup"<%== ($method ne 'register') ? ' class="hidden"' : '' %>>
+            <label for="inputLogin2" class="sr-only"><%= l('Login') %></label>
+            <input type="text" id="inputLogin2" name="login" class="form-control first-input" required placeholder="<%= l('Login') %>"<%== (defined(stash('login'))) ? ' value="'.stash('login').'"' : '' %>>
+            <label for="inputFirstName" class="sr-only"><%= l('First name') %></label>
+            <input type="text" id="inputFirstName" name="first_name" class="form-control first-input" required placeholder="<%= l('First name') %>"<%== (defined(stash('first_name'))) ? ' value="'.stash('first_name').'"' : '' %>>
+            <label for="inputLastName" class="sr-only"><%= l('Last name') %></label>
+            <input type="text" id="inputLastName" name="last_name" class="form-control first-input" required placeholder="<%= l('Last name') %>"<%== (defined(stash('last_name'))) ? ' value="'.stash('last_name').'"' : '' %>>
+            <label for="inputMail2" class="sr-only"><%= l('Email address') %></label>
+            <input type="email" id="inputMail2" name="mail" class="form-control" required placeholder="<%= l('Email address') %>"<%== (defined(stash('mail'))) ? ' value="'.stash('mail').'"' : '' %>>
+            <label for="inputPassword2" class="sr-only"><%= l('Password') %></label>
+            <input type="password" id="inputPassword2" name="password" class="form-control" required placeholder="<%= l('Password') %>">
+            <label for="inputPassword3" class="sr-only"><%= l('Password verification') %></label>
+            <input type="password" id="inputPassword3" name="password2" class="form-control last-input" required placeholder="<%= l('Password verification') %>">
+            %= csrf_field
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Create account') %></button>
+        </form>
+    % }
+    </div>
+    <div class="text-center">
+        <p><small><a href="<%= url_for('forgot_password') %>"><%= l('I forgot my password') %></a></small></p>
+        <p><small><a href="<%= url_for('send_again') %>"><%= l('Send me the confirmation mail again') %></a></small></p>
+    </div>
+    <img src="<%= url_for('img/dolomon.png') %>" class="img-responsive pull-right" alt="<%= l('Zag, the Dolomon mascot') %>">
+</div>

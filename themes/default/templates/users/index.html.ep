@@ -1,0 +1,42 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('My account').' · Dolomon';
+
+<div class="row">
+    <div class="form-signin">
+        <h1 class="h3 form-signin-heading text-center"><%= l('My account') %></h1>
+        <hr>
+        <h2 class="h4 form-signin-heading text-center"><%= l('Change details') %></h2>
+        <form action="<%= url_for('user')%>" method="POST">
+            <label for="inputFirstName" class="sr-only"><%= l('First name') %></label>
+            <input type="text" id="inputFirstName" name="first_name" class="form-control first-input" required placeholder="<%= l('First name') %>" value="<%= $self->current_user->first_name %>">
+            <label for="inputLastName" class="sr-only"><%= l('Last name') %></label>
+            <input type="text" id="inputLastName" name="last_name" class="form-control first-input" required placeholder="<%= l('Last name') %>" value="<%= $self->current_user->last_name %>">
+            <label for="inputMail" class="sr-only"><%= l('Email address') %></label>
+            <input type="mail" id="inputMail" name="mail" class="form-control first-input" required placeholder="<%= l('Email address') %>" value="<%= $self->current_user->mail %>">
+            %= csrf_field
+            <input type="hidden" name="action" value="account_details">
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Confirm') %></button>
+        </form>
+        <h2 class="h4 form-signin-heading text-center"><%= l('Change my password') %></h2>
+        <form action="<%= url_for('user')%>" method="POST">
+            <label for="inputPassword" class="sr-only"><%= l('Your current password') %></label>
+            <input type="password" id="inputPassword" name="password" class="form-control first-input" required placeholder="<%= l('Your current password') %>">
+            <label for="inputPassword2" class="sr-only"><%= l('Your new password') %></label>
+            <input type="password" id="inputPassword2" name="password2" class="form-control" required placeholder="<%= l('Your new password') %>">
+            <label for="inputPassword3" class="sr-only"><%= l('Your new password (again)') %></label>
+            <input type="password" id="inputPassword3" name="password3" class="form-control last-input" required placeholder="<%= l('Your new password (again)') %>">
+            %= csrf_field
+            <input type="hidden" name="action" value="change_password">
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Confirm') %></button>
+        </form>
+        <h2 class="h4 form-signin-heading text-center"><%= l('Delete my account') %></h2>
+        <form action="<%= url_for('user')%>" method="POST">
+            <label for="inputPassword4" class="sr-only"><%= l('Your current password') %></label>
+            <input type="password" id="inputPassword4" name="password" class="form-control first-input last-input" required placeholder="<%= l('Your current password') %>">
+            %= csrf_field
+            <input type="hidden" name="action" value="delete_account">
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Delete my account') %></button>
+        </form>
+    </div>
+</div>

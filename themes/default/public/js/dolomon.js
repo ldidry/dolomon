@@ -4,7 +4,7 @@
  * Display messages
  */
 function addAlert(c, msg) {
-    $('body > .container').prepend([
+    $('#main-container').prepend([
         '<div class="alert ', c, ' alert-dismissible fade in">',
             '<button type="button" class="close" data-dismiss="alert" aria-label="', i18n.close, '"><span aria-hidden="true">&times;</span></button>',
             msg,
@@ -106,6 +106,11 @@ function aModify(event) {
                     '    <label for="url">', i18n.url,'</label>',
                     '    <input type="url" class="form-control" name="url" placeholder="https://example.org/logo.png" id="doloUrl" required="required" value="', button.data('url'), '">',
                     '</div>',
+                    '<div class="checkbox">',
+                    '    <label for="doloemptypix">',
+                    '        <input type="checkbox" id="doloemptypix">', i18n.emptyPix,
+                    '    </label>',
+                    '</div>',
                     '<div class="form-group">',
                     '    <label for="name">', i18n.name,'</label>',
                     '    <input type="text" class="form-control" name="name" placeholder="', i18n.extraordinaryDolo,'" id="doloName" value="', button.data('name'), '">',
@@ -124,8 +129,31 @@ function aModify(event) {
                     '    <select multiple class="form-control" name="tag" id="tagList">',
                     '    </select>',
                     '</div>',
+                    '<div class="form-group">',
+                    '    <label for="expires_at">', i18n.expiresAt,'</label>',
+                    '    <input type="number" step="1" min="1" class="form-control" name="expires_at" id="doloExpiresAt" value="', button.data('expires_at'), '">',
+                    '</div>',
+                    '<div class="form-group">',
+                    '    <label for="expires_after">', i18n.expiresAfter,'</label>',
+                    '    <input type="number" step="1" min="1" class="form-control" name="expires_after" id="doloExpiresAfter" value="', button.data('expires_after'), '">',
+                    '</div>',
                 ].join('')
             );
+            $('#doloemptypix').change(function() {
+                var u = $('#doloUrl');
+                if (this.checked) {
+                    u.data('old-url', u.val());
+                    u.val(url.pix_url);
+                } else {
+                    var v = u.data('old-url');
+                    if (v !== undefined && v !== null) {
+                        u.val(v);
+                        u.data('old-url', null);
+                    } else {
+                        u.val(null);
+                    }
+                }
+            });
             $.ajax({
                 method: 'GET',
                 url: url.get_cats,
@@ -194,6 +222,8 @@ function aModify(event) {
                         url: $('#doloUrl').val(),
                         name: $('#doloName').val(),
                         extra: $('#doloExtra').val(),
+                        expires_at: $('#doloExpiresAt').val(),
+                        expires_after: $('#doloExpiresAfter').val(),
                         cat_id: $('#catList').val(),
                         tags: $('#tagList').val()
                     },
@@ -207,9 +237,15 @@ function aModify(event) {
                         addAlert(c, data.msg);
                         title.text(data.object.name);
                         $(button.parent().parent().parent().find('.url')['0']).text(data.object.url);
+                        $(button.parent().parent().parent().find('.extra')['0']).text(data.object.extra);
+                        $(button.parent().parent().parent().find('.expired')['0']).text((data.object.expired === 1) ? i18n.yes : i18n.no);
+                        $(button.parent().parent().parent().find('.will-expire')['0']).text((data.object.expires_at !== null || data.object.expires_after !== null) ? i18n.yes : i18n.no);
                         button.data('url', data.object.url);
                         button.data('name', data.object.name);
                         button.data('extra', data.object.extra);
+                        button.data('expired', (data.object.expired === 1) ? i18n.yes : i18n.no);
+                        button.data('expires_at', data.object.expires_at);
+                        button.data('expires_after', data.object.expires_after);
                         button.data('cat', data.object.category_id);
                         var tags = new Array();
                         data.object.tags.forEach(function(element, index, array) {
@@ -264,7 +300,8 @@ function aModify(event) {
  * Filter things (dolos or apps)
  */
 $('.filter').val('');
-$('.filter').on('keyup', filter);
+$('input.filter').on('keyup', filter);
+$('select.filter').on('change', filter);
 function filter(event) {
     var thi = this;
     var input = $(thi);
@@ -274,6 +311,9 @@ function filter(event) {
         }
     });
     var val = input.val();
+    if (input.is('select')) {
+        val = input.find('option:selected').val();
+    }
     var sel = input.data('filter');
     input.parent().parent().parent().parent().find(sel).each(function (index, element) {
         var e = $(element);
@@ -318,6 +358,11 @@ $('#addModal').on('show.bs.modal', function(event) {
                     '    <label for="url">', i18n.url,'</label>',
                     '    <input type="url" class="form-control" name="url" placeholder="https://example.org/logo.png" id="doloUrl" required="required">',
                     '</div>',
+                    '<div class="checkbox">',
+                    '    <label for="doloemptypix">',
+                    '        <input type="checkbox" id="doloemptypix">', i18n.emptyPix,
+                    '    </label>',
+                    '</div>',
                     '<div class="form-group">',
                     '    <label for="short"">', i18n.doloUrl, '</label>',
                     '    <input type="text" class="form-control" name="short" placeholder="', i18n.exampleLogo,'" id="doloShort">',
@@ -344,8 +389,31 @@ $('#addModal').on('show.bs.modal', function(event) {
                     '    <select multiple class="form-control" name="tag" id="tagList">',
                     '    </select>',
                     '</div>',
+                    '<div class="form-group">',
+                    '    <label for="expires_at">', i18n.expiresAt,'</label>',
+                    '    <input type="number" step="1" min="1" class="form-control" name="expires_at" id="doloExpiresAt" value="', button.data('expires_at'), '">',
+                    '</div>',
+                    '<div class="form-group">',
+                    '    <label for="expires_after">', i18n.expiresAfter,'</label>',
+                    '    <input type="number" step="1" min="1" class="form-control" name="expires_after" id="doloExpiresAfter" value="', button.data('expires_after'), '">',
+                    '</div>',
                 ].join('')
             );
+            $('#doloemptypix').change(function() {
+                var u = $('#doloUrl');
+                if (this.checked) {
+                    u.data('old-url', u.val());
+                    u.val(url.pix_url);
+                } else {
+                    var v = u.data('old-url');
+                    if (v !== undefined && v !== null) {
+                        u.val(v);
+                        u.data('old-url', null);
+                    } else {
+                        u.val(null);
+                    }
+                }
+            });
             $.ajax({
                 method: 'GET',
                 url: url.get_cats,
@@ -411,6 +479,8 @@ $('#addModal').on('show.bs.modal', function(event) {
                         short: $('#doloShort').val(),
                         name: $('#doloName').val(),
                         extra: $('#doloExtra').val(),
+                        expires_at: $('#doloExpiresAt').val(),
+                        expires_after: $('#doloExpiresAfter').val(),
                         initial_count: $('#initialCount').val(),
                         cat_id: $('#catList').val(),
                         tags: $('#tagList').val()
@@ -431,14 +501,16 @@ $('#addModal').on('show.bs.modal', function(event) {
                                         [
                                             '<tr id="dolo_id_', data.object.id, '">',
                                             '    <td class="url">', data.object.url, '</td>',
-                                            '    <td class="durl">', url.base_url, data.object.short, '</td>',
+                                            '    <td class="durl">', url.base_url, data.object.short.replace('/', ''), '</td>',
                                             '    <td class="name">', data.object.name, '</td>',
                                             '    <td class="extra">', data.object.extra, '</td>',
                                             '    <td class="hits">', data.object.count, '</td>',
+                                            '    <td class="expired">', (data.object.expired === 1) ? i18n.yes : i18n.no, '</td>',
+                                            '    <td class="will-expire">', (data.object.expires_at !== null || data.object.expires_after !== null) ? i18n.yes : i18n.no, '</td>',
                                             '    <td>',
                                             '        <div class="pull-right">',
                                             '            <a href="', url.show_dolo, data.object.id, '"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="', i18n.showDolo, '"></span></a>',
-                                            '            <a class="action-modify" href="#" data-id="', data.object.id, '" data-action="', window.mod_url, '" data-mod="dolo" data-name="', data.object.name, '" data-extra="', data.object.extra, '" data-url="', data.object.url, '" data-short="', data.object.short, '" data-cat="', data.object.category_id, '" data-tags="', tags.join(','), '"><span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="', i18n.modDolo, '"></span></a>',
+                                            '            <a class="action-modify" href="#" data-id="', data.object.id, '" data-action="', window.mod_url, '" data-mod="dolo" data-name="', data.object.name, '" data-extra="', data.object.extra, '" data-url="', data.object.url, '" data-short="', data.object.short, '" data-cat="', data.object.category_id, '" data-tags="', tags.join(','), '" data-expired="', data.object.expired ,'" data-will-expire="', ((data.object.expires_at !== undefined || data.object.expires_after !== null) ? i18n.yes : i18n.no),'" data-expires_at="',,'" data-expires_after="',,'"><span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="', i18n.modDolo, '"></span></a>',
                                             '            <a class="action-remove" href="#" data-id="', data.object.id, '" data-action="', window.del_url, '" data-rm="dolo" data-name="', data.object.name, '" data-extra="', data.object.extra, '" data-url="', data.object.url, '"><span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="', i18n.rmDolo, '"></span></a>',
                                             '        </div>',
                                             '    </td>',
@@ -450,7 +522,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                         [
                                             '<tr id="dolo_id_', data.object.id, '">',
                                             '    <td class="url">', data.object.url, '</td>',
-                                            '    <td class="durl">', url.base_url, data.object.short, '</td>',
+                                            '    <td class="durl">', url.base_url, data.object.short.replace('/', ''), '</td>',
                                             '    <td class="name">', data.object.name, '</td>',
                                             '    <td class="extra">', data.object.extra, '</td>',
                                             '    <td class="hits">',
@@ -469,7 +541,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                             [
                                                 '<tr id="dolo_id_', data.object.id, '">',
                                                 '    <td class="url">', data.object.url, '</td>',
-                                                '    <td class="durl">', url.base_url, data.object.short, '</td>',
+                                                '    <td class="durl">', url.base_url, data.object.short.replace('/', ''), '</td>',
                                                 '    <td class="name">', data.object.name, '</td>',
                                                 '    <td class="extra">', data.object.extra, '</td>',
                                                 '    <td class="hits">',
@@ -682,3 +754,33 @@ $('#addModal').on('show.bs.modal', function(event) {
             });
     }
 })
+
+function getLang(){
+    return (navigator.language || navigator.languages[0]);
+}
+
+$(document).ready(function() {
+    moment.locale(getLang());
+
+    $('li[role=presentation] a').click(function() {
+        $('li[role=presentation].active').removeClass('active');
+        $(this).parent().addClass('active');
+    });
+    $('#m_ldap').click(function() {
+        $('input[name="method"]').val('ldap');
+        $('#signup').addClass('hidden');
+        $('#signin').removeClass('hidden');
+    });
+    $('#m_standard').click(function() {
+        $('input[name="method"]').val('standard');
+        $('#signup').addClass('hidden');
+        $('#signin').removeClass('hidden');
+    });
+    $('#m_register').click(function() {
+        $('#signin').addClass('hidden');
+        $('#signup').removeClass('hidden');
+    });
+    $('.date-to-format').each(function() {
+        $(this).text(moment($(this).text()).format('llll'));
+    })
+});

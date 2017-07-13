@@ -261,7 +261,6 @@ sub get_zip {
 sub get {
     my $c      = shift;
     my $id     = $c->param('id');
-    $c->debug($id);
 
     if (defined $id) {
         my $dolo = Dolomon::Dolo->new(app => $c->app, id => $id);
@@ -355,14 +354,17 @@ sub add {
         short         => $short,
         count         => $initial_count,
         initial_count => $initial_count,
+        expires_at    => (defined $c->param('expires_at')    && $c->param('expires_at') ne '')    ? $c->param('expires_at')    : undef,
+        expires_after => (defined $c->param('expires_after') && $c->param('expires_after') ne '') ? $c->param('expires_after') : undef,
         category_id   => $cat->id,
     });
+
     my @tmp;
     for my $tag (@tags) {
         $tag->bind_to($dolo->id);
         push @tmp, { id => $tag->id, name => $tag->name };
     }
-    $dolo->tags(\@tmp);
+    $dolo = $dolo->tags(\@tmp);
 
     $c->current_user->increment($initial_count);
 
@@ -448,6 +450,8 @@ sub modify {
         url           => $url,
         name          => $name,
         extra         => $c->param('extra'),
+        expires_at    => (defined $c->param('expires_at')    && $c->param('expires_at') ne '')    ? $c->param('expires_at')    : undef,
+        expires_after => (defined $c->param('expires_after') && $c->param('expires_after') ne '') ? $c->param('expires_after') : undef,
         category_id   => $cat->id,
     });
 
@@ -495,25 +499,49 @@ sub hit {
     my $c     = shift;
     my $short = $c->param('short');
 
-    my $ref   = $c->req->headers->referrer;
-    my $robot = HTTP::BrowserDetect->new($c->req->headers->user_agent)->robot();
-    unless ($c->config('do_not_count_spiders') && defined $robot && $robot ne 'curl' && $robot ne 'wget') {
-        if ($c->config('counter_delay') > 0) {
-            unless (defined $c->cookie($short)) {
-                # Set cookie that expires in 3 minutes
-                $c->cookie($short => 1, {expires => time + 180});
-
-                # Update counters
-                $c->app->minion->enqueue(hit => [$short, time, $ref]);
-            }
-        } else {
-            $c->app->minion->enqueue(hit => [$short, time, $ref]);
-        }
-    }
     my $dolo = Dolomon::Dolo->new(app => $c->app)->find_by_('short', $short);
 
-    $c->res->code(302);
-    $c->redirect_to($dolo->url);
+    if ($dolo->id) {
+        unless ($dolo->has_expired) {
+            my $ref   = $c->req->headers->referrer;
+            my $robot = HTTP::BrowserDetect->new($c->req->headers->user_agent)->robot();
+            unless ($c->config('do_not_count_spiders') && defined $robot && $robot ne 'curl' && $robot ne 'wget') {
+                if ($c->config('counter_delay') > 0) {
+                    unless (defined $c->cookie($short)) {
+                        # Set cookie that expires in $c->config('counter_delay') seconds
+                        $c->cookie($short => 1, {expires => time + $c->config('counter_delay')}) unless $c->req->headers->dnt;
+
+                        # Update counters
+                        $c->app->minion->enqueue(hit => [$short, time, $ref]);
+                    }
+                } else {
+                    $c->app->minion->enqueue(hit => [$short, time, $ref]);
+                }
+            }
+
+            $c->res->code(302);
+            return $c->redirect_to($dolo->url);
+        } else {
+            $c->stash(
+                msg => {
+                    title => $c->l('Error'),
+                    class => 'alert-danger',
+                    text  => $c->l('Sorry, this URL has expired')
+                }
+            );
+        }
+    } else {
+        $c->stash(
+            msg => {
+                title => $c->l('Error'),
+                class => 'alert-danger',
+                text  => $c->l('Sorry, this URL does not exist.')
+            }
+        );
+    }
+    return $c->render(
+        template => 'error'
+    );
 }
 
 1;

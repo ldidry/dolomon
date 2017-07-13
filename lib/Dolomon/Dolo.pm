@@ -1,6 +1,8 @@
 package Dolomon::Dolo;
 use Mojo::Base 'Dolomon::DoloCommon';
 use Mojo::Collection;
+use DateTime;
+use DateTime::Format::Pg;
 
 has 'table' => 'dolos';
 has 'url';
@@ -14,6 +16,9 @@ has 'category_name';
 has 'user_id',
 has 'parent_id';
 has 'created_at';
+has 'expired';
+has 'expires_at';
+has 'expires_after';
 has 'children' => sub {
     return Mojo::Collection->new();
 };
@@ -27,17 +32,17 @@ sub find_by_ {
     my $i = shift;
     my $j = shift;
 
-    my $r = $c->app->pg->db->query('SELECT d.id, d.url, d.short, d.name, d.extra, d.count, d.initial_count, d.category_id, d.parent_id, d.created_at, c.name AS category_name, c.user_id FROM '.$c->table.' d JOIN categories c ON d.category_id = c.id WHERE d.'.$i.' = ?', $j);
+    my $r = $c->app->pg->db->query('SELECT d.id, d.url, d.short, d.name, d.extra, d.count, d.initial_count, d.category_id, d.parent_id, d.created_at, d.expired, d.expires_at, d.expires_after, c.name AS category_name, c.user_id FROM '.$c->table.' d JOIN categories c ON d.category_id = c.id WHERE d.'.$i.' = ?', $j);
     my $h = $r->hash;
 
     $c->map_fields_to_attr($h) if $r->rows == 1;
 
     my @achild = ();
-    my $children = $c->app->pg->db->query('SELECT id, url, short, name, extra, count, initial_count, category_id, parent_id, created_at FROM dolos WHERE parent_id = ? ORDER BY id', $h->{id})->hashes;
+    my $children = $c->app->pg->db->query('SELECT d.id, d.url, d.short, d.name, d.extra, d.count, d.initial_count, d.category_id, d.parent_id, d.created_at, d.expired, d.expires_at, d.expires_after, c.name AS category_name, c.user_id FROM '.$c->table.' d JOIN categories c ON d.category_id = c.id WHERE d.parent_id = ?', $h->{id})->hashes;
     $children->each(sub {
         my ($e, $num) = @_;
         my $child = Dolomon::Dolo->new(app => $c->app)
-            ->category_id($e->id)
+            ->category_id($e->{category_id})
             ->category_name($h->{category_name})
             ->id($e->{id})
             ->url($e->{url})
@@ -46,7 +51,10 @@ sub find_by_ {
             ->extra($e->{extra})
             ->parent_id($e->{parent_id})
             ->count($e->{count})
-            ->created_at($e->{created_at});
+            ->created_at($e->{created_at})
+            ->expired($e->{expired})
+            ->expires_at($e->{expires_at})
+            ->expires_after($e->{expires_after});
 
         my $tags = $c->app->pg->db->query('SELECT t.id, t.name FROM dolo_has_tags d JOIN tags t ON t.id = d.tag_id WHERE d.dolo_id = ? ORDER BY t.name', $e->{id})->hashes;
         my @atags;
@@ -68,6 +76,23 @@ sub find_by_ {
     $c->tags(\@atags);
 
     return $c;
+}
+
+sub has_expired {
+    my $c = shift;
+
+    return 1 if $c->expired;
+
+    if (defined($c->expires_at)) {
+        my $now        = DateTime->now();
+        my $expires_at = DateTime::Format::Pg->parse_timestamp_with_time_zone($c->created_at)->add(days => $c->expires_at);
+        if (DateTime->compare($now, $expires_at) > 0) {
+            $c->update({ expired => 1 });
+            return 1;
+        }
+    }
+
+    return 0;
 }
 
 sub delete {

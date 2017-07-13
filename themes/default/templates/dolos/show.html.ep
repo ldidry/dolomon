@@ -4,6 +4,7 @@
 
 %= include 'partial/modModal'
 %= include 'partial/rmModal'
+% my @tags;
 % if (defined $dolo->user_id) {
 <div>
     <dl>
@@ -11,24 +12,48 @@
         <dd><a href="<%= $dolo->url %>"><%= $dolo->url %></a></dd>
         <dt><%= l('Dolomon URL') %></dt>
         <dd><a href="<%= url_for('hit', short => $dolo->short)->to_abs %>"><%= url_for('hit', short => $dolo->short)->to_abs %></a></dt>
+    % if ($dolo->name) {
         <dt><%= l('Name') %></dt>
         <dd><%= $dolo->name %></dt>
+    % }
+        <dt><%= l('Created at') %></dt>
+        <dd class="date-to-format"><%= $dolo->created_at %></dt>
+        <dt><%= l('Expired?') %></dt>
+        <dd><%= ($dolo->expired) ? l('Yes') : l('No') %></dt>
+    % if ($dolo->extra) {
         <dt><%= l('Free field') %></dt>
         <dd><%= $dolo->extra %></dt>
+    % }
         <dt><%= l('Total hits') %></dt>
         <dd><%= $dolo->count %></dt>
         <dt><%= l('Category') %></dt>
         <dd><a href="<%= url_for('show_cat', id => $dolo->category_id) %>"><%= $dolo->category_name %></a></dd>
+    % if (scalar @{$dolo->tags}) {
         <dt><%= l('Tags') %></dt>
         <dd>
             <ul id="doloTagList">
-            % my @tags;
             % for my $tag (@{$dolo->tags}) {
                 <li><a href="<%= url_for('show_tag', id => $tag->{id}) %>"><%= $tag->{name} %></a></li>
             %     push @tags, $tag->{id};
             % }
             </ul>
         </dd>
+    % }
+    % if ($dolo->children->size) {
+        <dt><%= l('Children') %></dt>
+        <dd>
+            <ul>
+            % $dolo->children->each(sub {
+            %   my ($e, $num) = @_;
+                <li><a href="<%== url_for('show_dolo', {id => $e->id}) %>"><%= $e->url %></a></li>
+            % });
+            </ul>
+        <dd>
+    % }
+    % if ($dolo->parent_id) {
+        <dt><%= l('Parent') %></dt>
+        <dd><a href="<%== url_for('show_dolo', {id => $dolo->parent_id}) %>"><%= l('See parent') %></a></dd>
+    % }
     </dl>
     <a class="action-modify btn btn-info" href="#" data-id="<%= $dolo->id %>" data-action="<%= url_for('mod_dolo') %>" data-mod="dolo" data-name="<%= $dolo->name %>" data-url="<%= $dolo->url %>" data-short="<%= $dolo->short %>" data-cat="<%= $dolo->category_id %>" data-tags="<%= join(',', @tags) %>">
         <%= l('Modify dolo') %>

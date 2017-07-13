@@ -6,29 +6,80 @@
     hypnotoad => {
         # array of IP addresses and ports you want to listen to
         listen => ['http://127.0.0.1:3000'],
+        # if you use Dolomon behind a reverse proxy like Nginx, you want to set proxy to 1
+        # if you use Dolomon directly, let it commented
         proxy => 1,
     },
+
+    # put a way to contact you here and uncomment it
+    # MANDATORY, no default
+    #contact       => 'Please, send a mail to admin[at]example.com',
+
+    # array of random strings used to encrypt cookies
+    # MANDATORY, no default, PLEASE, CHANGE IT
     secrets        => ['s3cr3ts'],
+
+    # Database connection details
+    # See https://metacpan.org/pod/Mojolicious::Plugin::PgURLHelper#pg_url
+    # for available options
+    # MANDATORY, no default
     db => {
         database => 'dolomon',
         host     => 'localhost',
         user     => 'dolomon',
-        passwd   => 'dolomon'
+        pwd      => 'dolomon'
     },
+
+    # Database connection details for job queue
+    # See https://metacpan.org/pod/Mojolicious::Plugin::PgURLHelper#pg_url
+    # for available options
+    # MANDATORY, no default
     minion_db => {
         database => 'minion_dolomon',
         host     => 'localhost',
         user     => 'dolomon',
-        passwd   => 'dolomon'
+        pwd      => 'dolomon'
     },
-    ldap => {
-        uri         => 'ldaps://mail.exemple.org',
-        user_tree   => 'ou=users,dc=exemple,dc=org',
-        bind_dn     => ',ou=users,dc=exemple,dc=org',
-        bind_user   => 'uid=ldap',
-        bind_pwd    => 'password',
-        user_filter => '(!(uid=ldap))'
-    },
+
+    # LDAP connection, for LDAP authentication
+    # optional, no default
+    #ldap => {
+    #    # Your LDAP server with scheme
+    #    # MANDATORY
+    #    uri         => 'ldaps://mail.exemple.org',
+    #    # Where to find the users
+    #    # MANDATORY
+    #    user_tree   => 'ou=users,dc=exemple,dc=org',
+    #    # Domain name for connection
+    #    # MANDATORY
+    #    bind_dn     => ',ou=users,dc=exemple,dc=org',
+    #    # The connection user if you don't want to do an anonymous bind
+    #    # optional, no default
+    #    bind_user   => 'uid=ldap',
+    #    # The password for the connection user
+    #    # optional, no default
+    #    bind_pwd    => 'password',
+    #    # A filter to allow users to use Dolomon
+    #    # optional, no default
+    #    user_filter => '(!(uid=ldap))',
+    #    # Attribute to use to search the user (uid, cn, etc)
+    #    # optional, default is uid
+    #    user_key    => 'uid',
+    #    # Attribute containing the first name of the user
+    #    # optional, default is givenname
+    #    first_name  => 'givenname',
+    #    # Attribute containing the last name of the user
+    #    # optional, default is sn
+    #    last_name   => 'sn',
+    #    # Attribute containing the email address of the user
+    #    # optional, default is mail
+    #    mail        => 'mail'
+    #},
+
+    # Disable internal account system => no registration, only LDAP authentication
+    # Set to 1 to disable internal account system
+    # optional, default to 0
+    #no_register => 0,
 
     # If counter_delay is set to more than 0, we set a cookie on visitors
     # to not increment counter on the same dolo before `counter_delay` seconds.
@@ -41,10 +92,27 @@
     # optional, default is 0
     do_not_count_spiders => 1,
 
-    keep_hits => {
-        uber_precision  => 3,
-        day_precision   => 90,
-        week_precision  => 12,
-        month_precision => 36,
-    }
+    # Mail configuration
+    # See https://metacpan.org/pod/Mojolicious::Plugin::Mail#EXAMPLES
+    # Optional, default to sendmail method with no arguments and sender set to noreply@dolomon.org
+    #mail => {
+    #    from    => 'noreply@dolomon.org',
+    #    # Valid values are 'sendmail' and 'smtp'
+    #    how     => 'smtp',
+    #    howargs => ['smtp.example.org']
+    #},
+
+    # Name in mail signature
+    # Option, default to Dolomon
+    #signature => 'Dolomon',
+
+    # How many days do we keep visits in the different levels of precision?
+    # Influence the graphs availability
+    # optional, these are the default values
+    #keep_hits => {
+    #    uber_precision  => 3,  # in days, one record for each visit
+    #    day_precision   => 90, # in days, one record per dolo per day, visits increment a counter
+    #    week_precision  => 12, # in weeks, one record per dolo per week, visits increment a counter
+    #    month_precision => 36, # in months, one record per dolo per month, visits increment a counter
+    #},
 }

@@ -8,9 +8,6 @@ window.data = {
     days: null
 };
 window.morris = null;
-function getLang(){
-    return (navigator.language || navigator.languages[0]);
-}
 function graphIt(id) {
     var format      = window.data[id].format;
     var dateFormat  = function (x) { return moment(x).format(format); }

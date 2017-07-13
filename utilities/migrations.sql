@@ -5,7 +5,10 @@ CREATE TABLE IF NOT EXISTS users (
     first_name text NOT NULL,
     last_name text NOT NULL,
     mail text UNIQUE NOT NULL,
+    password text,
     count integer NOT NULL DEFAULT 0,
+    confirmed boolean NOT NULL DEFAULT false,
+    token uuid UNIQUE NOT NULL DEFAULT uuid_generate_v4(),
     last_login timestamp NOT NULL DEFAULT NOW()
 );
 CREATE TABLE IF NOT EXISTS categories (
@@ -29,8 +32,11 @@ CREATE TABLE IF NOT EXISTS dolos (
     count integer NOT NULL DEFAULT 0,
     initial_count integer NOT NULL DEFAULT 0,
     category_id integer NOT NULL REFERENCES categories(id),
-    parent_id integer REFERENCES dolos(id),
-    created_at timestamp NOT NULL DEFAULT NOW()
+    parent_id integer REFERENCES dolos(id) ON DELETE CASCADE,
+    created_at timestamp NOT NULL DEFAULT NOW(),
+    expires_at integer,
+    expires_after integer,
+    expired boolean NOT NULL DEFAULT false
 );
 CREATE TABLE IF NOT EXISTS dolo_has_tags (
     dolo_id integer REFERENCES dolos(id) ON DELETE CASCADE,
@@ -75,7 +81,7 @@ CREATE TABLE IF NOT EXISTS applications (
     id serial PRIMARY KEY,
     name text NOT NULL,
     user_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    app_id uuid NOT NULL DEFAULT uuid_generate_v4(),
+    app_id uuid UNIQUE NOT NULL DEFAULT uuid_generate_v4(),
     app_secret uuid NOT NULL DEFAULT uuid_generate_v4(),
     constraint app_user_id_name UNIQUE (user_id, name)
 );

@@ -9,7 +9,7 @@ Dolomon was designed as a DOwnLOad MONitor, but it appears that you can monitor 
 ## How Dolomon works?
 
 1. You add an URL in Dolomon (it's called a *dolo* in Dolomon)
-2. Dolomon gives you an other URL like https://dolomon.org/3
+2. Dolomon gives you an other URL like https://dolomon.org/h/3
 3. You put the Dolomon URL instead of the target URL in your web site
 4. When people use that URL, Dolomon redirects them to the target URL and creates job to increment the counters
 5. People are on the target URL
@@ -21,7 +21,7 @@ Check the INSTALL.md file
 
 ## Mascot
 
-The Dolomon mascot is called Zag. It has been initially designed by [Renê Gustavo Miszczak](https://openclipart.org/user-detail/rMiszczak) under the name of [Red Oso](https://openclipart.org/detail/204548/Red%20Oso), have been proposed by [Cyrille Largillier](http://cyrille.largillier.org/) and is in [Public Domain](https://openclipart.org/share) and slightly modified for Dolomon.
+The Dolomon mascot is called Zag. It has been initially designed by [Renê Gustavo Miszczak](https://openclipart.org/user-detail/rMiszczak) under the name of [Red Oso](https://openclipart.org/detail/204548/Red%20Oso), have been proposed by [Cyrille Largillier](http://cyrille.largillier.org/), is in [Public Domain](https://openclipart.org/share) and has been slightly modified for Dolomon.
 
 ## License
 

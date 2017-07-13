@@ -27,6 +27,8 @@ sub startup {
     }
     push @{$self->static->paths}, $self->home->rel_file('themes/default/public');
 
+    $self->plugin('StaticCache');
+
     $self->plugin('Mount' => {$config->{prefix} => File::Spec->catfile($Bin, '..', 'script', 'dolomon')});
 }
 

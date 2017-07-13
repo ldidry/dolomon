@@ -1,0 +1,8 @@
+Revision history for Dolomon
+
+0.1  2017-?
+	- LDAP authentication
+	- Internal authentication (register, renew password, change account
+	details, delete account)
+	- Categories and tags
+	- Dolos expiration system

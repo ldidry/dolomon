@@ -1,0 +1,124 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+    % if ($self->is_user_authenticated) {
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"><%= l('Deploy menu') %></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+    % }
+            <a class="navbar-brand" href="<%= url_for('/') %>">Dolomon</a>
+        </div>
+
+    % if ($self->is_user_authenticated) {
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li<%== $self->active('dashboard') %>>
+                    <a href="<%= url_for('dashboard') %>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;<%= l('Dashboard') %></a>
+                </li>
+                <li<%== $self->active('dolo') %>>
+                    <a id="gotoDolos" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('dolo') %>">
+                        <%= l('Dolos') %>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="gotoDolos">
+                        <li>
+                            <a href="<%= url_for('dolo') %>">
+                                <%= l('View my dolos') %>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">
+                                <%= l('Add a dolo') %>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li<%== $self->active('categories') %>>
+                    <a id="gotoCats" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('categories') %>">
+                        <%= l('Categories') %>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="gotoCats">
+                        <li>
+                            <a href="<%= url_for('categories') %>">
+                                <%= l('View my categories') %>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#addModal" data-add="category" data-action="<%= url_for('add_cat') %>">
+                                <%= l('Add a category') %>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li<%== $self->active('tags') %>>
+                    <a id="gotoTags" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('tags') %>">
+                        <%= l('Tags') %>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="gotoTags">
+                        <li>
+                            <a href="<%= url_for('tags') %>">
+                                <%= l('View my tags') %>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#addModal" data-add="tag" data-action="<%= url_for('add_tag') %>">
+                                <%= l('Add a tag') %>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li<%== $self->active('apps') %>>
+                    <a id="gotoApps" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('apps') %>">
+                        <%= l('Applications') %>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="gotoApps">
+                        <li>
+                            <a href="<%= url_for('apps') %>">
+                                <%= l('View my applications') %>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#addModal" data-add="app" data-action="<%= url_for('add_app') %>">
+                                <%= l('Add an application') %>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<%= $self->current_user->first_name.' '.$self->current_user->last_name %><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="mono"><a href="#" class="nolink"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;<%= $self->current_user->mail %></a></li>
+                        % if ($self->current_user->password) {
+                        <li class="mono"><a href="<%= url_for('user') %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;<%= l('Change account details') %></a></li>
+                        % }
+                        <li class="divider"></li>
+                        <li class="mono"><a href="<%= url_for('logout') %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;<%= l('Logout') %></a></li>
+                    </ul>
+                </li>
+                <li<%== $self->active('about') %>>
+                    <a href="<%= url_for('about') %>" title="<%= l('About') %>" ><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('About') %></span></a>
+                </li>
+            </ul>
+        </div><!-- ./navbar-collapse -->
+    % } else {
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li<%== $self->active('about') %>>
+                    <a href="<%= url_for('about') %>" title="<%= l('About') %>" ><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('About') %></span></a>
+                </li>
+            </ul>
+        </div><!-- ./navbar-collapse -->
+    % }
+    </div><!-- ./container-fluid -->
+</nav>

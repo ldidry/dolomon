@@ -1,0 +1,68 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('About');
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12">
+        <h1 class="h3"><%= l('About') %></h1>
+        <img src="<%= url_for('img/dolomon.png') %>" class="img-responsive pull-right" alt="<%= l('Zag, the Dolomon mascot') %>">
+        <h2 class="h4"><%= l('What Dolomon means?') %></h2>
+        <p><%= l('It means DOwnLOad MONitor.') %></p>
+        <h2 class="h4"><%= l('What does it do?') %></h2>
+        <p><%= l('Dolomon tracks how many times a link was clicked on.') %></p>
+        <p>
+            <%= l('This means that it can tell you how many times a file was downloaded (it was designed for that purpose).') %>
+            <%= l('But you can also use it to track visits on a page.') %>
+        </p>
+        <h2 class="h4"><%= l('How does it works?') %></h2>
+        <p>
+            <%= l('It\'s quite simple:') %>
+            <ul>
+                <li><%= l('You add an URL in Dolomon (it\'s called a dolo in Dolomon)') %></li>
+                <li><%= l('Dolomon gives you an other URL like %1 (but you can choose the URL as long as it\'s not already taken)', url_for('hit', {short => 'foo'})->to_abs->to_string) %></li>
+                <li><%= l('You use the Dolomon URL instead of the target URL in your web site, your flyers, your social networks…') %></li>
+                <li><%= l('When people use that URL, Dolomon redirects them to the target URL and creates a job to increment the counters') %></li>
+                <li><%= l('Visitors are on the target URL') %></li>
+                <li><%= l('Dolomon treats the jobs without impacting the redirection performances') %></li>
+            </ul>
+            <%= l('To track visits on a page, create a dolo pointing to a small transparent image (Dolomon has a helper to do that) and insert the resulting URL as an image in your page.') %>
+        </p>
+        <h2 class="h4"><%= l('Wordpress integration') %></h2>
+        <p><%== l('You can interact with a Dolomon server from Wordpress with the plugin <a href="https://framagit.org/framasoft/wp-dolomon">WP-Dolomon</a>.') %></p>
+        <p><%= l('Create an application in Dolomon to get credentials to use in WP-Dolomon.') %></p>
+        <h2 class="h4"><%= l('What kind of data does Dolomon keep?') %></h2>
+        <p>
+            <%= l('Dolomon increments counters at each visit.') %>
+            <%= l('The counters are just numbers: no IP address is kept.') %>
+        </p>
+        <p><%== l('Dolomon also keeps the <a href="https://en.wikipedia.org/wiki/HTTP_referer"><em>Referer</em></a> header and the date and time of the visit for %1 days.', config('keep_hits')->{uber_precision}) %></p>
+        <h2 class="h4"><%= l('How can I opt-out Dolomon?') %></h2>
+        <p>
+            <%= l('You can\'t, sorry.') %>
+            <%= l('But don\'t worry, Dolomon\'s statistics are really anonymous.') %>
+        </p>
+    % if (config('counter_delay') > 0) {
+    <p><%== l('A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href="https://en.wikipedia.org/wiki/Do_Not_Track"><em>Do-Not-Track</em></a> header on your browser.', config('counter_delay')) %></p>
+    % }
+        <h2 class="h4"><%= l('How do I contact the administrator of this instance?') %></h2>
+        <p>
+            % my $l = languages;
+            % if (defined config('contact')->{$l}) {
+                <%== config('contact')->{$l} %>
+            % } else {
+                <%== config('contact')->{config('contact')->{'default'}} %>
+            % }
+        </p>
+        <h2 class="h4"><%= l('License') %></h2>
+        <p><%== l('Dolomon is licensed under the terms of the GNU AGPLv3, see the <a href="https://framagit.org/luc/dolomon/blob/master/LICENSE">LICENSE</a> file.') %></p>
+        <h2 class="h4"><%= l('Sources') %></h2>
+        <p><%== l('The code of Dolomon is on <a href="https://framagit.org/luc/dolomon">https://framagit.org/luc/dolomon</a>.') %></p>
+        <h2 class="h4"><%= l('Author') %></h2>
+        <p>Luc Didry, aka Sky (<a href="https://fiat-tux.fr">https://fiat-tux.fr</a>)</p>
+        <h2 class="h4"><%= l('Make a donation to the author') %></h2>
+        <p><%== l('You can make a donation to the author on <a href="https://www.tipeee.com/fiat-tux">Tipeee</a> or on <a href="https://liberapay.com/sky/">Liberapay</a>.') %></p>
+        <h2 class="h4"><%= l('Mascot') %></h2>
+        <p>
+            <%== l('The Dolomon mascot is called Zag. It has been initially designed by <a href="https://openclipart.org/user-detail/rMiszczak">Renê Gustavo Miszczak</a> under the name of <a href="https://openclipart.org/detail/204548/Red%20Oso">Red Oso</a>, have been proposed by <a href="http://cyrille.largillier.org/">Cyrille Largillier</a>, is in <a href="https://openclipart.org/share">Public Domain</a> and has been slightly modified for Dolomon.') %>
+        </p>
+    </div>
+</div>

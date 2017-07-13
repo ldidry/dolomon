@@ -1,6 +1,6 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
 <!DOCTYPE html>
-<html>
+<html lang="<%= $c->languages %>">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,116 +15,8 @@
     % } 
     </head>
     <body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-            % if ($self->is_user_authenticated) {
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only"><%= l('Deploy menu') %></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-            % }
-                    <a class="navbar-brand nolink" href="#">Dolomon</a>
-                </div>
- 
-            % if ($self->is_user_authenticated) {
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li<%== $self->active('dashboard') %>>
-                            <a href="<%= url_for('dashboard') %>"><%= l('Dashboard') %></a>
-                        </li>
-                        <li<%== $self->active('dolo') %>>
-                            <a id="gotoDolos" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('dolo') %>">
-                                <%= l('Dolos') %>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="gotoDolos">
-                                <li>
-                                    <a href="<%= url_for('dolo') %>">
-                                        <%= l('View my dolos') %>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">
-                                        <%= l('Add a dolo') %>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li<%== $self->active('categories') %>>
-                            <a id="gotoCats" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('categories') %>">
-                                <%= l('Categories') %>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="gotoCats">
-                                <li>
-                                    <a href="<%= url_for('categories') %>">
-                                        <%= l('View my categories') %>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="category" data-action="<%= url_for('add_cat') %>">
-                                        <%= l('Add a category') %>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li<%== $self->active('tags') %>>
-                            <a id="gotoTags" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('tags') %>">
-                                <%= l('Tags') %>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="gotoTags">
-                                <li>
-                                    <a href="<%= url_for('tags') %>">
-                                        <%= l('View my tags') %>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="tag" data-action="<%= url_for('add_tag') %>">
-                                        <%= l('Add a tag') %>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li<%== $self->active('apps') %>>
-                            <a id="gotoApps" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-target="#" href="<%= url_for('apps') %>">
-                                <%= l('Applications') %>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="gotoApps">
-                                <li>
-                                    <a href="<%= url_for('apps') %>">
-                                        <%= l('View my applications') %>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="app" data-action="<%= url_for('add_app') %>">
-                                        <%= l('Add an application') %>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<%= $self->current_user->first_name.' '.$self->current_user->last_name %><span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="mono"><a href="#" class="nolink"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;<%= $self->current_user->mail %></a></li>
-                                <li class="divider"></li>
-                                <li class="mono"><a href="<%= url_for('logout') %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;<%= l('Logout') %></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- ./navbar-collapse -->
-            % }
-            </div><!-- ./container-fluid -->
-        </nav>
-        <div class="container-fluid">
+        %= include 'partial/navbar'
+        <div class="container-fluid" id="main-container">
             %= include 'partial/addModal'
         % my @msgs = (flash('msg'), stash('msg'));
         % for my $msg (@msgs) {
@@ -134,7 +26,16 @@
                 % if (defined($msg->{title})) {
                 <strong><%= $msg->{title} %></strong><br>
                 % }
+                % if (defined($msg->{text})) {
                 <%= $msg->{text} %>
+                % }
+                % if (defined($msg->{texts})) {
+                    <ul>
+                    % for my $text (@{$msg->{texts}}) {
+                        <li><%= $text %></li>
+                    % }
+                    </ul>
+                % }
             </div>
             % }
         % }
@@ -142,75 +43,15 @@
         </div>
         %= javascript '/js/jquery-2.2.4.min.js'
         %= javascript '/js/bootstrap.min.js'
+        %= javascript '/js/moment-with-locales.min.js'
         %= javascript '/js/dolomon.js'
+        %= javascript '/partial/js/i18n.js'
     % if (current_route('show_dolo') || current_route('show_cat') || current_route('show_tag')) {
         %= javascript '/js/raphael-min.js'
         %= javascript '/js/morris.min.js'
         %= javascript '/js/dolomon-graph.js'
-        %= javascript '/js/moment-with-locales.min.js'
         %= javascript '/js/moment-round.min.js'
         %= javascript '/js/bootstrap-datetimepicker.min.js'
     % }
-        %= javascript begin
-        var i18n = {
-            close:             '<%= l('Close') %>',
-            showDolo:          '<%= l('Show dolo') %>',
-            addDolo:           '<%= l('Add a dolo') %>',
-            rmDolo:            '<%= l('Delete dolo') %>',
-            modDolo:           '<%= l('Modify dolo') %>',
-            doloRmName:        '<%= l('Are you sure you want to delete the dolo XXXX?') %>',
-            showCat:           '<%= l('Show category') %>',
-            addCat:            '<%= l('Add a category') %>',
-            rmCat:             '<%= l('Delete category') %>',
-            modCat:            '<%= l('Rename category') %>',
-            catRmName:         '<%= l('Are you sure you want to delete the category XXXX?') %>',
-            awesomeCat:        '<%= l('My awesome category') %>',
-            catName:           '<%= l('Category name') %>',
-            showTag:           '<%= l('Show tag') %>',
-            addTag:            '<%= l('Add a tag') %>',
-            rmTag:             '<%= l('Delete tag') %>',
-            modTag:            '<%= l('Rename tag') %>',
-            tagRmName:         '<%= l('Are you sure you want to delete the tag XXXX?') %>',
-            wonderTag:         '<%= l('My wonderful tag') %>',
-            tagName:           '<%= l('Tag name') %>',
-            addApp:            '<%= l('Add an application') %>',
-            rmApp:             '<%= l('Delete application') %>',
-            modApp:            '<%= l('Rename application') %>',
-            appRmName:         '<%= l('Are you sure you want to delete the application XXXX?') %>',
-            astonishingApp:    '<%= l('My astonishing application') %>',
-            appName:           '<%= l('Application name') %>',
-            showMore:          '<%= l('Show more') %>',
-            zeroDolos:         '<%= l('0 dolo(s)') %>',
-            url:               '<%= l('URL') %>',
-            doloUrl:           '<%= l('Dolomon URL') %>',
-            name:              '<%= l('Name') %>',
-            extra:             '<%= l('Free field') %>',
-            whatever:          '<%= l('Write whatever you want') %>',
-            totalHits:         '<%= l('Total hits') %>',
-            filter:            '<%= l('filter') %>',
-            exampleLogo:       '<%= l('example-org-logo') %>',
-            extraordinaryDolo: '<%= l('My extraordinary dolo') %>',
-            initialCounter:    '<%= l('Initial counter') %>',
-            category:          '<%= l('Category') %>',
-            tags:              '<%= l('Tag(s)') %>',
-            hitsNb:            '<%= l('Number of hits') %>',
-            weekFormat:        '<%= l('[week] W, [year] YYYY') %>',
-            year:              '<%= l('year') %>',
-            //: '<%= l('') %>',
-        };
-        var url = {
-            base_url:   '<%= url_for('/')->to_abs %>',
-            get_dolos:  '<%= url_for('get_dolo') %>',
-            get_cats:   '<%= url_for('get_cat') %>',
-            get_tags:   '<%= url_for('get_tag') %>',
-            show_dolo: '<%= url_for('show_dolo') %>',
-            show_cat:  '<%= url_for('show_cat') %>',
-            show_tag:  '<%= url_for('show_tag') %>',
-        };
-        $.ready(function() {
-            $().alert();
-        });
-
-        % end
     </body>
 </html>

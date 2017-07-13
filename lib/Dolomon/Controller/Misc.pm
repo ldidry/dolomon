@@ -4,37 +4,54 @@ use Mojo::JSON qw(true false);
 
 sub cors {
     my $c = shift;
-    $c->res->headers->header('Access-Control-Allow-Origin' => '*');
+    $c->res->headers->header('Access-Control-Allow-Origin'  => '*');
     $c->res->headers->header('Access-Control-Allow-Headers' => 'xdolomon-app-id,xdolomon-app-secret');
-    $c->res->headers->header('Access-Control-Allow-Method' => 'GET, POST, PUT, DELETE');
+    $c->res->headers->header('Access-Control-Allow-Method'  => 'GET, POST, PUT, DELETE');
     $c->rendered(200);
 }
 
 sub dashboard {
-    my $c = shift;
-
-    return $c->render(
+    return shift->render(
         template => 'misc/dashboard'
-    )
+    );
 }
 
 sub authent {
-    my $c = shift;
-    my $goto = $c->param('goto') || 'dashboard';
+    my $c      = shift;
+    my $goto   = $c->param('goto') || 'dashboard';
+    my $method = $c->cookie('auth_method') || 'standard';
 
     return $c->render(
         template => 'misc/index',
-        goto     => $goto
+        goto     => $goto,
+        method   => $method
     );
 }
 
 sub login {
-    my $c     = shift;
-    my $login = $c->param('login');
-    my $pwd   = $c->param('password');
-    my $goto  = $c->param('goto');
+    my $c      = shift;
+    my $login  = $c->param('login');
+    my $pwd    = $c->param('password');
+    my $goto   = $c->param('goto');
+    my $method = $c->param('method');
 
-    if($c->authenticate($login, $pwd)) {
+    my $validation = $c->validation;
+
+    if ($validation->csrf_protect->has_error('csrf_token')) {
+        $c->stash(
+            msg => {
+                title => $c->l('Error'),
+                class => 'alert-danger',
+                text  => $c->l('Bad CSRF token!')
+            }
+        );
+        return $c->render(
+            template => 'misc/index',
+            goto     => $goto,
+            method   => $method
+        );
+    } elsif ($c->authenticate($login, $pwd, { method => $method })) {
+        $c->cookie(auth_method => $method);
         $c->stash(
             msg => {
                 class => 'alert-info',
@@ -58,7 +75,8 @@ sub login {
         );
         return $c->render(
             template => 'misc/index',
-            goto     => $goto
+            goto     => $goto,
+            method   => $method
         );
     }
 }
@@ -75,7 +93,7 @@ sub get_out {
             text  => $c->l('You have been successfully disconnected.')
         }
     );
-    return $c->redirect_to('index');
+    return $c->redirect_to('/');
 }
 
 sub ping {

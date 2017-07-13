@@ -11,29 +11,52 @@ has 'login';
 has 'first_name';
 has 'last_name';
 has 'mail';
+has 'password';
 has 'last_login';
 has 'count';
+has 'confirmed';
+has 'token';
 
 sub update {
     my $c = shift;
     my $i = shift;
     my $x = shift;
 
-    if ($x eq 'login') {
+    if (defined($x) && $x eq 'login') {
         my ($fields, $params) = $c->map_fields_for_update($i);
-        push @{$fields}, 'last_login = NOW()' if (defined($x) && $x eq 'login');
+        push @{$fields}, 'last_login = NOW()';
         push @{$params}, $c->id;
 
         my $q = join(', ', @{$fields});
 
-        my $r = $c->app->pg->db->query('UPDATE '.$c->table.' SET '.$q.' WHERE id = (?) RETURNING *;', @{$params});
+        my $r = $c->app->pg->db->query('UPDATE '.$c->table.' SET '.$q.' WHERE id = ? RETURNING *;', @{$params});
 
         if ($r->rows == 1) {
             $c->map_fields_to_attr($r->hash);
         }
     } else {
-        $c = $c->SUPER::update(@_);
+        $c = $c->SUPER::update(($i));
     }
+    return $c;
+}
+
+sub delete_cascade {
+    my $c = shift;
+
+    $c->app->pg->db->query('DELETE FROM dolos d JOIN categories c ON u.cat_id = c.id WHERE c.user_id = ?;', $c->id);
+
+    return $c->delete();
+}
+
+sub renew_token {
+    my $c = shift;
+
+    my $r = $c->app->pg->db->query('UPDATE '.$c->table.' SET token = uuid_generate_v4() WHERE id = ? RETURNING token;', $c->id);
+
+    if ($r->rows == 1) {
+        $c->token($r->hash->{token});
+    }
+
     return $c;
 }
 

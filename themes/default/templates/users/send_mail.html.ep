@@ -1,0 +1,44 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title 'Dolomon';
+<div class="row">
+    <div class="form-signin">
+    % if ($action eq 'token') {
+        <h1 class="h3 form-signin-heading text-center"><%= l('Resend confirmation mail') %></h1>
+        <form action="<%= url_for('send_again') %>" method="POST">
+            <label for="inputMail" class="sr-only"><%= l('Email address') %></label>
+            <input type="email" id="inputMail" name="mail" class="form-control first-input last-input" required placeholder="<%= l('Email address') %>">
+            %= csrf_field
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Confirm') %></button>
+        </form>
+        <div class="text-center">
+            <p><small><a href="<%= url_for('forgot_password') %>"><%= l('I forgot my password') %></a></small></p>
+        </div>
+    % } elsif ($action eq 'password') {
+        <h1 class="h3 form-signin-heading text-center"><%= l('Send password renewal mail') %></h1>
+        <form action="<%= url_for('forgot_password') %>" method="POST">
+            <label for="inputMail" class="sr-only"><%= l('Email address') %></label>
+            <input type="email" id="inputMail" name="mail" class="form-control first-input last-input" required placeholder="<%= l('Email address') %>">
+            %= csrf_field
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Confirm') %></button>
+        </form>
+        <div class="text-center">
+            <p><small><a href="<%= url_for('send_again') %>"><%= l('Send me the confirmation mail again') %></a></small></p>
+        </div>
+    % } elsif ($action eq 'renew') {
+        <h1 class="h3 form-signin-heading text-center"><%= l('Password renewal') %></h1>
+        <form action="<%= url_for('renew_password') %>" method="POST">
+            <label for="inputPassword" class="sr-only"><%= l('Password') %></label>
+            <input type="password" id="inputPassword" name="password" class="form-control first-input" required placeholder="<%= l('Password') %>">
+            <label for="inputPassword2" class="sr-only"><%= l('Password verification') %></label>
+            <input type="password" id="inputPassword2" name="password2" class="form-control last-input" required placeholder="<%= l('Password verification') %>">
+            %= csrf_field
+            <input type="hidden" name="token" value="<%= stash('token') %>">
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Change password') %></button>
+        </form>
+        <div class="text-center">
+            <p><small><a href="<%= url_for('send_again') %>"><%= l('Send me the confirmation mail again') %></a></small></p>
+        </div>
+    % }
+    </div>
+</div>
