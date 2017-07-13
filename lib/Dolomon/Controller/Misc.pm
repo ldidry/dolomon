@@ -21,6 +21,8 @@ sub authent {
     my $goto   = $c->param('goto') || 'dashboard';
     my $method = $c->cookie('auth_method') || 'standard';
 
+    return $c->redirect_to('dashboard') if $c->is_user_authenticated;
+
     return $c->render(
         template => 'misc/index',
         goto     => $goto,
