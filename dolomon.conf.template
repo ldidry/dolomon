@@ -12,8 +12,14 @@
     },
 
     # put a way to contact you here and uncomment it
+    # keys of this hash are language code (add as much as you want)
+    # except for 'default' that indicates which is the default language to use if non matches the user's browser language
     # MANDATORY, no default
-    #contact       => 'Please, send a mail to admin[at]example.com',
+    #contact       => {
+    #    default => 'en',
+    #    en => 'Please, send a mail to admin[at]example.com',
+    #    fr => 'Veuillez envoyer un mail à admin[at]example.com'
+    #},
 
     # array of random strings used to encrypt cookies
     # MANDATORY, no default, PLEASE, CHANGE IT
