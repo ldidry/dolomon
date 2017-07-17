@@ -2,7 +2,7 @@ package Dolomon::Controller::Dolos;
 use Mojo::Base 'Mojolicious::Controller';
 use Mojo::Collection;
 use Mojo::JSON qw(true false);
-use Mojo::Utile qw(xml_escape);
+use Mojo::Util qw(xml_escape);
 use Dolomon::Dolo;
 use Dolomon::Category;
 use Dolomon::Tag;
