@@ -2,6 +2,7 @@ package Dolomon::Controller::Tags;
 use Mojo::Base 'Mojolicious::Controller';
 use Dolomon::Tag;
 use Mojo::JSON qw(true false);
+use Mojo::Util qw(xml_escape);
 use DateTime::Format::Pg;
 use DateTime::Duration;
 use Math::Round 'nlowmult';
@@ -285,7 +286,7 @@ sub get_zip {
 
 sub add {
     my $c    = shift;
-    my $name = $c->param('name');
+    my $name = xml_escape $c->param('name');
 
     if (defined $name && $name ne '') {
         my $tag = Dolomon::Tag->new(app => $c->app);
@@ -329,7 +330,7 @@ sub add {
 sub rename {
     my $c       = shift;
     my $id      = $c->param('id');
-    my $newname = $c->param('name');
+    my $newname = xml_escape $c->param('name');
 
     if (defined $newname && $newname ne '') {
         my $tag  = Dolomon::Tag->new(app => $c->app, id => $id);

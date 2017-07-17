@@ -2,6 +2,7 @@ package Dolomon::Controller::Categories;
 use Mojo::Base 'Mojolicious::Controller';
 use Dolomon::Category;
 use Mojo::JSON qw(true false);
+use Mojo::Util qw(xml_escape);
 use DateTime::Format::Pg;
 use DateTime::Duration;
 use Math::Round 'nlowmult';
@@ -280,7 +281,7 @@ sub get_zip {
 
 sub add {
     my $c    = shift;
-    my $name = $c->param('name');
+    my $name = xml_escape $c->param('name');
 
     if (defined $name && $name ne '') {
         my $cat = Dolomon::Category->new(app => $c->app);
@@ -324,7 +325,7 @@ sub add {
 sub rename {
     my $c       = shift;
     my $id      = $c->param('id');
-    my $newname = $c->param('name');
+    my $newname = xml_escape $c->param('name');
 
     if (defined $newname && $newname ne '') {
         my $cat  = Dolomon::Category->new(app => $c->app, id => $id);
