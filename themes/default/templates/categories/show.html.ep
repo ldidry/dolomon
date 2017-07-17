@@ -4,7 +4,7 @@
 
 %= include 'partial/modModal'
 %= include 'partial/rmModal'
-% if (defined $category->user_id) {
+% if (defined stash('category')) {
 <dl>
     <dt><%= l('Name') %></dt>
     <dd><%= $category->name %></dt>

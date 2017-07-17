@@ -7,7 +7,7 @@ use Dolomon::Category;
 use Dolomon::Tag;
 use HTTP::BrowserDetect;
 use Text::Slugify 'slugify';
-use Data::Validate::URI qw(is_http_uri is_https_uri);
+use Data::Validate::URI qw(is_web_uri);
 use DateTime::Format::Pg;
 use DateTime::Duration;
 use Math::Round 'nlowmult';
@@ -54,7 +54,7 @@ sub show {
     return $c->render(
         template  => 'dolos/show',
         msg       => $msg,
-        dolo      => $dolo,
+        dolo      => (defined $msg) ? undef : $dolo,
         referrers => \%agg_referrers
     );
 }
@@ -219,6 +219,7 @@ sub get_zip {
         $agg_hits{$time} += 1;
 
         if ($e->{referrer}) {
+            $e->{referrer} = "'".$e->{referrer} if $e->{referrer} =~ /^(?:=|\+|-|@)/;
             $agg_referrers{$e->{referrer}}  = 0 unless defined $agg_referrers{$e->{referrer}};
             $agg_referrers{$e->{referrer}} += 1;
         }
@@ -293,8 +294,10 @@ sub add {
     my $dolo = Dolomon::Dolo->new(app => $c->app);
     my %errors;
 
-    my $url = $c->param('url');
-    $errors{doloUrl} = [$c->l('The url is not a valid http or https URL.')] unless (is_http_uri($url) || is_https_uri($url));
+    my $url  = $c->param('url');
+    my $furl = $url;
+       $furl =~ s/ftp/http/;
+    $errors{doloUrl} = [$c->l('The url is not a valid http, https, ftp or ftps URL.')] unless (is_web_uri($url) || is_web_uri($furl));
 
     my $name   = $c->param('name');
     $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.')] if ($name && $dolo->is_name_taken($name, $c->param('cat_id'), 'category_id'));
@@ -407,8 +410,10 @@ sub modify {
 
     my %errors;
 
-    my $url = $c->param('url');
-    $errors{doloUrl} = [$c->l('The url is not a valid http or https URL.')] unless (is_http_uri($url) || is_https_uri($url));
+    my $url  = $c->param('url');
+    my $furl = $url;
+       $furl =~ s/ftp/http/;
+    $errors{doloUrl} = [$c->l('The url is not a valid http, https, ftp or ftps URL.')] unless (is_web_uri($url) || is_web_uri($furl));
 
     my $name   = $c->param('name');
     $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.')] if ($dolo->is_name_taken($name, $c->param('cat_id'), 'category_id') && $name ne $dolo->name);

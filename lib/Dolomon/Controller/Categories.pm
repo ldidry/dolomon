@@ -73,7 +73,7 @@ sub show {
     return $c->render(
         template  => 'categories/show',
         msg       => $msg,
-        category  => $cat,
+        category  => (defined $msg) ? undef : $cat,
         referrers => \%agg_referrers
     );
 }
@@ -238,6 +238,7 @@ sub get_zip {
         $agg_hits{$time} += 1;
 
         if ($e->{referrer}) {
+            $e->{referrer} = "'".$e->{referrer} if $e->{referrer} =~ /^(?:=|\+|-|@)/;
             $agg_referrers{$e->{referrer}}  = 0 unless defined $agg_referrers{$e->{referrer}};
             $agg_referrers{$e->{referrer}} += 1;
         }

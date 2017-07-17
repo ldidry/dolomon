@@ -4,7 +4,7 @@
 
 %= include 'partial/modModal'
 %= include 'partial/rmModal'
-% if (defined $tag->user_id) {
+% if (defined stash('tag')) {
 <dl>
     <dt><%= l('Name') %></dt>
     <dd><%= $tag->name %></dt>

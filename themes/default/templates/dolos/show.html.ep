@@ -5,7 +5,7 @@
 %= include 'partial/modModal'
 %= include 'partial/rmModal'
 % my @tags;
-% if (defined $dolo->user_id) {
+% if (defined stash('dolo')) {
 <div>
     <dl>
         <dt><%= l('URL') %></dt>

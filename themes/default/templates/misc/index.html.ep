@@ -29,13 +29,29 @@
     % unless (config('no_register')) {
         <form action="/register" method="POST" id="signup"<%== ($method ne 'register') ? ' class="hidden"' : '' %>>
             <label for="inputLogin2" class="sr-only"><%= l('Login') %></label>
-            <input type="text" id="inputLogin2" name="login" class="form-control first-input" required placeholder="<%= l('Login') %>"<%== (defined(stash('login'))) ? ' value="'.stash('login').'"' : '' %>>
+            <input type="text" id="inputLogin2" name="login" class="form-control first-input" required placeholder="<%= l('Login') %>"
+% if (defined(stash('login'))) {
+    value="<%= stash('login')%>"
+% }
+>
             <label for="inputFirstName" class="sr-only"><%= l('First name') %></label>
-            <input type="text" id="inputFirstName" name="first_name" class="form-control first-input" required placeholder="<%= l('First name') %>"<%== (defined(stash('first_name'))) ? ' value="'.stash('first_name').'"' : '' %>>
+            <input type="text" id="inputFirstName" name="first_name" class="form-control" required placeholder="<%= l('First name') %>"
+% if (defined(stash('first_name'))) {
+    value="<%= stash('first_name')%>"
+% }
+>
             <label for="inputLastName" class="sr-only"><%= l('Last name') %></label>
-            <input type="text" id="inputLastName" name="last_name" class="form-control first-input" required placeholder="<%= l('Last name') %>"<%== (defined(stash('last_name'))) ? ' value="'.stash('last_name').'"' : '' %>>
+            <input type="text" id="inputLastName" name="last_name" class="form-control" required placeholder="<%= l('Last name') %>"
+% if (defined(stash('last_name'))) {
+    value="<%= stash('last_name')%>"
+% }
+>
             <label for="inputMail2" class="sr-only"><%= l('Email address') %></label>
-            <input type="email" id="inputMail2" name="mail" class="form-control" required placeholder="<%= l('Email address') %>"<%== (defined(stash('mail'))) ? ' value="'.stash('mail').'"' : '' %>>
+            <input type="email" id="inputMail2" name="mail" class="form-control" required placeholder="<%= l('Email address') %>"
+% if (defined(stash('mail'))) {
+    value="<%= stash('mail')%>"
+% }
+>
             <label for="inputPassword2" class="sr-only"><%= l('Password') %></label>
             <input type="password" id="inputPassword2" name="password" class="form-control" required placeholder="<%= l('Password') %>">
             <label for="inputPassword3" class="sr-only"><%= l('Password verification') %></label>

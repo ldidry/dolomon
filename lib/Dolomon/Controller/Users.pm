@@ -1,6 +1,5 @@
 package Dolomon::Controller::Users;
 use Mojo::Base 'Mojolicious::Controller';
-use Mojo::Util qw(xml_escape);
 use Dolomon::User;
 use Crypt::PBKDF2;
 use Email::Valid;
@@ -243,7 +242,7 @@ sub renew_password {
         );
 
         return $c->render(
-            template => 'misc/send_mail',
+            template => 'users/send_mail',
             action   => 'renew',
             token    => $token
         );
@@ -300,7 +299,7 @@ sub renew_password {
         }
     );
     return $c->render(
-        template => 'misc/send_mail',
+        template => 'users/send_mail',
         action   => 'renew',
         token    => $token
     );
@@ -322,7 +321,7 @@ sub forgot_password {
         );
 
         return $c->render(
-            template => 'misc/send_mail',
+            template => 'users/send_mail',
             action   => 'password'
         );
     }
@@ -336,7 +335,7 @@ sub forgot_password {
         );
 
         return $c->render(
-            template => 'misc/send_mail',
+            template => 'users/send_mail',
             action   => 'password'
         );
     }
@@ -390,7 +389,7 @@ sub forgot_password {
     }
 
     return $c->render(
-        template => 'misc/send_mail',
+        template => 'users/send_mail',
         action   => 'password'
     );
 }
@@ -411,7 +410,7 @@ sub send_again {
         );
 
         return $c->render(
-            template => 'misc/send_mail',
+            template => 'users/send_mail',
             action   => 'token'
         );
     }
@@ -425,7 +424,7 @@ sub send_again {
         );
 
         return $c->render(
-            template => 'misc/send_mail',
+            template => 'users/send_mail',
             action   => 'token'
         );
     }
@@ -471,7 +470,7 @@ sub send_again {
     }
 
     return $c->render(
-        template => 'misc/send_mail',
+        template => 'users/send_mail',
         action   => 'token'
     );
 }
@@ -541,11 +540,13 @@ sub register {
             }
         );
         return $c->render(
-            template => 'misc/index',
-            goto     => 'dashboard',
-            method   => 'register',
-            login    => xml_escape $login,
-            mail     => xml_escape $mail
+            template   => 'misc/index',
+            goto       => 'dashboard',
+            method     => 'register',
+            login      => $login,
+            mail       => $mail,
+            first_name => $fname,
+            last_name  => $lname
         );
     }
 
@@ -582,11 +583,13 @@ sub register {
             }
         );
         return $c->render(
-            template => 'misc/index',
-            goto     => 'dashboard',
-            method   => 'register',
-            login    => xml_escape $login,
-            mail     => xml_escape $mail
+            template   => 'misc/index',
+            goto       => 'dashboard',
+            method     => 'register',
+            login      => $login,
+            mail       => $mail,
+            first_name => $fname,
+            last_name  => $lname
         );
     } else {
         my $pbkdf2 = Crypt::PBKDF2->new(

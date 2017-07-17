@@ -16,6 +16,7 @@
         <h2 class="h4"><%= l('How does it works?') %></h2>
         <p>
             <%= l('It\'s quite simple:') %>
+        </p>
             <ul>
                 <li><%= l('You add an URL in Dolomon (it\'s called a dolo in Dolomon)') %></li>
                 <li><%= l('Dolomon gives you an other URL like %1 (but you can choose the URL as long as it\'s not already taken)', url_for('hit', {short => 'foo'})->to_abs->to_string) %></li>
@@ -24,6 +25,7 @@
                 <li><%= l('Visitors are on the target URL') %></li>
                 <li><%= l('Dolomon treats the jobs without impacting the redirection performances') %></li>
             </ul>
+        <p>
             <%= l('To track visits on a page, create a dolo pointing to a small transparent image (Dolomon has a helper to do that) and insert the resulting URL as an image in your page.') %>
         </p>
         <h2 class="h4"><%= l('Wordpress integration') %></h2>
