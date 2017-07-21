@@ -50,7 +50,7 @@ sub get {
 
 sub add {
     my $c    = shift;
-    my $name = xml_escape $c->param('name');
+    my $name = xml_escape($c->param('name'));
 
     if (defined $name && $name ne '') {
         my $app = Dolomon::Application->new(app => $c->app);
@@ -94,7 +94,7 @@ sub add {
 sub rename {
     my $c       = shift;
     my $id      = $c->param('id');
-    my $newname = xml_escape $c->param('name');
+    my $newname = xml_escape($c->param('name'));
 
     if (defined $newname && $newname ne '') {
         my $app  = Dolomon::Application->new(app => $c->app, id => $id);

@@ -281,7 +281,7 @@ sub get_zip {
 
 sub add {
     my $c    = shift;
-    my $name = xml_escape $c->param('name');
+    my $name = xml_escape($c->param('name'));
 
     if (defined $name && $name ne '') {
         my $cat = Dolomon::Category->new(app => $c->app);
@@ -325,7 +325,7 @@ sub add {
 sub rename {
     my $c       = shift;
     my $id      = $c->param('id');
-    my $newname = xml_escape $c->param('name');
+    my $newname = xml_escape($c->param('name'));
 
     if (defined $newname && $newname ne '') {
         my $cat  = Dolomon::Category->new(app => $c->app, id => $id);

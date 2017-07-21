@@ -300,7 +300,7 @@ sub add {
        $furl =~ s/ftp/http/;
     $errors{doloUrl} = [$c->l('The url is not a valid http, https, ftp or ftps URL.')] unless (is_web_uri($url) || is_web_uri($furl));
 
-    my $name = xml_escape $c->param('name');
+    my $name = xml_escape($c->param('name'));
     $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.')] if ($name && $dolo->is_name_taken($name, $c->param('cat_id'), 'category_id'));
 
     my $short = slugify($c->param('short'));
@@ -351,10 +351,11 @@ sub add {
         }
     ) if (scalar keys %errors);
 
+    $c->app->log->warn('short: '.$short);
     $dolo = $dolo->create({
         url           => $url,
         name          => $name,
-        extra         => xml_escape $c->param('extra'),
+        extra         => xml_escape($c->param('extra')),
         short         => $short,
         count         => $initial_count,
         initial_count => $initial_count,
@@ -416,7 +417,7 @@ sub modify {
        $furl =~ s/ftp/http/;
     $errors{doloUrl} = [$c->l('The url is not a valid http, https, ftp or ftps URL.')] unless (is_web_uri($url) || is_web_uri($furl));
 
-    my $name = xml_escape $c->param('name');
+    my $name = xml_escape($c->param('name'));
     $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.')] if ($dolo->is_name_taken($name, $c->param('cat_id'), 'category_id') && $name ne $dolo->name);
 
     my $cat = Dolomon::Category->new(app => $c->app, id => $c->param('cat_id'));
@@ -455,7 +456,7 @@ sub modify {
     $dolo = $dolo->update({
         url           => $url,
         name          => $name,
-        extra         => xml_escape $c->param('extra'),
+        extra         => xml_escape($c->param('extra')),
         expires_at    => (defined $c->param('expires_at')    && $c->param('expires_at') ne '')    ? $c->param('expires_at')    : undef,
         expires_after => (defined $c->param('expires_after') && $c->param('expires_after') ne '') ? $c->param('expires_after') : undef,
         category_id   => $cat->id,
