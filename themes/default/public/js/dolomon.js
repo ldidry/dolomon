@@ -496,6 +496,10 @@ $('#addModal').on('show.bs.modal', function(event) {
                             if (window.location.pathname.indexOf('dashboard') !== -1) {
                                 $('#dolo_nb').text(parseInt($('#dolo_nb').text()) + 1);
                             } else {
+                                data.object.name = data.object.name.replace(/&/g, '&amp;');
+                                data.object.extra = data.object.extra.replace(/&/g, '&amp;');
+                                data.object.url = data.object.url.replace(/&/g, '&amp;');
+                                data.object.short = data.object.short.replace(/&/g, '&amp;');
                                 if ($('#doloTbody').length !== 0) {
                                     $('#doloTbody').append(
                                         [
@@ -611,6 +615,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                             } else {
                                 switch(add) {
                                     case 'category':
+                                        data.object.name = data.object.name.replace(/&/g, '&amp;');
                                         if ($('#catAccordion').length !== 0) {
                                             $('#catAccordion').append(
                                                 [
@@ -663,6 +668,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                         }
                                         break;
                                     case 'tag':
+                                        data.object.name = data.object.name.replace(/&/g, '&amp;');
                                         if ($('#tagAccordion').length !== 0) {
                                             $('#tagAccordion').append(
                                                 [
@@ -715,6 +721,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                         }
                                         break;
                                     case 'app':
+                                        data.object.name = data.object.name.replace(/&/g, '&amp;');
                                         if ($('#appTbody').length !== 0) {
                                             $('#appTbody').append(
                                                 [

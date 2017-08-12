@@ -32,10 +32,18 @@
                 <td class="app-secret">
                     <%= $e->app_secret %>
                     <div class="pull-right">
-                        <a class="action-modify" href="#" data-id="<%= $e->id %>" data-action="<%= url_for('mod_app') %>" data-mod="app" data-name="<%= $e->name %>">
+                        <a class="action-modify" href="#"
+                            data-id="<%= $e->id %>"
+                            data-action="<%= url_for('mod_app') %>"
+                            data-mod="app"
+                            data-name="<%= $e->name %>">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="<%= l('Rename application') %>"></span>
                         </a>
-                        <a class="action-remove" href="#" data-id="<%= $e->id %>" data-action="<%= url_for('del_app') %>" data-rm="app" data-name="<%= $e->name %>">
+                        <a class="action-remove" href="#"
+                            data-id="<%= $e->id %>"
+                            data-action="<%= url_for('del_app') %>"
+                            data-rm="app"
+                            data-name="<%= $e->name %>">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="<%= l('Delete application') %>"></span>
                         </a>
                     </div>

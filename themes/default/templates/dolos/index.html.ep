@@ -156,6 +156,6 @@
 </div>
 %= javascript begin
     window.nextCollapse = '<%= $dolos->size + 1 %>';
-    window.mod_url      = '<%= url_for('mod_app') %>';
-    window.del_url      = '<%= url_for('del_app') %>';
+    window.mod_url      = '<%= url_for('mod_dolo') %>';
+    window.del_url      = '<%= url_for('del_dolo') %>';
 % end
