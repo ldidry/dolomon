@@ -13,6 +13,7 @@ use DateTime;
 use DateTime::Format::Pg;
 use Mojo::JSON qw(true false);
 use Mojo::File;
+use Mojolicious::Sessions;
 use Crypt::PBKDF2;
 
 # This method will run once at server start
@@ -23,6 +24,7 @@ sub startup {
 
     my $config = $self->plugin('Config' => {
         default => {
+            prefix               => '/',
             theme                => 'default',
             no_register          => 0,
             counter_delay        => 0,
@@ -195,7 +197,12 @@ sub startup {
         }
     );
 
-    $self->app->sessions->default_expiration(86400*31); # set expiry to 31 days
+    ## Configure sessions
+    my $sessions = Mojolicious::Sessions->new;
+    $sessions->cookie_name('dolomon');
+    $sessions->cookie_path($self->config('prefix'));
+    $sessions->default_expiration(86400*31); # set expiry to 31 days
+    $self->sessions($sessions);
 
     ## Hooks
     $self->app->hook(

@@ -125,4 +125,10 @@
     #    week_precision  => 12, # in weeks, one record per dolo per week, visits increment a counter
     #    month_precision => 36, # in months, one record per dolo per month, visits increment a counter
     #},
+
+    # URL sub-directory in which you want Dolomon to be accessible
+    # example: you want to have Dolomon under https://example.org/dolomon/
+    # => set prefix to '/dolomon' or to '/dolomon/', it doesn't matter
+    # optional, defaut is /
+    #prefix        => '/',
 }
