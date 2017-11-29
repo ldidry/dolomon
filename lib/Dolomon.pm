@@ -19,6 +19,8 @@ use Crypt::PBKDF2;
 sub startup {
     my $self = shift;
 
+    push @{$self->commands->namespaces}, 'Dolomon::Command';
+
     my $config = $self->plugin('Config' => {
         default => {
             theme                => 'default',
@@ -247,7 +249,6 @@ sub startup {
             $c->pg->db->query("UPDATE dolos SET expired = true WHERE expired IS false AND (created_at + (INTERVAL '1 day' * expires_at)) < current_timestamp;");
         }
     );
-
     $self->app->minion->add_task(
         hit => sub {
             my $job   = shift;

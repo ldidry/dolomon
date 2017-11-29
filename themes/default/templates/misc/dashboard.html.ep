@@ -4,7 +4,7 @@
 
 % my $h = current_user->get_stats;
 <div class="row text-center">
-    <div class="col-sm-6 col-md-2 col-md-offset-1">
+    <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
                 <h1 id="dolo_nb"><%= $h->{dolos} %></h1>
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-2">
+    <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
                 <h1><%= $h->{total} %></h1>
@@ -26,7 +26,20 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-2">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <div class="caption">
+                <h1><a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">+</a></h1>
+                <p>
+                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>"><%= l('Add a dolo') %></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <hr>
+    </div>
+    <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
                 <h1 id="cat_nb"><%= $h->{cats} %></h1>
@@ -38,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-2">
+    <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
                 <h1 id="tag_nb"><%= $h->{tags} %></h1>
@@ -50,7 +63,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-2">
+    <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
                 <h1 id="app_nb"><%= $h->{apps} %></h1>

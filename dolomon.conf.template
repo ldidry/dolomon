@@ -25,6 +25,10 @@
     # MANDATORY, no default, PLEASE, CHANGE IT
     secrets        => ['s3cr3ts'],
 
+    # choose a theme. See the available themes in `themes` directory
+    # optional, default is 'default'
+    #theme         => 'default',
+
     # Database connection details
     # See https://metacpan.org/pod/Mojolicious::Plugin::PgURLHelper#pg_url
     # for available options

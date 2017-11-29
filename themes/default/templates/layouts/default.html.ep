@@ -16,7 +16,7 @@
     </head>
     <body>
         %= include 'partial/navbar'
-        <div class="container-fluid" id="main-container">
+        <div class="container" id="main-container">
             %= include 'partial/addModal'
         % my @msgs = (flash('msg'), stash('msg'));
         % for my $msg (@msgs) {

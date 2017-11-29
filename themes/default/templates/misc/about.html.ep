@@ -1,8 +1,6 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
 % layout 'default';
 % title $self->l('About');
-<div class="row">
-    <div class="col-md-8 col-md-offset-2 col-sm-12">
         <h1 class="h3"><%= l('About') %></h1>
         <img src="<%= url_for('img/dolomon.png') %>" class="img-responsive pull-right" alt="<%= l('Zag, the Dolomon mascot') %>">
         <h2 class="h4"><%= l('What Dolomon means?') %></h2>
@@ -43,7 +41,7 @@
             <%= l('But don\'t worry, Dolomon\'s statistics are really anonymous.') %>
         </p>
     % if (config('counter_delay') > 0) {
-    <p><%== l('A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href="https://en.wikipedia.org/wiki/Do_Not_Track"><em>Do-Not-Track</em></a> header on your browser.', config('counter_delay')) %></p>
+        <p><%== l('A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href="https://en.wikipedia.org/wiki/Do_Not_Track"><em>Do-Not-Track</em></a> header on your browser.', config('counter_delay')) %></p>
     % }
         <h2 class="h4"><%= l('How do I contact the administrator of this instance?') %></h2>
         <p>
@@ -66,5 +64,3 @@
         <p>
             <%== l('The Dolomon mascot is called Zag. It has been initially designed by <a href="https://openclipart.org/user-detail/rMiszczak">Renê Gustavo Miszczak</a> under the name of <a href="https://openclipart.org/detail/204548/Red%20Oso">Red Oso</a>, have been proposed by <a href="http://cyrille.largillier.org/">Cyrille Largillier</a>, is in <a href="https://openclipart.org/share">Public Domain</a> and has been slightly modified for Dolomon.') %>
         </p>
-    </div>
-</div>
