@@ -8,6 +8,7 @@ Type=simple
 User=www-data
 WorkingDirectory=/var/www/dolomon/
 ExecStart=/usr/local/bin/carton exec script/dolomon minion worker -m production
+SyslogIdentifier=dolomon-minion
 
 [Install]
 WantedBy=multi-user.target

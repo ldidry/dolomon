@@ -13,6 +13,7 @@ PIDFile=/var/www/dolomon/script/hypnotoad.pid
 ExecStart=/usr/local/bin/carton exec hypnotoad script/mounter
 ExecStop=/usr/local/bin/carton exec hypnotoad -s script/mounter
 ExecReload=/usr/local/bin/carton exec hypnotoad script/mounter
+SyslogIdentifier=dolomon
 
 [Install]
 WantedBy=multi-user.target
