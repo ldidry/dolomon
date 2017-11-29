@@ -726,14 +726,10 @@ $('#addModal').on('show.bs.modal', function(event) {
                                             $('#appTbody').append(
                                                 [
                                                     '<tr>',
-                                                    '    <td class="name">', data.object.name,'</td>',
-                                                    '    <td class="app-id">', data.object.app_id,'</td>',
-                                                    '    <td class="app-secret">',
-                                                             data.object.app_secret,
+                                                    '    <td class="name">', data.object.name,
                                                     '        <div class="pull-right">',
                                                     '            <a class="action-modify" href="#" data-id="', data.object.id, '" data-action="', window.mod_url, '" data-mod="app" data-name="', data.object.name, '">',
-                                                    '                <span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="', i18n.modApp, '"></span>',
-                                                    '            </a>',
+                                                    '                <span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="', i18n.modApp, '"></span></a>',
                                                     '            <a class="action-remove" href="#" data-id="', data.object.id, '" data-action="', window.del_url, '" data-rm="app" data-name="', data.object.name, '">',
                                                     '                <span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="', i18n.rmApp, '"></span>',
                                                     '            </a>',

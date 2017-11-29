@@ -61,7 +61,7 @@ sub add {
                 return $c->render(
                     json => {
                         success    => true,
-                        msg        => $c->l('The application %1 has been successfully created.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>', ($app->name, $app->app_id, $app->app_secret)),
+                        msg        => $c->l('The application %1 has been successfully created. Please note the credentials below: you won\'t be able to recover them.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>', ($app->name, $app->app_id, $app->app_secret)),
                         object     => $app->as_struct
                     }
                 );

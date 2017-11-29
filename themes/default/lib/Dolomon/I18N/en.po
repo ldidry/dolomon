@@ -43,11 +43,11 @@ msgid "1 minute"
 msgstr ""
 
 #. (config('counter_delay')
-#: themes/default/templates/misc/about.html.ep:46
+#: themes/default/templates/misc/about.html.ep:44
 msgid "A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href=\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> header on your browser."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:6 themes/default/templates/partial/navbar.html.ep:110 themes/default/templates/partial/navbar.html.ep:118
+#: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:110 themes/default/templates/partial/navbar.html.ep:118
 msgid "About"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Add a category"
 msgstr ""
 
-#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:5 themes/default/templates/partial/navbar.html.ep:37
+#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:5 themes/default/templates/misc/dashboard.html.ep:34 themes/default/templates/partial/navbar.html.ep:37
 msgid "Add a dolo"
 msgstr ""
 
@@ -89,11 +89,11 @@ msgstr ""
 msgid "Application name"
 msgstr ""
 
-#: lib/Dolomon/Controller/Applications.pm:87
+#: lib/Dolomon/Controller/Applications.pm:88
 msgid "Application name blank or undefined. I refuse to create an application without name."
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:59
+#: themes/default/templates/misc/dashboard.html.ep:72
 msgid "Application(s)"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Are you sure you want to delete the tag XXXX?"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:340 lib/Dolomon/Controller/Dolos.pm:441
+#: lib/Dolomon/Controller/Dolos.pm:341 lib/Dolomon/Controller/Dolos.pm:443
 msgid "At least one of the tag you want to use for your dolo does not belong to you."
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Authentication"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:61
+#: themes/default/templates/misc/about.html.ep:59
 msgid "Author"
 msgstr ""
 
@@ -133,11 +133,11 @@ msgstr ""
 msgid "Bad CSRF token!"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:43
+#: themes/default/templates/misc/about.html.ep:41
 msgid "But don't worry, Dolomon's statistics are really anonymous."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:14
+#: themes/default/templates/misc/about.html.ep:12
 msgid "But you can also use it to track visits on a page."
 msgstr ""
 
@@ -145,7 +145,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:35
+#: themes/default/templates/misc/dashboard.html.ep:48
 msgid "Categorie(s)"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Category name"
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:318
+#: lib/Dolomon/Controller/Categories.pm:319
 msgid "Category name blank or undefined. I refuse to create a category without name."
 msgstr ""
 
@@ -202,7 +202,7 @@ msgstr ""
 msgid "Create account"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:33
+#: themes/default/templates/misc/about.html.ep:31
 msgid "Create an application in Dolomon to get credentials to use in WP-Dolomon."
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: lib/Dolomon.pm:164 lib/Dolomon/Controller/Users.pm:614
+#: lib/Dolomon.pm:168 lib/Dolomon/Controller/Users.pm:614
 msgid "Default"
 msgstr ""
 
@@ -222,11 +222,11 @@ msgstr ""
 msgid "Delete application"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:27 themes/default/templates/categories/show.html.ep:19 themes/default/templates/js/i18n.js.ep:12
+#: themes/default/templates/categories/index.html.ep:38 themes/default/templates/categories/show.html.ep:19 themes/default/templates/js/i18n.js.ep:12
 msgid "Delete category"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:101 themes/default/templates/categories/index.html.ep:77 themes/default/templates/categories/show.html.ep:140 themes/default/templates/categories/show.html.ep:164 themes/default/templates/dolos/index.html.ep:146 themes/default/templates/dolos/index.html.ep:97 themes/default/templates/dolos/show.html.ep:62 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/tags/index.html.ep:101 themes/default/templates/tags/index.html.ep:77 themes/default/templates/tags/show.html.ep:140 themes/default/templates/tags/show.html.ep:164
+#: themes/default/templates/categories/index.html.ep:108 themes/default/templates/categories/index.html.ep:152 themes/default/templates/categories/show.html.ep:140 themes/default/templates/categories/show.html.ep:164 themes/default/templates/dolos/index.html.ep:146 themes/default/templates/dolos/index.html.ep:97 themes/default/templates/dolos/show.html.ep:62 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/tags/index.html.ep:108 themes/default/templates/tags/index.html.ep:152 themes/default/templates/tags/show.html.ep:140 themes/default/templates/tags/show.html.ep:164
 msgid "Delete dolo"
 msgstr ""
 
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Delete my account"
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:19 themes/default/templates/tags/index.html.ep:27 themes/default/templates/tags/show.html.ep:19
+#: themes/default/templates/js/i18n.js.ep:19 themes/default/templates/tags/index.html.ep:38 themes/default/templates/tags/show.html.ep:19
 msgid "Delete tag"
 msgstr ""
 
@@ -246,33 +246,33 @@ msgstr ""
 msgid "Dolo(s)"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:38 themes/default/templates/categories/show.html.ep:100 themes/default/templates/dolos/index.html.ep:17 themes/default/templates/dolos/show.html.ep:13 themes/default/templates/js/i18n.js.ep:33 themes/default/templates/tags/index.html.ep:38 themes/default/templates/tags/show.html.ep:100
+#: themes/default/templates/categories/index.html.ep:50 themes/default/templates/categories/show.html.ep:100 themes/default/templates/dolos/index.html.ep:17 themes/default/templates/dolos/show.html.ep:13 themes/default/templates/js/i18n.js.ep:33 themes/default/templates/tags/index.html.ep:50 themes/default/templates/tags/show.html.ep:100
 msgid "Dolomon URL"
 msgstr ""
 
 #. (config('keep_hits')
-#: themes/default/templates/misc/about.html.ep:39
+#: themes/default/templates/misc/about.html.ep:37
 msgid "Dolomon also keeps the <a href=\"https://en.wikipedia.org/wiki/HTTP_referer\"><em>Referer</em></a> header and the date and time of the visit for %1 days."
 msgstr ""
 
 #. (url_for('hit', {short => 'foo'})
-#: themes/default/templates/misc/about.html.ep:22
+#: themes/default/templates/misc/about.html.ep:20
 msgid "Dolomon gives you an other URL like %1 (but you can choose the URL as long as it's not already taken)"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:36
+#: themes/default/templates/misc/about.html.ep:34
 msgid "Dolomon increments counters at each visit."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:58
+#: themes/default/templates/misc/about.html.ep:56
 msgid "Dolomon is licensed under the terms of the GNU AGPLv3, see the <a href=\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a> file."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:11
+#: themes/default/templates/misc/about.html.ep:9
 msgid "Dolomon tracks how many times a link was clicked on."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:26
+#: themes/default/templates/misc/about.html.ep:24
 msgid "Dolomon treats the jobs without impacting the redirection performances"
 msgstr ""
 
@@ -292,7 +292,7 @@ msgstr ""
 msgid "Email address already used. Choose another one."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:58 lib/Dolomon/Controller/Dolos.pm:39 lib/Dolomon/Controller/Dolos.pm:532 lib/Dolomon/Controller/Dolos.pm:541 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:63 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:375 lib/Dolomon/Controller/Users.pm:384 lib/Dolomon/Controller/Users.pm:406 lib/Dolomon/Controller/Users.pm:420 lib/Dolomon/Controller/Users.pm:437 lib/Dolomon/Controller/Users.pm:465 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:487 lib/Dolomon/Controller/Users.pm:510 lib/Dolomon/Controller/Users.pm:537 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:580 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
+#: lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:375 lib/Dolomon/Controller/Users.pm:384 lib/Dolomon/Controller/Users.pm:406 lib/Dolomon/Controller/Users.pm:420 lib/Dolomon/Controller/Users.pm:437 lib/Dolomon/Controller/Users.pm:465 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:487 lib/Dolomon/Controller/Users.pm:510 lib/Dolomon/Controller/Users.pm:537 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:580 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
 msgstr ""
 
@@ -312,7 +312,7 @@ msgstr ""
 msgid "First name"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:40 themes/default/templates/categories/show.html.ep:102 themes/default/templates/dolos/index.html.ep:19 themes/default/templates/dolos/show.html.ep:24 themes/default/templates/js/i18n.js.ep:35 themes/default/templates/tags/index.html.ep:40 themes/default/templates/tags/show.html.ep:102
+#: themes/default/templates/categories/index.html.ep:52 themes/default/templates/categories/show.html.ep:102 themes/default/templates/dolos/index.html.ep:19 themes/default/templates/dolos/show.html.ep:24 themes/default/templates/js/i18n.js.ep:35 themes/default/templates/tags/index.html.ep:52 themes/default/templates/tags/show.html.ep:102
 msgid "Free field"
 msgstr ""
 
@@ -320,23 +320,23 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:40
+#: themes/default/templates/misc/about.html.ep:38
 msgid "How can I opt-out Dolomon?"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:48
+#: themes/default/templates/misc/about.html.ep:46
 msgid "How do I contact the administrator of this instance?"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:16
+#: themes/default/templates/misc/about.html.ep:14
 msgid "How does it works?"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:338 lib/Dolomon/Controller/Dolos.pm:439
+#: lib/Dolomon/Controller/Dolos.pm:339 lib/Dolomon/Controller/Dolos.pm:441
 msgid "I can't find at least one of the given tag."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:321 lib/Dolomon/Controller/Dolos.pm:422
+#: lib/Dolomon/Controller/Dolos.pm:322 lib/Dolomon/Controller/Dolos.pm:424
 msgid "I can't find the given category."
 msgstr ""
 
@@ -366,11 +366,11 @@ msgstr ""
 msgid "Initial counter"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:9
+#: themes/default/templates/misc/about.html.ep:7
 msgid "It means DOwnLOad MONitor."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:18
+#: themes/default/templates/misc/about.html.ep:16
 msgid "It's quite simple:"
 msgstr ""
 
@@ -401,7 +401,7 @@ msgstr ""
 msgid "Last name"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:57
+#: themes/default/templates/misc/about.html.ep:55
 msgid "License"
 msgstr ""
 
@@ -417,15 +417,15 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:63
+#: themes/default/templates/misc/about.html.ep:61
 msgid "Make a donation to the author"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:65
+#: themes/default/templates/misc/about.html.ep:63
 msgid "Mascot"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:100 themes/default/templates/categories/index.html.ep:76 themes/default/templates/categories/show.html.ep:139 themes/default/templates/categories/show.html.ep:163 themes/default/templates/dolos/index.html.ep:136 themes/default/templates/dolos/index.html.ep:87 themes/default/templates/dolos/show.html.ep:59 themes/default/templates/js/i18n.js.ep:7 themes/default/templates/tags/index.html.ep:100 themes/default/templates/tags/index.html.ep:76 themes/default/templates/tags/show.html.ep:139 themes/default/templates/tags/show.html.ep:163
+#: themes/default/templates/categories/index.html.ep:142 themes/default/templates/categories/index.html.ep:98 themes/default/templates/categories/show.html.ep:139 themes/default/templates/categories/show.html.ep:163 themes/default/templates/dolos/index.html.ep:136 themes/default/templates/dolos/index.html.ep:87 themes/default/templates/dolos/show.html.ep:59 themes/default/templates/js/i18n.js.ep:7 themes/default/templates/tags/index.html.ep:142 themes/default/templates/tags/index.html.ep:98 themes/default/templates/tags/show.html.ep:139 themes/default/templates/tags/show.html.ep:163
 msgid "Modify dolo"
 msgstr ""
 
@@ -449,19 +449,19 @@ msgstr ""
 msgid "My wonderful tag"
 msgstr ""
 
-#: themes/default/templates/applications/index.html.ep:16 themes/default/templates/categories/index.html.ep:39 themes/default/templates/categories/show.html.ep:101 themes/default/templates/categories/show.html.ep:9 themes/default/templates/dolos/index.html.ep:18 themes/default/templates/dolos/show.html.ep:16 themes/default/templates/js/i18n.js.ep:34 themes/default/templates/tags/index.html.ep:39 themes/default/templates/tags/show.html.ep:101 themes/default/templates/tags/show.html.ep:9
+#: themes/default/templates/applications/index.html.ep:16 themes/default/templates/categories/index.html.ep:51 themes/default/templates/categories/show.html.ep:101 themes/default/templates/categories/show.html.ep:9 themes/default/templates/dolos/index.html.ep:18 themes/default/templates/dolos/show.html.ep:16 themes/default/templates/js/i18n.js.ep:34 themes/default/templates/tags/index.html.ep:51 themes/default/templates/tags/show.html.ep:101 themes/default/templates/tags/show.html.ep:9
 msgid "Name"
 msgstr ""
 
-#: lib/Dolomon/Controller/Applications.pm:139
+#: lib/Dolomon/Controller/Applications.pm:140
 msgid "New application name blank or undefined. I refuse to rename the category."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:370
+#: lib/Dolomon/Controller/Categories.pm:371
 msgid "New category name blank or undefined. I refuse to rename the category."
 msgstr ""
 
-#: lib/Dolomon/Controller/Tags.pm:375
+#: lib/Dolomon/Controller/Tags.pm:376
 msgid "New tag name blank or undefined. I refuse to rename the tag."
 msgstr ""
 
@@ -518,15 +518,15 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: themes/default/templates/applications/index.html.ep:36 themes/default/templates/js/i18n.js.ep:26
+#: themes/default/templates/applications/index.html.ep:33 themes/default/templates/js/i18n.js.ep:26
 msgid "Rename application"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:26 themes/default/templates/categories/show.html.ep:16 themes/default/templates/js/i18n.js.ep:13
+#: themes/default/templates/categories/index.html.ep:31 themes/default/templates/categories/show.html.ep:16 themes/default/templates/js/i18n.js.ep:13
 msgid "Rename category"
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:20 themes/default/templates/tags/index.html.ep:26 themes/default/templates/tags/show.html.ep:16
+#: themes/default/templates/js/i18n.js.ep:20 themes/default/templates/tags/index.html.ep:31 themes/default/templates/tags/show.html.ep:16
 msgid "Rename tag"
 msgstr ""
 
@@ -550,11 +550,11 @@ msgstr ""
 msgid "Show category"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:70 themes/default/templates/categories/show.html.ep:133 themes/default/templates/dolos/index.html.ep:63 themes/default/templates/tags/index.html.ep:70 themes/default/templates/tags/show.html.ep:133
+#: themes/default/templates/categories/index.html.ep:82 themes/default/templates/categories/show.html.ep:133 themes/default/templates/dolos/index.html.ep:63 themes/default/templates/tags/index.html.ep:82 themes/default/templates/tags/show.html.ep:133
 msgid "Show children"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:75 themes/default/templates/categories/index.html.ep:99 themes/default/templates/categories/show.html.ep:138 themes/default/templates/categories/show.html.ep:162 themes/default/templates/dolos/index.html.ep:122 themes/default/templates/dolos/index.html.ep:68 themes/default/templates/js/i18n.js.ep:4 themes/default/templates/tags/index.html.ep:75 themes/default/templates/tags/index.html.ep:99 themes/default/templates/tags/show.html.ep:138 themes/default/templates/tags/show.html.ep:162
+#: themes/default/templates/categories/index.html.ep:131 themes/default/templates/categories/index.html.ep:87 themes/default/templates/categories/show.html.ep:138 themes/default/templates/categories/show.html.ep:162 themes/default/templates/dolos/index.html.ep:122 themes/default/templates/dolos/index.html.ep:68 themes/default/templates/js/i18n.js.ep:4 themes/default/templates/tags/index.html.ep:131 themes/default/templates/tags/index.html.ep:87 themes/default/templates/tags/show.html.ep:138 themes/default/templates/tags/show.html.ep:162
 msgid "Show dolo"
 msgstr ""
 
@@ -577,29 +577,29 @@ msgid "Someone asked to renew your password on %1.\n"
 msgstr ""
 
 #. (($name, $newname)
-#: lib/Dolomon/Controller/Applications.pm:131
+#: lib/Dolomon/Controller/Applications.pm:132
 msgid "Something went wrong while renaming application %1 to %2"
 msgstr ""
 
 #. (($name, $newname)
-#: lib/Dolomon/Controller/Categories.pm:362
+#: lib/Dolomon/Controller/Categories.pm:363
 msgid "Something went wrong while renaming category %1 to %2"
 msgstr ""
 
 #. (($name, $newname)
-#: lib/Dolomon/Controller/Tags.pm:367
+#: lib/Dolomon/Controller/Tags.pm:368
 msgid "Something went wrong while renaming tag %1 to %2"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:543
+#: lib/Dolomon/Controller/Dolos.pm:545
 msgid "Sorry, this URL does not exist."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:534
+#: lib/Dolomon/Controller/Dolos.pm:536
 msgid "Sorry, this URL has expired"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:59
+#: themes/default/templates/misc/about.html.ep:57
 msgid "Sources"
 msgstr ""
 
@@ -619,11 +619,11 @@ msgstr ""
 msgid "Tag name"
 msgstr ""
 
-#: lib/Dolomon/Controller/Tags.pm:323
+#: lib/Dolomon/Controller/Tags.pm:324
 msgid "Tag name blank or undefined. I refuse to create an tag without name."
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:43 themes/default/templates/misc/dashboard.html.ep:47
+#: themes/default/templates/js/i18n.js.ep:43 themes/default/templates/misc/dashboard.html.ep:60
 msgid "Tag(s)"
 msgstr ""
 
@@ -631,7 +631,7 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:67
+#: themes/default/templates/misc/about.html.ep:65
 msgid "The Dolomon mascot is called Zag. It has been initially designed by <a href=\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> under the name of <a href=\"https://openclipart.org/detail/204548/Red%20Oso\">Red Oso</a>, have been proposed by <a href=\"http://cyrille.largillier.org/\">Cyrille Largillier</a>, is in <a href=\"https://openclipart.org/share\">Public Domain</a> and has been slightly modified for Dolomon."
 msgstr ""
 
@@ -644,112 +644,112 @@ msgid "The account linked to this token is not confirmed. Please confirm the acc
 msgstr ""
 
 #. (($app->name, $app->app_id, $app->app_secret)
-#: lib/Dolomon/Controller/Applications.pm:63
-msgid "The application %1 has been successfully created.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>"
+#: lib/Dolomon/Controller/Applications.pm:64
+msgid "The application %1 has been successfully created. Please note the credentials below: you won't be able to recover them.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>"
 msgstr ""
 
 #. ($app->name)
-#: lib/Dolomon/Controller/Applications.pm:165
+#: lib/Dolomon/Controller/Applications.pm:166
 msgid "The application %1 has been successfully deleted."
 msgstr ""
 
 #. (($name, $newname)
-#: lib/Dolomon/Controller/Applications.pm:123
+#: lib/Dolomon/Controller/Applications.pm:124
 msgid "The application %1 has been successfully renamed to %2"
 msgstr ""
 
-#: lib/Dolomon/Controller/Applications.pm:155
+#: lib/Dolomon/Controller/Applications.pm:156
 msgid "The application you're trying to delete does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Applications.pm:30
+#: lib/Dolomon/Controller/Applications.pm:31
 msgid "The application you're trying to get does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Applications.pm:105
+#: lib/Dolomon/Controller/Applications.pm:106
 msgid "The application you're trying to rename does not belong to you."
 msgstr ""
 
 #. ($cat->name)
-#: lib/Dolomon/Controller/Categories.pm:294
+#: lib/Dolomon/Controller/Categories.pm:295
 msgid "The category %1 has been successfully created."
 msgstr ""
 
 #. ($cat->name)
-#: lib/Dolomon/Controller/Categories.pm:404
+#: lib/Dolomon/Controller/Categories.pm:405
 msgid "The category %1 has been successfully deleted."
 msgstr ""
 
 #. (($name, $newname)
-#: lib/Dolomon/Controller/Categories.pm:354
+#: lib/Dolomon/Controller/Categories.pm:355
 msgid "The category %1 has been successfully renamed to %2"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:324 lib/Dolomon/Controller/Dolos.pm:425
+#: lib/Dolomon/Controller/Dolos.pm:325 lib/Dolomon/Controller/Dolos.pm:427
 msgid "The category you want to use for your dolo does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:389
+#: lib/Dolomon/Controller/Categories.pm:390
 msgid "The category you're trying to delete does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:184 lib/Dolomon/Controller/Categories.pm:29 lib/Dolomon/Controller/Categories.pm:94
+#: lib/Dolomon/Controller/Categories.pm:185 lib/Dolomon/Controller/Categories.pm:30 lib/Dolomon/Controller/Categories.pm:95
 msgid "The category you're trying to get does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:336
+#: lib/Dolomon/Controller/Categories.pm:337
 msgid "The category you're trying to rename does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:59
+#: lib/Dolomon/Controller/Categories.pm:60
 msgid "The category you're trying to show does not belong to you or does not exist."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:60
+#: themes/default/templates/misc/about.html.ep:58
 msgid "The code of Dolomon is on <a href=\"https://framagit.org/luc/dolomon\">https://framagit.org/luc/dolomon</a>."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:37
+#: themes/default/templates/misc/about.html.ep:35
 msgid "The counters are just numbers: no IP address is kept."
 msgstr ""
 
 #. (($dolo->name || $dolo->url, $c->url_for('hit', short => $dolo->short)
-#: lib/Dolomon/Controller/Dolos.pm:377
+#: lib/Dolomon/Controller/Dolos.pm:379
 msgid "The dolo %1 has been successfully created.<br>Its dolomon URL is %2."
 msgstr ""
 
 #. ($dolo->name)
-#: lib/Dolomon/Controller/Dolos.pm:498
+#: lib/Dolomon/Controller/Dolos.pm:500
 msgid "The dolo %1 has been successfully deleted."
 msgstr ""
 
 #. (($dolo->name || $dolo->url)
-#: lib/Dolomon/Controller/Dolos.pm:472
+#: lib/Dolomon/Controller/Dolos.pm:474
 msgid "The dolo %1 has been successfully modified."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:405 lib/Dolomon/Controller/Dolos.pm:488
+#: lib/Dolomon/Controller/Dolos.pm:407 lib/Dolomon/Controller/Dolos.pm:490
 msgid "The dolo you're trying to delete does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:165 lib/Dolomon/Controller/Dolos.pm:272 lib/Dolomon/Controller/Dolos.pm:75
+#: lib/Dolomon/Controller/Dolos.pm:166 lib/Dolomon/Controller/Dolos.pm:273 lib/Dolomon/Controller/Dolos.pm:76
 msgid "The dolo you're trying to get does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:40
+#: lib/Dolomon/Controller/Dolos.pm:41
 msgid "The dolo you're trying to show does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:318
+#: lib/Dolomon/Controller/Dolos.pm:319
 msgid "The initial counter must be an integer, superior or equal to 0."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:303 lib/Dolomon/Controller/Dolos.pm:419
+#: lib/Dolomon/Controller/Dolos.pm:304 lib/Dolomon/Controller/Dolos.pm:421
 msgid "The name %1 is already taken for the category you choose."
 msgstr ""
 
 #. ($name)
-#: lib/Dolomon/Controller/Applications.pm:113 lib/Dolomon/Controller/Categories.pm:344 lib/Dolomon/Controller/Tags.pm:349
+#: lib/Dolomon/Controller/Applications.pm:114 lib/Dolomon/Controller/Categories.pm:345 lib/Dolomon/Controller/Tags.pm:350
 msgid "The new name is the same as the previous: %1."
 msgstr ""
 
@@ -758,37 +758,37 @@ msgid "The passwords does not match."
 msgstr ""
 
 #. ($tag->name)
-#: lib/Dolomon/Controller/Tags.pm:299
+#: lib/Dolomon/Controller/Tags.pm:300
 msgid "The tag %1 has been successfully created."
 msgstr ""
 
 #. ($tag->name)
-#: lib/Dolomon/Controller/Tags.pm:401
+#: lib/Dolomon/Controller/Tags.pm:402
 msgid "The tag %1 has been successfully deleted."
 msgstr ""
 
 #. (($name, $newname)
-#: lib/Dolomon/Controller/Tags.pm:359
+#: lib/Dolomon/Controller/Tags.pm:360
 msgid "The tag %1 has been successfully renamed to %2"
 msgstr ""
 
-#: lib/Dolomon/Controller/Tags.pm:391
+#: lib/Dolomon/Controller/Tags.pm:392
 msgid "The tag you're trying to delete does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Tags.pm:189 lib/Dolomon/Controller/Tags.pm:34 lib/Dolomon/Controller/Tags.pm:99
+#: lib/Dolomon/Controller/Tags.pm:100 lib/Dolomon/Controller/Tags.pm:190 lib/Dolomon/Controller/Tags.pm:35
 msgid "The tag you're trying to get does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Tags.pm:341
+#: lib/Dolomon/Controller/Tags.pm:342
 msgid "The tag you're trying to rename does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Tags.pm:64
+#: lib/Dolomon/Controller/Tags.pm:65
 msgid "The tag you're trying to show does not belong to you or does not exist."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:300 lib/Dolomon/Controller/Dolos.pm:416
+#: lib/Dolomon/Controller/Dolos.pm:301 lib/Dolomon/Controller/Dolos.pm:418
 msgid "The url is not a valid http, https, ftp or ftps URL."
 msgstr ""
 
@@ -813,11 +813,11 @@ msgstr ""
 msgid "This is the final step for your registration on %1.\n"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:13
+#: themes/default/templates/misc/about.html.ep:11
 msgid "This means that it can tell you how many times a file was downloaded (it was designed for that purpose)."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:29
+#: themes/default/templates/misc/about.html.ep:27
 msgid "To track visits on a page, create a dolo pointing to a small transparent image (Dolomon has a helper to do that) and insert the resulting URL as an image in your page."
 msgstr ""
 
@@ -825,11 +825,11 @@ msgstr ""
 msgid "Total count of hits on your dolos"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:41 themes/default/templates/categories/show.html.ep:103 themes/default/templates/categories/show.html.ep:11 themes/default/templates/dolos/index.html.ep:20 themes/default/templates/dolos/show.html.ep:27 themes/default/templates/js/i18n.js.ep:37 themes/default/templates/tags/index.html.ep:41 themes/default/templates/tags/show.html.ep:103 themes/default/templates/tags/show.html.ep:11
+#: themes/default/templates/categories/index.html.ep:53 themes/default/templates/categories/show.html.ep:103 themes/default/templates/categories/show.html.ep:11 themes/default/templates/dolos/index.html.ep:20 themes/default/templates/dolos/show.html.ep:27 themes/default/templates/js/i18n.js.ep:37 themes/default/templates/tags/index.html.ep:53 themes/default/templates/tags/show.html.ep:103 themes/default/templates/tags/show.html.ep:11
 msgid "Total hits"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:37 themes/default/templates/categories/show.html.ep:99 themes/default/templates/dolos/index.html.ep:16 themes/default/templates/dolos/show.html.ep:11 themes/default/templates/js/i18n.js.ep:32 themes/default/templates/tags/index.html.ep:37 themes/default/templates/tags/show.html.ep:99
+#: themes/default/templates/categories/index.html.ep:49 themes/default/templates/categories/show.html.ep:99 themes/default/templates/dolos/index.html.ep:16 themes/default/templates/dolos/show.html.ep:11 themes/default/templates/js/i18n.js.ep:32 themes/default/templates/tags/index.html.ep:49 themes/default/templates/tags/show.html.ep:99
 msgid "URL"
 msgstr ""
 
@@ -838,32 +838,32 @@ msgid "Unable to authenticate. Please check your credentials."
 msgstr ""
 
 #. ($name)
-#: lib/Dolomon/Controller/Applications.pm:79
+#: lib/Dolomon/Controller/Applications.pm:80
 msgid "Unable to create application %1, this name is already taken. Choose another one."
 msgstr ""
 
 #. ($name)
-#: lib/Dolomon/Controller/Applications.pm:71
+#: lib/Dolomon/Controller/Applications.pm:72
 msgid "Unable to create application %1. Please contact the administrator."
 msgstr ""
 
 #. ($name)
-#: lib/Dolomon/Controller/Categories.pm:310
+#: lib/Dolomon/Controller/Categories.pm:311
 msgid "Unable to create category %1, this name is already taken. Choose another one."
 msgstr ""
 
 #. ($name)
-#: lib/Dolomon/Controller/Categories.pm:302
+#: lib/Dolomon/Controller/Categories.pm:303
 msgid "Unable to create category %1. Please contact the administrator."
 msgstr ""
 
 #. ($name)
-#: lib/Dolomon/Controller/Tags.pm:315
+#: lib/Dolomon/Controller/Tags.pm:316
 msgid "Unable to create tag %1, this name is already taken. Choose another one."
 msgstr ""
 
 #. ($name)
-#: lib/Dolomon/Controller/Tags.pm:307
+#: lib/Dolomon/Controller/Tags.pm:308
 msgid "Unable to create tag %1. Please contact the administrator."
 msgstr ""
 
@@ -871,7 +871,7 @@ msgstr ""
 msgid "Unable to find an account with this token."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:262 lib/Dolomon/Controller/Dolos.pm:243 lib/Dolomon/Controller/Tags.pm:267
+#: lib/Dolomon/Controller/Categories.pm:263 lib/Dolomon/Controller/Dolos.pm:244 lib/Dolomon/Controller/Tags.pm:268
 msgid "Unable to generate the zip file. Please contact the administrator"
 msgstr ""
 
@@ -899,27 +899,27 @@ msgstr ""
 msgid "View my tags"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:25
+#: themes/default/templates/misc/about.html.ep:23
 msgid "Visitors are on the target URL"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:8
+#: themes/default/templates/misc/about.html.ep:6
 msgid "What Dolomon means?"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:10
+#: themes/default/templates/misc/about.html.ep:8
 msgid "What does it do?"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:34
+#: themes/default/templates/misc/about.html.ep:32
 msgid "What kind of data does Dolomon keep?"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:24
+#: themes/default/templates/misc/about.html.ep:22
 msgid "When people use that URL, Dolomon redirects them to the target URL and creates a job to increment the counters"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:31
+#: themes/default/templates/misc/about.html.ep:29
 msgid "Wordpress integration"
 msgstr ""
 
@@ -931,19 +931,19 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:21
+#: themes/default/templates/misc/about.html.ep:19
 msgid "You add an URL in Dolomon (it's called a dolo in Dolomon)"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:310
+#: lib/Dolomon/Controller/Dolos.pm:311
 msgid "You already have a dolo which dolomon URL is %1."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:328 lib/Dolomon/Controller/Dolos.pm:429
+#: lib/Dolomon/Controller/Dolos.pm:329 lib/Dolomon/Controller/Dolos.pm:431
 msgid "You already have that URL in the dolos of this category."
 msgstr ""
 
-#: lib/Dolomon.pm:425
+#: lib/Dolomon.pm:433
 msgid "You are not authenticated or have not valid application credentials"
 msgstr ""
 
@@ -951,19 +951,19 @@ msgstr ""
 msgid "You are not logged in with the same account that you are trying to delete. Please, log out first."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:32
+#: themes/default/templates/misc/about.html.ep:30
 msgid "You can interact with a Dolomon server from Wordpress with the plugin <a href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:64
+#: themes/default/templates/misc/about.html.ep:62
 msgid "You can make a donation to the author on <a href=\"https://www.tipeee.com/fiat-tux\">Tipeee</a> or on <a href=\"https://liberapay.com/sky/\">Liberapay</a>."
 msgstr ""
 
-#: lib/Dolomon/Controller/Categories.pm:418
+#: lib/Dolomon/Controller/Categories.pm:419
 msgid "You can't delete this category: you need to have at least one category."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:42
+#: themes/default/templates/misc/about.html.ep:40
 msgid "You can't, sorry."
 msgstr ""
 
@@ -979,11 +979,11 @@ msgstr ""
 msgid "You have been successfully registered. You will receive a mail containing a link to finish your registration."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:392
+#: lib/Dolomon/Controller/Dolos.pm:394
 msgid "You need to provide a dolo id!"
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:23
+#: themes/default/templates/misc/about.html.ep:21
 msgid "You use the Dolomon URL instead of the target URL in your web site, your flyers, your social networks…"
 msgstr ""
 
@@ -1023,7 +1023,7 @@ msgstr ""
 msgid "Your password has been updated. You can now login with your new password."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:7 themes/default/templates/misc/index.html.ep:68
+#: themes/default/templates/misc/about.html.ep:5 themes/default/templates/misc/index.html.ep:68
 msgid "Zag, the Dolomon mascot"
 msgstr ""
 
@@ -1035,7 +1035,7 @@ msgstr ""
 msgid "example-org-logo"
 msgstr ""
 
-#: themes/default/templates/applications/index.html.ep:21 themes/default/templates/applications/index.html.ep:22 themes/default/templates/applications/index.html.ep:23 themes/default/templates/categories/index.html.ep:45 themes/default/templates/categories/index.html.ep:46 themes/default/templates/categories/index.html.ep:47 themes/default/templates/categories/index.html.ep:48 themes/default/templates/categories/index.html.ep:49 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/categories/show.html.ep:110 themes/default/templates/categories/show.html.ep:111 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:38 themes/default/templates/tags/index.html.ep:45 themes/default/templates/tags/index.html.ep:46 themes/default/templates/tags/index.html.ep:47 themes/default/templates/tags/index.html.ep:48 themes/default/templates/tags/index.html.ep:49 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109 themes/default/templates/tags/show.html.ep:110 themes/default/templates/tags/show.html.ep:111
+#: themes/default/templates/applications/index.html.ep:19 themes/default/templates/categories/index.html.ep:57 themes/default/templates/categories/index.html.ep:58 themes/default/templates/categories/index.html.ep:59 themes/default/templates/categories/index.html.ep:60 themes/default/templates/categories/index.html.ep:61 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/categories/show.html.ep:110 themes/default/templates/categories/show.html.ep:111 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:38 themes/default/templates/tags/index.html.ep:57 themes/default/templates/tags/index.html.ep:58 themes/default/templates/tags/index.html.ep:59 themes/default/templates/tags/index.html.ep:60 themes/default/templates/tags/index.html.ep:61 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109 themes/default/templates/tags/show.html.ep:110 themes/default/templates/tags/show.html.ep:111
 msgid "filter"
 msgstr ""
 

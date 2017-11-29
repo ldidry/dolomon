@@ -14,23 +14,16 @@
         <thead>
             <tr>
                 <th><%= l('Name') %></th>
-                <th>app_id</th>
-                <th>app_secret</th>
             </tr>
             <tr>
                 <td><input class="form-control filter" data-filter=".name" type="text" placeholder="<%= l('filter') %>"></td>
-                <td><input class="form-control filter" data-filter=".app-id" type="text" placeholder="<%= l('filter') %>"></td>
-                <td><input class="form-control filter" data-filter=".app-secret" type="text" placeholder="<%= l('filter') %>"></td>
             </tr>
         </thead>
         <tbody id="appTbody">
         % $apps->each(sub {
             % my ($e, $num) = @_;
             <tr>
-                <td class="name"><%= $e->name %></td>
-                <td class="app-id"><%= $e->app_id %></td>
-                <td class="app-secret">
-                    <%= $e->app_secret %>
+                <td class="name"><%= $e->name %>
                     <div class="pull-right">
                         <a class="action-modify" href="#"
                             data-id="<%= $e->id %>"
