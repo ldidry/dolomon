@@ -60,3 +60,8 @@
 .bootstrap-datetimepicker-widget {
     z-index: 99999;
 }
+.action-modify,
+.action-remove,
+.action-view {
+    font-size: 1.5em;
+}

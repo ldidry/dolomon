@@ -22,7 +22,7 @@
                 <span class="caret" aria-hidden="true" aria-label="<%= l('Show more') %>"></span>
                 <span class="badge" id="tag_badge_<%= $e->id %>" data-count="<%= $e->dolos->size %>"><%= l('%1 dolo(s)', $e->dolos->size) %></span>
                 <div class="pull-right">
-                    <a href="<%= url_for('show_tag', id => $e->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show tag') %>"></span></a>
+                    <a class="action-view" href="<%= url_for('show_tag', id => $e->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show tag') %>"></span></a>
                     <a class="action-modify" href="#"
                         data-id="<%= $e->id %>"
                         data-action="<%= url_for('mod_tag') %>"
@@ -84,7 +84,7 @@
                                     </a>
                                 % }
                                     <div class="pull-right">
-                                        <a href="<%= url_for('show_dolo', id => $d->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                                        <a class="action-view" href="<%= url_for('show_dolo', id => $d->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
                                         <a class="action-modify" href="#"
                                             data-id="<%= $d->id %>"
                                             data-action="<%= url_for('mod_dolo') %>"
@@ -128,7 +128,7 @@
                                 <td class="hits"><%= $f->count %></td>
                                 <td>
                                     <div class="pull-right">
-                                        <a href="<%= url_for('show_dolo', id => $f->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                                        <a class="action-view" href="<%= url_for('show_dolo', id => $f->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
                                         <a class="action-modify" href="#"
                                              data-id="<%= $f->id %>"
                                              data-action="<%= url_for('mod_dolo') %>"

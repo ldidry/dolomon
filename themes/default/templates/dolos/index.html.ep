@@ -65,7 +65,7 @@
                     </a>
             % }
                     <div class="pull-right">
-                        <a href="<%= url_for('show_dolo', id => $e->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                        <a class="action-view" class="action-view" href="<%= url_for('show_dolo', id => $e->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
                         % my @tags;
                         % for my $tag (@{$e->tags}) {
                         %     push @tags, $tag->{id};
@@ -119,7 +119,7 @@
                 <td class="will-expire"><%= (defined($f->expires_at) || defined($f->expires_after)) ? l('Yes') : l('No') %></td>
                 <td>
                     <div class="pull-right">
-                        <a href="<%= url_for('show_dolo', id => $f->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
+                        <a class="action-view" href="<%= url_for('show_dolo', id => $f->id) %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" aria-label="<%= l('Show dolo') %>"></span></a>
                         <a class="action-modify" href="#"
                             data-id="<%= $f->id %>"
                             data-action="<%= url_for('mod_dolo') %>"
