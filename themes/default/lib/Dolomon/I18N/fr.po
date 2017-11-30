@@ -73,7 +73,7 @@ msgstr "Ajouter une application"
 
 #: themes/default/templates/categories/show.html.ep:61 themes/default/templates/dolos/show.html.ep:104 themes/default/templates/tags/show.html.ep:61
 msgid "Aggregate data per"
-msgstr "Aggréger les données par"
+msgstr "Agréger les données par"
 
 #. ($user->mail)
 #: lib/Dolomon/Controller/Users.pm:216
@@ -91,7 +91,7 @@ msgstr "Nom de l’application"
 
 #: lib/Dolomon/Controller/Applications.pm:88
 msgid "Application name blank or undefined. I refuse to create an application without name."
-msgstr "Le nom d’une application ne peut être nul. Je refuse de créer une application sans nom."
+msgstr "Le nom d’une application ne peut être inexistant. Je refuse de créer une application sans nom."
 
 #: themes/default/templates/misc/dashboard.html.ep:72
 msgid "Application(s)"
@@ -103,19 +103,19 @@ msgstr "Applications"
 
 #: themes/default/templates/js/i18n.js.ep:27
 msgid "Are you sure you want to delete the application XXXX?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer l’application XXXX ?"
+msgstr "Voulez-vous vraiment supprimer l’application XXXX ?"
 
 #: themes/default/templates/js/i18n.js.ep:14
 msgid "Are you sure you want to delete the category XXXX?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer la catégorie XXXX ?"
+msgstr "Voulez-vous vraiment supprimer la catégorie XXXX ?"
 
 #: themes/default/templates/js/i18n.js.ep:8
 msgid "Are you sure you want to delete the dolo XXXX?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer le dolo XXXX ?"
+msgstr "Voulez-vous vraiment supprimer le dolo XXXX ?"
 
 #: themes/default/templates/js/i18n.js.ep:21
 msgid "Are you sure you want to delete the tag XXXX?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer l’étiquette XXXX ?"
+msgstr "Voulez-vous vraiment supprimer l’étiquette XXXX ?"
 
 #: lib/Dolomon/Controller/Dolos.pm:341 lib/Dolomon/Controller/Dolos.pm:443
 msgid "At least one of the tag you want to use for your dolo does not belong to you."
@@ -163,7 +163,7 @@ msgstr "Nom de la catégorie"
 
 #: lib/Dolomon/Controller/Categories.pm:319
 msgid "Category name blank or undefined. I refuse to create a category without name."
-msgstr "Le nom d’une catégorie ne peut être nul. Je refuse de créer une catégorie sans nom."
+msgstr "Le nom d’une catégorie ne peut être inexistant. Je refuse de créer une catégorie sans nom."
 
 #: themes/default/templates/partial/navbar.html.ep:103
 msgid "Change account details"
@@ -262,7 +262,7 @@ msgstr "Dolomon vous donne une URL comme %1 (mais vous avez le choix de l’URL 
 
 #: themes/default/templates/misc/about.html.ep:34
 msgid "Dolomon increments counters at each visit."
-msgstr "Dolomon incrémente des compteurs à chaque visite."
+msgstr "Dolomon incrémente les compteurs à chaque visite."
 
 #: themes/default/templates/misc/about.html.ep:56
 msgid "Dolomon is licensed under the terms of the GNU AGPLv3, see the <a href=\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a> file."
@@ -290,7 +290,7 @@ msgstr "Courriel"
 
 #: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:562
 msgid "Email address already used. Choose another one."
-msgstr "Cette adresse de courriel est déjà utilisé. Veuillez en choisir un autre"
+msgstr "Cette adresse de courriel est déjà utilisée. Veuillez en choisir une autre"
 
 #: lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:375 lib/Dolomon/Controller/Users.pm:384 lib/Dolomon/Controller/Users.pm:406 lib/Dolomon/Controller/Users.pm:420 lib/Dolomon/Controller/Users.pm:437 lib/Dolomon/Controller/Users.pm:465 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:487 lib/Dolomon/Controller/Users.pm:510 lib/Dolomon/Controller/Users.pm:537 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:580 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
@@ -368,7 +368,7 @@ msgstr "Compteur initial"
 
 #: themes/default/templates/misc/about.html.ep:7
 msgid "It means DOwnLOad MONitor."
-msgstr "Cela vient de DOwnLOad MONitor."
+msgstr "Cela signifie DOwnLOad MONitor."
 
 #: themes/default/templates/misc/about.html.ep:16
 msgid "It's quite simple:"
@@ -569,12 +569,12 @@ msgstr "Montrer l’étiquette"
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:202
 msgid "Someone asked to delete your account on %1.\n"
-msgstr "Quelqu’un a demandé à supprimer votre comte sur %1.\n"
+msgstr "Quelqu’un a demandé à supprimer votre compte sur %1.\n"
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:355
 msgid "Someone asked to renew your password on %1.\n"
-msgstr "Quelqu’un a demandé à renouveller votre mot de passe sur %1.\n"
+msgstr "Quelqu’un a demandé à renouveler votre mot de passe sur %1.\n"
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Applications.pm:132
@@ -945,7 +945,7 @@ msgstr "Vous avez déjà cette URL dans les dolos de cette catégorie."
 
 #: lib/Dolomon.pm:433
 msgid "You are not authenticated or have not valid application credentials"
-msgstr "Vous n’êtes pas authentifié·e ou n’avez pas d’identifians d’application valides"
+msgstr "Vous n’êtes pas authentifié·e ou n’avez pas d’identifiants d’application valides"
 
 #: lib/Dolomon/Controller/Users.pm:50
 msgid "You are not logged in with the same account that you are trying to delete. Please, log out first."
