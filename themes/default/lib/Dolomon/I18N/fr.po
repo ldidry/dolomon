@@ -356,11 +356,11 @@ msgstr "Si vous souhaitez supprimer votre compte, veuillez cliquer sur ce lien 
 
 #: themes/default/templates/js/i18n.js.ep:48
 msgid "In how many days after the first visit will it expires? (optional)"
-msgstr "Dans combien de jours après la première visite expirera-t-il ? (optionnel)"
+msgstr "Dans combien de jours après la première visite expirera-t-il ? (facultatif)"
 
 #: themes/default/templates/js/i18n.js.ep:47
 msgid "In how many days will it expires? (optional)"
-msgstr "Dans combien de jours expirera-t-il ? (optionnel)"
+msgstr "Dans combien de jours expirera-t-il ? (facultatif)"
 
 #: themes/default/templates/js/i18n.js.ep:41
 msgid "Initial counter"
@@ -917,7 +917,7 @@ msgstr "Quels types de données Dolomon conserve-t-il ?"
 
 #: themes/default/templates/misc/about.html.ep:22
 msgid "When people use that URL, Dolomon redirects them to the target URL and creates a job to increment the counters"
-msgstr "Lorsque des personnes utilisent cette URL, Dolomon les redirigent vers l’URL cible et crée une tâche pour incrémenter les compteurs"
+msgstr "Lorsque des personnes utilisent cette URL, Dolomon les redirige vers l’URL cible et crée une tâche pour incrémenter les compteurs"
 
 #: themes/default/templates/misc/about.html.ep:29
 msgid "Wordpress integration"
