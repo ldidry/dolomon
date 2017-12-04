@@ -19,9 +19,9 @@
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
-                <h1><%= $h->{total} %></h1>
+                <h1><a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">+</a></h1>
                 <p>
-                    <%= l('Total count of hits on your dolos') %>
+                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>"><%= l('Add a dolo') %></a>
                 </p>
             </div>
         </div>
@@ -29,9 +29,9 @@
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
-                <h1><a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">+</a></h1>
+                <h1><%= $h->{total} %></h1>
                 <p>
-                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>"><%= l('Add a dolo') %></a>
+                    <%= l('Total count of hits on your dolos') %>
                 </p>
             </div>
         </div>
