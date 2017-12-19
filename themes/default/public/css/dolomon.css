@@ -60,10 +60,10 @@
 .bootstrap-datetimepicker-widget {
     z-index: 99999;
 }
-.action-modify,
-.action-remove,
-.action-view {
-    font-size: 1.5em;
+.dropdown .action-modify,
+.dropdown .action-remove,
+.dropdown .action-view {
+    color: #337ab7 !important;
 }
 .clickable {
     cursor: pointer;
@@ -71,9 +71,9 @@
 /*
  * Show dolo page
  */
-.show-dolo p span,
-.show-dolo p a {
+.show-dolo p span {
     margin-right: 0.5em;
+    margin-left: 0.5em;
 }
 /*
  * Spinner

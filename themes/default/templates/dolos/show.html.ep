@@ -5,10 +5,13 @@
 %= include 'partial/modModal'
 %= include 'partial/rmModal'
 % my @tags;
+% my $i = 0;
 % if (defined stash('dolo')) {
 <div class="show-dolo">
     % if ($dolo->name) {
-        <h1><%= $dolo->name %></h1>
+    <h1><span class="glyphicon glyphicon-link" aria-hidden="true"></span> <%= $dolo->name %></h1>
+    % } else {
+    <h1><span class="glyphicon glyphicon-link" aria-hidden="true"></span> <%= l('Unnamed dolo') %></h1>
     % }
     <p>
         <span class="glyphicon glyphicon-folder-open" aria-hidden="true" title="<%= l('Category') %>"></span>
@@ -18,7 +21,8 @@
         <span class="glyphicon glyphicon-tags" aria-hidden="true" title="<%= l('Tags') %>"></span>
             <span class="sr-only"><%= l('Tags') %></span>
         % for my $tag (@{$dolo->tags}) {
-            <a href="<%= url_for('show_tag', id => $tag->{id}) %>"><%= $tag->{name} %></a>
+        %     $i++;
+            <a href="<%= url_for('show_tag', id => $tag->{id}) %>"><%= $tag->{name} %></a><%= ($i != scalar(@{$dolo->tags})) ? ', ' : '' %>
         %     push @tags, $tag->{id};
         % }
     % }
@@ -143,7 +147,7 @@
             </div>
         </div>
     </div>
-    <div class="table-responsive">
+    <div class="table">
         <table class="table table-striped table-condensed">
             <thead>
                 <tr>
