@@ -121,11 +121,13 @@ function aModify(event) {
                     '</div>',
                     '<div class="form-group">',
                     '    <label for="cat">', i18n.category,'</label>',
+                    '    (<a href="#" class="sub-mod" data-addtarget="category">', i18n.addCat,'</a>)',
                     '    <select class="form-control" name="cat" id="catList" required="required">',
                     '    </select>',
                     '</div>',
                     '<div class="form-group">',
                     '    <label for="tag">', i18n.tags,'</label>',
+                    '    (<a href="#" class="sub-mod" data-addtarget="tag">', i18n.addTag,'</a>)',
                     '    <select multiple class="form-control" name="tag" id="tagList">',
                     '    </select>',
                     '</div>',
@@ -154,6 +156,14 @@ function aModify(event) {
                     }
                 }
             });
+            $('.sub-mod').click(function(e) {
+                e.preventDefault();
+                var t = $(this);
+                $('[data-dismiss="modal"]').click();
+                setTimeout(function() {
+                    $('[data-add="'+t.data('addtarget')+'"]')[0].click();
+                }, 500);
+            })
             $.ajax({
                 method: 'GET',
                 url: url.get_cats,
@@ -384,13 +394,13 @@ $('#addModal').on('show.bs.modal', function(event) {
                     '</div>',
                     '<div class="form-group">',
                     '    <label for="cat">', i18n.category,'</label>',
-                    //'    (<a href="#" data-toggle="modal" data-target="#addModal" data-add="category" data-action="', url.add_cat,'">', i18n.addCat,'</a>)',
+                    '    (<a href="#" class="sub-add" data-addtarget="category">', i18n.addCat,'</a>)',
                     '    <select class="form-control" name="cat" id="catList" required="required">',
                     '    </select>',
                     '</div>',
                     '<div class="form-group">',
                     '    <label for="tag">', i18n.tags,'</label>',
-                    //'    (<a href="#" data-toggle="modal" data-target="#addModal" data-add="tag" data-action="', url.add_tag,'">', i18n.addTag,'</a>)',
+                    '    (<a href="#" class="sub-add" data-addtarget="tag">', i18n.addTag,'</a>)',
                     '    <select multiple class="form-control" name="tag" id="tagList">',
                     '    </select>',
                     '</div>',
@@ -419,6 +429,14 @@ $('#addModal').on('show.bs.modal', function(event) {
                     }
                 }
             });
+            $('.sub-add').click(function(e) {
+                e.preventDefault();
+                var t = $(this);
+                $('[data-dismiss="modal"]').click();
+                setTimeout(function() {
+                    $('[data-add="'+t.data('addtarget')+'"]')[0].click();
+                }, 500);
+            })
             $.ajax({
                 method: 'GET',
                 url: url.get_cats,
