@@ -6,39 +6,50 @@
 %= include 'partial/rmModal'
 % my @tags;
 % if (defined stash('dolo')) {
-<div>
-    <dl>
-        <dt><%= l('URL') %></dt>
-        <dd><a href="<%= $dolo->url %>"><%= $dolo->url %></a></dd>
-        <dt><%= l('Dolomon URL') %></dt>
-        <dd><a href="<%= url_for('hit', short => $dolo->short)->to_abs %>"><%= url_for('hit', short => $dolo->short)->to_abs %></a></dt>
+<div class="show-dolo">
     % if ($dolo->name) {
-        <dt><%= l('Name') %></dt>
-        <dd><%= $dolo->name %></dt>
+        <h1><%= $dolo->name %></h1>
     % }
-        <dt><%= l('Created at') %></dt>
-        <dd class="date-to-format"><%= $dolo->created_at %></dt>
-        <dt><%= l('Expired?') %></dt>
-        <dd><%= ($dolo->expired) ? l('Yes') : l('No') %></dt>
-    % if ($dolo->extra) {
-        <dt><%= l('Free field') %></dt>
-        <dd><%= $dolo->extra %></dt>
-    % }
-        <dt><%= l('Total hits') %></dt>
-        <dd><%= $dolo->count %></dt>
-        <dt><%= l('Category') %></dt>
-        <dd><a href="<%= url_for('show_cat', id => $dolo->category_id) %>"><%= $dolo->category_name %></a></dd>
+    <p>
+        <span class="glyphicon glyphicon-folder-open" aria-hidden="true" title="<%= l('Category') %>"></span>
+            <span class="sr-only"><%= l('Category') %></span>
+            <a href="<%= url_for('show_cat', id => $dolo->category_id) %>"><%= $dolo->category_name %></a>
     % if (scalar @{$dolo->tags}) {
-        <dt><%= l('Tags') %></dt>
-        <dd>
-            <ul id="doloTagList">
-            % for my $tag (@{$dolo->tags}) {
-                <li><a href="<%= url_for('show_tag', id => $tag->{id}) %>"><%= $tag->{name} %></a></li>
-            %     push @tags, $tag->{id};
-            % }
-            </ul>
-        </dd>
+        <span class="glyphicon glyphicon-tags" aria-hidden="true" title="<%= l('Tags') %>"></span>
+            <span class="sr-only"><%= l('Tags') %></span>
+        % for my $tag (@{$dolo->tags}) {
+            <a href="<%= url_for('show_tag', id => $tag->{id}) %>"><%= $tag->{name} %></a>
+        %     push @tags, $tag->{id};
+        % }
     % }
+    </p>
+    <p>
+        <span class="glyphicon glyphicon-screenshot" aria-hidden="true" title="<%= l('URL') %>"></span>
+            <span class="sr-only"><%= l('URL') %></span>
+            <a href="<%= $dolo->url %>"><%= $dolo->url %></a>
+        <span class="glyphicon glyphicon-link" aria-hidden="true" title="<%= l('Dolomon URL') %>"></span>
+            <span class="sr-only"><%= l('Dolomon URL') %></span>
+            <a href="<%= url_for('hit', short => $dolo->short)->to_abs %>"><%= url_for('hit', short => $dolo->short)->to_abs %></a>
+    </p>
+    <p>
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true" title="<%= l('Created at') %>"></span>
+            <span class="sr-only"><%= l('Created at') %></span>
+            <span class="date-to-format"><%= $dolo->created_at %></span>
+    </p>
+    <p>
+        <strong><%= l('Expired?') %></strong> <%= ($dolo->expired) ? l('Yes') : l('No') %>
+    % if ($dolo->extra) {
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="<%= l('Free field') %>"></span>
+            <span class="sr-only"><%= l('Free field') %></span>
+            <%= $dolo->extra %>
+    % }
+    </p>
+    <p>
+        <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="<%= l('Total hits') %>"></span>
+            <span class="sr-only"><%= l('Total hits') %></span>
+            <%= l('%1 hits', $dolo->count) %>
+    </p>
+    <dl>
     % if ($dolo->children->size) {
         <dt><%= l('Children') %></dt>
         <dd>

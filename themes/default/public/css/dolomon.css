@@ -69,6 +69,13 @@
     cursor: pointer;
 }
 /*
+ * Show dolo page
+ */
+.show-dolo p span,
+.show-dolo p a {
+    margin-right: 0.5em;
+}
+/*
  * Spinner
  */
 .loader {
