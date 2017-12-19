@@ -11,6 +11,9 @@
         proxy => 1,
     },
 
+    # Make some accounts administrator (use login)
+    #admins => ['jean-claude', 'duss'],
+
     # put a way to contact you here and uncomment it
     # keys of this hash are language code (add as much as you want)
     # except for 'default' that indicates which is the default language to use if non matches the user's browser language

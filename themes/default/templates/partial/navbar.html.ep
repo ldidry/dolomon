@@ -106,6 +106,11 @@
                         <li class="mono"><a href="<%= url_for('logout') %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;<%= l('Logout') %></a></li>
                     </ul>
                 </li>
+            % if ($self->current_user->{is_admin}) {
+                <li<%== $self->active('admin') %>>
+                    <a href="<%= url_for('admin') %>" title="<%= l('About') %>" ><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('Administration') %></span></a>
+                </li>
+            % }
                 <li<%== $self->active('about') %>>
                     <a href="<%= url_for('about') %>" title="<%= l('About') %>" ><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('About') %></span></a>
                 </li>

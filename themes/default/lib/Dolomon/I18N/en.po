@@ -47,7 +47,7 @@ msgstr ""
 msgid "A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href=\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> header on your browser."
 msgstr ""
 
-#: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:110 themes/default/templates/partial/navbar.html.ep:118
+#: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:111 themes/default/templates/partial/navbar.html.ep:115 themes/default/templates/partial/navbar.html.ep:123
 msgid "About"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Add a category"
 msgstr ""
 
-#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:5 themes/default/templates/misc/dashboard.html.ep:34 themes/default/templates/partial/navbar.html.ep:37
+#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:5 themes/default/templates/misc/dashboard.html.ep:24 themes/default/templates/partial/navbar.html.ep:37
 msgid "Add a dolo"
 msgstr ""
 
@@ -69,6 +69,10 @@ msgstr ""
 
 #: themes/default/templates/applications/index.html.ep:9 themes/default/templates/js/i18n.js.ep:24 themes/default/templates/partial/navbar.html.ep:91
 msgid "Add an application"
+msgstr ""
+
+#: themes/default/templates/misc/admin.html.ep:3 themes/default/templates/misc/admin.html.ep:5 themes/default/templates/partial/navbar.html.ep:111
+msgid "Administration"
 msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:61 themes/default/templates/dolos/show.html.ep:104 themes/default/templates/tags/show.html.ep:61
@@ -193,6 +197,10 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
+#: themes/default/templates/misc/admin.html.ep:22
+msgid "Confirmed"
+msgstr ""
+
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:181 themes/default/templates/dolos/show.html.ep:140 themes/default/templates/tags/show.html.ep:181
 msgid "Count (on last %1 days)"
@@ -214,7 +222,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: lib/Dolomon.pm:168 lib/Dolomon/Controller/Users.pm:614
+#: lib/Dolomon.pm:175 lib/Dolomon/Controller/Users.pm:614
 msgid "Default"
 msgstr ""
 
@@ -280,8 +288,16 @@ msgstr ""
 msgid "Dolos"
 msgstr ""
 
+#: themes/default/templates/misc/admin.html.ep:24
+msgid "Dolos number"
+msgstr ""
+
 #: themes/default/templates/categories/show.html.ep:87 themes/default/templates/dolos/show.html.ep:130 themes/default/templates/tags/show.html.ep:87
 msgid "Download datas in CSV format"
+msgstr ""
+
+#: themes/default/templates/misc/admin.html.ep:21
+msgid "Email"
 msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:49 themes/default/templates/misc/index.html.ep:50 themes/default/templates/users/index.html.ep:15 themes/default/templates/users/index.html.ep:16 themes/default/templates/users/send_mail.html.ep:10 themes/default/templates/users/send_mail.html.ep:20 themes/default/templates/users/send_mail.html.ep:21 themes/default/templates/users/send_mail.html.ep:9
@@ -308,7 +324,7 @@ msgstr ""
 msgid "Expired?"
 msgstr ""
 
-#: themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
+#: themes/default/templates/misc/admin.html.ep:19 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
 msgstr ""
 
@@ -397,7 +413,11 @@ msgstr ""
 msgid "Last %1 weeks"
 msgstr ""
 
-#: themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
+#: themes/default/templates/misc/admin.html.ep:23
+msgid "Last login"
+msgstr ""
+
+#: themes/default/templates/misc/admin.html.ep:20 themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
 msgid "Last name"
 msgstr ""
 
@@ -405,7 +425,11 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
+#: themes/default/templates/misc/admin.html.ep:9
+msgid "Loading…"
+msgstr ""
+
+#: themes/default/templates/misc/admin.html.ep:18 themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
 msgid "Login"
 msgstr ""
 
@@ -465,7 +489,11 @@ msgstr ""
 msgid "New tag name blank or undefined. I refuse to rename the tag."
 msgstr ""
 
-#: themes/default/templates/dolos/index.html.ep:118 themes/default/templates/dolos/index.html.ep:119 themes/default/templates/dolos/index.html.ep:133 themes/default/templates/dolos/index.html.ep:34 themes/default/templates/dolos/index.html.ep:41 themes/default/templates/dolos/index.html.ep:58 themes/default/templates/dolos/index.html.ep:59 themes/default/templates/dolos/index.html.ep:84 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/js/i18n.js.ep:50
+#: themes/default/templates/misc/admin.html.ep:39
+msgid "Next"
+msgstr ""
+
+#: themes/default/templates/dolos/index.html.ep:118 themes/default/templates/dolos/index.html.ep:119 themes/default/templates/dolos/index.html.ep:133 themes/default/templates/dolos/index.html.ep:34 themes/default/templates/dolos/index.html.ep:41 themes/default/templates/dolos/index.html.ep:58 themes/default/templates/dolos/index.html.ep:59 themes/default/templates/dolos/index.html.ep:84 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/js/i18n.js.ep:50 themes/default/templates/misc/admin.html.ep:37
 msgid "No"
 msgstr ""
 
@@ -508,6 +536,10 @@ msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:163 lib/Dolomon/Controller/Users.pm:258 lib/Dolomon/Controller/Users.pm:574
 msgid "Please, choose a password with at least 8 characters."
+msgstr ""
+
+#: themes/default/templates/misc/admin.html.ep:38
+msgid "Previous"
 msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:180 themes/default/templates/dolos/show.html.ep:139 themes/default/templates/tags/show.html.ep:180
@@ -821,7 +853,7 @@ msgstr ""
 msgid "To track visits on a page, create a dolo pointing to a small transparent image (Dolomon has a helper to do that) and insert the resulting URL as an image in your page."
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:24
+#: themes/default/templates/misc/dashboard.html.ep:34
 msgid "Total count of hits on your dolos"
 msgstr ""
 
@@ -927,7 +959,7 @@ msgstr ""
 msgid "Write whatever you want"
 msgstr ""
 
-#: themes/default/templates/dolos/index.html.ep:118 themes/default/templates/dolos/index.html.ep:119 themes/default/templates/dolos/index.html.ep:133 themes/default/templates/dolos/index.html.ep:35 themes/default/templates/dolos/index.html.ep:42 themes/default/templates/dolos/index.html.ep:58 themes/default/templates/dolos/index.html.ep:59 themes/default/templates/dolos/index.html.ep:84 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/js/i18n.js.ep:49
+#: themes/default/templates/dolos/index.html.ep:118 themes/default/templates/dolos/index.html.ep:119 themes/default/templates/dolos/index.html.ep:133 themes/default/templates/dolos/index.html.ep:35 themes/default/templates/dolos/index.html.ep:42 themes/default/templates/dolos/index.html.ep:58 themes/default/templates/dolos/index.html.ep:59 themes/default/templates/dolos/index.html.ep:84 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/js/i18n.js.ep:49 themes/default/templates/misc/admin.html.ep:36
 msgid "Yes"
 msgstr ""
 
@@ -943,7 +975,7 @@ msgstr ""
 msgid "You already have that URL in the dolos of this category."
 msgstr ""
 
-#: lib/Dolomon.pm:433
+#: lib/Dolomon.pm:440
 msgid "You are not authenticated or have not valid application credentials"
 msgstr ""
 

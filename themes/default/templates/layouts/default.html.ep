@@ -53,5 +53,8 @@
         %= javascript '/js/moment-round.min.js'
         %= javascript '/js/bootstrap-datetimepicker.min.js'
     % }
+    % if (current_route('admin')) {
+        %= javascript '/js/dolomon-admin.js'
+    % }
     </body>
 </html>

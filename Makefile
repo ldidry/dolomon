@@ -11,7 +11,7 @@ locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(FR) 2>/dev/null
 
 dev:
-	$(CARTON) morbo $(DOLOMON) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch dolomon.conf
+	$(CARTON) morbo $(DOLOMON) --listen http://127.0.0.1:8400 --watch themes/ --watch dolomon.conf --watch lib/
 
 devlog:
 	multitail log/development.log

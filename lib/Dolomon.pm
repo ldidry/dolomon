@@ -1,5 +1,6 @@
 package Dolomon;
 use Mojo::Base 'Mojolicious';
+use Mojo::Collection 'c';
 use Dolomon::User;
 use Dolomon::Category;
 use Dolomon::Dolo;
@@ -25,6 +26,7 @@ sub startup {
     my $config = $self->plugin('Config' => {
         default => {
             prefix               => '/',
+            admins               => [],
             theme                => 'default',
             no_register          => 0,
             counter_delay        => 0,
@@ -93,6 +95,12 @@ sub startup {
                 return undef unless defined $uid;
 
                 my $user = Dolomon::User->new(app => $c->app, 'id', $uid);
+                if (defined $c->config('admins')) {
+                    my $is_admin = c(@{$c->app->config('admins')})->map(sub {$_ eq $user->login});
+                    $user->{is_admin} = $is_admin->size;
+                } else {
+                    $user->{is_admin} = 0;
+                }
 
                 return $user;
             },
@@ -393,7 +401,7 @@ sub startup {
 
     ## Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
-    if ($ENV{DOLOMON_DEV}) {
+    if ($ENV{DOLOMON_DEV} && 0) {
         $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(1);
         $self->app->minion->reset;
     } else {
@@ -439,6 +447,12 @@ sub startup {
         return $res;
     });
 
+    $r->add_condition(is_admin => sub {
+        my ($r, $c, $captures, $required) = @_;
+        return 0 unless $c->is_user_authenticated;
+        return $c->current_user->{is_admin};
+    });
+
     # CORS headers for API
     $r->options('/api/*')->
         to('Misc#cors');
@@ -454,6 +468,11 @@ sub startup {
     $r->get('/about')->
         name('about')->
         to('Misc#about');
+
+    $r->get('/admin')->
+        over('is_admin')->
+        name('admin')->
+        to('Admin#index');
 
     unless ($self->config('no_register')) {
         $r->post('/register')->
@@ -664,6 +683,11 @@ sub startup {
         over(authenticated_or_application => 1)->
         name('del_app')->
         to('Applications#delete');
+
+    $r->get('/api/admin/users')->
+        over(is_admin => 1)->
+        name('admin_get_users')->
+        to('Admin#get_users');
 
     $r->get('/user')->
         over(authenticated_or_application => 1)->

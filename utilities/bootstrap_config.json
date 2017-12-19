@@ -393,6 +393,8 @@
     "input-groups.less",
     "navs.less",
     "navbar.less",
+    "pagination.less",
+    "pager.less",
     "badges.less",
     "alerts.less",
     "progress-bars.less",

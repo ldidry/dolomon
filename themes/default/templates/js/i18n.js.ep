@@ -59,6 +59,8 @@ var url = {
     show_dolo:  '<%= url_for('show_dolo') %>',
     show_cat:   '<%= url_for('show_cat') %>',
     show_tag:   '<%= url_for('show_tag') %>',
+    add_cat:    '<%= url_for('add_cat') %>',
+    add_tag:    '<%= url_for('add_tag') %>',
 };
 $.ready(function() {
     $().alert();
