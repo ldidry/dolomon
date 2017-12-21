@@ -114,7 +114,7 @@
                 </li>
             % if ($self->current_user->{is_admin}) {
                 <li<%== $self->active('admin') %>>
-                    <a href="<%= url_for('admin') %>" title="<%= l('About') %>" ><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('Administration') %></span></a>
+                    <a href="<%= url_for('admin') %>" title="<%= l('Administration') %>" ><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('Administration') %></span></a>
                 </li>
             % }
                 <li<%== $self->active('about') %>>
