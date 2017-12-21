@@ -96,7 +96,7 @@ sub startup {
 
                 my $user = Dolomon::User->new(app => $c->app, 'id', $uid);
                 if (defined $c->config('admins')) {
-                    my $is_admin = c(@{$c->app->config('admins')})->map(sub {$_ eq $user->login});
+                    my $is_admin = c(@{$c->app->config('admins')})->grep(sub {$_ eq $user->login});
                     $user->{is_admin} = $is_admin->size;
                 } else {
                     $user->{is_admin} = 0;
@@ -688,6 +688,21 @@ sub startup {
         over(is_admin => 1)->
         name('admin_get_users')->
         to('Admin#get_users');
+
+    $r->delete('/api/admin/users')->
+        over(is_admin => 1)->
+        name('admin_remove_user')->
+        to('Admin#remove_user');
+
+    $r->post('/api/admin/impersonate')->
+        over(is_admin => 1)->
+        name('admin_impersonate')->
+        to('Admin#impersonate');
+
+    $r->get('/api/admin/stop_impersonate')->
+        over(authenticated_or_application => 1)->
+        name('admin_stop_impersonate')->
+        to('Admin#stop_impersonate');
 
     $r->get('/user')->
         over(authenticated_or_application => 1)->

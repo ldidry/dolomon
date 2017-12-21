@@ -39,6 +39,7 @@
                         <th class="clickable text-center" id="confirmed"><%= l('Confirmed') %></th>
                         <th class="clickable text-center" id="last_login"><%= l('Last login') %></th>
                         <th class="clickable text-center" id="dolos_nb"><%= l('Dolos number') %></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,13 +49,6 @@
     </div>
 </div>
 %= javascript begin
-var getUserDataUrl = '<%= url_for('admin_get_users') %>';
-var i18n = {
-    yes:      '<%= l('Yes') %>',
-    no:       '<%= l('No') %>',
-    previous: '<%= l('Previous') %>',
-    next:     '<%= l('Next') %>',
-};
 var settings = {
     page:   <%= stash('page') %>,
     nb:     <%= stash('nb') %>,

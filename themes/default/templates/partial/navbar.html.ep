@@ -101,15 +101,19 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<%= $self->current_user->first_name.' '.$self->current_user->last_name %><span class="caret"></span>
+                        <span class="glyphicon glyphicon-<%= (defined($self->cookie('real_user'))) ? 'sunglasses red' : 'user' %>" aria-hidden="true"></span>&nbsp;<%= $self->current_user->first_name.' '.$self->current_user->last_name %><span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="mono"><a href="#" class="nolink"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;<%= $self->current_user->mail %></a></li>
-                        % if ($self->current_user->password) {
+                    % if ($self->current_user->password) {
                         <li class="mono"><a href="<%= url_for('user') %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;<%= l('Change account details') %></a></li>
-                        % }
+                    % }
                         <li class="divider"></li>
                         <li class="mono"><a href="<%= url_for('logout') %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;<%= l('Logout') %></a></li>
+                    % if (defined($self->cookie('real_user'))) {
+                        <li class="divider"></li>
+                        <li class="mono"><a href="<%= url_for('admin_stop_impersonate') %>"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>&nbsp;<%= l('Stop impersonating') %></a></li>
+                    % }
                     </ul>
                 </li>
             % if ($self->current_user->{is_admin}) {

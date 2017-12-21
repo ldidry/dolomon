@@ -1,3 +1,38 @@
+function removeUser(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    $.ajax({
+        method: 'DELETE',
+        url: url.remove_user_url,
+        data: { id: id },
+        dataType: 'json',
+        success: function(data, textStatus, jqXHR) {
+            if (data.success) {
+                $('.action-remove-user[data-id="'+id+'"]').parents('tr').remove();
+            }
+            addAlert(data.msg.class, data.msg.text);
+        }
+    });
+}
+
+function impersonateUser(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    $.ajax({
+        method: 'POST',
+        url: url.impersonate_url,
+        data: { id: id },
+        dataType: 'json',
+        success: function(data, textStatus, jqXHR) {
+            if (data.success) {
+                window.location = url.dashboard_url;
+            } else {
+                addAlert(data.msg.class, data.msg.text);
+            }
+        }
+    });
+}
+
 function getUserData(page, nb, sortBy, dir, search) {
     var data    = { page: page, nb: nb, sort_by: sortBy, dir: dir };
     if (search !== undefined && search !== null && search !== '') {
@@ -5,7 +40,7 @@ function getUserData(page, nb, sortBy, dir, search) {
     }
     $.ajax({
         method: 'GET',
-        url: getUserDataUrl,
+        url: url.get_user_data_url,
         data: data,
         dataType: 'json',
         success: function(data, textStatus, jqXHR) {
@@ -29,12 +64,38 @@ function getUserData(page, nb, sortBy, dir, search) {
                         '</td>',
                         '<td>', moment(Math.round(e.last_login * 1000)).format('llll'), '</td>',
                         '<td>', e.dolos_nb, '</td>',
+                        '<td>',
+                            '<div class="pull-right">',
+                                '<div class="dropdown">',
+                                    '<a class="dropdown-toggle" id="dropdown-dolo-', e.id, '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">',
+                                        '<span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>',
+                                        '<span class="sr-only">', i18n.actions, '</span>',
+                                    '</a>',
+                                    '<ul class="dropdown-menu" aria-labelledby="dropdown-dolo-', e.id, '">',
+                                        '<li>',
+                                            '<a class="action-impersonate" href="#" data-id="', e.id, '">',
+                                                '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> ',
+                                                i18n.impersonate,
+                                            '</a>',
+                                        '</li>',
+                                        '<li>',
+                                            '<a class="action-remove-user" href="#" data-id="', e.id, '">',
+                                                '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> ',
+                                                i18n.deleteUser,
+                                            '</a>',
+                                        '</li>',
+                                    '</ul>',
+                                '</div>',
+                            '</div>',
+                        '</td>',
                     '</tr>'
                 );
             });
 
             $('#user-table tbody').empty();
             $('#user-table tbody').append(t.join(''));
+            $('.action-impersonate').click(impersonateUser);
+            $('.action-remove-user').click(removeUser);
 
             // Pagination
             var p = new Array();

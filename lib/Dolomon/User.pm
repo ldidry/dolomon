@@ -43,7 +43,7 @@ sub update {
 sub delete_cascade {
     my $c = shift;
 
-    $c->app->pg->db->query('DELETE FROM dolos d JOIN categories c ON u.cat_id = c.id WHERE c.user_id = ?;', $c->id);
+    $c->app->pg->db->query('DELETE FROM dolos d WHERE d.category_id IN (SELECT c.id FROM categories c WHERE c.user_id = ?)', $c->id);
 
     return $c->delete();
 }

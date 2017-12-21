@@ -1,3 +1,6 @@
+span.red {
+    color: red;
+}
 .form-signin {
     max-width: 430px;
     padding: 15px;
@@ -62,7 +65,9 @@
 }
 .dropdown .action-modify,
 .dropdown .action-remove,
-.dropdown .action-view {
+.dropdown .action-view,
+.dropdown .action-remove-user,
+.dropdown .action-impersonate {
     color: #337ab7 !important;
 }
 .clickable {
