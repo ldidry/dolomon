@@ -1,0 +1,64 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Administration').' · Dolomon';
+
+<h1><%= l('Administration') %></h1>
+<form class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="search-user"></label>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </div>
+            <input type="text" class="form-control" id="search-user" placeholder="<%= l('Login or email') %>">
+            <div class="input-group-addon">
+                <a href="#" id="clear-input">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <span class="sr-only"><%= l('Clear input') %></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="row text-center">
+    <div class="col-md-12">
+        <div class="loader">
+            <%= l('Loading…') %>
+        </div>
+        <div id="pagination">
+        </div>
+        <div class="table">
+            <table class="hidden table table-striped" id="user-table">
+                <thead>
+                    <tr>
+                        <th class="clickable text-center" id="id">#</th>
+                        <th class="clickable text-center" id="login"><%= l('Login') %></th>
+                        <th class="clickable text-center" id="first_name"><%= l('First name') %></th>
+                        <th class="clickable text-center" id="last_name"><%= l('Last name') %></th>
+                        <th class="clickable text-center" id="mail"><%= l('Email') %></th>
+                        <th class="clickable text-center" id="confirmed"><%= l('Confirmed') %></th>
+                        <th class="clickable text-center" id="last_login"><%= l('Last login') %></th>
+                        <th class="clickable text-center" id="dolos_nb"><%= l('Dolos number') %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+%= javascript begin
+var getUserDataUrl = '<%= url_for('admin_get_users') %>';
+var i18n = {
+    yes:      '<%= l('Yes') %>',
+    no:       '<%= l('No') %>',
+    previous: '<%= l('Previous') %>',
+    next:     '<%= l('Next') %>',
+};
+var settings = {
+    page:   <%= stash('page') %>,
+    nb:     <%= stash('nb') %>,
+    sortBy: '<%= stash('sort_by') %>',
+    dir:    '<%= stash('dir')%>'
+}
+% end

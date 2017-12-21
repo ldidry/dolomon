@@ -2,6 +2,15 @@ package Dolomon::Admin;
 use Mojo::Base 'Dolomon::DoloCommon';
 use Mojo::Collection 'c';
 
+sub search_user {
+    my $c      = shift;
+    my $search = shift;
+    my $sort   = shift;
+    my $dir    = shift;
+
+    return $c->app->pg->db->query('SELECT u.id, u.login, u.first_name, u.last_name, u.mail, EXTRACT(\'epoch\' FROM u.last_login) AS last_login, u.confirmed, count(d.id) AS dolos_nb FROM users u JOIN categories c ON c.user_id = u.id JOIN dolos d ON d.category_id = c.id WHERE u.login LIKE ? OR u.mail LIKE ? GROUP BY u.id ORDER BY '.$sort.' '.$dir, '%'.$search.'%', '%'.$search.'%')->hashes;
+}
+
 sub get_users {
     my $c    = shift;
     my $page = shift;
