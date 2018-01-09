@@ -52,7 +52,7 @@ msgstr "1 minute"
 msgid "A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href=\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> header on your browser."
 msgstr "Un cookie est déposé pour %1 secondes pour chacun des dolos que vous visitez afin d’éviter de compter les visites consécutives d’une même personne, à moins que vous n’ayez activé l’en-tête <a href=\"https://fr.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> sur votre navigateur."
 
-#: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:141 themes/default/templates/partial/navbar.html.ep:149
+#: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:126 themes/default/templates/partial/navbar.html.ep:135
 msgid "About"
 msgstr "À propos"
 
@@ -64,23 +64,23 @@ msgstr "Suppression du compte"
 msgid "Actions"
 msgstr "Actions"
 
-#: themes/default/templates/categories/index.html.ep:9 themes/default/templates/js/i18n.js.ep:12 themes/default/templates/partial/navbar.html.ep:61
+#: themes/default/templates/categories/index.html.ep:9 themes/default/templates/js/i18n.js.ep:12 themes/default/templates/partial/navbar.html.ep:57
 msgid "Add a category"
 msgstr "Ajouter une catégorie"
 
-#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:5 themes/default/templates/misc/dashboard.html.ep:24 themes/default/templates/partial/navbar.html.ep:42
+#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:5 themes/default/templates/misc/dashboard.html.ep:24 themes/default/templates/partial/navbar.html.ep:38
 msgid "Add a dolo"
 msgstr "Ajouter un dolo"
 
-#: themes/default/templates/js/i18n.js.ep:19 themes/default/templates/partial/navbar.html.ep:80 themes/default/templates/tags/index.html.ep:9
+#: themes/default/templates/js/i18n.js.ep:19 themes/default/templates/partial/navbar.html.ep:76 themes/default/templates/tags/index.html.ep:9
 msgid "Add a tag"
 msgstr "Ajouter une étiquette"
 
-#: themes/default/templates/applications/index.html.ep:9 themes/default/templates/js/i18n.js.ep:25 themes/default/templates/partial/navbar.html.ep:99
+#: themes/default/templates/applications/index.html.ep:9 themes/default/templates/js/i18n.js.ep:25 themes/default/templates/partial/navbar.html.ep:95
 msgid "Add an application"
 msgstr "Ajouter une application"
 
-#: themes/default/templates/misc/admin.html.ep:3 themes/default/templates/misc/admin.html.ep:5 themes/default/templates/partial/navbar.html.ep:125
+#: themes/default/templates/misc/admin.html.ep:3 themes/default/templates/misc/admin.html.ep:5 themes/default/templates/partial/navbar.html.ep:121
 msgid "Administration"
 msgstr "Administration"
 
@@ -110,7 +110,7 @@ msgstr "Le nom d’une application ne peut être inexistant. Je refuse de créer
 msgid "Application(s)"
 msgstr "Application(s)"
 
-#: themes/default/templates/applications/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:88
+#: themes/default/templates/applications/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:84
 msgid "Applications"
 msgstr "Applications"
 
@@ -166,7 +166,7 @@ msgstr "Annuler"
 msgid "Categorie(s)"
 msgstr "Catégorie(s)"
 
-#: themes/default/templates/categories/index.html.ep:3 themes/default/templates/categories/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:50
+#: themes/default/templates/categories/index.html.ep:3 themes/default/templates/categories/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:46
 msgid "Categories"
 msgstr "Catégories"
 
@@ -182,7 +182,7 @@ msgstr "Nom de la catégorie"
 msgid "Category name blank or undefined. I refuse to create a category without name."
 msgstr "Le nom d’une catégorie ne peut être inexistant. Je refuse de créer une catégorie sans nom."
 
-#: themes/default/templates/partial/navbar.html.ep:113
+#: themes/default/templates/partial/navbar.html.ep:109
 msgid "Change account details"
 msgstr "Modifier les détails du compte"
 
@@ -239,7 +239,7 @@ msgstr "Créez une application dans Dolomon pour récupérer des identifiants à
 msgid "Created at"
 msgstr "Créé le"
 
-#: themes/default/templates/misc/dashboard.html.ep:3 themes/default/templates/partial/navbar.html.ep:26
+#: themes/default/templates/misc/dashboard.html.ep:3 themes/default/templates/partial/navbar.html.ep:22
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -271,7 +271,7 @@ msgstr "Supprimer l’étiquette"
 msgid "Delete user"
 msgstr "Supprimer l’utilisateur"
 
-#: themes/default/templates/partial/navbar.html.ep:12
+#: themes/default/templates/partial/navbar.html.ep:8
 msgid "Deploy menu"
 msgstr "Déployer le menu"
 
@@ -309,7 +309,7 @@ msgstr "Dolomon compte combien de fois un lien a été visité."
 msgid "Dolomon treats the jobs without impacting the redirection performances"
 msgstr "Dolomon traite les tâches en attente sans pénaliser les performances de la redirection"
 
-#: themes/default/templates/categories/show.html.ep:92 themes/default/templates/dolos/index.html.ep:3 themes/default/templates/dolos/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:31 themes/default/templates/tags/show.html.ep:92
+#: themes/default/templates/categories/show.html.ep:92 themes/default/templates/dolos/index.html.ep:3 themes/default/templates/dolos/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:27 themes/default/templates/tags/show.html.ep:92
 msgid "Dolos"
 msgstr "Dolos"
 
@@ -431,7 +431,7 @@ msgstr "Amicalement\n"
 msgid "LDAP"
 msgstr "LDAP"
 
-#: themes/default/templates/partial/navbar.html.ep:130
+#: themes/default/templates/partial/change_lang.html.ep:8
 msgid "Language"
 msgstr "Langage"
 
@@ -478,7 +478,7 @@ msgstr "Identifiant déjà utilisé. Veuillez en choisir un autre."
 msgid "Login or email"
 msgstr "Identifiant ou courriel"
 
-#: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:116
+#: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:112
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -696,7 +696,7 @@ msgstr "Commencer le graphique à"
 msgid "Stop graph at"
 msgstr "Arrêter le graphique à"
 
-#: themes/default/templates/partial/navbar.html.ep:119
+#: themes/default/templates/partial/navbar.html.ep:115
 msgid "Stop impersonating"
 msgstr "Arrêter l’incarnation"
 
@@ -720,7 +720,7 @@ msgstr "Le nom d’une étiquette ne peut être nul. Je refuse de créer une ét
 msgid "Tag(s)"
 msgstr "Étiquette(s)"
 
-#: themes/default/templates/dolos/show.html.ep:21 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/partial/navbar.html.ep:69 themes/default/templates/tags/index.html.ep:3 themes/default/templates/tags/show.html.ep:3
+#: themes/default/templates/dolos/show.html.ep:21 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/partial/navbar.html.ep:65 themes/default/templates/tags/index.html.ep:3 themes/default/templates/tags/show.html.ep:3
 msgid "Tags"
 msgstr "Étiquettes"
 
@@ -993,19 +993,19 @@ msgstr "Dolo sans nom"
 msgid "Use a transparent gif as target"
 msgstr "Utiliser un gif transparent comme cible"
 
-#: themes/default/templates/partial/navbar.html.ep:94
+#: themes/default/templates/partial/navbar.html.ep:90
 msgid "View my applications"
 msgstr "Voir mes applications"
 
-#: themes/default/templates/partial/navbar.html.ep:56
+#: themes/default/templates/partial/navbar.html.ep:52
 msgid "View my categories"
 msgstr "Voir mes catégories"
 
-#: themes/default/templates/partial/navbar.html.ep:37
+#: themes/default/templates/partial/navbar.html.ep:33
 msgid "View my dolos"
 msgstr "Voir mes dolos"
 
-#: themes/default/templates/partial/navbar.html.ep:75
+#: themes/default/templates/partial/navbar.html.ep:71
 msgid "View my tags"
 msgstr "Voir mes étiquettes"
 
@@ -1149,7 +1149,7 @@ msgstr "Zag, la mascotte de Dolomon"
 msgid "[week] W, [year] YYYY"
 msgstr "[semaine] W, [année] YYYY"
 
-#: themes/default/templates/partial/navbar.html.ep:3
+#: themes/default/templates/partial/change_lang.html.ep:3
 msgid "en"
 msgstr "English"
 
@@ -1161,7 +1161,7 @@ msgstr "example-org-logo"
 msgid "filter"
 msgstr "filtre"
 
-#: themes/default/templates/partial/navbar.html.ep:4
+#: themes/default/templates/partial/change_lang.html.ep:4
 msgid "fr"
 msgstr "Français"
 

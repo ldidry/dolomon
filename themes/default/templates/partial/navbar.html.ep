@@ -1,8 +1,4 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
-% my $l = {
-%     en => l('en'),
-%     fr => l('fr')
-% };
 <nav class="navbar navbar-default">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -125,18 +121,7 @@
                     <a href="<%= url_for('admin') %>" title="<%= l('Administration') %>" ><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('Administration') %></span></a>
                 </li>
             % }
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="icon-language"  aria-hidden="true" title="<%= l('Language') %>"></span><span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                    % for my $i (@{$self->available_langs}) {
-                        <li<%== ($i eq $self->languages) ? ' class="active"' : '' %>>
-                            <a href="<%= url_for('lang', l => $i) %>" class="set-lang"><%= $l->{$i} %></a>
-                        </li>
-                    % }
-                    </ul>
-                </li>
+                %= include 'partial/change_lang'
                 <li<%== $self->active('about') %>>
                     <a href="<%= url_for('about') %>" title="<%= l('About') %>" ><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('About') %></span></a>
                 </li>
@@ -145,6 +130,7 @@
     % } else {
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                %= include 'partial/change_lang'
                 <li<%== $self->active('about') %>>
                     <a href="<%= url_for('about') %>" title="<%= l('About') %>" ><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="sr-only"><%= l('About') %></span></a>
                 </li>
