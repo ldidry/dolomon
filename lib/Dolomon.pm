@@ -465,6 +465,10 @@ sub startup {
     $r->post('/')->
         to('Misc#login');
 
+    $r->get('/lang/:l')->
+        name('lang')->
+        to('Misc#change_lang');
+
     $r->get('/about')->
         name('about')->
         to('Misc#about');

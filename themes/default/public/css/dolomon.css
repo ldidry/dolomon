@@ -81,6 +81,13 @@ span.red {
     margin-right: 0.5em;
     margin-left: 0.5em;
 }
+
+/*
+ * Active lang in dropdown
+ */
+.dropdown-menu > li.active > a {
+    color: #ffffff !important;
+}
 /*
  * Spinner
  */

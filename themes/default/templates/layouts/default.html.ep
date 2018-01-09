@@ -8,6 +8,7 @@
         <link rel="icon" type="image/png" href="<%= url_for('/img/dolomon.png?v=1') %>">
         <title><%= title %></title>
         %= stylesheet '/css/bootstrap.min.css'
+        %= stylesheet '/css/fontello-embedded.css'
         %= stylesheet '/css/dolomon.css'
     % if (current_route('show_dolo') || current_route('show_cat') || current_route('show_tag')) {
         %= stylesheet '/css/morris.css'
