@@ -15,7 +15,7 @@
     % my ($e, $num) = @_;
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading<%= $num %>">
-            <h4 class="panel-title">
+            <h1 class="h4 panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#tagAccordion" href="#collapse<%= $num %>" aria-expanded="true" aria-controls="collapse<%= $num %>">
                     <%= $e->name %>
                 </a>
@@ -57,7 +57,7 @@
                         </ul>
                     </div>
                 </div>
-            </h4>
+            </h1>
         </div>
         <div id="collapse<%= $num %>" class="panel-collapse collapse" role="tabpanel">
             <div class="panel-body">

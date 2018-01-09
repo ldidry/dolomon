@@ -59,6 +59,13 @@
                                     <%= l('Delete dolo') %>
                                 </a>
                             </li>
+                            <li>
+                                <a class="action-copy" href="#"
+                                    data-text="<%= url_for('hit', short => $d->short)->to_abs %>">
+                                    <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                                    <%= l('Copy dolomon URL') %>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -120,6 +127,13 @@
                                     data-short="<%= $f->short %>">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                     <%= l('Delete dolo') %>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="action-copy" href="#"
+                                    data-text="<%= url_for('hit', short => $f->short)->to_abs %>">
+                                    <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                                    <%= l('Copy dolomon URL') %>
                                 </a>
                             </li>
                         </ul>

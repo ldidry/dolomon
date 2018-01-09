@@ -66,6 +66,7 @@ span.red {
 .dropdown .action-modify,
 .dropdown .action-remove,
 .dropdown .action-view,
+.dropdown .action-copy,
 .dropdown .action-remove-user,
 .dropdown .action-impersonate {
     color: #337ab7 !important;
