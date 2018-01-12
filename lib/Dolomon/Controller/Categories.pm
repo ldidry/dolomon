@@ -383,7 +383,7 @@ sub delete {
         my $cat = Dolomon::Category->new(app => $c->app, id => $id);
         my $newcat;
 
-        if ($cat->user_id != $c->current_user->id) {
+        if (!defined($cat->user_id) || $cat->user_id != $c->current_user->id) {
             return $c->render(
                 json => {
                     success => false,

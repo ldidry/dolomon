@@ -483,7 +483,7 @@ sub delete {
 
     my $dolo = Dolomon::Dolo->new(app => $c->app, id => $id);
 
-    if ($dolo->user_id != $c->current_user->id) {
+    if (!defined($dolo->user_id) || $dolo->user_id != $c->current_user->id) {
         return $c->render(
             json => {
                 success => false,

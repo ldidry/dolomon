@@ -149,7 +149,7 @@ sub delete {
 
     my $app = Dolomon::Application->new(app => $c->app, id => $id);
 
-    if ($app->user_id != $c->current_user->id) {
+    if (!defined($app->user_id) || $app->user_id != $c->current_user->id) {
         return $c->render(
             json => {
                 success => false,

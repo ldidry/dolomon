@@ -385,7 +385,7 @@ sub delete {
 
     my $tag = Dolomon::Tag->new(app => $c->app, id => $id);
 
-    if ($tag->user_id != $c->current_user->id) {
+    if (!defined($tag->user_id) || $tag->user_id != $c->current_user->id) {
         return $c->render(
             json => {
                 success => false,
