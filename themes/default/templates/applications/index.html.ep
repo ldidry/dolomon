@@ -45,7 +45,3 @@
         </tbody>
     </table>
 </div>
-%= javascript begin
-    window.mod_url      = '<%= url_for('mod_app') %>';
-    window.del_url      = '<%= url_for('del_app') %>';
-% end

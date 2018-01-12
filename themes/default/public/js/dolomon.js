@@ -93,6 +93,14 @@ function aRemove(event) {
                     switch(rm) {
                         case 'dolo':
                         case 'app':
+                            var badge = $(button.parents('.panel')[0]).find('.badge');
+                            console.log(button.parents('.panel')[0]);
+                            console.log(badge);
+                            if (badge.length > 0) {
+                                var count = badge.data('count');
+                                badge.data('count', count - 1);
+                                badge.text(badge.text().replace(count, count - 1));
+                            }
                             button.parents('tr')[0].remove();
                             break;
                         case 'category':
@@ -123,14 +131,14 @@ function aModify(event) {
     var title;
     switch(mod) {
         case 'dolo':
-            title = $(button.parents('tr')[0].find('.name')['0']);
+            title = $($(button.parents('tr')[0]).find('.name')['0']);
             break;
         case 'app':
             title = $(button.parents('.name')['0']);
             break;
-        case 'cat':
+        case 'category':
         case 'tag':
-            title = $(button.parents('.h4')[0].find('a[data-toggle="collapse"]')['0']);
+            title = $($(button.parents('.h4')[0]).find('a[data-toggle="collapse"]')['0']);
             break;
     }
     switch(mod) {
@@ -282,10 +290,10 @@ function aModify(event) {
                         modal.modal('hide');
                         addAlert(c, data.msg);
                         title.text(data.object.name);
-                        $(button.parents('tr')[0].find('.url')['0']).text(data.object.url);
-                        $(button.parents('tr')[0].find('.extra')['0']).text(data.object.extra);
-                        $(button.parents('tr')[0].find('.expired')['0']).text((data.object.expired === 1) ? i18n.yes : i18n.no);
-                        $(button.parents('tr')[0].find('.will-expire')['0']).text((data.object.expires_at !== null || data.object.expires_after !== null) ? i18n.yes : i18n.no);
+                        $($(button.parents('tr')[0]).find('.url')['0']).text(data.object.url);
+                        $($(button.parents('tr')[0]).find('.extra')['0']).text(data.object.extra);
+                        $($(button.parents('tr')[0]).find('.expired')['0']).text((data.object.expired === 1) ? i18n.yes : i18n.no);
+                        $($(button.parents('tr')[0]).find('.will-expire')['0']).text((data.object.expires_at !== null || data.object.expires_after !== null) ? i18n.yes : i18n.no);
                         button.data('url', data.object.url);
                         button.data('name', data.object.name);
                         button.data('extra', data.object.extra);
@@ -298,9 +306,9 @@ function aModify(event) {
                             tags.push(element.id);
                         });
                         button.data('tags', tags.join(','));
-                        $(button.parents('ul')[0].find('.action-remove')[0]).data('url', data.object.url);
-                        $(button.parents('ul')[0].find('.action-remove')[0]).data('name', data.object.name);
-                        $(button.parents('ul')[0].find('.action-remove')[0]).data('extra', data.object.extra);
+                        $($(button.parents('ul')[0]).find('.action-remove')[0]).data('url', data.object.url);
+                        $($(button.parents('ul')[0]).find('.action-remove')[0]).data('name', data.object.name);
+                        $($(button.parents('ul')[0]).find('.action-remove')[0]).data('extra', data.object.extra);
                     }
                 });
             });
@@ -344,7 +352,7 @@ $('select.filter').on('change', filter);
 function filter(event) {
     var thi = this;
     var input = $(thi);
-    input.parents('tr')[0].find('.filter').each(function (index, element) {
+    $(input.parents('tr')[0]).find('.filter').each(function (index, element) {
         if (element != thi) {
             $(element).val('');
         }
@@ -354,7 +362,7 @@ function filter(event) {
         val = input.find('option:selected').val();
     }
     var sel = input.data('filter');
-    input.parents('table')[0].find(sel).each(function (index, element) {
+    $(input.parents('table')[0]).find(sel).each(function (index, element) {
         var e = $(element);
         if (val === undefined || val === '') {
             e.parent().removeClass('hidden');
@@ -552,6 +560,78 @@ $('#addModal').on('show.bs.modal', function(event) {
                                 data.object.extra = data.object.extra.replace(/&/g, '&amp;');
                                 data.object.url = data.object.url.replace(/&/g, '&amp;');
                                 data.object.short = data.object.short.replace(/&/g, '&amp;');
+                                var copyImg = [''];
+                                if (url.base_url+data.object.url.replace('/', '') === url.pix_url) {
+                                    copyImg = [
+                                        '<li>',
+                                        '    <a class="action-copy" href="#"',
+                                        '       data-text=\'<img src="', url.base_url, data.object.short.replace('/', ''), '" alt="">\'>',
+                                        '        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>',
+                                                 i18n.copyImgDolo,
+                                        '    </a>',
+                                        '</li>',
+                                    ];
+                                }
+                                var actionsDropdown = [
+                                    '    <td>',
+                                    '        <div class="pull-right">',
+                                    '            <div class="dropdown">',
+                                    '                <a class="dropdown-toggle" id="dropdown-dolo-', data.object.id, '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">',
+                                    '                    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>',
+                                    '                    <span class="sr-only">', i18n.actions, '</span>',
+                                    '                </a>',
+                                    '                <ul class="dropdown-menu" aria-labelledby="dropdown-dolo-', data.object.id, '">',
+                                    '                    <li>',
+                                    '                        <a class="action-view" class="action-view" href="', url.show_dolo, data.object.id, '">',
+                                    '                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ',
+                                                                 i18n.showDolo,
+                                    '                        </a>',
+                                    '                    </li>',
+                                    '                    <li>',
+                                    '                        <a class="action-modify" href="#"',
+                                    '                            data-id="', data.object.id, '"',
+                                    '                            data-action="', url.mod_dolo, '"',
+                                    '                            data-mod="dolo"',
+                                    '                            data-name="', data.object.name, '"',
+                                    '                            data-extra="', data.object.extra, '"',
+                                    '                            data-url="', data.object.url, '"',
+                                    '                            data-short="', data.object.short, '"',
+                                    '                            data-cat="', data.object.category_id, '"',
+                                    '                            data-tags="', tags.join(','), '"',
+                                    '                            data-expired="', data.object.expired ,'"',
+                                    '                            data-will-expire="', ((data.object.expires_at !== undefined || data.object.expires_after !== null) ? i18n.yes : i18n.no), '"',
+                                    '                            data-expires_at="',,'"',
+                                    '                            data-expires_after="',,'">',
+                                    '                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ',
+                                                                 i18n.modDolo,
+                                    '                        </a>',
+                                    '                    </li>',
+                                    '                    <li>',
+                                    '                        <a class="action-remove" href="#"',
+                                    '                            data-id="', data.object.id, '"',
+                                    '                            data-action="', url.del_dolo, '"',
+                                    '                            data-rm="dolo"',
+                                    '                            data-name="', data.object.name, '"',
+                                    '                            data-extra="', data.object.extra, '"',
+                                    '                            data-url="', data.object.url, '"',
+                                    '                            data-short="', data.object.short, '">',
+                                    '                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> ',
+                                                                 i18n.rmDolo,
+                                    '                        </a>',
+                                    '                    </li>',
+                                    '                    <li>',
+                                    '                        <a class="action-copy" href="#"',
+                                    '                            data-text="', url.base_url, data.object.short.replace('/', ''), '">',
+                                    '                            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>',
+                                                                 i18n.copyDolo,
+                                    '                        </a>',
+                                    '                    </li>',
+                                                         copyImg.join(''),
+                                    '                </ul>',
+                                    '            </div>',
+                                    '        </div>',
+                                    '    </td>',
+                                ].join('');
                                 if ($('#doloTbody').length !== 0) {
                                     $('#doloTbody').append(
                                         [
@@ -563,63 +643,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                             '    <td class="hits">', data.object.count, '</td>',
                                             '    <td class="expired">', (data.object.expired === 1) ? i18n.yes : i18n.no, '</td>',
                                             '    <td class="will-expire">', (data.object.expires_at !== null || data.object.expires_after !== null) ? i18n.yes : i18n.no, '</td>',
-                                            '    <td>',
-                                            '        <div class="pull-right">',
-                                            '            <div class="dropdown">',
-                                            '                <a class="dropdown-toggle" id="dropdown-dolo-', data.object.id, '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">',
-                                            '                    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>',
-                                            '                    <span class="sr-only">', i18n.actions, '</span>',
-                                            '                </a>',
-                                            '                <ul class="dropdown-menu" aria-labelledby="dropdown-dolo-', data.object.id, '">',
-                                            '                    <li>',
-                                            '                        <a class="action-view" class="action-view" href="', url.show_dolo, data.object.id, '">',
-                                            '                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> ',
-                                                                         i18n.showDolo,
-                                            '                        </a>',
-                                            '                    </li>',
-                                            '                    <li>',
-                                            '                        <a class="action-modify" href="#"',
-                                            '                            data-id="', data.object.id, '"',
-                                            '                            data-action="', window.mod_url, '"',
-                                            '                            data-mod="dolo"',
-                                            '                            data-name="', data.object.name, '"',
-                                            '                            data-extra="', data.object.extra, '"',
-                                            '                            data-url="', data.object.url, '"',
-                                            '                            data-short="', data.object.short, '"',
-                                            '                            data-cat="', data.object.category_id, '"',
-                                            '                            data-tags="', tags.join(','), '"',
-                                            '                            data-expired="', data.object.expired ,'"',
-                                            '                            data-will-expire="', ((data.object.expires_at !== undefined || data.object.expires_after !== null) ? i18n.yes : i18n.no), '"',
-                                            '                            data-expires_at="',,'"',
-                                            '                            data-expires_after="',,'">',
-                                            '                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ',
-                                                                         i18n.modDolo,
-                                            '                        </a>',
-                                            '                    </li>',
-                                            '                    <li>',
-                                            '                        <a class="action-remove" href="#"',
-                                            '                            data-id="', data.object.id, '"',
-                                            '                            data-action="', window.del_url, '"',
-                                            '                            data-rm="dolo"',
-                                            '                            data-name="', data.object.name, '"',
-                                            '                            data-extra="', data.object.extra, '"',
-                                            '                            data-url="', data.object.url, '"',
-                                            '                            data-short="', data.object.short, '">',
-                                            '                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> ',
-                                                                         i18n.rmDolo,
-                                            '                        </a>',
-                                            '                    </li>',
-                                            '                    <li>',
-                                            '                        <a class="action-copy" href="#"',
-                                            '                            data-text="', url.base_url, data.object.short.replace('/', ''), '">',
-                                            '                            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>',
-                                                                         i18n.copyDolo,
-                                            '                        </a>',
-                                            '                    </li>',
-                                            '                </ul>',
-                                            '            </div>',
-                                            '        </div>',
-                                            '    </td>',
+                                                 actionsDropdown,
                                             '</tr>',
                                         ].join('')
                                     );
@@ -634,6 +658,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                             '    <td class="hits">',
                                             '        ', data.object.count, '',
                                             '    </td>',
+                                                 actionsDropdown,
                                             '</tr>',
                                         ].join('')
                                     );
@@ -653,6 +678,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                                 '    <td class="hits">',
                                                 '        ', data.object.count, '',
                                                 '    </td>',
+                                                     actionsDropdown,
                                                 '</tr>',
                                             ].join('')
                                         );
@@ -745,7 +771,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                                     '                            </a>',
                                                     '                            <a class="action-modify" href="#"',
                                                     '                                data-id="', data.object.id, '"',
-                                                    '                                data-action="', window.mod_url, '"',
+                                                    '                                data-action="', url.mod_cat, '"',
                                                     '                                data-mod="category"',
                                                     '                                data-name="', data.object.name, '">',
                                                     '                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ',
@@ -753,7 +779,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                                     '                            </a>',
                                                     '                            <a class="action-remove" href="#"',
                                                     '                                data-id="', data.object.id, '"',
-                                                    '                                data-action="', window.del_url, '"',
+                                                    '                                data-action="', url.del_cat, '"',
                                                     '                                data-rm="category"',
                                                     '                                data-name="', data.object.name, '">',
                                                     '                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> ',
@@ -827,7 +853,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                                     '                        <li>',
                                                     '                            <a class="action-modify" href="#"',
                                                     '                                data-id="', data.object.id, '"',
-                                                    '                                data-action="', window.mod_url, '"',
+                                                    '                                data-action="', url.mod_tag, '"',
                                                     '                                data-mod="tag"',
                                                     '                                data-name="', data.object.name, '">',
                                                     '                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>',
@@ -837,7 +863,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                                     '                        <li>',
                                                     '                            <a class="action-remove" href="#"',
                                                     '                                data-id="', data.object.id, '"',
-                                                    '                                data-action="', window.del_url, '"',
+                                                    '                                data-action="', url.del_tag, '"',
                                                     '                                data-rm="tag"',
                                                     '                                data-name="', data.object.name, '">',
                                                     '                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>',
@@ -890,9 +916,9 @@ $('#addModal').on('show.bs.modal', function(event) {
                                                     '<tr>',
                                                     '    <td class="name">', data.object.name,
                                                     '        <div class="pull-right">',
-                                                    '            <a class="action-modify" href="#" data-id="', data.object.id, '" data-action="', window.mod_url, '" data-mod="app" data-name="', data.object.name, '">',
+                                                    '            <a class="action-modify" href="#" data-id="', data.object.id, '" data-action="', url.mod_app, '" data-mod="app" data-name="', data.object.name, '">',
                                                     '                <span class="glyphicon glyphicon-pencil" aria-hidden="true" aria-label="', i18n.modApp, '"></span></a>',
-                                                    '            <a class="action-remove" href="#" data-id="', data.object.id, '" data-action="', window.del_url, '" data-rm="app" data-name="', data.object.name, '">',
+                                                    '            <a class="action-remove" href="#" data-id="', data.object.id, '" data-action="', url.del_app, '" data-rm="app" data-name="', data.object.name, '">',
                                                     '                <span class="glyphicon glyphicon-remove" aria-hidden="true" aria-label="', i18n.rmApp, '"></span>',
                                                     '            </a>',
                                                     '        </div>',

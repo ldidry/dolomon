@@ -6,6 +6,7 @@ var i18n = {
     rmDolo:            '<%= l('Delete dolo') %>',
     modDolo:           '<%= l('Modify dolo') %>',
     copyDolo:          '<%= l('Copy dolomon URL')%>',
+    copyImgDolo:       '<%= l('Copy image code')%>',
     doloRmName:        '<%= l('Are you sure you want to delete the dolo XXXX?') %>',
     emptyPix:          '<%= l('Use a transparent gif as target') %>',
     showCat:           '<%= l('Show category') %>',
@@ -71,6 +72,14 @@ var url = {
     remove_user_url:   '<%= url_for('admin_remove_user') %>',
     impersonate_url:   '<%= url_for('admin_impersonate') %>',
     dashboard_url:     '<%= url_for('dashboard')->to_abs %>',
+    mod_dolo:           '<%= url_for('mod_dolo') %>',
+    del_dolo:           '<%= url_for('del_dolo') %>',
+    mod_app:           '<%= url_for('mod_app') %>',
+    del_app:           '<%= url_for('del_app') %>',
+    mod_cat:           '<%= url_for('mod_cat') %>',
+    del_cat:           '<%= url_for('del_cat') %>',
+    mod_tag:           '<%= url_for('mod_tag') %>',
+    del_tag:           '<%= url_for('del_tag') %>',
 };
 $.ready(function() {
     $().alert();

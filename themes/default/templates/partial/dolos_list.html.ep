@@ -72,6 +72,15 @@
                                     <%= l('Copy dolomon URL') %>
                                 </a>
                             </li>
+                        % if ($e->url eq url_for('/1px.gif')->to_abs) {
+                            <li>
+                                <a class="action-copy" href="#"
+                                   data-text='<img src="<%= url_for('hit', short => $e->short)->to_abs %>" alt="">'>
+                                    <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                                    <%= l('Copy image code') %>
+                                </a>
+                            </li>
+                        % }
                         </ul>
                     </div>
                 </div>
@@ -147,6 +156,15 @@
                                     <%= l('Copy dolomon URL') %>
                                 </a>
                             </li>
+                        % if ($f->url eq url_for('/1px.gif')->to_abs) {
+                            <li>
+                                <a class="action-copy" href="#"
+                                   data-text='<img src="<%= url_for('hit', short => $f->short)->to_abs %>" alt="">'>
+                                    <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                                    <%= l('Copy image code') %>
+                                </a>
+                            </li>
+                        % }
                         </ul>
                     </div>
                 </div>

@@ -90,6 +90,4 @@
 <!-- List of categories -->
 %= javascript begin
     window.nextCollapse = <%= $categories->size + 1 %>;
-    window.mod_url      = '<%= url_for('mod_cat') %>';
-    window.del_url      = '<%= url_for('del_cat') %>';
 % end
