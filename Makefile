@@ -11,7 +11,7 @@ locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(FR) 2>/dev/null
 
 dev:
-	$(CARTON) morbo $(DOLOMON) --listen http://127.0.0.1:8400 --watch themes/ --watch dolomon.conf --watch lib/
+	MOJO_REVERSE_PROXY=1 $(CARTON) morbo $(DOLOMON) --listen http://127.0.0.1:8400 --watch themes/ --watch dolomon.conf --watch lib/
 
 devlog:
 	multitail log/development.log
