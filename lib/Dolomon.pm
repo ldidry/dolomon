@@ -84,7 +84,7 @@ sub startup {
 
     $self->plugin('Minion' => { Pg => $self->pg_url($self->config->{minion_db}) });
 
-    $self->plugin('Minion::Admin' => { return_to => '/admin', route => $self->routes->over(is_admin => 1)->any('/admin/minion') });
+    $self->plugin('Minion::Admin' => { return_to => '/admin', route => $self->routes->any('/admin/minion')->over(is_admin => 1) });
 
     $self->plugin('authentication' =>
         {
