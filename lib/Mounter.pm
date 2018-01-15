@@ -13,8 +13,23 @@ sub startup {
         {
             file    => File::Spec->catfile($Bin, '..' ,'dolomon.conf'),
             default => {
-                prefix => '/',
-                theme  => 'default',
+                prefix               => '/',
+                admins               => [],
+                theme                => 'default',
+                no_register          => 0,
+                counter_delay        => 0,
+                do_not_count_spiders => 0,
+                mail      => {
+                    how  => 'sendmail',
+                    from => 'noreply@dolomon.org'
+                },
+                signature => 'Dolomon',
+                keep_hits => {
+                    uber_precision  => 3,
+                    day_precision   => 90,
+                    week_precision  => 12,
+                    month_precision => 36,
+                }
             }
         }
     );
