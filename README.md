@@ -17,7 +17,7 @@ Dolomon was designed as a DOwnLOad MONitor, but it appears that you can monitor 
 
 ## Install
 
-Check the INSTALL.md file
+Please go to the [wiki](https://framagit.org/luc/dolomon/wikis/installation)
 
 ## Mascot
 
@@ -27,6 +27,10 @@ The Dolomon mascot is called Zag. It has been initially designed by [Renê Gusta
 
 Licensed under the GNU AGPLv3, see the [LICENSE file](LICENSE).
 
+## Authors
+
+Please go to the [wiki](https://framagit.org/luc/dolomon/wikis/authors)
+
 ## Powered by
 
 * Mojolicious
@@ -34,4 +38,5 @@ Licensed under the GNU AGPLv3, see the [LICENSE file](LICENSE).
 * Minion
 * jQuery
 * Twitter bootstrap
+* Fontello
 * see cpanfile for other Perl modules
