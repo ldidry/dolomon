@@ -202,7 +202,7 @@ msgstr ""
 msgid "Children"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:17
+#: themes/default/templates/misc/admin.html.ep:18
 msgid "Clear input"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:39
+#: themes/default/templates/misc/admin.html.ep:40
 msgid "Confirmed"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: lib/Dolomon.pm:176 lib/Dolomon/Controller/Users.pm:614
+#: lib/Dolomon.pm:178 lib/Dolomon/Controller/Users.pm:614
 msgid "Default"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgstr ""
 msgid "Dolos"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:41
+#: themes/default/templates/misc/admin.html.ep:42
 msgid "Dolos number"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Download datas in CSV format"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:38
+#: themes/default/templates/misc/admin.html.ep:39
 msgid "Email"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Expired?"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:36 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
+#: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
 msgstr ""
 
@@ -454,11 +454,11 @@ msgstr ""
 msgid "Last %1 weeks"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:40
+#: themes/default/templates/misc/admin.html.ep:41
 msgid "Last login"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
+#: themes/default/templates/misc/admin.html.ep:38 themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
 msgid "Last name"
 msgstr ""
 
@@ -466,11 +466,11 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:26
+#: themes/default/templates/misc/admin.html.ep:27
 msgid "Loading…"
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:35 themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
+#: themes/default/templates/misc/admin.html.ep:36 themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
 msgid "Login"
 msgstr ""
 
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Login already taken. Choose another one."
 msgstr ""
 
-#: themes/default/templates/misc/admin.html.ep:13
+#: themes/default/templates/misc/admin.html.ep:14
 msgid "Login or email"
 msgstr ""
 
@@ -613,6 +613,10 @@ msgstr ""
 
 #: themes/default/templates/users/send_mail.html.ep:7
 msgid "Resend confirmation mail"
+msgstr ""
+
+#: themes/default/templates/misc/admin.html.ep:6
+msgid "See job queue"
 msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:70
@@ -1057,7 +1061,7 @@ msgstr ""
 msgid "You already have that URL in the dolos of this category."
 msgstr ""
 
-#: lib/Dolomon.pm:441
+#: lib/Dolomon.pm:443
 msgid "You are not authenticated or have not valid application credentials"
 msgstr ""
 

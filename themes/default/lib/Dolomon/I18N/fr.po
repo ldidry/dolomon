@@ -202,7 +202,7 @@ msgstr "Changer le mot de passe"
 msgid "Children"
 msgstr "Enfants"
 
-#: themes/default/templates/misc/admin.html.ep:17
+#: themes/default/templates/misc/admin.html.ep:18
 msgid "Clear input"
 msgstr "Vider le champ"
 
@@ -214,7 +214,7 @@ msgstr "Fermer"
 msgid "Confirm"
 msgstr "Confirmer"
 
-#: themes/default/templates/misc/admin.html.ep:39
+#: themes/default/templates/misc/admin.html.ep:40
 msgid "Confirmed"
 msgstr "Confirmé"
 
@@ -247,7 +247,7 @@ msgstr "Créé le"
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: lib/Dolomon.pm:176 lib/Dolomon/Controller/Users.pm:614
+#: lib/Dolomon.pm:178 lib/Dolomon/Controller/Users.pm:614
 msgid "Default"
 msgstr "Défaut"
 
@@ -317,7 +317,7 @@ msgstr "Dolomon traite les tâches en attente sans pénaliser les performances d
 msgid "Dolos"
 msgstr "Dolos"
 
-#: themes/default/templates/misc/admin.html.ep:41
+#: themes/default/templates/misc/admin.html.ep:42
 msgid "Dolos number"
 msgstr "Nombre de dolos"
 
@@ -325,7 +325,7 @@ msgstr "Nombre de dolos"
 msgid "Download datas in CSV format"
 msgstr "Télécharger les données au format CSV"
 
-#: themes/default/templates/misc/admin.html.ep:38
+#: themes/default/templates/misc/admin.html.ep:39
 msgid "Email"
 msgstr "Courriel"
 
@@ -353,7 +353,7 @@ msgstr "Expiré"
 msgid "Expired?"
 msgstr "Expiré ?"
 
-#: themes/default/templates/misc/admin.html.ep:36 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
+#: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
 msgstr "Prénom"
 
@@ -454,11 +454,11 @@ msgstr "%1 derniers mois"
 msgid "Last %1 weeks"
 msgstr "%1 dernières semaines"
 
-#: themes/default/templates/misc/admin.html.ep:40
+#: themes/default/templates/misc/admin.html.ep:41
 msgid "Last login"
 msgstr "Dernière connexion"
 
-#: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
+#: themes/default/templates/misc/admin.html.ep:38 themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
 msgid "Last name"
 msgstr "Nom"
 
@@ -466,11 +466,11 @@ msgstr "Nom"
 msgid "License"
 msgstr "Licence"
 
-#: themes/default/templates/misc/admin.html.ep:26
+#: themes/default/templates/misc/admin.html.ep:27
 msgid "Loading…"
 msgstr "Chargement…"
 
-#: themes/default/templates/misc/admin.html.ep:35 themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
+#: themes/default/templates/misc/admin.html.ep:36 themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
 msgid "Login"
 msgstr "Identifiant"
 
@@ -478,7 +478,7 @@ msgstr "Identifiant"
 msgid "Login already taken. Choose another one."
 msgstr "Identifiant déjà utilisé. Veuillez en choisir un autre."
 
-#: themes/default/templates/misc/admin.html.ep:13
+#: themes/default/templates/misc/admin.html.ep:14
 msgid "Login or email"
 msgstr "Identifiant ou courriel"
 
@@ -614,6 +614,10 @@ msgstr "Renommer l’étiquette"
 #: themes/default/templates/users/send_mail.html.ep:7
 msgid "Resend confirmation mail"
 msgstr "Renvoyer le courriel de confirmation"
+
+#: themes/default/templates/misc/admin.html.ep:6
+msgid "See job queue"
+msgstr "Voir la file de traitement des tâches"
 
 #: themes/default/templates/dolos/show.html.ep:70
 msgid "See parent"
@@ -1057,7 +1061,7 @@ msgstr "Vous avez déjà un dolo dont l’URL dolomon est %1."
 msgid "You already have that URL in the dolos of this category."
 msgstr "Vous avez déjà cette URL dans les dolos de cette catégorie."
 
-#: lib/Dolomon.pm:441
+#: lib/Dolomon.pm:443
 msgid "You are not authenticated or have not valid application credentials"
 msgstr "Vous n’êtes pas authentifié·e ou n’avez pas d’identifiants d’application valides"
 

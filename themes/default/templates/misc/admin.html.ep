@@ -3,6 +3,7 @@
 % title $self->l('Administration').' · Dolomon';
 
 <h1><%= l('Administration') %></h1>
+<p><a href="<%= url_for('/admin/minion') %>"><%= l('See job queue') %></a></p>
 <form class="form-inline">
     <div class="form-group">
         <label class="sr-only" for="search-user"></label>
