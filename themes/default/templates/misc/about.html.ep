@@ -45,9 +45,9 @@
     % }
         <h2 class="h4"><%= l('How do I contact the administrator of this instance?') %></h2>
         <p>
-            % my $l = languages;
-            % if (defined config('contact')->{$l}) {
-                <%== config('contact')->{$l} %>
+            % my $la = languages;
+            % if (defined config('contact')->{$la}) {
+                <%== config('contact')->{$la} %>
             % } else {
                 <%== config('contact')->{config('contact')->{'default'}} %>
             % }

@@ -1157,10 +1157,6 @@ msgstr "Zag, la mascotte de Dolomon"
 msgid "[week] W, [year] YYYY"
 msgstr "[semaine] W, [année] YYYY"
 
-#: themes/default/templates/partial/change_lang.html.ep:3
-msgid "en"
-msgstr "English"
-
 #: themes/default/templates/js/i18n.js.ep:41
 msgid "example-org-logo"
 msgstr "example-org-logo"
@@ -1168,10 +1164,6 @@ msgstr "example-org-logo"
 #: themes/default/templates/applications/index.html.ep:19 themes/default/templates/categories/index.html.ep:72 themes/default/templates/categories/index.html.ep:73 themes/default/templates/categories/index.html.ep:74 themes/default/templates/categories/index.html.ep:75 themes/default/templates/categories/index.html.ep:76 themes/default/templates/categories/show.html.ep:105 themes/default/templates/categories/show.html.ep:106 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:40 themes/default/templates/tags/index.html.ep:76 themes/default/templates/tags/index.html.ep:77 themes/default/templates/tags/index.html.ep:78 themes/default/templates/tags/index.html.ep:79 themes/default/templates/tags/index.html.ep:80 themes/default/templates/tags/show.html.ep:105 themes/default/templates/tags/show.html.ep:106 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109
 msgid "filter"
 msgstr "filtre"
-
-#: themes/default/templates/partial/change_lang.html.ep:4
-msgid "fr"
-msgstr "Français"
 
 #: themes/default/templates/categories/show.html.ep:63 themes/default/templates/dolos/show.html.ep:123 themes/default/templates/tags/show.html.ep:63
 msgid "hour"
