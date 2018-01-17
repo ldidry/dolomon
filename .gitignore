@@ -3,3 +3,6 @@ local
 last_cleaning_time.txt
 *.swp
 script/hypnotoad.pid
+themes/*
+!themes/default
+!themes/default/*
