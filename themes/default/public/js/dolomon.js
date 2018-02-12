@@ -367,7 +367,7 @@ function filter(event) {
         if (val === undefined || val === '') {
             e.parent().removeClass('hidden');
         } else {
-            if (!e.text().match(new RegExp(val))) {
+            if (!e.text().match(new RegExp(val, 'i'))) {
                 e.parent().addClass('hidden');
             } else {
                 e.parent().removeClass('hidden');
