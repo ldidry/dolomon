@@ -324,7 +324,7 @@ sub add {
         $errors{catList} = [] unless defined $errors{catList};
         push @{$errors{catList}}, $c->l('The category you want to use for your dolo does not belong to you.');
     }
-    if ($cat->dolos->grep(sub { $_->url eq $url })->size) {
+    if ($url ne $c->url_for('/1px.gif')->to_abs && $cat->dolos->grep(sub { $_->url eq $url })->size) {
         $errors{doloUrl} = [] unless defined $errors{doloUrl};
         push @{$errors{doloUrl}}, $c->l('You already have that URL in the dolos of this category.');
     }
