@@ -5,7 +5,6 @@ requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::PgURLHelper';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::Mail';
-requires 'DBIx::Class';
 requires 'Mojo::Pg';
 requires 'Minion';
 requires 'Net::LDAP';
