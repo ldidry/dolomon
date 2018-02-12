@@ -362,12 +362,13 @@ function filter(event) {
         val = input.find('option:selected').val();
     }
     var sel = input.data('filter');
+    var rgx = new RegExp(val, 'i');
     $(input.parents('table')[0]).find(sel).each(function (index, element) {
         var e = $(element);
         if (val === undefined || val === '') {
             e.parent().removeClass('hidden');
         } else {
-            if (!e.text().match(new RegExp(val, 'i'))) {
+            if (!e.text().match(rgx)) {
                 e.parent().addClass('hidden');
             } else {
                 e.parent().removeClass('hidden');
