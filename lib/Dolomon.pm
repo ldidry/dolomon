@@ -14,7 +14,7 @@ use DateTime;
 use DateTime::Format::Pg;
 use Mojo::JSON qw(true false);
 use Mojo::File;
-use Mojo::Util qw(encode);
+use Mojo::Util qw(decode);
 use Mojolicious::Sessions;
 use Crypt::PBKDF2;
 
@@ -162,9 +162,9 @@ sub startup {
                     my $sn        = $c->config->{ldap}->{last_name} || 'sn';
                     my $mail      = $c->config->{ldap}->{mail} || 'mail';
                     my $infos    = {
-                        first_name => $res->{$givenname}->[0],
-                        last_name  => $res->{$sn}->[0],
-                        mail       => $res->{$mail}->[0]
+                        first_name => decode('UTF-8', $res->{$givenname}->[0]),
+                        last_name  => decode('UTF-8', $res->{$sn}->[0]),
+                        mail       => decode('UTF-8', $res->{$mail}->[0])
                     };
 
                     my $user = Dolomon::User->new(app => $c->app)->find_by_('login', $username);
@@ -175,9 +175,9 @@ sub startup {
                         $user = $user->create(
                             {
                                 login      => $username,
-                                first_name => encode('UTF-8', $res->{$givenname}->[0]),
-                                last_name  => encode('UTF-8', $res->{$sn}->[0]),
-                                mail       => encode('UTF-8', $res->{$mail}->[0]),
+                                first_name => decode('UTF-8', $res->{$givenname}->[0]),
+                                last_name  => decode('UTF-8', $res->{$sn}->[0]),
+                                mail       => decode('UTF-8', $res->{$mail}->[0]),
                                 confirmed  => 'true'
                             }
                         );
