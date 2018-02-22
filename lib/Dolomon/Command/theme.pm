@@ -41,9 +41,15 @@ use Locale::Maketext::Lexicon {
     _style  => 'gettext',
     '*' => [
         Gettext => dirname(__FILE__) . '/I18N/*.po',
-        Gettext => dirname(__FILE__) . '/../../../default/lib/Dolomon/I18N/*.po',
+        Gettext => $app_dir . 'themes/default/lib/Dolomon/I18N/*.po',
     ]
 };
+
+use vars qw($app_dir);
+BEGIN {
+    use Cwd;
+    my $app_dir = getcwd;
+}
 
 1;
 EOF
@@ -53,8 +59,7 @@ EOF
         close $f;
 
         my $makefile = <<EOF;
-EN=lib/Dolomon/I18N/en.po
-FR=lib/Dolomon/I18N/fr.po
+POT=lib/Dolomon/I18N/$home.pot
 SEDOPTS=-e "s\@SOME DESCRIPTIVE TITLE\@Dolomon language file\@" \\
 		-e "s\@YEAR THE PACKAGE'S COPYRIGHT HOLDER\@2015 Luc Didry\@" \\
 		-e "s\@CHARSET\@utf8\@" \\
@@ -66,12 +71,9 @@ XGETTEXT=carton exec ../../local/bin/xgettext.pl
 CARTON=carton exec
 
 locales:
-		\$(XGETTEXT) -D templates -D ../default/templates -o \$(EN) 2>/dev/null
-		\$(XGETTEXT) -D templates -D ../default/templates -o \$(FR) 2>/dev/null
-		sed \$(SEDOPTS) -i \$(EN)
-		sed \$(SEDOPTS2) -i \$(EN)
-		sed \$(SEDOPTS) -i \$(FR)
-		sed \$(SEDOPTS2) -i \$(FR)
+		\$(XGETTEXT) -D templates -D ../default/templates -o \$(POT) 2>/dev/null
+		sed \$(SEDOPTS) -i \$(POT)
+		sed \$(SEDOPTS2) -i \$(POT)
 EOF
 
         open $f, '>', File::Spec->catfile($home, 'Makefile') or die "Unable to open $home/Makefile: $!";
