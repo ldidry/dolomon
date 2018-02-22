@@ -14,6 +14,7 @@ use DateTime;
 use DateTime::Format::Pg;
 use Mojo::JSON qw(true false);
 use Mojo::File;
+use Mojo::Util qw(encode);
 use Mojolicious::Sessions;
 use Crypt::PBKDF2;
 
@@ -138,10 +139,17 @@ sub startup {
                         return undef;
                     }
 
-                    my $res = $mesg->as_struct->{"$uid=$username".$c->config->{ldap}->{bind_dn}};
+                    my @entries = $mesg->entries;
+                    my $entry   = $entries[0];
+                    my $res = $mesg->as_struct->{$entry->dn};
+
+                    if (!defined $entry) {
+                        $c->app->log->info("[LDAP authentication failed] - User $username filtered out, IP: ".$c->ip);
+                        return undef;
+                    }
 
                     # Now we know that the user exists
-                    $mesg = $ldap->bind("$uid=$username".$c->config->{ldap}->{bind_dn},
+                    $mesg = $ldap->bind($entry->dn,
                         password => $password
                     );
 
@@ -167,9 +175,9 @@ sub startup {
                         $user = $user->create(
                             {
                                 login      => $username,
-                                first_name => $res->{$givenname}->[0],
-                                last_name  => $res->{$sn}->[0],
-                                mail       => $res->{$mail}->[0],
+                                first_name => encode('UTF-8', $res->{$givenname}->[0]),
+                                last_name  => encode('UTF-8', $res->{$sn}->[0]),
+                                mail       => encode('UTF-8', $res->{$mail}->[0]),
                                 confirmed  => 'true'
                             }
                         );
