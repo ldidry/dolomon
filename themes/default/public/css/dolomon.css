@@ -44,6 +44,12 @@ span.red {
 .margin-bottom {
     margin-bottom: 10px;
 }
+.thumbnail {
+    padding: 4px 4px 20px 4px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
 #bs-example-navbar-collapse-1 > .nav > li > a {
     display: inline-block;
 }
