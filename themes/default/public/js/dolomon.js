@@ -34,13 +34,24 @@ function copyText(text) {
 /*
  * Display messages
  */
-function addAlert(c, msg) {
-    $('#main-container').prepend([
+function addAlert(c, msg, autoDismiss) {
+    if (typeof(autoDismiss) === 'undefined') {
+        autoDismiss = true;
+    }
+
+    var h = $([
         '<div class="alert ', c, ' alert-dismissible fade in">',
             '<button type="button" class="close" data-dismiss="alert" aria-label="', i18n.close, '"><span aria-hidden="true">&times;</span></button>',
             msg,
         '</div>',
     ].join(''));
+    $('#main-container').prepend(h);
+
+    if (autoDismiss) {
+        setTimeout(function() {
+            h.find('button').click();
+        }, 3000);
+    }
 }
 /*
  * Copy things
@@ -727,7 +738,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                     dataType: 'json',
                     success: function(data, textStatus, jqXHR) {
                         if (data.success) {
-                            addAlert('alert-success', data.msg);
+                            addAlert('alert-success', data.msg, (add !== 'app'));
                             modal.modal('hide');
                             if (window.location.pathname.indexOf('dashboard') !== -1) {
                                 var selector;
