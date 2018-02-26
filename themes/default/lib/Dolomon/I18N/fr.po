@@ -2,18 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Luc Didry <luc@framasoft.org>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-02-26 08:32+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
@@ -49,8 +51,16 @@ msgstr "1 minute"
 
 #. (config('counter_delay')
 #: themes/default/templates/misc/about.html.ep:44
-msgid "A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href=\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> header on your browser."
-msgstr "Un cookie est déposé pour %1 secondes pour chacun des dolos que vous visitez afin d’éviter de compter les visites consécutives d’une même personne, à moins que vous n’ayez activé l’en-tête <a href=\"https://fr.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> sur votre navigateur."
+msgid ""
+"A cookie is set for %1 seconds for each dolo you visit, to prevent counting "
+"consecutive visits from the same person, unless you activated the <a href="
+"\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> "
+"header on your browser."
+msgstr ""
+"Un cookie est déposé pour %1 secondes pour chacun des dolos que vous visitez "
+"afin d’éviter de compter les visites consécutives d’une même personne, à "
+"moins que vous n’ayez activé l’en-tête <a href=\"https://fr.wikipedia.org/"
+"wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> sur votre navigateur."
 
 #: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:126 themes/default/templates/partial/navbar.html.ep:135
 msgid "About"
@@ -84,6 +94,10 @@ msgstr "Ajouter une application"
 msgid "Administration"
 msgstr "Administration"
 
+#: themes/default/templates/js/i18n.js.ep:58
+msgid "Advanced settings"
+msgstr "Paramètres de configuration avancée"
+
 #: themes/default/templates/categories/show.html.ep:59 themes/default/templates/dolos/show.html.ep:119 themes/default/templates/tags/show.html.ep:59
 msgid "Aggregate data per"
 msgstr "Agréger les données par"
@@ -96,15 +110,20 @@ msgstr "Un courriel a été envoyé à %1 pour la suppression de votre compte."
 #. ($mail)
 #: lib/Dolomon/Controller/Users.pm:369 lib/Dolomon/Controller/Users.pm:458
 msgid "An email has been sent to %1 for your password renewal."
-msgstr "Un courriel a été envoyé à %1 pour le renouvellement de votre mot de passe."
+msgstr ""
+"Un courriel a été envoyé à %1 pour le renouvellement de votre mot de passe."
 
 #: themes/default/templates/js/i18n.js.ep:31
 msgid "Application name"
 msgstr "Nom de l’application"
 
 #: lib/Dolomon/Controller/Applications.pm:88
-msgid "Application name blank or undefined. I refuse to create an application without name."
-msgstr "Le nom d’une application ne peut être inexistant. Je refuse de créer une application sans nom."
+msgid ""
+"Application name blank or undefined. I refuse to create an application "
+"without name."
+msgstr ""
+"Le nom d’une application ne peut être inexistant. Je refuse de créer une "
+"application sans nom."
 
 #: themes/default/templates/misc/dashboard.html.ep:72
 msgid "Application(s)"
@@ -131,8 +150,12 @@ msgid "Are you sure you want to delete the tag XXXX?"
 msgstr "Voulez-vous vraiment supprimer l’étiquette XXXX ?"
 
 #: lib/Dolomon/Controller/Dolos.pm:341 lib/Dolomon/Controller/Dolos.pm:443
-msgid "At least one of the tag you want to use for your dolo does not belong to you."
-msgstr "Au moins une des étiquettes que vous souhaitez utiliser pour votre dolo ne vous appartient pas."
+msgid ""
+"At least one of the tag you want to use for your dolo does not belong to you."
+""
+msgstr ""
+"Au moins une des étiquettes que vous souhaitez utiliser pour votre dolo ne "
+"vous appartient pas."
 
 #: themes/default/templates/misc/index.html.ep:3 themes/default/templates/misc/index.html.ep:7
 msgid "Authentication"
@@ -148,7 +171,9 @@ msgstr "Jeton CSRF invalide !"
 
 #: themes/default/templates/misc/about.html.ep:41
 msgid "But don't worry, Dolomon's statistics are really anonymous."
-msgstr "Mais ne vous inquiétez pas, les statistiques de Dolomon sont vraiment anonymes."
+msgstr ""
+"Mais ne vous inquiétez pas, les statistiques de Dolomon sont vraiment "
+"anonymes."
 
 #: themes/default/templates/misc/about.html.ep:12
 msgid "But you can also use it to track visits on a page."
@@ -179,8 +204,12 @@ msgid "Category name"
 msgstr "Nom de la catégorie"
 
 #: lib/Dolomon/Controller/Categories.pm:319
-msgid "Category name blank or undefined. I refuse to create a category without name."
-msgstr "Le nom d’une catégorie ne peut être inexistant. Je refuse de créer une catégorie sans nom."
+msgid ""
+"Category name blank or undefined. I refuse to create a category without name."
+""
+msgstr ""
+"Le nom d’une catégorie ne peut être inexistant. Je refuse de créer une "
+"catégorie sans nom."
 
 #: themes/default/templates/partial/navbar.html.ep:109
 msgid "Change account details"
@@ -236,8 +265,11 @@ msgid "Create account"
 msgstr "Créer un compte"
 
 #: themes/default/templates/misc/about.html.ep:31
-msgid "Create an application in Dolomon to get credentials to use in WP-Dolomon."
-msgstr "Créez une application dans Dolomon pour récupérer des identifiants à utiliser dans WP-Dolomon."
+msgid ""
+"Create an application in Dolomon to get credentials to use in WP-Dolomon."
+msgstr ""
+"Créez une application dans Dolomon pour récupérer des identifiants à "
+"utiliser dans WP-Dolomon."
 
 #: themes/default/templates/dolos/show.html.ep:39 themes/default/templates/dolos/show.html.ep:40
 msgid "Created at"
@@ -247,7 +279,7 @@ msgstr "Créé le"
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: lib/Dolomon.pm:178 lib/Dolomon/Controller/Users.pm:614
+#: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:614
 msgid "Default"
 msgstr "Défaut"
 
@@ -289,21 +321,35 @@ msgstr "URL dans Dolomon"
 
 #. (config('keep_hits')
 #: themes/default/templates/misc/about.html.ep:37
-msgid "Dolomon also keeps the <a href=\"https://en.wikipedia.org/wiki/HTTP_referer\"><em>Referer</em></a> header and the date and time of the visit for %1 days."
-msgstr "Dolomon conserve aussi l’en-tête <a href=\"https://fr.wikipedia.org/wiki/R%%C3%%A9f%%C3%%A9rent_(informatique)\"><em>Referer</em></a> ainsi que la date et l’heure d’une visite pendant %1 jours."
+msgid ""
+"Dolomon also keeps the <a href=\"https://en.wikipedia.org/wiki/"
+"HTTP_referer\"><em>Referer</em></a> header and the date and time of the "
+"visit for %1 days."
+msgstr ""
+"Dolomon conserve aussi l’en-tête <a href=\"https://fr.wikipedia.org/wiki/"
+"R%%C3%%A9f%%C3%%A9rent_(informatique)\"><em>Referer</em></a> ainsi que la "
+"date et l’heure d’une visite pendant %1 jours."
 
 #. (url_for('hit', {short => 'foo'})
 #: themes/default/templates/misc/about.html.ep:20
-msgid "Dolomon gives you an other URL like %1 (but you can choose the URL as long as it's not already taken)"
-msgstr "Dolomon vous donne une URL comme %1 (mais vous avez le choix de l’URL si elle n’est pas déjà utilisée)"
+msgid ""
+"Dolomon gives you an other URL like %1 (but you can choose the URL as long "
+"as it's not already taken)"
+msgstr ""
+"Dolomon vous donne une URL comme %1 (mais vous avez le choix de l’URL si "
+"elle n’est pas déjà utilisée)"
 
 #: themes/default/templates/misc/about.html.ep:34
 msgid "Dolomon increments counters at each visit."
 msgstr "Dolomon incrémente les compteurs à chaque visite."
 
 #: themes/default/templates/misc/about.html.ep:56
-msgid "Dolomon is licensed under the terms of the GNU AGPLv3, see the <a href=\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a> file."
-msgstr "Dolomon est soumis aux termes de la GNU AGPLv3, voir le fichier <a href=\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a>."
+msgid ""
+"Dolomon is licensed under the terms of the GNU AGPLv3, see the <a href="
+"\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a> file."
+msgstr ""
+"Dolomon est soumis aux termes de la GNU AGPLv3, voir le fichier <a href="
+"\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a>."
 
 #: themes/default/templates/misc/about.html.ep:9
 msgid "Dolomon tracks how many times a link was clicked on."
@@ -311,7 +357,9 @@ msgstr "Dolomon compte combien de fois un lien a été visité."
 
 #: themes/default/templates/misc/about.html.ep:24
 msgid "Dolomon treats the jobs without impacting the redirection performances"
-msgstr "Dolomon traite les tâches en attente sans pénaliser les performances de la redirection"
+msgstr ""
+"Dolomon traite les tâches en attente sans pénaliser les performances de la "
+"redirection"
 
 #: themes/default/templates/categories/show.html.ep:92 themes/default/templates/dolos/index.html.ep:3 themes/default/templates/dolos/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:27 themes/default/templates/tags/show.html.ep:92
 msgid "Dolos"
@@ -335,7 +383,8 @@ msgstr "Courriel"
 
 #: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:562
 msgid "Email address already used. Choose another one."
-msgstr "Cette adresse de courriel est déjà utilisée. Veuillez en choisir une autre"
+msgstr ""
+"Cette adresse de courriel est déjà utilisée. Veuillez en choisir une autre"
 
 #: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:375 lib/Dolomon/Controller/Users.pm:384 lib/Dolomon/Controller/Users.pm:406 lib/Dolomon/Controller/Users.pm:420 lib/Dolomon/Controller/Users.pm:437 lib/Dolomon/Controller/Users.pm:465 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:487 lib/Dolomon/Controller/Users.pm:510 lib/Dolomon/Controller/Users.pm:537 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:580 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
@@ -397,7 +446,8 @@ msgstr "Si cela vient de vous, veuillez cliquer sur ce lien : %1"
 #. ($c->url_for('confirm_delete', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:204
 msgid "If want to delete your account, please click on this link: %1"
-msgstr "Si vous souhaitez supprimer votre compte, veuillez cliquer sur ce lien : %1"
+msgstr ""
+"Si vous souhaitez supprimer votre compte, veuillez cliquer sur ce lien : %1"
 
 #: themes/default/templates/js/i18n.js.ep:57
 msgid "Impersonate user"
@@ -409,7 +459,8 @@ msgstr "L’incarnation a été arrêtée"
 
 #: themes/default/templates/js/i18n.js.ep:50
 msgid "In how many days after the first visit will it expire? (optional)"
-msgstr "Dans combien de jours après la première visite expirera-t-il ? (facultatif)"
+msgstr ""
+"Dans combien de jours après la première visite expirera-t-il ? (facultatif)"
 
 #: themes/default/templates/js/i18n.js.ep:49
 msgid "In how many days will it expires? (optional)"
@@ -523,8 +574,11 @@ msgid "Name"
 msgstr "Nom"
 
 #: lib/Dolomon/Controller/Applications.pm:140
-msgid "New application name blank or undefined. I refuse to rename the category."
-msgstr "Le nouveau nom d’une catégorie ne peut être nul. Je refuse de renommer la catégorie."
+msgid ""
+"New application name blank or undefined. I refuse to rename the category."
+msgstr ""
+"Le nouveau nom d’une catégorie ne peut être nul. Je refuse de renommer la "
+"catégorie."
 
 #: lib/Dolomon/Controller/Categories.pm:371
 msgid "New category name blank or undefined. I refuse to rename the category."
@@ -664,7 +718,8 @@ msgstr "Quelqu’un a demandé à renouveler votre mot de passe sur %1.\n"
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Applications.pm:132
 msgid "Something went wrong while renaming application %1 to %2"
-msgstr "Quelque chose s’est mal passé lors du renommage de l’application %1 en %2"
+msgstr ""
+"Quelque chose s’est mal passé lors du renommage de l’application %1 en %2"
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Categories.pm:363
@@ -686,7 +741,8 @@ msgstr "Désolé, cette URL a expiré"
 
 #: lib/Dolomon/Controller/Admin.pm:71
 msgid "Sorry, unable to impersonate this user. Contact the administrator."
-msgstr "Désolé, impossible d’incarner cet utilisateur. Contactez l’administrateur."
+msgstr ""
+"Désolé, impossible d’incarner cet utilisateur. Contactez l’administrateur."
 
 #: themes/default/templates/misc/about.html.ep:57
 msgid "Sources"
@@ -722,7 +778,9 @@ msgstr "Nom de l’étiquette"
 
 #: lib/Dolomon/Controller/Tags.pm:324
 msgid "Tag name blank or undefined. I refuse to create an tag without name."
-msgstr "Le nom d’une étiquette ne peut être nul. Je refuse de créer une étiquette sans nom."
+msgstr ""
+"Le nom d’une étiquette ne peut être nul. Je refuse de créer une étiquette "
+"sans nom."
 
 #: themes/default/templates/js/i18n.js.ep:45 themes/default/templates/misc/dashboard.html.ep:60
 msgid "Tag(s)"
@@ -733,8 +791,22 @@ msgid "Tags"
 msgstr "Étiquettes"
 
 #: themes/default/templates/misc/about.html.ep:65
-msgid "The Dolomon mascot is called Zag. It has been initially designed by <a href=\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> under the name of <a href=\"https://openclipart.org/detail/204548/Red%20Oso\">Red Oso</a>, have been proposed by <a href=\"http://cyrille.largillier.org/\">Cyrille Largillier</a>, is in <a href=\"https://openclipart.org/share\">Public Domain</a> and has been slightly modified for Dolomon."
-msgstr "La mascotte de Dolomon s’appelle Zag. Elle a été initialement créée par <a href=\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> sous le nom de <a href=\"https://openclipart.org/detail/204548/Red%20Oso\">Red Oso</a>, a été proposée par <a href=\"http://cyrille.largillier.org/\">Cyrille Largillier</a>, est dans le <a href=\"https://openclipart.org/share\">domaine public</a> et a été légèrement modifiée pour Dolomon."
+msgid ""
+"The Dolomon mascot is called Zag. It has been initially designed by <a href="
+"\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> "
+"under the name of <a href=\"https://openclipart.org/detail/204548/"
+"Red%20Oso\">Red Oso</a>, have been proposed by <a href=\"http://cyrille."
+"largillier.org/\">Cyrille Largillier</a>, is in <a href=\"https://"
+"openclipart.org/share\">Public Domain</a> and has been slightly modified for "
+"Dolomon."
+msgstr ""
+"La mascotte de Dolomon s’appelle Zag. Elle a été initialement créée par <a "
+"href=\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo "
+"Miszczak</a> sous le nom de <a href=\"https://openclipart.org/detail/204548/"
+"Red%20Oso\">Red Oso</a>, a été proposée par <a href=\"http://cyrille."
+"largillier.org/\">Cyrille Largillier</a>, est dans le <a href=\"https://"
+"openclipart.org/share\">domaine public</a> et a été légèrement modifiée pour "
+"Dolomon."
 
 #. ($user->login)
 #: lib/Dolomon/Controller/Admin.pm:135
@@ -742,17 +814,31 @@ msgid "The account %1 will be deleted in a short time."
 msgstr "Le compte %1 sera supprimé dans peu de temps."
 
 #: lib/Dolomon/Controller/Users.pm:377
-msgid "The account linked to this email address is not confirmed. Please confirm the account."
-msgstr "Le compte lié à cette adresse de courriel n’est pas confirmé. Veuillez confirmer le compte."
+msgid ""
+"The account linked to this email address is not confirmed. Please confirm "
+"the account."
+msgstr ""
+"Le compte lié à cette adresse de courriel n’est pas confirmé. Veuillez "
+"confirmer le compte."
 
 #: lib/Dolomon/Controller/Users.pm:288
-msgid "The account linked to this token is not confirmed. Please confirm the account first."
-msgstr "Le compte lié à ce jeton n’est pas confirmé. Veuillez d’abord confirmer le compte."
+msgid ""
+"The account linked to this token is not confirmed. Please confirm the "
+"account first."
+msgstr ""
+"Le compte lié à ce jeton n’est pas confirmé. Veuillez d’abord confirmer le "
+"compte."
 
 #. (($app->name, $app->app_id, $app->app_secret)
 #: lib/Dolomon/Controller/Applications.pm:64
-msgid "The application %1 has been successfully created. Please note the credentials below: you won't be able to recover them.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>"
-msgstr "L’application %1 a été créée avec succès. Notez les identifiants ci-dessous : il ne vous sera pas possible de les réafficher.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>"
+msgid ""
+"The application %1 has been successfully created. Please note the "
+"credentials below: you won't be able to recover them.<br><ul><li>app_id: %2</"
+"li><li>app_secret: %3</li><ul>"
+msgstr ""
+"L’application %1 a été créée avec succès. Notez les identifiants ci-dessous :"
+" il ne vous sera pas possible de les réafficher.<br><ul><li>app_id: %2</"
+"li><li>app_secret: %3</li><ul>"
 
 #. ($app->name)
 #: lib/Dolomon/Controller/Applications.pm:166
@@ -793,7 +879,9 @@ msgstr "La catégorie %1 a été renommée en %2 avec succès"
 
 #: lib/Dolomon/Controller/Dolos.pm:325 lib/Dolomon/Controller/Dolos.pm:427
 msgid "The category you want to use for your dolo does not belong to you."
-msgstr "La catégorie que vous souhaitez utiliser pour votre dolo ne vous appartient pas."
+msgstr ""
+"La catégorie que vous souhaitez utiliser pour votre dolo ne vous appartient "
+"pas."
 
 #: lib/Dolomon/Controller/Categories.pm:390
 msgid "The category you're trying to delete does not belong to you."
@@ -808,16 +896,24 @@ msgid "The category you're trying to rename does not belong to you."
 msgstr "La catégorie que vous essayez de renommer ne vous appartient pas."
 
 #: lib/Dolomon/Controller/Categories.pm:60
-msgid "The category you're trying to show does not belong to you or does not exist."
-msgstr "La catégorie que vous essayez de voir ne vous appartient pas ou n’existe pas."
+msgid ""
+"The category you're trying to show does not belong to you or does not exist."
+msgstr ""
+"La catégorie que vous essayez de voir ne vous appartient pas ou n’existe pas."
+""
 
 #: themes/default/templates/misc/about.html.ep:58
-msgid "The code of Dolomon is on <a href=\"https://framagit.org/luc/dolomon\">https://framagit.org/luc/dolomon</a>."
-msgstr "Le code de Dolomon se trouve sur <a href=\"https://framagit.org/luc/dolomon\">https://framagit.org/luc/dolomon</a>."
+msgid ""
+"The code of Dolomon is on <a href=\"https://framagit.org/luc/dolomon\">https:"
+"//framagit.org/luc/dolomon</a>."
+msgstr ""
+"Le code de Dolomon se trouve sur <a href=\"https://framagit.org/luc/"
+"dolomon\">https://framagit.org/luc/dolomon</a>."
 
 #: themes/default/templates/misc/about.html.ep:35
 msgid "The counters are just numbers: no IP address is kept."
-msgstr "Les compteurs sont juste des nombres : aucune adresse IP n’est conservée."
+msgstr ""
+"Les compteurs sont juste des nombres : aucune adresse IP n’est conservée."
 
 #. (($dolo->name || $dolo->url, $c->url_for('hit', short => $dolo->short)
 #: lib/Dolomon/Controller/Dolos.pm:379
@@ -876,7 +972,7 @@ msgstr "L’étiquette %1 a été supprimée avec succès."
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Tags.pm:360
 msgid "The tag %1 has been successfully renamed to %2"
-msgstr "L’étiquette %1 a été supprimée avec succès."
+msgstr "L’étiquette %1 a été renommée en %2 avec succès."
 
 #: lib/Dolomon/Controller/Tags.pm:392
 msgid "The tag you're trying to delete does not belong to you."
@@ -891,8 +987,10 @@ msgid "The tag you're trying to rename does not belong to you."
 msgstr "L’étiquette que vous essayez de renommer ne vous appartient pas."
 
 #: lib/Dolomon/Controller/Tags.pm:65
-msgid "The tag you're trying to show does not belong to you or does not exist."
-msgstr "L’étiquette que vous essayez de voir ne vous appartient pas ou n’existe pas."
+msgid ""
+"The tag you're trying to show does not belong to you or does not exist."
+msgstr ""
+"L’étiquette que vous essayez de voir ne vous appartient pas ou n’existe pas."
 
 #: lib/Dolomon/Controller/Dolos.pm:301 lib/Dolomon/Controller/Dolos.pm:418
 msgid "The url is not a valid http, https, ftp or ftps URL."
@@ -907,12 +1005,16 @@ msgid "This email address is not valid."
 msgstr "Cette adresse de courriel n’est pas valide."
 
 #: lib/Dolomon/Controller/Users.pm:19 lib/Dolomon/Controller/Users.pm:95
-msgid "This is a LDAP account, you can't change account details nor password here."
-msgstr "Ceci est un compte LDAP, vous ne pouvez pas changer les détails du compte ou son mot de passe ici."
+msgid ""
+"This is a LDAP account, you can't change account details nor password here."
+msgstr ""
+"Ceci est un compte LDAP, vous ne pouvez pas changer les détails du compte ou "
+"son mot de passe ici."
 
 #: lib/Dolomon/Controller/Users.pm:264 lib/Dolomon/Controller/Users.pm:350
 msgid "This is a LDAP account, you can't change your password here."
-msgstr "Ceci est un compte LDAP, vous ne pouvez pas changer son mot de passe ici."
+msgstr ""
+"Ceci est un compte LDAP, vous ne pouvez pas changer son mot de passe ici."
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:444 lib/Dolomon/Controller/Users.pm:628
@@ -920,12 +1022,22 @@ msgid "This is the final step for your registration on %1.\n"
 msgstr "Ceci est la dernière étape pour votre enregistrement sur %1.\n"
 
 #: themes/default/templates/misc/about.html.ep:11
-msgid "This means that it can tell you how many times a file was downloaded (it was designed for that purpose)."
-msgstr "Cela veut dire qu’il peut vous dire combien de fois un fichier a été téléchargé (il a été programmé pour cet usage)."
+msgid ""
+"This means that it can tell you how many times a file was downloaded (it was "
+"designed for that purpose)."
+msgstr ""
+"Cela veut dire qu’il peut vous dire combien de fois un fichier a été "
+"téléchargé (il a été programmé pour cet usage)."
 
 #: themes/default/templates/misc/about.html.ep:27
-msgid "To track visits on a page, create a dolo pointing to a small transparent image (Dolomon has a helper to do that) and insert the resulting URL as an image in your page."
-msgstr "Pour suivre les visites sur une page, créez un dolo pointant sur une petite image transparente (Dolomon vous en propose une) et insérez l’URL en résultant comme une image dans votre page."
+msgid ""
+"To track visits on a page, create a dolo pointing to a small transparent "
+"image (Dolomon has a helper to do that) and insert the resulting URL as an "
+"image in your page."
+msgstr ""
+"Pour suivre les visites sur une page, créez un dolo pointant sur une petite "
+"image transparente (Dolomon vous en propose une) et insérez l’URL en "
+"résultant comme une image dans votre page."
 
 #: themes/default/templates/misc/dashboard.html.ep:34
 msgid "Total count of hits on your dolos"
@@ -949,33 +1061,47 @@ msgstr "Impossible de vous authentifier. Veuillez vérifier vos identifiants."
 
 #. ($name)
 #: lib/Dolomon/Controller/Applications.pm:80
-msgid "Unable to create application %1, this name is already taken. Choose another one."
-msgstr "Impossible de créer l’application %1, le nom est déjà utilisé. Veuillez en choisir un autre."
+msgid ""
+"Unable to create application %1, this name is already taken. Choose another "
+"one."
+msgstr ""
+"Impossible de créer l’application %1, le nom est déjà utilisé. Veuillez en "
+"choisir un autre."
 
 #. ($name)
 #: lib/Dolomon/Controller/Applications.pm:72
 msgid "Unable to create application %1. Please contact the administrator."
-msgstr "Impossible de créer l’application %1. Veuillez contacter l’administrateur."
+msgstr ""
+"Impossible de créer l’application %1. Veuillez contacter l’administrateur."
 
 #. ($name)
 #: lib/Dolomon/Controller/Categories.pm:311
-msgid "Unable to create category %1, this name is already taken. Choose another one."
-msgstr "Impossible de créer la catégorie %1, le nom est déjà utilisé. Veuillez en choisir un autre."
+msgid ""
+"Unable to create category %1, this name is already taken. Choose another one."
+""
+msgstr ""
+"Impossible de créer la catégorie %1, le nom est déjà utilisé. Veuillez en "
+"choisir un autre."
 
 #. ($name)
 #: lib/Dolomon/Controller/Categories.pm:303
 msgid "Unable to create category %1. Please contact the administrator."
-msgstr "Impossible de créer la catégorie %1. Veuillez contacter l’administrateur."
+msgstr ""
+"Impossible de créer la catégorie %1. Veuillez contacter l’administrateur."
 
 #. ($name)
 #: lib/Dolomon/Controller/Tags.pm:316
-msgid "Unable to create tag %1, this name is already taken. Choose another one."
-msgstr "Impossible de créer l’étiquette %1, le nom est déjà utilisé. Veuillez en choisir un autre."
+msgid ""
+"Unable to create tag %1, this name is already taken. Choose another one."
+msgstr ""
+"Impossible de créer l’étiquette %1, le nom est déjà utilisé. Veuillez en "
+"choisir un autre."
 
 #. ($name)
 #: lib/Dolomon/Controller/Tags.pm:308
 msgid "Unable to create tag %1. Please contact the administrator."
-msgstr "Impossible de créer l’étiquette %1. Veuillez contacter l’administrateur."
+msgstr ""
+"Impossible de créer l’étiquette %1. Veuillez contacter l’administrateur."
 
 #: lib/Dolomon/Controller/Admin.pm:141
 msgid "Unable to find an account with this id."
@@ -987,7 +1113,8 @@ msgstr "Impossible de trouver un compte avec ce jeton."
 
 #: lib/Dolomon/Controller/Categories.pm:263 lib/Dolomon/Controller/Dolos.pm:244 lib/Dolomon/Controller/Tags.pm:268
 msgid "Unable to generate the zip file. Please contact the administrator"
-msgstr "Impossible de générer le fichier zip. Veuillez contacter l’administrateur."
+msgstr ""
+"Impossible de générer le fichier zip. Veuillez contacter l’administrateur."
 
 #: lib/Dolomon/Controller/Users.pm:386 lib/Dolomon/Controller/Users.pm:467
 msgid "Unable to retrieve an account linked to that email address."
@@ -1034,8 +1161,12 @@ msgid "What kind of data does Dolomon keep?"
 msgstr "Quels types de données Dolomon conserve-t-il ?"
 
 #: themes/default/templates/misc/about.html.ep:22
-msgid "When people use that URL, Dolomon redirects them to the target URL and creates a job to increment the counters"
-msgstr "Lorsque des personnes utilisent cette URL, Dolomon les redirige vers l’URL cible et crée une tâche pour incrémenter les compteurs"
+msgid ""
+"When people use that URL, Dolomon redirects them to the target URL and "
+"creates a job to increment the counters"
+msgstr ""
+"Lorsque des personnes utilisent cette URL, Dolomon les redirige vers l’URL "
+"cible et crée une tâche pour incrémenter les compteurs"
 
 #: themes/default/templates/misc/about.html.ep:29
 msgid "Wordpress integration"
@@ -1051,7 +1182,8 @@ msgstr "Oui"
 
 #: themes/default/templates/misc/about.html.ep:19
 msgid "You add an URL in Dolomon (it's called a dolo in Dolomon)"
-msgstr "Vous ajoutez une URL dans Dolomon (dans Dolomon, on appelle cela un dolo)"
+msgstr ""
+"Vous ajoutez une URL dans Dolomon (dans Dolomon, on appelle cela un dolo)"
 
 #: lib/Dolomon/Controller/Dolos.pm:311
 msgid "You already have a dolo which dolomon URL is %1."
@@ -1061,25 +1193,44 @@ msgstr "Vous avez déjà un dolo dont l’URL dolomon est %1."
 msgid "You already have that URL in the dolos of this category."
 msgstr "Vous avez déjà cette URL dans les dolos de cette catégorie."
 
-#: lib/Dolomon.pm:443
+#: lib/Dolomon.pm:451
 msgid "You are not authenticated or have not valid application credentials"
-msgstr "Vous n’êtes pas authentifié·e ou n’avez pas d’identifiants d’application valides"
+msgstr ""
+"Vous n’êtes pas authentifié·e ou n’avez pas d’identifiants d’application "
+"valides"
 
 #: lib/Dolomon/Controller/Users.pm:50
-msgid "You are not logged in with the same account that you are trying to delete. Please, log out first."
-msgstr "Vous n’êtes pas connecté·e avec le même compte que celui que vous essayez de supprimer. Veuillez vous déconnecter au préalable."
+msgid ""
+"You are not logged in with the same account that you are trying to delete. "
+"Please, log out first."
+msgstr ""
+"Vous n’êtes pas connecté·e avec le même compte que celui que vous essayez de "
+"supprimer. Veuillez vous déconnecter au préalable."
 
 #: themes/default/templates/misc/about.html.ep:30
-msgid "You can interact with a Dolomon server from Wordpress with the plugin <a href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
-msgstr "Vous pouvez interagir avec un serveur Dolomon depuis Wordpress avec le plugin <a href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
+msgid ""
+"You can interact with a Dolomon server from Wordpress with the plugin <a "
+"href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
+msgstr ""
+"Vous pouvez interagir avec un serveur Dolomon depuis Wordpress avec le "
+"plugin <a href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
 
 #: themes/default/templates/misc/about.html.ep:62
-msgid "You can make a donation to the author on <a href=\"https://www.tipeee.com/fiat-tux\">Tipeee</a> or on <a href=\"https://liberapay.com/sky/\">Liberapay</a>."
-msgstr "Vous pouvez faire un don à l’auteur sur <a href=\"https://www.tipeee.com/fiat-tux\">Tipeee</a> ou sur <a href=\"https://liberapay.com/sky/\">Liberapay</a>."
+msgid ""
+"You can make a donation to the author on <a href=\"https://www.tipeee.com/"
+"fiat-tux\">Tipeee</a> or on <a href=\"https://liberapay.com/sky/"
+"\">Liberapay</a>."
+msgstr ""
+"Vous pouvez faire un don à l’auteur sur <a href=\"https://www.tipeee.com/"
+"fiat-tux\">Tipeee</a> ou sur <a href=\"https://liberapay.com/sky/"
+"\">Liberapay</a>."
 
 #: lib/Dolomon/Controller/Categories.pm:419
-msgid "You can't delete this category: you need to have at least one category."
-msgstr "Vous ne pouvez pas supprimer cette catégorie : vous devez nécessairement avoir au moins une catégorie."
+msgid ""
+"You can't delete this category: you need to have at least one category."
+msgstr ""
+"Vous ne pouvez pas supprimer cette catégorie : vous devez nécessairement "
+"avoir au moins une catégorie."
 
 #: themes/default/templates/misc/about.html.ep:40
 msgid "You can't, sorry."
@@ -1094,8 +1245,12 @@ msgid "You have been successfully disconnected."
 msgstr "Vous avez été déconnecté·e avec succès."
 
 #: lib/Dolomon/Controller/Users.pm:624
-msgid "You have been successfully registered. You will receive a mail containing a link to finish your registration."
-msgstr "Vous avez été enregistré·e avec succès. Vous recevrez un courriel contenant un lien pour terminer votre enregistrement."
+msgid ""
+"You have been successfully registered. You will receive a mail containing a "
+"link to finish your registration."
+msgstr ""
+"Vous avez été enregistré·e avec succès. Vous recevrez un courriel contenant "
+"un lien pour terminer votre enregistrement."
 
 #: lib/Dolomon/Controller/Admin.pm:101
 msgid "You have returned to your previous session."
@@ -1106,8 +1261,12 @@ msgid "You need to provide a dolo id!"
 msgstr "Vous devez fournir un identifant de dolo !"
 
 #: themes/default/templates/misc/about.html.ep:21
-msgid "You use the Dolomon URL instead of the target URL in your web site, your flyers, your social networks…"
-msgstr "Vous utilisez l’URL de Dolomon au lieu de l’URL cible sur votre site web, vos tracts, vos réseaux sociaux…"
+msgid ""
+"You use the Dolomon URL instead of the target URL in your web site, your "
+"flyers, your social networks…"
+msgstr ""
+"Vous utilisez l’URL de Dolomon au lieu de l’URL cible sur votre site web, "
+"vos tracts, vos réseaux sociaux…"
 
 #: lib/Dolomon/Controller/Admin.pm:114
 msgid "You weren't impersonating anyone."
@@ -1146,8 +1305,11 @@ msgid "Your password has been successfully changed."
 msgstr "Votre mot de passe a été modifié avec succès."
 
 #: lib/Dolomon/Controller/Users.pm:269
-msgid "Your password has been updated. You can now login with your new password."
-msgstr "Votre mot de passe a été mis à jour. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe."
+msgid ""
+"Your password has been updated. You can now login with your new password."
+msgstr ""
+"Votre mot de passe a été mis à jour. Vous pouvez maintenant vous connecter "
+"avec votre nouveau mot de passe."
 
 #: themes/default/templates/misc/about.html.ep:5 themes/default/templates/misc/index.html.ep:68
 msgid "Zag, the Dolomon mascot"

@@ -6,3 +6,4 @@ script/hypnotoad.pid
 themes/*
 !themes/default
 !themes/default/*
+.zanata-cache/

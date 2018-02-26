@@ -55,7 +55,7 @@ var i18n = {
     actions:           '<%= l('Actions') %>',
     deleteUser:        '<%= l('Delete user') %>',
     impersonate:       '<%= l('Impersonate user') %>',
-    //: '<%= l('') %>',
+    advancedSettings:  '<%= l('Advanced settings') %>',
 };
 var url = {
     base_url:          '<%= url_for('/')->to_abs %>',
