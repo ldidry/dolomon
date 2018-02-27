@@ -65,7 +65,7 @@
                     <table class="table table-hover table-condensed sortable">
                         <thead>
                             <tr>
-                                <th><%= l('URL') %></th>
+                                <th><%= l('Target URL') %></th>
                                 <th><%= l('Dolomon URL') %></th>
                                 <th><%= l('Name') %></th>
                                 <th><%= l('Free field') %></th>

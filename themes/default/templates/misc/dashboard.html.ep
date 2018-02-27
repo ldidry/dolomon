@@ -9,9 +9,10 @@
             <div class="caption">
                 <h1 id="dolo_nb"><%= $h->{dolos} %></h1>
                 <p>
-                    <a href="<%= url_for('dolo') %>">
-                        <%= l('Dolo(s)') %>
-                    </a>
+                    <a href="<%= url_for('dolo') %>"><%= l('Dolo(s)') %></a>
+                    <span data-toggle="tooltip" data-placement="botton" title="<%= l('A "dolo" is an URL that you monitor through Dolomon.') %>">
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only"><%= l('Help') %></span>
+                    </span>
                 </p>
             </div>
         </div>

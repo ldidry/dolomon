@@ -13,6 +13,7 @@ sub register {
     $app->helper(active          => \&_active);
     $app->helper(shortener       => \&_shortener);
     $app->helper(available_langs => \&_available_langs);
+    $app->helper(time_to_clean   => \&_time_to_clean);
 
     $app->hook(
         before_dispatch => sub {
@@ -62,6 +63,21 @@ sub _available_langs {
             $c->l($a) cmp $c->l($b)
         }
     )->to_array;
+}
+
+sub _time_to_clean {
+    my $c    = shift;
+    my $time = time;
+
+    state $last_cleaning;
+
+    # If the last cleaning was less than 2 hours ago
+    if (defined $last_cleaning && ($last_cleaning + 7200 > $time)) {
+        return 0
+    }
+
+    $last_cleaning = $time;
+    return 1;
 }
 
 1;

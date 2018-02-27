@@ -28,8 +28,8 @@
     % }
     </p>
     <p>
-        <span class="glyphicon glyphicon-screenshot" aria-hidden="true" title="<%= l('URL') %>"></span>
-            <span class="sr-only"><%= l('URL') %></span>
+        <span class="glyphicon glyphicon-screenshot" aria-hidden="true" title="<%= l('Target URL') %>"></span>
+            <span class="sr-only"><%= l('Target URL') %></span>
             <a href="<%= $dolo->url %>"><%= $dolo->url %></a>
         <span class="glyphicon glyphicon-link" aria-hidden="true" title="<%= l('Dolomon URL') %>"></span>
             <span class="sr-only"><%= l('Dolomon URL') %></span>

@@ -9,10 +9,13 @@ locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(POT) 2>/dev/null
 
 push-locales:
-	zanata-cli push
+	zanata-cli -q -B push
 
 pull-locales:
-	zanata-cli pull
+	zanata-cli -q -B pull
+
+stats-locales:
+	zanata-cli -q stats
 
 dev:
 	MOJO_REVERSE_PROXY=1 $(CARTON) morbo $(DOLOMON) --listen http://127.0.0.1:8400 --watch themes/ --watch dolomon.conf --watch lib/

@@ -409,6 +409,7 @@
     "alert.js",
     "dropdown.js",
     "modal.js",
+    "tooltip.js",
     "tab.js",
     "collapse.js",
     "transition.js"

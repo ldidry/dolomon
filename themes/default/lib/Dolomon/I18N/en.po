@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-26 08:32+0000\n"
+"PO-Revision-Date: 2018-02-27 12:33+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -37,13 +37,17 @@ msgstr "%1 hours"
 msgid "%1 minutes"
 msgstr "%1 minutes"
 
-#: themes/default/templates/js/i18n.js.ep:33
+#: themes/default/templates/js/i18n.js.ep:35
 msgid "0 dolo(s)"
 msgstr "0 dolo(s)"
 
 #: themes/default/templates/categories/show.html.ep:68 themes/default/templates/dolos/show.html.ep:128 themes/default/templates/tags/show.html.ep:68
 msgid "1 minute"
 msgstr "1 minute"
+
+#: themes/default/templates/misc/dashboard.html.ep:12
+msgid "A \"dolo\" is an URL that you monitor through Dolomon."
+msgstr "A \"dolo\" is an URL that you monitor through Dolomon."
 
 #. (config('counter_delay')
 #: themes/default/templates/misc/about.html.ep:44
@@ -66,23 +70,23 @@ msgstr "About"
 msgid "Account deletion"
 msgstr "Account deletion"
 
-#: themes/default/templates/categories/index.html.ep:28 themes/default/templates/js/i18n.js.ep:55 themes/default/templates/partial/dolos_list.html.ep:112 themes/default/templates/partial/dolos_list.html.ep:23 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:104 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:25 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:26 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:89 themes/default/templates/tags/index.html.ep:28
+#: themes/default/templates/categories/index.html.ep:28 themes/default/templates/js/i18n.js.ep:63 themes/default/templates/partial/dolos_list.html.ep:112 themes/default/templates/partial/dolos_list.html.ep:23 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:104 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:25 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:26 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:89 themes/default/templates/tags/index.html.ep:28
 msgid "Actions"
 msgstr "Actions"
 
-#: themes/default/templates/categories/index.html.ep:9 themes/default/templates/js/i18n.js.ep:13 themes/default/templates/partial/navbar.html.ep:57
+#: themes/default/templates/categories/index.html.ep:9 themes/default/templates/js/i18n.js.ep:15 themes/default/templates/partial/navbar.html.ep:57
 msgid "Add a category"
 msgstr "Add a category"
 
-#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:5 themes/default/templates/misc/dashboard.html.ep:24 themes/default/templates/partial/navbar.html.ep:38
+#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/misc/dashboard.html.ep:24 themes/default/templates/partial/navbar.html.ep:38
 msgid "Add a dolo"
 msgstr "Add a dolo"
 
-#: themes/default/templates/js/i18n.js.ep:20 themes/default/templates/partial/navbar.html.ep:76 themes/default/templates/tags/index.html.ep:9
+#: themes/default/templates/js/i18n.js.ep:22 themes/default/templates/partial/navbar.html.ep:76 themes/default/templates/tags/index.html.ep:9
 msgid "Add a tag"
 msgstr "Add a tag"
 
-#: themes/default/templates/applications/index.html.ep:9 themes/default/templates/js/i18n.js.ep:26 themes/default/templates/partial/navbar.html.ep:95
+#: themes/default/templates/applications/index.html.ep:9 themes/default/templates/js/i18n.js.ep:28 themes/default/templates/partial/navbar.html.ep:95
 msgid "Add an application"
 msgstr "Add an application"
 
@@ -90,7 +94,7 @@ msgstr "Add an application"
 msgid "Administration"
 msgstr "Administration"
 
-#: themes/default/templates/js/i18n.js.ep:58
+#: themes/default/templates/js/i18n.js.ep:66
 msgid "Advanced settings"
 msgstr "Advanced settings"
 
@@ -108,7 +112,7 @@ msgstr "An email has been sent to %1 for your account deletion."
 msgid "An email has been sent to %1 for your password renewal."
 msgstr "An email has been sent to %1 for your password renewal."
 
-#: themes/default/templates/js/i18n.js.ep:31
+#: themes/default/templates/js/i18n.js.ep:33
 msgid "Application name"
 msgstr "Application name"
 
@@ -128,19 +132,19 @@ msgstr "Application(s)"
 msgid "Applications"
 msgstr "Applications"
 
-#: themes/default/templates/js/i18n.js.ep:29
+#: themes/default/templates/js/i18n.js.ep:31
 msgid "Are you sure you want to delete the application XXXX?"
 msgstr "Are you sure you want to delete the application XXXX?"
 
-#: themes/default/templates/js/i18n.js.ep:16
+#: themes/default/templates/js/i18n.js.ep:18
 msgid "Are you sure you want to delete the category XXXX?"
 msgstr "Are you sure you want to delete the category XXXX?"
 
-#: themes/default/templates/js/i18n.js.ep:10
+#: themes/default/templates/js/i18n.js.ep:11
 msgid "Are you sure you want to delete the dolo XXXX?"
 msgstr "Are you sure you want to delete the dolo XXXX?"
 
-#: themes/default/templates/js/i18n.js.ep:23
+#: themes/default/templates/js/i18n.js.ep:25
 msgid "Are you sure you want to delete the tag XXXX?"
 msgstr "Are you sure you want to delete the tag XXXX?"
 
@@ -188,11 +192,11 @@ msgstr "Categorie(s)"
 msgid "Categories"
 msgstr "Categories"
 
-#: themes/default/templates/categories/show.html.ep:8 themes/default/templates/dolos/show.html.ep:17 themes/default/templates/dolos/show.html.ep:18 themes/default/templates/js/i18n.js.ep:44
+#: themes/default/templates/categories/show.html.ep:8 themes/default/templates/dolos/show.html.ep:17 themes/default/templates/dolos/show.html.ep:18 themes/default/templates/js/i18n.js.ep:50
 msgid "Category"
 msgstr "Category"
 
-#: themes/default/templates/js/i18n.js.ep:18
+#: themes/default/templates/js/i18n.js.ep:20
 msgid "Category name"
 msgstr "Category name"
 
@@ -228,7 +232,7 @@ msgstr "Children"
 msgid "Clear input"
 msgstr "Clear input"
 
-#: themes/default/templates/js/i18n.js.ep:3 themes/default/templates/layouts/default.html.ep:26 themes/default/templates/partial/addModal.html.ep:6 themes/default/templates/partial/modModal.html.ep:6 themes/default/templates/partial/rmModal.html.ep:6
+#: themes/default/templates/js/i18n.js.ep:4 themes/default/templates/layouts/default.html.ep:26 themes/default/templates/partial/addModal.html.ep:6 themes/default/templates/partial/modModal.html.ep:6 themes/default/templates/partial/rmModal.html.ep:6
 msgid "Close"
 msgstr "Close"
 
@@ -240,11 +244,11 @@ msgstr "Confirm"
 msgid "Confirmed"
 msgstr "Confirmed"
 
-#: themes/default/templates/js/i18n.js.ep:8 themes/default/templates/partial/dolos_list.html.ep:156 themes/default/templates/partial/dolos_list.html.ep:72 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:145 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:66 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:114 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:51
+#: themes/default/templates/js/i18n.js.ep:9 themes/default/templates/partial/dolos_list.html.ep:156 themes/default/templates/partial/dolos_list.html.ep:72 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:145 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:66 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:114 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:51
 msgid "Copy dolomon URL"
 msgstr "Copy dolomon URL"
 
-#: themes/default/templates/js/i18n.js.ep:9 themes/default/templates/partial/dolos_list.html.ep:164 themes/default/templates/partial/dolos_list.html.ep:80 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:153 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:74 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:122 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:59
+#: themes/default/templates/js/i18n.js.ep:10 themes/default/templates/partial/dolos_list.html.ep:164 themes/default/templates/partial/dolos_list.html.ep:80 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:153 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:74 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:122 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:59
 msgid "Copy image code"
 msgstr "Copy image code"
 
@@ -275,15 +279,15 @@ msgstr "Dashboard"
 msgid "Default"
 msgstr "Default"
 
-#: themes/default/templates/applications/index.html.ep:39 themes/default/templates/js/i18n.js.ep:27
+#: themes/default/templates/applications/index.html.ep:39 themes/default/templates/js/i18n.js.ep:29
 msgid "Delete application"
 msgstr "Delete application"
 
-#: themes/default/templates/categories/index.html.ep:50 themes/default/templates/categories/show.html.ep:17 themes/default/templates/js/i18n.js.ep:14
+#: themes/default/templates/categories/index.html.ep:50 themes/default/templates/categories/show.html.ep:17 themes/default/templates/js/i18n.js.ep:16
 msgid "Delete category"
 msgstr "Delete category"
 
-#: themes/default/templates/dolos/show.html.ep:77 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/partial/dolos_list.html.ep:149 themes/default/templates/partial/dolos_list.html.ep:65 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:138 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:59 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:107 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:44
+#: themes/default/templates/dolos/show.html.ep:77 themes/default/templates/js/i18n.js.ep:7 themes/default/templates/partial/dolos_list.html.ep:149 themes/default/templates/partial/dolos_list.html.ep:65 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:138 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:59 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:107 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:44
 msgid "Delete dolo"
 msgstr "Delete dolo"
 
@@ -291,11 +295,11 @@ msgstr "Delete dolo"
 msgid "Delete my account"
 msgstr "Delete my account"
 
-#: themes/default/templates/js/i18n.js.ep:21 themes/default/templates/tags/index.html.ep:54 themes/default/templates/tags/show.html.ep:17
+#: themes/default/templates/js/i18n.js.ep:23 themes/default/templates/tags/index.html.ep:54 themes/default/templates/tags/show.html.ep:17
 msgid "Delete tag"
 msgstr "Delete tag"
 
-#: themes/default/templates/js/i18n.js.ep:56
+#: themes/default/templates/js/i18n.js.ep:64
 msgid "Delete user"
 msgstr "Delete user"
 
@@ -307,7 +311,7 @@ msgstr "Deploy menu"
 msgid "Dolo(s)"
 msgstr "Dolo(s)"
 
-#: themes/default/templates/categories/index.html.ep:65 themes/default/templates/categories/show.html.ep:98 themes/default/templates/dolos/index.html.ep:17 themes/default/templates/dolos/show.html.ep:34 themes/default/templates/dolos/show.html.ep:35 themes/default/templates/js/i18n.js.ep:35 themes/default/templates/tags/index.html.ep:69 themes/default/templates/tags/show.html.ep:98
+#: themes/default/templates/categories/index.html.ep:65 themes/default/templates/categories/show.html.ep:98 themes/default/templates/dolos/index.html.ep:17 themes/default/templates/dolos/show.html.ep:34 themes/default/templates/dolos/show.html.ep:35 themes/default/templates/js/i18n.js.ep:38 themes/default/templates/tags/index.html.ep:69 themes/default/templates/tags/show.html.ep:98
 msgid "Dolomon URL"
 msgstr "Dolomon URL"
 
@@ -396,13 +400,17 @@ msgstr "Expired?"
 msgid "First name"
 msgstr "First name"
 
-#: themes/default/templates/categories/index.html.ep:67 themes/default/templates/categories/show.html.ep:100 themes/default/templates/dolos/index.html.ep:19 themes/default/templates/dolos/show.html.ep:46 themes/default/templates/dolos/show.html.ep:47 themes/default/templates/js/i18n.js.ep:37 themes/default/templates/tags/index.html.ep:71 themes/default/templates/tags/show.html.ep:100
+#: themes/default/templates/categories/index.html.ep:67 themes/default/templates/categories/show.html.ep:100 themes/default/templates/dolos/index.html.ep:19 themes/default/templates/dolos/show.html.ep:46 themes/default/templates/dolos/show.html.ep:47 themes/default/templates/js/i18n.js.ep:42 themes/default/templates/tags/index.html.ep:71 themes/default/templates/tags/show.html.ep:100
 msgid "Free field"
 msgstr "Free field"
 
 #: themes/default/templates/misc/index.html.ep:27
 msgid "Go"
 msgstr "Go"
+
+#: themes/default/templates/js/i18n.js.ep:3
+msgid "Help"
+msgstr "Help"
 
 #: themes/default/templates/misc/about.html.ep:38
 msgid "How can I opt-out Dolomon?"
@@ -438,7 +446,19 @@ msgstr "If it's you, please click on this link: %1"
 msgid "If want to delete your account, please click on this link: %1"
 msgstr "If want to delete your account, please click on this link: %1"
 
-#: themes/default/templates/js/i18n.js.ep:57
+#: themes/default/templates/js/i18n.js.ep:13
+msgid ""
+"If you want to use Dolomon as a visit counter on a website, select this and "
+"use the Dolomon URL as an image on your website. As it's a small and "
+"transparent gif, your users should not notice it. Dolomon will provide you "
+"the code to add to your website."
+msgstr ""
+"If you want to use Dolomon as a visit counter on a website, select this and "
+"use the Dolomon URL as an image on your website. As it's a small and "
+"transparent gif, your users should not notice it. Dolomon will provide you "
+"the code to add to your website."
+
+#: themes/default/templates/js/i18n.js.ep:65
 msgid "Impersonate user"
 msgstr "Impersonate user"
 
@@ -446,15 +466,15 @@ msgstr "Impersonate user"
 msgid "Impersonating has been stopped"
 msgstr "Impersonating has been stopped"
 
-#: themes/default/templates/js/i18n.js.ep:50
+#: themes/default/templates/js/i18n.js.ep:57
 msgid "In how many days after the first visit will it expire? (optional)"
 msgstr "In how many days after the first visit will it expire? (optional)"
 
-#: themes/default/templates/js/i18n.js.ep:49
+#: themes/default/templates/js/i18n.js.ep:55
 msgid "In how many days will it expires? (optional)"
 msgstr "In how many days will it expires? (optional)"
 
-#: themes/default/templates/js/i18n.js.ep:43
+#: themes/default/templates/js/i18n.js.ep:49
 msgid "Initial counter"
 msgstr "Initial counter"
 
@@ -533,7 +553,7 @@ msgstr "Make a donation to the author"
 msgid "Mascot"
 msgstr "Mascot"
 
-#: themes/default/templates/dolos/show.html.ep:74 themes/default/templates/js/i18n.js.ep:7 themes/default/templates/partial/dolos_list.html.ep:136 themes/default/templates/partial/dolos_list.html.ep:52 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:125 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:46 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:101 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:38
+#: themes/default/templates/dolos/show.html.ep:74 themes/default/templates/js/i18n.js.ep:8 themes/default/templates/partial/dolos_list.html.ep:136 themes/default/templates/partial/dolos_list.html.ep:52 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:125 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:46 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:101 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:38
 msgid "Modify dolo"
 msgstr "Modify dolo"
 
@@ -541,23 +561,23 @@ msgstr "Modify dolo"
 msgid "My account"
 msgstr "My account"
 
-#: themes/default/templates/js/i18n.js.ep:30
+#: themes/default/templates/js/i18n.js.ep:32
 msgid "My astonishing application"
 msgstr "My astonishing application"
 
-#: themes/default/templates/js/i18n.js.ep:17
+#: themes/default/templates/js/i18n.js.ep:19
 msgid "My awesome category"
 msgstr "My awesome category"
 
-#: themes/default/templates/js/i18n.js.ep:42
+#: themes/default/templates/js/i18n.js.ep:48
 msgid "My extraordinary dolo"
 msgstr "My extraordinary dolo"
 
-#: themes/default/templates/js/i18n.js.ep:24
+#: themes/default/templates/js/i18n.js.ep:26
 msgid "My wonderful tag"
 msgstr "My wonderful tag"
 
-#: themes/default/templates/applications/index.html.ep:16 themes/default/templates/categories/index.html.ep:66 themes/default/templates/categories/show.html.ep:99 themes/default/templates/dolos/index.html.ep:18 themes/default/templates/js/i18n.js.ep:36 themes/default/templates/tags/index.html.ep:70 themes/default/templates/tags/show.html.ep:99
+#: themes/default/templates/applications/index.html.ep:16 themes/default/templates/categories/index.html.ep:66 themes/default/templates/categories/show.html.ep:99 themes/default/templates/dolos/index.html.ep:18 themes/default/templates/js/i18n.js.ep:40 themes/default/templates/tags/index.html.ep:70 themes/default/templates/tags/show.html.ep:99
 msgid "Name"
 msgstr "Name"
 
@@ -576,15 +596,15 @@ msgstr ""
 msgid "New tag name blank or undefined. I refuse to rename the tag."
 msgstr "New tag name blank or undefined. I refuse to rename the tag."
 
-#: themes/default/templates/js/i18n.js.ep:54
+#: themes/default/templates/js/i18n.js.ep:62
 msgid "Next"
 msgstr "Next"
 
-#: themes/default/templates/dolos/index.html.ep:34 themes/default/templates/dolos/index.html.ep:41 themes/default/templates/dolos/show.html.ep:44 themes/default/templates/js/i18n.js.ep:52 themes/default/templates/partial/dolos_list.html.ep:10 themes/default/templates/partial/dolos_list.html.ep:105 themes/default/templates/partial/dolos_list.html.ep:106 themes/default/templates/partial/dolos_list.html.ep:11 themes/default/templates/partial/dolos_list.html.ep:132 themes/default/templates/partial/dolos_list.html.ep:48
+#: themes/default/templates/dolos/index.html.ep:34 themes/default/templates/dolos/index.html.ep:41 themes/default/templates/dolos/show.html.ep:44 themes/default/templates/js/i18n.js.ep:60 themes/default/templates/partial/dolos_list.html.ep:10 themes/default/templates/partial/dolos_list.html.ep:105 themes/default/templates/partial/dolos_list.html.ep:106 themes/default/templates/partial/dolos_list.html.ep:11 themes/default/templates/partial/dolos_list.html.ep:132 themes/default/templates/partial/dolos_list.html.ep:48
 msgid "No"
 msgstr "No"
 
-#: themes/default/templates/js/i18n.js.ep:46
+#: themes/default/templates/js/i18n.js.ep:52
 msgid "Number of hits"
 msgstr "Number of hits"
 
@@ -629,7 +649,7 @@ msgstr "Please wait"
 msgid "Please, choose a password with at least 8 characters."
 msgstr "Please, choose a password with at least 8 characters."
 
-#: themes/default/templates/js/i18n.js.ep:53
+#: themes/default/templates/js/i18n.js.ep:61
 msgid "Previous"
 msgstr "Previous"
 
@@ -641,15 +661,15 @@ msgstr "Referrer"
 msgid "Register"
 msgstr "Register"
 
-#: themes/default/templates/applications/index.html.ep:33 themes/default/templates/js/i18n.js.ep:28
+#: themes/default/templates/applications/index.html.ep:33 themes/default/templates/js/i18n.js.ep:30
 msgid "Rename application"
 msgstr "Rename application"
 
-#: themes/default/templates/categories/index.html.ep:42 themes/default/templates/categories/show.html.ep:14 themes/default/templates/js/i18n.js.ep:15
+#: themes/default/templates/categories/index.html.ep:42 themes/default/templates/categories/show.html.ep:14 themes/default/templates/js/i18n.js.ep:17
 msgid "Rename category"
 msgstr "Rename category"
 
-#: themes/default/templates/js/i18n.js.ep:22 themes/default/templates/tags/index.html.ep:44 themes/default/templates/tags/show.html.ep:14
+#: themes/default/templates/js/i18n.js.ep:24 themes/default/templates/tags/index.html.ep:44 themes/default/templates/tags/show.html.ep:14
 msgid "Rename tag"
 msgstr "Rename tag"
 
@@ -673,7 +693,7 @@ msgstr "Send me the confirmation mail again"
 msgid "Send password renewal mail"
 msgstr "Send password renewal mail"
 
-#: themes/default/templates/categories/index.html.ep:34 themes/default/templates/js/i18n.js.ep:12
+#: themes/default/templates/categories/index.html.ep:34 themes/default/templates/js/i18n.js.ep:14
 msgid "Show category"
 msgstr "Show category"
 
@@ -681,15 +701,15 @@ msgstr "Show category"
 msgid "Show children"
 msgstr "Show children"
 
-#: themes/default/templates/js/i18n.js.ep:4 themes/default/templates/partial/dolos_list.html.ep:118 themes/default/templates/partial/dolos_list.html.ep:29 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:110 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:31 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:32 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:95
+#: themes/default/templates/js/i18n.js.ep:5 themes/default/templates/partial/dolos_list.html.ep:118 themes/default/templates/partial/dolos_list.html.ep:29 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:110 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:31 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:32 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:95
 msgid "Show dolo"
 msgstr "Show dolo"
 
-#: themes/default/templates/categories/index.html.ep:22 themes/default/templates/js/i18n.js.ep:32 themes/default/templates/tags/index.html.ep:22
+#: themes/default/templates/categories/index.html.ep:22 themes/default/templates/js/i18n.js.ep:34 themes/default/templates/tags/index.html.ep:22
 msgid "Show more"
 msgstr "Show more"
 
-#: themes/default/templates/js/i18n.js.ep:19 themes/default/templates/tags/index.html.ep:34
+#: themes/default/templates/js/i18n.js.ep:21 themes/default/templates/tags/index.html.ep:34
 msgid "Show tag"
 msgstr "Show tag"
 
@@ -758,7 +778,7 @@ msgstr "Success"
 msgid "Tag"
 msgstr "Tag"
 
-#: themes/default/templates/js/i18n.js.ep:25
+#: themes/default/templates/js/i18n.js.ep:27
 msgid "Tag name"
 msgstr "Tag name"
 
@@ -766,13 +786,17 @@ msgstr "Tag name"
 msgid "Tag name blank or undefined. I refuse to create an tag without name."
 msgstr "Tag name blank or undefined. I refuse to create an tag without name."
 
-#: themes/default/templates/js/i18n.js.ep:45 themes/default/templates/misc/dashboard.html.ep:60
+#: themes/default/templates/js/i18n.js.ep:51 themes/default/templates/misc/dashboard.html.ep:60
 msgid "Tag(s)"
 msgstr "Tag(s)"
 
 #: themes/default/templates/dolos/show.html.ep:21 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/partial/navbar.html.ep:65 themes/default/templates/tags/index.html.ep:3 themes/default/templates/tags/show.html.ep:3
 msgid "Tags"
 msgstr "Tags"
+
+#: themes/default/templates/categories/index.html.ep:64 themes/default/templates/categories/show.html.ep:97 themes/default/templates/dolos/index.html.ep:16 themes/default/templates/dolos/show.html.ep:31 themes/default/templates/dolos/show.html.ep:32 themes/default/templates/js/i18n.js.ep:36 themes/default/templates/tags/index.html.ep:68 themes/default/templates/tags/show.html.ep:97
+msgid "Target URL"
+msgstr "Target URL"
 
 #: themes/default/templates/misc/about.html.ep:65
 msgid ""
@@ -791,6 +815,10 @@ msgstr ""
 "largillier.org/\">Cyrille Largillier</a>, is in <a href=\"https://"
 "openclipart.org/share\">Public Domain</a> and has been slightly modified for "
 "Dolomon."
+
+#: themes/default/templates/js/i18n.js.ep:37
+msgid "The URL you want to monitor."
+msgstr "The URL you want to monitor."
 
 #. ($user->login)
 #: lib/Dolomon/Controller/Admin.pm:135
@@ -1021,17 +1049,13 @@ msgstr ""
 msgid "Total count of hits on your dolos"
 msgstr "Total count of hits on your dolos"
 
-#: themes/default/templates/categories/index.html.ep:68 themes/default/templates/categories/show.html.ep:101 themes/default/templates/dolos/index.html.ep:20 themes/default/templates/dolos/show.html.ep:52 themes/default/templates/dolos/show.html.ep:53 themes/default/templates/js/i18n.js.ep:39 themes/default/templates/tags/index.html.ep:72 themes/default/templates/tags/show.html.ep:101
+#: themes/default/templates/categories/index.html.ep:68 themes/default/templates/categories/show.html.ep:101 themes/default/templates/dolos/index.html.ep:20 themes/default/templates/dolos/show.html.ep:52 themes/default/templates/dolos/show.html.ep:53 themes/default/templates/js/i18n.js.ep:45 themes/default/templates/tags/index.html.ep:72 themes/default/templates/tags/show.html.ep:101
 msgid "Total hits"
 msgstr "Total hits"
 
 #: themes/default/templates/categories/show.html.ep:10 themes/default/templates/tags/show.html.ep:10
 msgid "Total hits:"
 msgstr "Total hits:"
-
-#: themes/default/templates/categories/index.html.ep:64 themes/default/templates/categories/show.html.ep:97 themes/default/templates/dolos/index.html.ep:16 themes/default/templates/dolos/show.html.ep:31 themes/default/templates/dolos/show.html.ep:32 themes/default/templates/js/i18n.js.ep:34 themes/default/templates/tags/index.html.ep:68 themes/default/templates/tags/show.html.ep:97
-msgid "URL"
-msgstr "URL"
 
 #: lib/Dolomon/Controller/Misc.pm:75
 msgid "Unable to authenticate. Please check your credentials."
@@ -1097,7 +1121,7 @@ msgstr "Unable to retrieve an account linked to that email address."
 msgid "Unnamed dolo"
 msgstr "Unnamed dolo"
 
-#: themes/default/templates/js/i18n.js.ep:11
+#: themes/default/templates/js/i18n.js.ep:12
 msgid "Use a transparent gif as target"
 msgstr "Use a transparent gif as target"
 
@@ -1145,11 +1169,15 @@ msgstr ""
 msgid "Wordpress integration"
 msgstr "Wordpress integration"
 
-#: themes/default/templates/js/i18n.js.ep:38
+#: themes/default/templates/js/i18n.js.ep:43
+msgid "Write any other information you want to add to this dolo."
+msgstr "Write any other information you want to add to this dolo."
+
+#: themes/default/templates/js/i18n.js.ep:44
 msgid "Write whatever you want"
 msgstr "Write whatever you want"
 
-#: themes/default/templates/dolos/index.html.ep:35 themes/default/templates/dolos/index.html.ep:42 themes/default/templates/dolos/show.html.ep:44 themes/default/templates/js/i18n.js.ep:51 themes/default/templates/partial/dolos_list.html.ep:10 themes/default/templates/partial/dolos_list.html.ep:105 themes/default/templates/partial/dolos_list.html.ep:106 themes/default/templates/partial/dolos_list.html.ep:11 themes/default/templates/partial/dolos_list.html.ep:132 themes/default/templates/partial/dolos_list.html.ep:48
+#: themes/default/templates/dolos/index.html.ep:35 themes/default/templates/dolos/index.html.ep:42 themes/default/templates/dolos/show.html.ep:44 themes/default/templates/js/i18n.js.ep:59 themes/default/templates/partial/dolos_list.html.ep:10 themes/default/templates/partial/dolos_list.html.ep:105 themes/default/templates/partial/dolos_list.html.ep:106 themes/default/templates/partial/dolos_list.html.ep:11 themes/default/templates/partial/dolos_list.html.ep:132 themes/default/templates/partial/dolos_list.html.ep:48
 msgid "Yes"
 msgstr "Yes"
 
@@ -1165,7 +1193,7 @@ msgstr "You already have a dolo which dolomon URL is %1."
 msgid "You already have that URL in the dolos of this category."
 msgstr "You already have that URL in the dolos of this category."
 
-#: lib/Dolomon.pm:451
+#: lib/Dolomon.pm:444
 msgid "You are not authenticated or have not valid application credentials"
 msgstr "You are not authenticated or have not valid application credential"
 
@@ -1177,6 +1205,14 @@ msgstr ""
 "You are not logged in with the same account that you are trying to delete. "
 "Please, log out first."
 
+#: themes/default/templates/js/i18n.js.ep:39
+msgid ""
+"You can choose a meaningful URL that Dolomon will use, or you can leave it "
+"empty and have a random URL."
+msgstr ""
+"You can choose a meaningful URL that Dolomon will use, or you can leave it "
+"empty and have a random URL."
+
 #: themes/default/templates/misc/about.html.ep:30
 msgid ""
 "You can interact with a Dolomon server from Wordpress with the plugin <a "
@@ -1184,6 +1220,18 @@ msgid ""
 msgstr ""
 "You can interact with a Dolomon server from Wordpress with the plugin <a "
 "href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
+
+#: themes/default/templates/js/i18n.js.ep:58
+msgid ""
+"You can make a dolo expires automatically after this delay, beginning from "
+"the first visit."
+msgstr ""
+"You can make a dolo expires automatically after this delay, beginning from "
+"the first visit."
+
+#: themes/default/templates/js/i18n.js.ep:56
+msgid "You can make a dolo expires automatically after this delay."
+msgstr "You can make a dolo expires automatically after this delay."
 
 #: themes/default/templates/misc/about.html.ep:62
 msgid ""
@@ -1194,6 +1242,10 @@ msgstr ""
 "You can make a donation to the author on <a href=\"https://www.tipeee.com/"
 "fiat-tux\">Tipeee</a> or on <a href=\"https://liberapay.com/sky/"
 "\">Liberapay</a>."
+
+#: themes/default/templates/js/i18n.js.ep:41
+msgid "You can write something to remember the purpose of this URL."
+msgstr "You can write something to remember the purpose of this URL."
 
 #: lib/Dolomon/Controller/Categories.pm:419
 msgid ""
@@ -1283,15 +1335,15 @@ msgstr ""
 msgid "Zag, the Dolomon mascot"
 msgstr "Zag, the Dolomon mascot"
 
-#: themes/default/templates/js/i18n.js.ep:47
+#: themes/default/templates/js/i18n.js.ep:53
 msgid "[week] W, [year] YYYY"
 msgstr "[week] W, [year] YYYY"
 
-#: themes/default/templates/js/i18n.js.ep:41
+#: themes/default/templates/js/i18n.js.ep:47
 msgid "example-org-logo"
 msgstr "example-org-logo"
 
-#: themes/default/templates/applications/index.html.ep:19 themes/default/templates/categories/index.html.ep:72 themes/default/templates/categories/index.html.ep:73 themes/default/templates/categories/index.html.ep:74 themes/default/templates/categories/index.html.ep:75 themes/default/templates/categories/index.html.ep:76 themes/default/templates/categories/show.html.ep:105 themes/default/templates/categories/show.html.ep:106 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:40 themes/default/templates/tags/index.html.ep:76 themes/default/templates/tags/index.html.ep:77 themes/default/templates/tags/index.html.ep:78 themes/default/templates/tags/index.html.ep:79 themes/default/templates/tags/index.html.ep:80 themes/default/templates/tags/show.html.ep:105 themes/default/templates/tags/show.html.ep:106 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109
+#: themes/default/templates/applications/index.html.ep:19 themes/default/templates/categories/index.html.ep:72 themes/default/templates/categories/index.html.ep:73 themes/default/templates/categories/index.html.ep:74 themes/default/templates/categories/index.html.ep:75 themes/default/templates/categories/index.html.ep:76 themes/default/templates/categories/show.html.ep:105 themes/default/templates/categories/show.html.ep:106 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:46 themes/default/templates/tags/index.html.ep:76 themes/default/templates/tags/index.html.ep:77 themes/default/templates/tags/index.html.ep:78 themes/default/templates/tags/index.html.ep:79 themes/default/templates/tags/index.html.ep:80 themes/default/templates/tags/show.html.ep:105 themes/default/templates/tags/show.html.ep:106 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109
 msgid "filter"
 msgstr "filter"
 
@@ -1303,6 +1355,6 @@ msgstr "hour"
 msgid "no filter"
 msgstr "no filter"
 
-#: themes/default/templates/js/i18n.js.ep:48
+#: themes/default/templates/js/i18n.js.ep:54
 msgid "year"
 msgstr "year"

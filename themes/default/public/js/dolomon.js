@@ -159,15 +159,24 @@ function aModify(event) {
                 [
                     '<div class="form-group">',
                     '    <label for="url">', i18n.url,'</label>',
+                    '    <span data-toggle="tooltip" data-placement="right" title="', i18n.urlInfo, '">',
+                    '        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '    </span>',
                     '    <input type="url" class="form-control" name="url" placeholder="https://example.org/logo.png" id="doloUrl" required="required" value="', button.data('url'), '">',
                     '</div>',
                     '<div class="checkbox">',
                     '    <label for="doloemptypix">',
                     '        <input type="checkbox" id="doloemptypix">', i18n.emptyPix,
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.emptyPixInfo, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '    </label>',
                     '</div>',
                     '<div class="form-group">',
                     '    <label for="name">', i18n.name,'</label>',
+                    '    <span data-toggle="tooltip" data-placement="right" title="', i18n.nameInfo, '">',
+                    '        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '    </span>',
                     '    <input type="text" class="form-control" name="name" placeholder="', i18n.extraordinaryDolo,'" id="doloName" value="', button.data('name'), '">',
                     '</div>',
                     '<div class="form-group">',
@@ -189,19 +198,29 @@ function aModify(event) {
                     '<div class="collapse" id="collapseAdvancedSettings">',
                     '    <div class="form-group">',
                     '        <label for="extra">', i18n.extra,'</label>',
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.extraInfo, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '        <input type="text" class="form-control" name="extra" placeholder="', i18n.whatever,'" id="doloExtra" value="', button.data('extra'), '">',
                     '    </div>',
                     '    <div class="form-group">',
                     '        <label for="expires_at">', i18n.expiresAt,'</label>',
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.expiresAtInfo, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '        <input type="number" step="1" min="1" class="form-control" name="expires_at" id="doloExpiresAt" value="', button.data('expires_at'), '">',
                     '    </div>',
                     '    <div class="form-group">',
                     '        <label for="expires_after">', i18n.expiresAfter,'</label>',
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.expiresAfterInfo, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '        <input type="number" step="1" min="1" class="form-control" name="expires_after" id="doloExpiresAfter" value="', button.data('expires_after'), '">',
                     '    </div>',
                     '</div>',
                 ].join('')
             );
+            $('[data-toggle="tooltip"]').tooltip();
             $('#doloemptypix').change(function() {
                 var u = $('#doloUrl');
                 if (this.checked) {
@@ -421,15 +440,24 @@ $('#addModal').on('show.bs.modal', function(event) {
                 [
                     '<div class="form-group">',
                     '    <label for="url">', i18n.url,'</label>',
+                    '    <span data-toggle="tooltip" data-placement="right" title="', i18n.urlInfo, '">',
+                    '        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '    </span>',
                     '    <input type="url" class="form-control" name="url" placeholder="https://example.org/logo.png" id="doloUrl" required="required">',
                     '</div>',
                     '<div class="checkbox">',
                     '    <label for="doloemptypix">',
                     '        <input type="checkbox" id="doloemptypix">', i18n.emptyPix,
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.emptyPixInfo, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '    </label>',
                     '</div>',
                     '<div class="form-group">',
                     '    <label for="short"">', i18n.doloUrl, '</label>',
+                    '    <span data-toggle="tooltip" data-placement="right" title="', i18n.doloUrlInfo, '">',
+                    '        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '    </span>',
                     '    <div class="input-group">',
                     '        <span class="input-group-addon" id="base-url-addon">', url.base_url,'h/</span>',
                     '        <input type="text" class="form-control" name="short" placeholder="', i18n.exampleLogo,'" id="doloShort" aria-describedby="base-url-addon">',
@@ -437,6 +465,9 @@ $('#addModal').on('show.bs.modal', function(event) {
                     '</div>',
                     '<div class="form-group">',
                     '    <label for="name">', i18n.name,'</label>',
+                    '    <span data-toggle="tooltip" data-placement="right" title="', i18n.nameInfo, '">',
+                    '        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '    </span>',
                     '    <input type="text" class="form-control" name="name" placeholder="', i18n.extraordinaryDolo,'" id="doloName">',
                     '</div>',
                     '<div class="form-group">',
@@ -458,6 +489,9 @@ $('#addModal').on('show.bs.modal', function(event) {
                     '<div class="collapse" id="collapseAdvancedSettings">',
                     '    <div class="form-group">',
                     '        <label for="extra">', i18n.extra,'</label>',
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.extraInfo, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '        <input type="text" class="form-control" name="extra" placeholder="', i18n.whatever,'" id="doloExtra">',
                     '    </div>',
                     '    <div class="form-group">',
@@ -466,15 +500,22 @@ $('#addModal').on('show.bs.modal', function(event) {
                     '    </div>',
                     '    <div class="form-group">',
                     '        <label for="expires_at">', i18n.expiresAt,'</label>',
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.expiresAtInfo, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '        <input type="number" step="1" min="1" class="form-control" name="expires_at" id="doloExpiresAt" value="', button.data('expires_at'), '">',
                     '    </div>',
                     '    <div class="form-group">',
                     '        <label for="expires_after">', i18n.expiresAfter,'</label>',
+                    '        <span data-toggle="tooltip" data-placement="right" title="', i18n.expiresAfter, '">',
+                    '            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
+                    '        </span>',
                     '        <input type="number" step="1" min="1" class="form-control" name="expires_after" id="doloExpiresAfter" value="', button.data('expires_after'), '">',
                     '    </div>',
                     '</div>',
                 ].join('')
             );
+            $('[data-toggle="tooltip"]').tooltip();
             $('#doloemptypix').change(function() {
                 var u = $('#doloUrl');
                 if (this.checked) {
@@ -976,6 +1017,7 @@ function getLang(){
 
 $(document).ready(function() {
     moment.locale(getLang());
+    $('[data-toggle="tooltip"]').tooltip();
 
     $('li[role=presentation] a').click(function() {
         $('li[role=presentation].active').removeClass('active');

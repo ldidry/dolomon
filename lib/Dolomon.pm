@@ -227,7 +227,9 @@ sub startup {
         before_dispatch => sub {
             my $c = shift;
             $c->res->headers->header('Access-Control-Allow-Origin' => '*');
-            $c->minion->enqueue('clean_stats');
+            if ($c->app->time_to_clean) {
+                $c->minion->enqueue('clean_stats');
+            }
         }
     );
 
@@ -236,34 +238,28 @@ sub startup {
         clean_stats => sub {
             my $job   = shift;
             my $c     = $job->app;
-            my $file  = 'last_cleaning_time.txt';
             my $time  = time;
-            my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat($file);
 
-            # Clean stats every two hours max
-            if (($time - $mtime) > 7200) {
-                # Create a job to expire dolos that need it
-                $job->app->minion->enqueue('expire_dolos');
+            # Create a job to expire dolos that need it
+            $job->app->minion->enqueue('expire_dolos');
 
-                # Months stats
-                my $dt = DateTime->from_epoch(epoch => $time);
-                $dt->subtract_duration(DateTime::Duration->new(months => $job->app->config('keep_hits')->{month_precision}));
-                $c->pg->db->query('DELETE FROM dolos_month WHERE year < ? OR (year = ? AND month < ?)', ($dt->year(), $dt->year(), $dt->month()));
+            # Months stats
+            my $dt = DateTime->from_epoch(epoch => $time);
+            $dt->subtract_duration(DateTime::Duration->new(months => $job->app->config('keep_hits')->{month_precision}));
+            $c->pg->db->query('DELETE FROM dolos_month WHERE year < ? OR (year = ? AND month < ?)', ($dt->year(), $dt->year(), $dt->month()));
 
-                # Weeks stats
-                $dt = DateTime->from_epoch(epoch => $time);
-                $dt->subtract_duration(DateTime::Duration->new(weeks => $job->app->config('keep_hits')->{week_precision}));
-                $c->pg->db->query('DELETE FROM dolos_week WHERE year < ? OR (year = ? AND week < ?)', ($dt->year(), $dt->year(), $dt->week_number()));
+            # Weeks stats
+            $dt = DateTime->from_epoch(epoch => $time);
+            $dt->subtract_duration(DateTime::Duration->new(weeks => $job->app->config('keep_hits')->{week_precision}));
+            $c->pg->db->query('DELETE FROM dolos_week WHERE year < ? OR (year = ? AND week < ?)', ($dt->year(), $dt->year(), $dt->week_number()));
 
-                # Days stats
-                $dt = DateTime->from_epoch(epoch => $time);
-                $dt->subtract_duration(DateTime::Duration->new(days => $job->app->config('keep_hits')->{day_precision}));
-                $c->pg->db->query('DELETE FROM dolos_day WHERE year < ? OR (year = ? AND month < ?) OR (year = ? AND month = ? AND day < ?)', ($dt->year(), $dt->year(), $dt->month(), $dt->year(), $dt->month(), $dt->day_of_month()));
+            # Days stats
+            $dt = DateTime->from_epoch(epoch => $time);
+            $dt->subtract_duration(DateTime::Duration->new(days => $job->app->config('keep_hits')->{day_precision}));
+            $c->pg->db->query('DELETE FROM dolos_day WHERE year < ? OR (year = ? AND month < ?) OR (year = ? AND month = ? AND day < ?)', ($dt->year(), $dt->year(), $dt->month(), $dt->year(), $dt->month(), $dt->day_of_month()));
 
-                # Uber precision stats
-                $c->pg->db->query("DELETE FROM dolos_hits WHERE ts < (CURRENT_TIMESTAMP - INTERVAL '".$job->app->config('keep_hits')->{uber_precision}." days')");
-                Mojo::File->new($file)->spurt($job->app->config('keep_hits')->{uber_precision});
-            }
+            # Uber precision stats
+            $c->pg->db->query("DELETE FROM dolos_hits WHERE ts < (CURRENT_TIMESTAMP - INTERVAL '".$job->app->config('keep_hits')->{uber_precision}." days')");
         }
     );
     $self->app->minion->add_task(
@@ -417,9 +413,6 @@ sub startup {
     } else {
         $migrations->from_file('utilities/migrations.sql')->migrate(1);
     }
-
-    ## Be sure last_cleaning_time.txt file exists
-    Mojo::File->new('last_cleaning_time.txt')->spurt(time) unless -e 'last_cleaning_time.txt';
 
     ## Router
     my $r = $self->routes;

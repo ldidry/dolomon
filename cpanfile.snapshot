@@ -1247,17 +1247,17 @@ DISTRIBUTIONS
       perl 5.008
       strict 0
       warnings 0
-  IO-Socket-SSL-2.054
-    pathname: S/SU/SULLR/IO-Socket-SSL-2.054.tar.gz
+  IO-Socket-SSL-2.056
+    pathname: S/SU/SULLR/IO-Socket-SSL-2.056.tar.gz
     provides:
-      IO::Socket::SSL 2.054
-      IO::Socket::SSL::Intercept 2.014
-      IO::Socket::SSL::OCSP_Cache 2.054
-      IO::Socket::SSL::OCSP_Resolver 2.054
+      IO::Socket::SSL 2.056
+      IO::Socket::SSL::Intercept 2.056
+      IO::Socket::SSL::OCSP_Cache 2.056
+      IO::Socket::SSL::OCSP_Resolver 2.056
       IO::Socket::SSL::PublicSuffix undef
-      IO::Socket::SSL::SSL_Context 2.054
-      IO::Socket::SSL::SSL_HANDLE 2.054
-      IO::Socket::SSL::Session_Cache 2.054
+      IO::Socket::SSL::SSL_Context 2.056
+      IO::Socket::SSL::SSL_HANDLE 2.056
+      IO::Socket::SSL::Session_Cache 2.056
       IO::Socket::SSL::Utils 2.014
     requirements:
       ExtUtils::MakeMaker 0
@@ -1411,13 +1411,13 @@ DISTRIBUTIONS
       Math::Round 0.07
     requirements:
       ExtUtils::MakeMaker 0
-  Minion-8.09
-    pathname: S/SR/SRI/Minion-8.09.tar.gz
+  Minion-8.10
+    pathname: S/SR/SRI/Minion-8.10.tar.gz
     provides:
       LinkCheck undef
       LinkCheck::Controller::Links undef
       LinkCheck::Task::CheckLinks undef
-      Minion 8.09
+      Minion 8.10
       Minion::Backend undef
       Minion::Backend::Pg undef
       Minion::Command::minion undef
@@ -1425,7 +1425,7 @@ DISTRIBUTIONS
       Minion::Command::minion::worker undef
       Minion::Job undef
       Minion::Worker undef
-      Minion::_Guard 8.09
+      Minion::_Guard 8.10
       Mojolicious::Plugin::Minion undef
       Mojolicious::Plugin::Minion::Admin undef
     requirements:
@@ -1544,8 +1544,8 @@ DISTRIBUTIONS
       Mojolicious 7.53
       SQL::Abstract 1.85
       perl 5.010001
-  Mojolicious-7.65
-    pathname: S/SR/SRI/Mojolicious-7.65.tar.gz
+  Mojolicious-7.69
+    pathname: S/SR/SRI/Mojolicious-7.69.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -1614,7 +1614,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 7.65
+      Mojolicious 7.69
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
