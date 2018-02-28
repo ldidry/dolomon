@@ -5,35 +5,30 @@
 % my $h = current_user->get_stats;
 <div class="row text-center">
     <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <div class="caption">
-                <h1 id="dolo_nb"><%= $h->{dolos} %></h1>
-                <p>
-                    <a href="<%= url_for('dolo') %>"><%= l('Dolo(s)') %></a>
-                    <span data-toggle="tooltip" data-placement="botton" title="<%= l('A "dolo" is an URL that you monitor through Dolomon.') %>">
-                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only"><%= l('Help') %></span>
-                    </span>
-                </p>
+        <a href="<%= url_for('dolo') %>" data-toggle="tooltip" data-placement="bottom" title="<%= l('A "dolo" is an URL that you monitor through Dolomon.') %>">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h1 id="dolo_nb"><%= $h->{dolos} %></h1>
+                    <p><%= l('Dolo(s)') %></p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <div class="caption">
-                <h1><a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">+</a></h1>
-                <p>
-                    <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>"><%= l('Add a dolo') %></a>
-                </p>
+        <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h1>+</h1>
+                    <p><%= l('Add a dolo') %></p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
                 <h1><%= $h->{total} %></h1>
-                <p>
-                    <%= l('Total count of hits on your dolos') %>
-                </p>
+                <p><%= l('Total count of hits on your dolos') %></p>
             </div>
         </div>
     </div>
@@ -41,39 +36,41 @@
         <hr>
     </div>
     <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <div class="caption">
-                <h1 id="cat_nb"><%= $h->{cats} %></h1>
-                <p>
-                    <a href="<%= url_for('categories') %>">
-                        <%= l('Categorie(s)') %>
-                    </a>
-                </p>
+        <a href="<%= url_for('categories') %>">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h1 id="cat_nb"><%= $h->{cats} %></h1>
+                    <p><%= l('Categorie(s)') %></p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <div class="caption">
-                <h1 id="tag_nb"><%= $h->{tags} %></h1>
-                <p>
-                    <a href="<%= url_for('tags') %>">
-                        <%= l('Tag(s)') %>
-                    </a>
-                </p>
+        <a href="<%= url_for('tags') %>">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h1 id="tag_nb"><%= $h->{tags} %></h1>
+                    <p><%= l('Tag(s)') %></p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <div class="caption">
-                <h1 id="app_nb"><%= $h->{apps} %></h1>
-                <p>
-                    <a href="<%= url_for('apps') %>">
-                        <%= l('Application(s)') %>
-                    </a>
-                </p>
+        <a href="<%= url_for('apps') %>">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h1 id="app_nb"><%= $h->{apps} %></h1>
+                    <p><%= l('Application(s)') %></p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
+</div>
+<div class="row text-center">
+    <div class="col-md-12">
+        <hr>
+    </div>
+    <p>
+        <a href="<%= url_for('/about') %>"><%= l('How does it work?') %></a>
+    </p>
 </div>

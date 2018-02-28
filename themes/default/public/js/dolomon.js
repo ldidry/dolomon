@@ -439,10 +439,7 @@ $('#addModal').on('show.bs.modal', function(event) {
             modal.find('.modal-body form').html(
                 [
                     '<div class="form-group">',
-                    '    <label for="url">', i18n.url,'</label>',
-                    '    <span data-toggle="tooltip" data-placement="right" title="', i18n.urlInfo, '">',
-                    '        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span><span class="sr-only">', i18n.help, '</span>',
-                    '    </span>',
+                    '    <label for="url">', i18n.url,'<br/><small style="color: grey; font-weight: normal;">', i18n.urlInfo, '</small></label>',
                     '    <input type="url" class="form-control" name="url" placeholder="https://example.org/logo.png" id="doloUrl" required="required">',
                     '</div>',
                     '<div class="checkbox">',
