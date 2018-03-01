@@ -203,7 +203,7 @@ msgid "Change password"
 msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:13
-msgid "Check this option to use Dolomon as a visit counter on a website. The link will redirect to a small, transparent (so invisible) image to add to your site as an image. Dolomon will provide the code to add to your website."
+msgid "Check this to have Dolomon count visits on a website. Dolomon will provide you a code to add to your website (small transparent image)."
 msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:58
