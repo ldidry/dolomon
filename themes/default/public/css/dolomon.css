@@ -31,6 +31,11 @@ span.red {
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
 }
+.form-help {
+    color: grey;
+    font-weight: normal;
+    font-style: italic;
+}
 .mono {
     font-family: monospace;
 }

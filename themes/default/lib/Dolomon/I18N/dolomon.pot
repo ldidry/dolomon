@@ -202,8 +202,20 @@ msgstr ""
 msgid "Change password"
 msgstr ""
 
+#: themes/default/templates/js/i18n.js.ep:13
+msgid "Check this option to use Dolomon as a visit counter on a website. The link will redirect to a small, transparent (so invisible) image to add to your site as an image. Dolomon will provide the code to add to your website."
+msgstr ""
+
 #: themes/default/templates/dolos/show.html.ep:58
 msgid "Children"
+msgstr ""
+
+#: themes/default/templates/js/i18n.js.ep:39
+msgid "Choose a custom address or leave empty to use a random one."
+msgstr ""
+
+#: themes/default/templates/js/i18n.js.ep:41
+msgid "Choose a name that will help you to remember the purpose of this URL."
 msgstr ""
 
 #: themes/default/templates/misc/admin.html.ep:18
@@ -212,6 +224,10 @@ msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:4 themes/default/templates/layouts/default.html.ep:26 themes/default/templates/partial/addModal.html.ep:6 themes/default/templates/partial/modModal.html.ep:6 themes/default/templates/partial/rmModal.html.ep:6
 msgid "Close"
+msgstr ""
+
+#: themes/default/templates/js/i18n.js.ep:43
+msgid "Complementary informations or comments."
 msgstr ""
 
 #: themes/default/templates/partial/addModal.html.ep:19 themes/default/templates/partial/modModal.html.ep:19 themes/default/templates/partial/rmModal.html.ep:14 themes/default/templates/users/index.html.ep:19 themes/default/templates/users/index.html.ep:31 themes/default/templates/users/send_mail.html.ep:12 themes/default/templates/users/send_mail.html.ep:23
@@ -253,6 +269,14 @@ msgstr ""
 
 #: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:614
 msgid "Default"
+msgstr ""
+
+#: themes/default/templates/js/i18n.js.ep:56
+msgid "Delay after which the dolo stops redirecting visitors (inactive if empty or 0)"
+msgstr ""
+
+#: themes/default/templates/js/i18n.js.ep:58
+msgid "Delay, beginning after the first visit, after which the dolo stops redirecting visitors (inactive if empty or 0)"
 msgstr ""
 
 #: themes/default/templates/applications/index.html.ep:39 themes/default/templates/js/i18n.js.ep:29
@@ -413,10 +437,6 @@ msgstr ""
 #. ($c->url_for('confirm_delete', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:204
 msgid "If want to delete your account, please click on this link: %1"
-msgstr ""
-
-#: themes/default/templates/js/i18n.js.ep:13
-msgid "If you want to use Dolomon as a visit counter on a website, select this and use the Dolomon URL as an image on your website. As it's a small and transparent gif, your users should not notice it. Dolomon will provide you the code to add to your website."
 msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:65
@@ -760,10 +780,6 @@ msgstr ""
 msgid "The Dolomon mascot is called Zag. It has been initially designed by <a href=\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> under the name of <a href=\"https://openclipart.org/detail/204548/Red%20Oso\">Red Oso</a>, have been proposed by <a href=\"http://cyrille.largillier.org/\">Cyrille Largillier</a>, is in <a href=\"https://openclipart.org/share\">Public Domain</a> and has been slightly modified for Dolomon."
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:37
-msgid "The URL you want to monitor."
-msgstr ""
-
 #. ($user->login)
 #: lib/Dolomon/Controller/Admin.pm:135
 msgid "The account %1 will be deleted in a short time."
@@ -876,6 +892,10 @@ msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:319
 msgid "The initial counter must be an integer, superior or equal to 0."
+msgstr ""
+
+#: themes/default/templates/js/i18n.js.ep:37
+msgid "The link you want to count the clicks on."
 msgstr ""
 
 #: themes/default/templates/misc/dashboard.html.ep:11
@@ -1081,10 +1101,6 @@ msgstr ""
 msgid "Wordpress integration"
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:43
-msgid "Write any other information you want to add to this dolo."
-msgstr ""
-
 #: themes/default/templates/js/i18n.js.ep:44
 msgid "Write whatever you want"
 msgstr ""
@@ -1113,28 +1129,12 @@ msgstr ""
 msgid "You are not logged in with the same account that you are trying to delete. Please, log out first."
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:39
-msgid "You can choose a meaningful URL that Dolomon will use, or you can leave it empty and have a random URL."
-msgstr ""
-
 #: themes/default/templates/misc/about.html.ep:30
 msgid "You can interact with a Dolomon server from Wordpress with the plugin <a href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:58
-msgid "You can make a dolo expires automatically after this delay, beginning from the first visit."
-msgstr ""
-
-#: themes/default/templates/js/i18n.js.ep:56
-msgid "You can make a dolo expires automatically after this delay."
-msgstr ""
-
 #: themes/default/templates/misc/about.html.ep:62
 msgid "You can make a donation to the author on <a href=\"https://www.tipeee.com/fiat-tux\">Tipeee</a> or on <a href=\"https://liberapay.com/sky/\">Liberapay</a>."
-msgstr ""
-
-#: themes/default/templates/js/i18n.js.ep:41
-msgid "You can write something to remember the purpose of this URL."
 msgstr ""
 
 #: lib/Dolomon/Controller/Categories.pm:419

@@ -359,8 +359,8 @@ sub add {
         short         => $short,
         count         => $initial_count,
         initial_count => $initial_count,
-        expires_at    => (defined $c->param('expires_at')    && $c->param('expires_at') ne '')    ? $c->param('expires_at')    : undef,
-        expires_after => (defined $c->param('expires_after') && $c->param('expires_after') ne '') ? $c->param('expires_after') : undef,
+        expires_at    => (defined $c->param('expires_at')    && $c->param('expires_at'))    ? $c->param('expires_at')    : undef,
+        expires_after => (defined $c->param('expires_after') && $c->param('expires_after')) ? $c->param('expires_after') : undef,
         category_id   => $cat->id,
     });
 
