@@ -47,10 +47,6 @@ msgstr ""
 msgid "1 minute"
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:8
-msgid "A \"dolo\" is an URL that you monitor through Dolomon."
-msgstr ""
-
 #. (config('counter_delay')
 #: themes/default/templates/misc/about.html.ep:44
 msgid "A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href=\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> header on your browser."
@@ -72,7 +68,7 @@ msgstr ""
 msgid "Add a category"
 msgstr ""
 
-#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/misc/dashboard.html.ep:22 themes/default/templates/partial/navbar.html.ep:38
+#: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/misc/dashboard.html.ep:32 themes/default/templates/partial/navbar.html.ep:38
 msgid "Add a dolo"
 msgstr ""
 
@@ -114,7 +110,7 @@ msgstr ""
 msgid "Application name blank or undefined. I refuse to create an application without name."
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:63
+#: themes/default/templates/misc/dashboard.html.ep:82
 msgid "Application(s)"
 msgstr ""
 
@@ -170,7 +166,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:43
+#: themes/default/templates/misc/dashboard.html.ep:56
 msgid "Categorie(s)"
 msgstr ""
 
@@ -287,7 +283,7 @@ msgstr ""
 msgid "Deploy menu"
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:12
+#: themes/default/templates/misc/dashboard.html.ep:15
 msgid "Dolo(s)"
 msgstr ""
 
@@ -361,6 +357,10 @@ msgstr ""
 msgid "Expired?"
 msgstr ""
 
+#: themes/default/templates/misc/dashboard.html.ep:78
+msgid "External tools that you allowed to use your Dolomon account"
+msgstr ""
+
 #: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
 msgstr ""
@@ -385,7 +385,7 @@ msgstr ""
 msgid "How do I contact the administrator of this instance?"
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:74
+#: themes/default/templates/misc/dashboard.html.ep:93
 msgid "How does it work?"
 msgstr ""
 
@@ -744,7 +744,7 @@ msgstr ""
 msgid "Tag name blank or undefined. I refuse to create an tag without name."
 msgstr ""
 
-#: themes/default/templates/js/i18n.js.ep:51 themes/default/templates/misc/dashboard.html.ep:53
+#: themes/default/templates/js/i18n.js.ep:51 themes/default/templates/misc/dashboard.html.ep:69
 msgid "Tag(s)"
 msgstr ""
 
@@ -878,6 +878,10 @@ msgstr ""
 msgid "The initial counter must be an integer, superior or equal to 0."
 msgstr ""
 
+#: themes/default/templates/misc/dashboard.html.ep:11
+msgid "The links you want to count the clicks on."
+msgstr ""
+
 #: lib/Dolomon/Controller/Dolos.pm:304 lib/Dolomon/Controller/Dolos.pm:421
 msgid "The name %1 is already taken for the category you choose."
 msgstr ""
@@ -947,15 +951,27 @@ msgstr ""
 msgid "This is the final step for your registration on %1.\n"
 msgstr ""
 
+#: themes/default/templates/misc/dashboard.html.ep:29
+msgid "This is where the journey begins."
+msgstr ""
+
 #: themes/default/templates/misc/about.html.ep:11
 msgid "This means that it can tell you how many times a file was downloaded (it was designed for that purpose)."
+msgstr ""
+
+#: themes/default/templates/misc/dashboard.html.ep:65
+msgid "To identify similar dolos."
+msgstr ""
+
+#: themes/default/templates/misc/dashboard.html.ep:52
+msgid "To sort and group dolos."
 msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:27
 msgid "To track visits on a page, create a dolo pointing to a small transparent image (Dolomon has a helper to do that) and insert the resulting URL as an image in your page."
 msgstr ""
 
-#: themes/default/templates/misc/dashboard.html.ep:31
+#: themes/default/templates/misc/dashboard.html.ep:41
 msgid "Total count of hits on your dolos"
 msgstr ""
 

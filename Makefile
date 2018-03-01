@@ -8,7 +8,7 @@ DOLOMON=script/mounter
 locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(POT) 2>/dev/null
 
-push-locales:
+push-locales: locales
 	zanata-cli -q -B push
 
 pull-locales:

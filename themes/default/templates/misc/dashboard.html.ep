@@ -5,7 +5,10 @@
 % my $h = current_user->get_stats;
 <div class="row text-center">
     <div class="col-sm-6 col-md-4">
-        <a href="<%= url_for('dolo') %>" data-toggle="tooltip" data-placement="bottom" title="<%= l('A "dolo" is an URL that you monitor through Dolomon.') %>">
+        <a href="<%= url_for('dolo') %>"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="<%= l('The links you want to count the clicks on.') %>">
             <div class="thumbnail">
                 <div class="caption">
                     <h1 id="dolo_nb"><%= $h->{dolos} %></h1>
@@ -15,8 +18,15 @@
         </a>
     </div>
     <div class="col-sm-6 col-md-4">
-        <a href="#" data-toggle="modal" data-target="#addModal" data-add="dolo" data-action="<%= url_for('add_dolo') %>">
-            <div class="thumbnail">
+        <a href="#"
+            data-toggle="modal"
+            data-target="#addModal"
+            data-add="dolo"
+            data-action="<%= url_for('add_dolo') %>">
+            <div class="thumbnail"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="<%= l('This is where the journey begins.') %>">
                 <div class="caption">
                     <h1>+</h1>
                     <p><%= l('Add a dolo') %></p>
@@ -36,7 +46,10 @@
         <hr>
     </div>
     <div class="col-sm-6 col-md-4">
-        <a href="<%= url_for('categories') %>">
+        <a href="<%= url_for('categories') %>"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="<%= l('To sort and group dolos.') %>">
             <div class="thumbnail">
                 <div class="caption">
                     <h1 id="cat_nb"><%= $h->{cats} %></h1>
@@ -46,7 +59,10 @@
         </a>
     </div>
     <div class="col-sm-6 col-md-4">
-        <a href="<%= url_for('tags') %>">
+        <a href="<%= url_for('tags') %>"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="<%= l('To identify similar dolos.') %>">
             <div class="thumbnail">
                 <div class="caption">
                     <h1 id="tag_nb"><%= $h->{tags} %></h1>
@@ -56,7 +72,10 @@
         </a>
     </div>
     <div class="col-sm-6 col-md-4">
-        <a href="<%= url_for('apps') %>">
+        <a href="<%= url_for('apps') %>"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="<%= l('External tools that you allowed to use your Dolomon account') %>">
             <div class="thumbnail">
                 <div class="caption">
                     <h1 id="app_nb"><%= $h->{apps} %></h1>
