@@ -240,34 +240,26 @@ sub startup {
             my $c     = $job->app;
             my $time  = time;
 
-            # Create a job to expire dolos that need it
-            $job->app->minion->enqueue('expire_dolos');
+            # Expire dolos that need it
+            $c->pg->db->query('SELECT expire_dolos();');
 
             # Months stats
             my $dt = DateTime->from_epoch(epoch => $time);
             $dt->subtract_duration(DateTime::Duration->new(months => $job->app->config('keep_hits')->{month_precision}));
-            $c->pg->db->query('DELETE FROM dolos_month WHERE year < ? OR (year = ? AND month < ?)', ($dt->year(), $dt->year(), $dt->month()));
+            $c->pg->db->query('SELECT clean_month_stats(?, ?)', ($dt->year(), $dt->month()));
 
             # Weeks stats
             $dt = DateTime->from_epoch(epoch => $time);
             $dt->subtract_duration(DateTime::Duration->new(weeks => $job->app->config('keep_hits')->{week_precision}));
-            $c->pg->db->query('DELETE FROM dolos_week WHERE year < ? OR (year = ? AND week < ?)', ($dt->year(), $dt->year(), $dt->week_number()));
+            $c->pg->db->query('SELECT clean_week_stats(?, ?)', ($dt->year(), $dt->week_number()));
 
             # Days stats
             $dt = DateTime->from_epoch(epoch => $time);
             $dt->subtract_duration(DateTime::Duration->new(days => $job->app->config('keep_hits')->{day_precision}));
-            $c->pg->db->query('DELETE FROM dolos_day WHERE year < ? OR (year = ? AND month < ?) OR (year = ? AND month = ? AND day < ?)', ($dt->year(), $dt->year(), $dt->month(), $dt->year(), $dt->month(), $dt->day_of_month()));
+            $c->pg->db->query('SELECT clean_day_stats(?, ?, ?)', ($dt->year(), $dt->month(), $dt->day_of_month()));
 
             # Uber precision stats
             $c->pg->db->query("DELETE FROM dolos_hits WHERE ts < (CURRENT_TIMESTAMP - INTERVAL '".$job->app->config('keep_hits')->{uber_precision}." days')");
-        }
-    );
-    $self->app->minion->add_task(
-        expire_dolos => sub {
-            my $job   = shift;
-            my $c     = $job->app;
-
-            $c->pg->db->query("UPDATE dolos SET expired = true WHERE expired IS false AND (created_at + (INTERVAL '1 day' * expires_at)) < current_timestamp;");
         }
     );
     $self->app->minion->add_task(
@@ -277,25 +269,16 @@ sub startup {
             my $date  = shift || time;
             my $ref   = shift;
 
-            my $d    = Dolomon::Dolo->new(app => $job->app)->find_by_('short', $short);
+            my $d  = Dolomon::Dolo->new(app => $job->app)->find_by_('short', $short);
+            my $dt = DateTime->from_epoch(epoch => $date);
 
-            $d->increment;
-            $job->app->minion->enqueue(add_hit_day   => [$d->id, $date]);
-            $job->app->minion->enqueue(add_hit_week  => [$d->id, $date]);
-            $job->app->minion->enqueue(add_hit_month => [$d->id, $date]);
-            $job->app->minion->enqueue(add_hit_year  => [$d->id, $date]);
-            $job->app->minion->enqueue(add_hit       => [$d->id, $date, $ref]);
-            $job->app->minion->enqueue(add_hit_user  => [$d->id]);
+            $job->app->pg->db->query('SELECT increment_dolo_cascade(?, ?, ?, ?, ?, ?, ?)', ($d->id, $dt->year(), $dt->month(), $dt->week_number(), $dt->day(), DateTime::Format::Pg->format_timestamp_with_time_zone($dt), $ref));
 
             if (defined $d->parent_id) {
                 $job->app->log->debug("INCREMENT PARENT ".$d->parent_id);
-                my $p = Dolomon::Dolo->new(app => $job->app, 'id', $d->parent_id);
-                $p->increment;
-                $job->app->minion->enqueue(add_hit_day   => [$p->id, $date]);
-                $job->app->minion->enqueue(add_hit_week  => [$p->id, $date]);
-                $job->app->minion->enqueue(add_hit_month => [$p->id, $date]);
-                $job->app->minion->enqueue(add_hit_year  => [$p->id, $date]);
-                $job->app->minion->enqueue(add_hit       => [$p->id, $date, $ref]);
+                my $p = Dolomon::Dolo->new(app => $job->app, id => $d->parent_id);
+
+                $job->app->pg->db->query('SELECT increment_dolo_cascade(?, ?, ?, ?, ?, ?, ?)', ($p->id, $dt->year(), $dt->month(), $dt->week_number(), $dt->day(), DateTime::Format::Pg->format_timestamp_with_time_zone($dt), $ref));
             }
 
             if (defined($d->expires_after) && !defined($d->expires_at)) {
@@ -305,95 +288,6 @@ sub startup {
                     expires_at => $duration
                 });
             }
-        }
-    );
-    $self->app->minion->add_task(
-        add_hit_user => sub {
-            my $job     = shift;
-            my $dolo_id = shift;
-
-            my $cat_id  = Dolomon::Dolo->new(app => $job->app, id => $dolo_id)->category_id;
-            my $user_id = Dolomon::Category->new(app => $job->app, id => $cat_id)->user_id;
-            Dolomon::User->new(app => $job->app, id => $user_id)->increment;
-        }
-    );
-    $self->app->minion->add_task(
-        add_hit_day => sub {
-            my $job     = shift;
-            my $dolo_id = shift;
-            my $date    = DateTime->from_epoch(epoch => shift);
-
-            Dolomon::DoloDay->new(
-                app     => $job->app,
-                dolo_id => $dolo_id,
-                year    => $date->year(),
-                month   => $date->month(),
-                week    => $date->week_number(),
-                day     => $date->day()
-            )->find_by_fields_(
-                [qw(dolo_id year month week day)]
-            )->increment_or_create;
-        }
-    );
-    $self->app->minion->add_task(
-        add_hit_week => sub {
-            my $job     = shift;
-            my $dolo_id = shift;
-            my $date    = DateTime->from_epoch(epoch => shift);
-
-            Dolomon::DoloWeek->new(
-                app     => $job->app,
-                dolo_id => $dolo_id,
-                year    => $date->year(),
-                week    => $date->week_number()
-            )->find_by_fields_(
-                [qw(dolo_id year week)]
-            )->increment_or_create;
-        }
-    );
-    $self->app->minion->add_task(
-        add_hit_month => sub {
-            my $job     = shift;
-            my $dolo_id = shift;
-            my $date    = DateTime->from_epoch(epoch => shift);
-
-            Dolomon::DoloMonth->new(
-                app     => $job->app,
-                dolo_id => $dolo_id,
-                year    => $date->year(),
-                month   => $date->month()
-            )->find_by_fields_(
-                [qw(dolo_id year month)]
-            )->increment_or_create;
-        }
-    );
-    $self->app->minion->add_task(
-        add_hit_year => sub {
-            my $job     = shift;
-            my $dolo_id = shift;
-            my $date    = DateTime->from_epoch(epoch => shift);
-
-            Dolomon::DoloYear->new(
-                app     => $job->app,
-                dolo_id => $dolo_id,
-                year    => $date->year()
-            )->find_by_fields_(
-                [qw(dolo_id year)]
-            )->increment_or_create;
-        }
-    );
-    $self->app->minion->add_task(
-        add_hit => sub {
-            my $job     = shift;
-            my $dolo_id = shift;
-            my $date    = DateTime->from_epoch(epoch => shift);
-            my $ref     = shift;
-
-            my $c = Dolomon::DoloHit->new(app => $job->app)->create({
-                dolo_id  => $dolo_id,
-                ts       => DateTime::Format::Pg->format_timestamp_with_time_zone($date),
-                referrer => $ref
-            });
         }
     );
     $self->app->minion->add_task(
@@ -408,10 +302,10 @@ sub startup {
     ## Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
     if ($ENV{DOLOMON_DEV} && 0) {
-        $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(1);
+        $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(2);
         $self->app->minion->reset;
     } else {
-        $migrations->from_file('utilities/migrations.sql')->migrate(1);
+        $migrations->from_file('utilities/migrations.sql')->migrate(2);
     }
 
     ## Router
