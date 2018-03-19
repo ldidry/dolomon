@@ -125,7 +125,7 @@ sub get_data {
         my $dws = $tag->get_raw_dws;
         $dws->each(sub {
             my ($e, $num) = @_;
-            my $time = DateTime->new(year => $e->{year}, month => 1, day => 4 )->add(weeks => $e->{week} - 1)->truntage( to => 'week' )->set_time_zone('UTC')->epoch();
+            my $time = DateTime->new(year => $e->{year}, month => 1, day => 4 )->add(weeks => $e->{week} - 1)->truncate( to => 'week' )->set_time_zone('UTC')->epoch();
             push @data, { x => $time, value => $e->{count} };
             $min = $time unless defined ($min);
             $max = $time if $num == $dws->size;
@@ -148,7 +148,7 @@ sub get_data {
             my $dt = DateTime::Format::Pg->parse_timestamp_with_time_zone($e->{ts})->set_time_zone('UTC');
 
             my $duration = DateTime::Duration->new(minutes => nlowmult($agg, ($dt->hour * 60 + $dt->minute)));
-            $dt->truntage(to => 'day');
+            $dt->truncate(to => 'day');
             $dt += $duration;
 
             my $time = $dt->epoch();
