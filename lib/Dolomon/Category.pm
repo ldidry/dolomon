@@ -80,31 +80,31 @@ sub evacuate_to {
 sub count {
     my $c = shift;
 
-    return $c->app->pg->db->query('SELECT sum(count) FROM dolos WHERE category_id = ?', $c->id)->array->[0];
+    return $c->app->pg->db->query('SELECT SUM(count) FROM dolos WHERE category_id = ?', $c->id)->array->[0];
 }
 
 sub get_raw_dys {
     my $c = shift;
 
-    return $c->app->pg->db->query('SELECT y.* FROM dolos_year y JOIN dolos d ON y.dolo_id = d.id WHERE d.category_id = ? ORDER BY year ASC', $c->id)->hashes;
+    return $c->app->pg->db->query('SELECT y.year, SUM(y.count) AS count FROM dolos_year y JOIN dolos d ON y.dolo_id = d.id WHERE d.category_id = ? GROUP BY y.year ORDER BY y.year ASC', $c->id)->hashes;
 }
 
 sub get_raw_dms {
     my $c = shift;
 
-    return $c->app->pg->db->query('SELECT m.* FROM dolos_month m JOIN dolos d ON m.dolo_id = d.id WHERE d.category_id = ? ORDER BY year, month ASC', $c->id)->hashes;
+    return $c->app->pg->db->query('SELECT m.year, m.month, SUM(m.count) AS count FROM dolos_month m JOIN dolos d ON m.dolo_id = d.id WHERE d.category_id = ? GROUP BY m.year, m.month ORDER BY m.year, m.month ASC', $c->id)->hashes;
 }
 
 sub get_raw_dws {
     my $c = shift;
 
-    return $c->app->pg->db->query('SELECT w.* FROM dolos_week w JOIN dolos d ON w.dolo_id = d.id WHERE d.category_id = ? ORDER BY year, week ASC', $c->id)->hashes;
+    return $c->app->pg->db->query('SELECT w.year, w.week, SUM(w.count) AS count FROM dolos_week w JOIN dolos d ON w.dolo_id = d.id WHERE d.category_id = ? GROUP BY w.year, w.week ORDER BY w.year, w.week ASC', $c->id)->hashes;
 }
 
 sub get_raw_dds {
     my $c = shift;
 
-    return $c->app->pg->db->query('SELECT a.* FROM dolos_day a JOIN dolos d ON a.dolo_id = d.id WHERE d.category_id = ? ORDER BY year, month, day ASC', $c->id)->hashes;
+    return $c->app->pg->db->query('SELECT a.year, a.month, a.day, SUM(a.count) AS count FROM dolos_day a JOIN dolos d ON a.dolo_id = d.id WHERE d.category_id = ? GROUP BY a.year, a.month, a.day ORDER BY a.year, a.month, a.day ASC', $c->id)->hashes;
 }
 
 sub get_raw_dhs {
