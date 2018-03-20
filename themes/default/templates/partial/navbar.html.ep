@@ -109,10 +109,10 @@
                         <li class="mono"><a href="<%= url_for('user') %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;<%= l('Change account details') %></a></li>
                     % }
                         <li class="divider"></li>
-                        <li class="mono"><a href="<%= url_for('logout') %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;<%= l('Logout') %></a></li>
                     % if (defined($self->cookie('real_user'))) {
-                        <li class="divider"></li>
                         <li class="mono"><a href="<%= url_for('admin_stop_impersonate') %>"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>&nbsp;<%= l('Stop impersonating') %></a></li>
+                    % } else {
+                        <li class="mono"><a href="<%= url_for('logout') %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;<%= l('Logout') %></a></li>
                     % }
                     </ul>
                 </li>
