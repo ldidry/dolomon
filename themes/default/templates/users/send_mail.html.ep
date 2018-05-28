@@ -27,7 +27,7 @@
         </div>
     % } elsif ($action eq 'renew') {
         <h1 class="h3 form-signin-heading text-center"><%= l('Password renewal') %></h1>
-        <form action="<%= url_for('renew_password') %>" method="POST">
+        <form action="<%= url_for('renew_password', token => undef) %>" method="POST">
             <label for="inputPassword" class="sr-only"><%= l('Password') %></label>
             <input type="password" id="inputPassword" name="password" class="form-control first-input" required placeholder="<%= l('Password') %>">
             <label for="inputPassword2" class="sr-only"><%= l('Password verification') %></label>
