@@ -42,6 +42,9 @@ span.red {
 .nolink {
     cursor: inherit;
 }
+.dropdown-menu {
+    left: -188px;
+}
 .dropdown-menu > li > a:hover.nolink {
     background-color: #FFFFFF;
 }
