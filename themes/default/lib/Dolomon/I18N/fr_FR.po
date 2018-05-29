@@ -14,7 +14,7 @@ msgstr ""
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr_FR\n"
-"X-Generator: Zanata 4.3.3\n"
+"X-Generator: Zanata 4.4.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #. ($e->dolos->size)
