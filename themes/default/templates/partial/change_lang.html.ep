@@ -1,8 +1,12 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
 % state $l = {
-%     en => 'English',
-%     fr => 'Français'
-%     de => 'Deutsch'
+%     en    => 'English',
+%     en_US => 'English (US)',
+%     fr    => 'Français',
+%     fr_FR => 'Français (France)',
+%     de    => 'Deutsch',
+%     hu    => 'Magyar',
+%     it    => 'Italiano',
 % };
 <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -10,9 +14,11 @@
     </a>
     <ul class="dropdown-menu" role="menu">
     % for my $i (@{$self->available_langs}) {
+        % if (defined $l->{$i}) {
         <li<%== ($i eq $self->languages) ? ' class="active"' : '' %>>
             <a href="<%= url_for('lang', l => $i) %>" class="set-lang"><%= $l->{$i} %></a>
         </li>
+        % }
     % }
     </ul>
 </li>
