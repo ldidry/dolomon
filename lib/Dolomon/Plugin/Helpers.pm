@@ -85,7 +85,7 @@ sub _time_to_clean {
 
 sub _iso639_native_name {
     my $c = shift;
-    return decode 'UTF-8', get_iso639_1(shift)->{nativeName};
+    return ucfirst(decode 'UTF-8', get_iso639_1(shift)->{nativeName});
 }
 
 1;
