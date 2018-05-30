@@ -3,17 +3,20 @@ use Mojo::Base 'Mojolicious::Plugin';
 use Data::Entropy qw(entropy_source);
 use Mojo::Collection;
 use Mojo::File;
+use Mojo::Util qw(decode);
+use ISO::639_1;
 
 sub register {
     my ($self, $app) = @_;
 
     $app->plugin('PgURLHelper');
 
-    $app->helper(pg              => \&_pg);
-    $app->helper(active          => \&_active);
-    $app->helper(shortener       => \&_shortener);
-    $app->helper(available_langs => \&_available_langs);
-    $app->helper(time_to_clean   => \&_time_to_clean);
+    $app->helper(pg                 => \&_pg);
+    $app->helper(active             => \&_active);
+    $app->helper(shortener          => \&_shortener);
+    $app->helper(available_langs    => \&_available_langs);
+    $app->helper(time_to_clean      => \&_time_to_clean);
+    $app->helper(iso639_native_name => \&_iso639_native_name);
 
     $app->hook(
         before_dispatch => sub {
@@ -78,6 +81,11 @@ sub _time_to_clean {
 
     $last_cleaning = $time;
     return 1;
+}
+
+sub _iso639_native_name {
+    my $c = shift;
+    return decode 'UTF-8', get_iso639_1(shift)->{nativeName};
 }
 
 1;

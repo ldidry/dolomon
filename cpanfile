@@ -25,3 +25,4 @@ requires 'Email::Valid';
 requires 'IO::Socket::INET6';
 requires 'IO::Socket::SSL';
 requires 'Net::SSLeay', '>= 1.81';
+requires 'ISO::639_1';

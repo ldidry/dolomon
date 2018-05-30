@@ -1264,6 +1264,13 @@ DISTRIBUTIONS
       Mozilla::CA 0
       Net::SSLeay 1.46
       Scalar::Util 0
+  ISO-639_1-0.01
+    pathname: L/LD/LDIDRY/ISO-639_1-0.01.tar.gz
+    provides:
+      ISO::639_1 0.01
+    requirements:
+      Module::Build::Tiny 0.035
+      perl 5.008001
   JSON-2.97001
     pathname: I/IS/ISHIGAKI/JSON-2.97001.tar.gz
     provides:
@@ -1637,7 +1644,6 @@ DISTRIBUTIONS
       Mojolicious::Lite undef
       Mojolicious::Plugin undef
       Mojolicious::Plugin::Config undef
-      Mojolicious::Plugin::Config::Sandbox undef
       Mojolicious::Plugin::DefaultHelpers undef
       Mojolicious::Plugin::EPLRenderer undef
       Mojolicious::Plugin::EPRenderer undef
@@ -2048,17 +2054,6 @@ DISTRIBUTIONS
       Scalar::Util 0
       Sub::Quote 2.000001
       Text::Balanced 2.00
-      perl 5.006
-  Scalar-List-Utils-1.49
-    pathname: P/PE/PEVANS/Scalar-List-Utils-1.49.tar.gz
-    provides:
-      List::Util 1.49
-      List::Util::XS 1.49
-      Scalar::Util 1.49
-      Sub::Util 1.49
-    requirements:
-      ExtUtils::MakeMaker 0
-      Test::More 0
       perl 5.006
   Socket6-0.28
     pathname: U/UM/UMEMOTO/Socket6-0.28.tar.gz
