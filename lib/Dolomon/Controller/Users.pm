@@ -353,7 +353,8 @@ sub forgot_password {
         } elsif ($user->confirmed) {
             $user = $user->renew_token();
             my $subject = $c->l('Password renewal');
-            my $data    = $c->l("Someone asked to renew your password on %1.\n", $c->url_for('/')->to_abs->to_string); 
+            my $data    = $c->l('Hello %1,', $user->login)."\n\n";
+               $data   .= $c->l("Someone asked to renew your password on %1.\n", $c->url_for('/')->to_abs->to_string);
                $data   .= $c->l('If it\'s you, please click on this link: %1', $c->url_for('renew_password', {token => $user->token})->to_abs->to_string);
                $data   .= "\n-- \n";
                $data   .= $c->l("Kind regards\n");

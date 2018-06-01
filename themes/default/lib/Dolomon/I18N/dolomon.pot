@@ -98,7 +98,7 @@ msgid "An email has been sent to %1 for your account deletion."
 msgstr ""
 
 #. ($mail)
-#: lib/Dolomon/Controller/Users.pm:369 lib/Dolomon/Controller/Users.pm:458
+#: lib/Dolomon/Controller/Users.pm:370 lib/Dolomon/Controller/Users.pm:459
 msgid "An email has been sent to %1 for your password renewal."
 msgstr ""
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: lib/Dolomon/Controller/Misc.pm:47 lib/Dolomon/Controller/Users.pm:240 lib/Dolomon/Controller/Users.pm:319 lib/Dolomon/Controller/Users.pm:408 lib/Dolomon/Controller/Users.pm:539 lib/Dolomon/Controller/Users.pm:82
+#: lib/Dolomon/Controller/Misc.pm:47 lib/Dolomon/Controller/Users.pm:240 lib/Dolomon/Controller/Users.pm:319 lib/Dolomon/Controller/Users.pm:409 lib/Dolomon/Controller/Users.pm:540 lib/Dolomon/Controller/Users.pm:82
 msgid "Bad CSRF token!"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:614
+#: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:615
 msgid "Default"
 msgstr ""
 
@@ -361,11 +361,11 @@ msgstr ""
 msgid "Email address"
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:562
+#: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:563
 msgid "Email address already used. Choose another one."
 msgstr ""
 
-#: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:375 lib/Dolomon/Controller/Users.pm:384 lib/Dolomon/Controller/Users.pm:406 lib/Dolomon/Controller/Users.pm:420 lib/Dolomon/Controller/Users.pm:437 lib/Dolomon/Controller/Users.pm:465 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:487 lib/Dolomon/Controller/Users.pm:510 lib/Dolomon/Controller/Users.pm:537 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:580 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
+#: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:376 lib/Dolomon/Controller/Users.pm:385 lib/Dolomon/Controller/Users.pm:407 lib/Dolomon/Controller/Users.pm:421 lib/Dolomon/Controller/Users.pm:438 lib/Dolomon/Controller/Users.pm:466 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:488 lib/Dolomon/Controller/Users.pm:511 lib/Dolomon/Controller/Users.pm:538 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:581 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
 msgstr ""
 
@@ -395,6 +395,11 @@ msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:27
 msgid "Go"
+msgstr ""
+
+#. ($user->login)
+#: lib/Dolomon/Controller/Users.pm:356
+msgid "Hello %1,"
 msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:3
@@ -430,7 +435,7 @@ msgid "I forgot my password"
 msgstr ""
 
 #. ($c->url_for('renew_password', {token => $user->token})
-#: lib/Dolomon/Controller/Users.pm:357
+#: lib/Dolomon/Controller/Users.pm:358
 msgid "If it's you, please click on this link: %1"
 msgstr ""
 
@@ -467,7 +472,7 @@ msgstr ""
 msgid "It's quite simple:"
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:358 lib/Dolomon/Controller/Users.pm:447 lib/Dolomon/Controller/Users.pm:631
+#: lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:359 lib/Dolomon/Controller/Users.pm:448 lib/Dolomon/Controller/Users.pm:632
 msgid "Kind regards\n"
 msgstr ""
 
@@ -475,7 +480,7 @@ msgstr ""
 msgid "LDAP"
 msgstr ""
 
-#: themes/default/templates/partial/change_lang.html.ep:8
+#: themes/default/templates/partial/change_lang.html.ep:4
 msgid "Language"
 msgstr ""
 
@@ -514,7 +519,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:557
+#: lib/Dolomon/Controller/Users.pm:558
 msgid "Login already taken. Choose another one."
 msgstr ""
 
@@ -522,7 +527,7 @@ msgstr ""
 msgid "Login or email"
 msgstr ""
 
-#: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:112
+#: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:115
 msgid "Logout"
 msgstr ""
 
@@ -607,11 +612,11 @@ msgid "Per year"
 msgstr ""
 
 #. ($c->url_for('confirm', {token => $user->token})
-#: lib/Dolomon/Controller/Users.pm:446 lib/Dolomon/Controller/Users.pm:630
+#: lib/Dolomon/Controller/Users.pm:447 lib/Dolomon/Controller/Users.pm:631
 msgid "Please click on this link: %1"
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:444 lib/Dolomon/Controller/Users.pm:628
+#: lib/Dolomon/Controller/Users.pm:445 lib/Dolomon/Controller/Users.pm:629
 msgid "Please confirm your email address"
 msgstr ""
 
@@ -623,7 +628,7 @@ msgstr ""
 msgid "Please wait"
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:163 lib/Dolomon/Controller/Users.pm:258 lib/Dolomon/Controller/Users.pm:574
+#: lib/Dolomon/Controller/Users.pm:163 lib/Dolomon/Controller/Users.pm:258 lib/Dolomon/Controller/Users.pm:575
 msgid "Please, choose a password with at least 8 characters."
 msgstr ""
 
@@ -697,7 +702,7 @@ msgid "Someone asked to delete your account on %1.\n"
 msgstr ""
 
 #. ($c->url_for('/')
-#: lib/Dolomon/Controller/Users.pm:355
+#: lib/Dolomon/Controller/Users.pm:356
 msgid "Someone asked to renew your password on %1.\n"
 msgstr ""
 
@@ -744,7 +749,7 @@ msgstr ""
 msgid "Stop graph at"
 msgstr ""
 
-#: themes/default/templates/partial/navbar.html.ep:115
+#: themes/default/templates/partial/navbar.html.ep:113
 msgid "Stop impersonating"
 msgstr ""
 
@@ -785,7 +790,7 @@ msgstr ""
 msgid "The account %1 will be deleted in a short time."
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:377
+#: lib/Dolomon/Controller/Users.pm:378
 msgid "The account linked to this email address is not confirmed. Please confirm the account."
 msgstr ""
 
@@ -911,7 +916,7 @@ msgstr ""
 msgid "The new name is the same as the previous: %1."
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:159 lib/Dolomon/Controller/Users.pm:254 lib/Dolomon/Controller/Users.pm:570
+#: lib/Dolomon/Controller/Users.pm:159 lib/Dolomon/Controller/Users.pm:254 lib/Dolomon/Controller/Users.pm:571
 msgid "The passwords does not match."
 msgstr ""
 
@@ -950,11 +955,11 @@ msgstr ""
 msgid "The url is not a valid http, https, ftp or ftps URL."
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:439 lib/Dolomon/Controller/Users.pm:489
+#: lib/Dolomon/Controller/Users.pm:440 lib/Dolomon/Controller/Users.pm:490
 msgid "This account has already been confirmed."
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:109 lib/Dolomon/Controller/Users.pm:333 lib/Dolomon/Controller/Users.pm:422 lib/Dolomon/Controller/Users.pm:566
+#: lib/Dolomon/Controller/Users.pm:109 lib/Dolomon/Controller/Users.pm:333 lib/Dolomon/Controller/Users.pm:423 lib/Dolomon/Controller/Users.pm:567
 msgid "This email address is not valid."
 msgstr ""
 
@@ -967,7 +972,7 @@ msgid "This is a LDAP account, you can't change your password here."
 msgstr ""
 
 #. ($c->url_for('/')
-#: lib/Dolomon/Controller/Users.pm:444 lib/Dolomon/Controller/Users.pm:628
+#: lib/Dolomon/Controller/Users.pm:445 lib/Dolomon/Controller/Users.pm:629
 msgid "This is the final step for your registration on %1.\n"
 msgstr ""
 
@@ -1041,7 +1046,7 @@ msgstr ""
 msgid "Unable to find an account with this id."
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:291 lib/Dolomon/Controller/Users.pm:512 lib/Dolomon/Controller/Users.pm:59
+#: lib/Dolomon/Controller/Users.pm:291 lib/Dolomon/Controller/Users.pm:513 lib/Dolomon/Controller/Users.pm:59
 msgid "Unable to find an account with this token."
 msgstr ""
 
@@ -1049,7 +1054,7 @@ msgstr ""
 msgid "Unable to generate the zip file. Please contact the administrator"
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:386 lib/Dolomon/Controller/Users.pm:467
+#: lib/Dolomon/Controller/Users.pm:387 lib/Dolomon/Controller/Users.pm:468
 msgid "Unable to retrieve an account linked to that email address."
 msgstr ""
 
@@ -1121,7 +1126,7 @@ msgstr ""
 msgid "You already have that URL in the dolos of this category."
 msgstr ""
 
-#: lib/Dolomon.pm:444
+#: lib/Dolomon.pm:338
 msgid "You are not authenticated or have not valid application credentials"
 msgstr ""
 
@@ -1153,7 +1158,7 @@ msgstr ""
 msgid "You have been successfully disconnected."
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:624
+#: lib/Dolomon/Controller/Users.pm:625
 msgid "You have been successfully registered. You will receive a mail containing a link to finish your registration."
 msgstr ""
 
@@ -1177,7 +1182,7 @@ msgstr ""
 msgid "Your account details have been updated."
 msgstr ""
 
-#: lib/Dolomon/Controller/Users.pm:498
+#: lib/Dolomon/Controller/Users.pm:499
 msgid "Your account is now confirmed. You can now login."
 msgstr ""
 

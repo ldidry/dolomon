@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-01 01:04+0000\n"
+"PO-Revision-Date: 2018-06-01 08:56+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr_FR\n"
@@ -108,7 +108,7 @@ msgid "An email has been sent to %1 for your account deletion."
 msgstr "Un courriel a été envoyé à %1 pour la suppression de votre compte."
 
 #. ($mail)
-#: lib/Dolomon/Controller/Users.pm:369 lib/Dolomon/Controller/Users.pm:458
+#: lib/Dolomon/Controller/Users.pm:370 lib/Dolomon/Controller/Users.pm:459
 msgid "An email has been sent to %1 for your password renewal."
 msgstr ""
 "Un courriel a été envoyé à %1 pour le renouvellement de votre mot de passe."
@@ -165,7 +165,7 @@ msgstr "Authentification"
 msgid "Author"
 msgstr "Auteur"
 
-#: lib/Dolomon/Controller/Misc.pm:47 lib/Dolomon/Controller/Users.pm:240 lib/Dolomon/Controller/Users.pm:319 lib/Dolomon/Controller/Users.pm:408 lib/Dolomon/Controller/Users.pm:539 lib/Dolomon/Controller/Users.pm:82
+#: lib/Dolomon/Controller/Misc.pm:47 lib/Dolomon/Controller/Users.pm:240 lib/Dolomon/Controller/Users.pm:319 lib/Dolomon/Controller/Users.pm:409 lib/Dolomon/Controller/Users.pm:540 lib/Dolomon/Controller/Users.pm:82
 msgid "Bad CSRF token!"
 msgstr "Jeton CSRF invalide !"
 
@@ -301,7 +301,7 @@ msgstr "Créé le"
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:614
+#: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:615
 msgid "Default"
 msgstr "Défaut"
 
@@ -419,12 +419,12 @@ msgstr "Courriel"
 msgid "Email address"
 msgstr "Courriel"
 
-#: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:562
+#: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:563
 msgid "Email address already used. Choose another one."
 msgstr ""
 "Cette adresse de courriel est déjà utilisée. Veuillez en choisir une autre"
 
-#: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:375 lib/Dolomon/Controller/Users.pm:384 lib/Dolomon/Controller/Users.pm:406 lib/Dolomon/Controller/Users.pm:420 lib/Dolomon/Controller/Users.pm:437 lib/Dolomon/Controller/Users.pm:465 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:487 lib/Dolomon/Controller/Users.pm:510 lib/Dolomon/Controller/Users.pm:537 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:580 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
+#: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:376 lib/Dolomon/Controller/Users.pm:385 lib/Dolomon/Controller/Users.pm:407 lib/Dolomon/Controller/Users.pm:421 lib/Dolomon/Controller/Users.pm:438 lib/Dolomon/Controller/Users.pm:466 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:488 lib/Dolomon/Controller/Users.pm:511 lib/Dolomon/Controller/Users.pm:538 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:581 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
 msgstr "Erreur"
 
@@ -456,6 +456,11 @@ msgstr "Champ libre"
 #: themes/default/templates/misc/index.html.ep:27
 msgid "Go"
 msgstr "Allons-y"
+
+#. ($user->login)
+#: lib/Dolomon/Controller/Users.pm:356
+msgid "Hello %1,"
+msgstr "Bonjour %1,"
 
 #: themes/default/templates/js/i18n.js.ep:3
 msgid "Help"
@@ -490,7 +495,7 @@ msgid "I forgot my password"
 msgstr "J’ai oublié mon mot de passe"
 
 #. ($c->url_for('renew_password', {token => $user->token})
-#: lib/Dolomon/Controller/Users.pm:357
+#: lib/Dolomon/Controller/Users.pm:358
 msgid "If it's you, please click on this link: %1"
 msgstr "Si cela vient de vous, veuillez cliquer sur ce lien : %1"
 
@@ -529,7 +534,7 @@ msgstr "Cela signifie DOwnLOad MONitor."
 msgid "It's quite simple:"
 msgstr "C’est simple :"
 
-#: lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:358 lib/Dolomon/Controller/Users.pm:447 lib/Dolomon/Controller/Users.pm:631
+#: lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:359 lib/Dolomon/Controller/Users.pm:448 lib/Dolomon/Controller/Users.pm:632
 msgid "Kind regards\n"
 msgstr "Amicalement\n"
 
@@ -537,7 +542,7 @@ msgstr "Amicalement\n"
 msgid "LDAP"
 msgstr "LDAP"
 
-#: themes/default/templates/partial/change_lang.html.ep:8
+#: themes/default/templates/partial/change_lang.html.ep:4
 msgid "Language"
 msgstr "Langage"
 
@@ -576,7 +581,7 @@ msgstr "Chargement…"
 msgid "Login"
 msgstr "Identifiant"
 
-#: lib/Dolomon/Controller/Users.pm:557
+#: lib/Dolomon/Controller/Users.pm:558
 msgid "Login already taken. Choose another one."
 msgstr "Identifiant déjà utilisé. Veuillez en choisir un autre."
 
@@ -584,7 +589,7 @@ msgstr "Identifiant déjà utilisé. Veuillez en choisir un autre."
 msgid "Login or email"
 msgstr "Identifiant ou courriel"
 
-#: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:112
+#: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:115
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -672,11 +677,11 @@ msgid "Per year"
 msgstr "Par an"
 
 #. ($c->url_for('confirm', {token => $user->token})
-#: lib/Dolomon/Controller/Users.pm:446 lib/Dolomon/Controller/Users.pm:630
+#: lib/Dolomon/Controller/Users.pm:447 lib/Dolomon/Controller/Users.pm:631
 msgid "Please click on this link: %1"
 msgstr "Veuillez cliquer sur ce lien : %1"
 
-#: lib/Dolomon/Controller/Users.pm:444 lib/Dolomon/Controller/Users.pm:628
+#: lib/Dolomon/Controller/Users.pm:445 lib/Dolomon/Controller/Users.pm:629
 msgid "Please confirm your email address"
 msgstr "Veuillez confirmer votre adresse de courriel"
 
@@ -688,7 +693,7 @@ msgstr "Veuillez contacter l’administrateur."
 msgid "Please wait"
 msgstr "Veuillez patienter"
 
-#: lib/Dolomon/Controller/Users.pm:163 lib/Dolomon/Controller/Users.pm:258 lib/Dolomon/Controller/Users.pm:574
+#: lib/Dolomon/Controller/Users.pm:163 lib/Dolomon/Controller/Users.pm:258 lib/Dolomon/Controller/Users.pm:575
 msgid "Please, choose a password with at least 8 characters."
 msgstr "Veuillez choisir un mot de passe contenant au moins 8 caractères."
 
@@ -762,7 +767,7 @@ msgid "Someone asked to delete your account on %1.\n"
 msgstr "Quelqu’un a demandé à supprimer votre compte sur %1.\n"
 
 #. ($c->url_for('/')
-#: lib/Dolomon/Controller/Users.pm:355
+#: lib/Dolomon/Controller/Users.pm:356
 msgid "Someone asked to renew your password on %1.\n"
 msgstr "Quelqu’un a demandé à renouveler votre mot de passe sur %1.\n"
 
@@ -811,7 +816,7 @@ msgstr "Commencer le graphique à"
 msgid "Stop graph at"
 msgstr "Arrêter le graphique à"
 
-#: themes/default/templates/partial/navbar.html.ep:115
+#: themes/default/templates/partial/navbar.html.ep:113
 msgid "Stop impersonating"
 msgstr "Arrêter l’incarnation"
 
@@ -868,7 +873,7 @@ msgstr ""
 msgid "The account %1 will be deleted in a short time."
 msgstr "Le compte %1 sera supprimé dans peu de temps."
 
-#: lib/Dolomon/Controller/Users.pm:377
+#: lib/Dolomon/Controller/Users.pm:378
 msgid ""
 "The account linked to this email address is not confirmed. Please confirm "
 "the account."
@@ -1018,7 +1023,7 @@ msgstr "Le nom %1 est déjà utilisé dans la catégorie que vous avez choisie."
 msgid "The new name is the same as the previous: %1."
 msgstr "Le nouveau nom est le même que le précédent : %1."
 
-#: lib/Dolomon/Controller/Users.pm:159 lib/Dolomon/Controller/Users.pm:254 lib/Dolomon/Controller/Users.pm:570
+#: lib/Dolomon/Controller/Users.pm:159 lib/Dolomon/Controller/Users.pm:254 lib/Dolomon/Controller/Users.pm:571
 msgid "The passwords does not match."
 msgstr "Les mots de passe ne correspondent pas."
 
@@ -1059,11 +1064,11 @@ msgstr ""
 msgid "The url is not a valid http, https, ftp or ftps URL."
 msgstr "L’url n’est pas une URL http, https, ftp ou ftps valide."
 
-#: lib/Dolomon/Controller/Users.pm:439 lib/Dolomon/Controller/Users.pm:489
+#: lib/Dolomon/Controller/Users.pm:440 lib/Dolomon/Controller/Users.pm:490
 msgid "This account has already been confirmed."
 msgstr "Ce compte a déjà été confirmé."
 
-#: lib/Dolomon/Controller/Users.pm:109 lib/Dolomon/Controller/Users.pm:333 lib/Dolomon/Controller/Users.pm:422 lib/Dolomon/Controller/Users.pm:566
+#: lib/Dolomon/Controller/Users.pm:109 lib/Dolomon/Controller/Users.pm:333 lib/Dolomon/Controller/Users.pm:423 lib/Dolomon/Controller/Users.pm:567
 msgid "This email address is not valid."
 msgstr "Cette adresse de courriel n’est pas valide."
 
@@ -1080,7 +1085,7 @@ msgstr ""
 "Ceci est un compte LDAP, vous ne pouvez pas changer son mot de passe ici."
 
 #. ($c->url_for('/')
-#: lib/Dolomon/Controller/Users.pm:444 lib/Dolomon/Controller/Users.pm:628
+#: lib/Dolomon/Controller/Users.pm:445 lib/Dolomon/Controller/Users.pm:629
 msgid "This is the final step for your registration on %1.\n"
 msgstr "Ceci est la dernière étape pour votre enregistrement sur %1.\n"
 
@@ -1178,7 +1183,7 @@ msgstr ""
 msgid "Unable to find an account with this id."
 msgstr "Impossible de trouver un compte avec cet id."
 
-#: lib/Dolomon/Controller/Users.pm:291 lib/Dolomon/Controller/Users.pm:512 lib/Dolomon/Controller/Users.pm:59
+#: lib/Dolomon/Controller/Users.pm:291 lib/Dolomon/Controller/Users.pm:513 lib/Dolomon/Controller/Users.pm:59
 msgid "Unable to find an account with this token."
 msgstr "Impossible de trouver un compte avec ce jeton."
 
@@ -1187,7 +1192,7 @@ msgid "Unable to generate the zip file. Please contact the administrator"
 msgstr ""
 "Impossible de générer le fichier zip. Veuillez contacter l’administrateur."
 
-#: lib/Dolomon/Controller/Users.pm:386 lib/Dolomon/Controller/Users.pm:467
+#: lib/Dolomon/Controller/Users.pm:387 lib/Dolomon/Controller/Users.pm:468
 msgid "Unable to retrieve an account linked to that email address."
 msgstr "Impossible de retrouver un compte lié à cette adresse de courriel."
 
@@ -1264,7 +1269,7 @@ msgstr "Vous avez déjà un dolo dont l’URL dolomon est %1."
 msgid "You already have that URL in the dolos of this category."
 msgstr "Vous avez déjà cette URL dans les dolos de cette catégorie."
 
-#: lib/Dolomon.pm:444
+#: lib/Dolomon.pm:338
 msgid "You are not authenticated or have not valid application credentials"
 msgstr ""
 "Vous n’êtes pas authentifié·e ou n’avez pas d’identifiants d’application "
@@ -1315,7 +1320,7 @@ msgstr "Vous avez été authentifié·e avec succès."
 msgid "You have been successfully disconnected."
 msgstr "Vous avez été déconnecté·e avec succès."
 
-#: lib/Dolomon/Controller/Users.pm:624
+#: lib/Dolomon/Controller/Users.pm:625
 msgid ""
 "You have been successfully registered. You will receive a mail containing a "
 "link to finish your registration."
@@ -1347,7 +1352,7 @@ msgstr "Vous n’étiez pas en train d’incarner qui que ce soit."
 msgid "Your account details have been updated."
 msgstr "Les détails de votre compte ont été mis à jour."
 
-#: lib/Dolomon/Controller/Users.pm:498
+#: lib/Dolomon/Controller/Users.pm:499
 msgid "Your account is now confirmed. You can now login."
 msgstr "Votre compte est maintenant confirmé. Vous pouvez vous connecter."
 
