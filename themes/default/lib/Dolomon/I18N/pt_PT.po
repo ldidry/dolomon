@@ -7,13 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-01-19 15:15+0000\n"
+"Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
+"Language-Team: Portuguese (Portugal) <https://weblate.framasoft.org/projects/"
+"dolomon/master/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
@@ -29,7 +32,7 @@ msgstr ""
 #. (2)
 #: themes/default/templates/categories/show.html.ep:61 themes/default/templates/categories/show.html.ep:62 themes/default/templates/dolos/show.html.ep:121 themes/default/templates/dolos/show.html.ep:122 themes/default/templates/tags/show.html.ep:61 themes/default/templates/tags/show.html.ep:62
 msgid "%1 hours"
-msgstr ""
+msgstr "%1 hora(s)"
 
 #. ('30')
 #. ('15')
@@ -37,7 +40,7 @@ msgstr ""
 #. ('5')
 #: themes/default/templates/categories/show.html.ep:64 themes/default/templates/categories/show.html.ep:65 themes/default/templates/categories/show.html.ep:66 themes/default/templates/categories/show.html.ep:67 themes/default/templates/dolos/show.html.ep:124 themes/default/templates/dolos/show.html.ep:125 themes/default/templates/dolos/show.html.ep:126 themes/default/templates/dolos/show.html.ep:127 themes/default/templates/tags/show.html.ep:64 themes/default/templates/tags/show.html.ep:65 themes/default/templates/tags/show.html.ep:66 themes/default/templates/tags/show.html.ep:67
 msgid "%1 minutes"
-msgstr ""
+msgstr "%1 minutos"
 
 #: themes/default/templates/js/i18n.js.ep:35
 msgid "0 dolo(s)"
@@ -45,7 +48,7 @@ msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:68 themes/default/templates/dolos/show.html.ep:128 themes/default/templates/tags/show.html.ep:68
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuto"
 
 #. (config('counter_delay')
 #: themes/default/templates/misc/about.html.ep:44
@@ -54,19 +57,19 @@ msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:126 themes/default/templates/partial/navbar.html.ep:135
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: lib/Dolomon/Controller/Users.pm:202
 msgid "Account deletion"
-msgstr ""
+msgstr "Eliminação da conta"
 
 #: themes/default/templates/categories/index.html.ep:28 themes/default/templates/js/i18n.js.ep:63 themes/default/templates/partial/dolos_list.html.ep:112 themes/default/templates/partial/dolos_list.html.ep:23 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:104 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:25 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:26 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:89 themes/default/templates/tags/index.html.ep:28
 msgid "Actions"
-msgstr ""
+msgstr "Ações"
 
 #: themes/default/templates/categories/index.html.ep:9 themes/default/templates/js/i18n.js.ep:15 themes/default/templates/partial/navbar.html.ep:57
 msgid "Add a category"
-msgstr ""
+msgstr "Adicionar uma categoria"
 
 #: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/misc/dashboard.html.ep:32 themes/default/templates/partial/navbar.html.ep:38
 msgid "Add a dolo"
@@ -74,19 +77,19 @@ msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:22 themes/default/templates/partial/navbar.html.ep:76 themes/default/templates/tags/index.html.ep:9
 msgid "Add a tag"
-msgstr ""
+msgstr "Adicionar uma etiqueta"
 
 #: themes/default/templates/applications/index.html.ep:9 themes/default/templates/js/i18n.js.ep:28 themes/default/templates/partial/navbar.html.ep:95
 msgid "Add an application"
-msgstr ""
+msgstr "Adicionar uma aplicação"
 
 #: themes/default/templates/misc/admin.html.ep:3 themes/default/templates/misc/admin.html.ep:5 themes/default/templates/partial/navbar.html.ep:121
 msgid "Administration"
-msgstr ""
+msgstr "Administração"
 
 #: themes/default/templates/js/i18n.js.ep:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "Configurações avançadas"
 
 #: themes/default/templates/categories/show.html.ep:59 themes/default/templates/dolos/show.html.ep:119 themes/default/templates/tags/show.html.ep:59
 msgid "Aggregate data per"
@@ -104,7 +107,7 @@ msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:33
 msgid "Application name"
-msgstr ""
+msgstr "Nome da aplicação"
 
 #: lib/Dolomon/Controller/Applications.pm:88
 msgid "Application name blank or undefined. I refuse to create an application without name."
@@ -112,11 +115,11 @@ msgstr ""
 
 #: themes/default/templates/misc/dashboard.html.ep:82
 msgid "Application(s)"
-msgstr ""
+msgstr "Aplicação(ões)"
 
 #: themes/default/templates/applications/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:84
 msgid "Applications"
-msgstr ""
+msgstr "Aplicações"
 
 #: themes/default/templates/js/i18n.js.ep:31
 msgid "Are you sure you want to delete the application XXXX?"
@@ -140,11 +143,11 @@ msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:3 themes/default/templates/misc/index.html.ep:7
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticação"
 
 #: themes/default/templates/misc/about.html.ep:59
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: lib/Dolomon/Controller/Misc.pm:47 lib/Dolomon/Controller/Users.pm:240 lib/Dolomon/Controller/Users.pm:319 lib/Dolomon/Controller/Users.pm:409 lib/Dolomon/Controller/Users.pm:540 lib/Dolomon/Controller/Users.pm:82
 msgid "Bad CSRF token!"
@@ -164,23 +167,23 @@ msgstr ""
 
 #: themes/default/templates/partial/addModal.html.ep:18 themes/default/templates/partial/modModal.html.ep:18 themes/default/templates/partial/rmModal.html.ep:13
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: themes/default/templates/misc/dashboard.html.ep:56
 msgid "Categorie(s)"
-msgstr ""
+msgstr "Categoria(s)"
 
 #: themes/default/templates/categories/index.html.ep:3 themes/default/templates/categories/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:46
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #: themes/default/templates/categories/show.html.ep:8 themes/default/templates/dolos/show.html.ep:17 themes/default/templates/dolos/show.html.ep:18 themes/default/templates/js/i18n.js.ep:50
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: themes/default/templates/js/i18n.js.ep:20
 msgid "Category name"
-msgstr ""
+msgstr "Nome da categoria"
 
 #: lib/Dolomon/Controller/Categories.pm:319
 msgid "Category name blank or undefined. I refuse to create a category without name."
@@ -188,19 +191,19 @@ msgstr ""
 
 #: themes/default/templates/partial/navbar.html.ep:109
 msgid "Change account details"
-msgstr ""
+msgstr "Alterar detalhes da conta"
 
 #: themes/default/templates/users/index.html.ep:9
 msgid "Change details"
-msgstr ""
+msgstr "Alterar detalhes"
 
 #: themes/default/templates/users/index.html.ep:21
 msgid "Change my password"
-msgstr ""
+msgstr "Alterar a minha palavra-passe"
 
 #: themes/default/templates/users/send_mail.html.ep:37
 msgid "Change password"
-msgstr ""
+msgstr "Alterar palavra-passe"
 
 #: themes/default/templates/js/i18n.js.ep:13
 msgid "Check this to have Dolomon count visits on a website. Dolomon will provide you a code to add to your website (small transparent image)."
@@ -224,7 +227,7 @@ msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:4 themes/default/templates/layouts/default.html.ep:26 themes/default/templates/partial/addModal.html.ep:6 themes/default/templates/partial/modModal.html.ep:6 themes/default/templates/partial/rmModal.html.ep:6
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: themes/default/templates/js/i18n.js.ep:43
 msgid "Complementary informations or comments."
@@ -232,11 +235,11 @@ msgstr ""
 
 #: themes/default/templates/partial/addModal.html.ep:19 themes/default/templates/partial/modModal.html.ep:19 themes/default/templates/partial/rmModal.html.ep:14 themes/default/templates/users/index.html.ep:19 themes/default/templates/users/index.html.ep:31 themes/default/templates/users/send_mail.html.ep:12 themes/default/templates/users/send_mail.html.ep:23
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: themes/default/templates/misc/admin.html.ep:40
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmado"
 
 #: themes/default/templates/js/i18n.js.ep:9 themes/default/templates/partial/dolos_list.html.ep:156 themes/default/templates/partial/dolos_list.html.ep:72 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:145 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:66 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:114 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:51
 msgid "Copy dolomon URL"
@@ -253,7 +256,7 @@ msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:60
 msgid "Create account"
-msgstr ""
+msgstr "Criar conta"
 
 #: themes/default/templates/misc/about.html.ep:31
 msgid "Create an application in Dolomon to get credentials to use in WP-Dolomon."
@@ -261,15 +264,15 @@ msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:39 themes/default/templates/dolos/show.html.ep:40
 msgid "Created at"
-msgstr ""
+msgstr "Criada às"
 
 #: themes/default/templates/misc/dashboard.html.ep:3 themes/default/templates/partial/navbar.html.ep:22
 msgid "Dashboard"
-msgstr ""
+msgstr "Painel"
 
 #: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:615
 msgid "Default"
-msgstr ""
+msgstr "Predefinição"
 
 #: themes/default/templates/js/i18n.js.ep:56
 msgid "Delay after which the dolo stops redirecting visitors (inactive if empty or 0)"
@@ -281,11 +284,11 @@ msgstr ""
 
 #: themes/default/templates/applications/index.html.ep:39 themes/default/templates/js/i18n.js.ep:29
 msgid "Delete application"
-msgstr ""
+msgstr "Eliminar aplicação"
 
 #: themes/default/templates/categories/index.html.ep:50 themes/default/templates/categories/show.html.ep:17 themes/default/templates/js/i18n.js.ep:16
 msgid "Delete category"
-msgstr ""
+msgstr "Eliminar categoria"
 
 #: themes/default/templates/dolos/show.html.ep:77 themes/default/templates/js/i18n.js.ep:7 themes/default/templates/partial/dolos_list.html.ep:149 themes/default/templates/partial/dolos_list.html.ep:65 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:138 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:59 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:107 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:44
 msgid "Delete dolo"
@@ -293,15 +296,15 @@ msgstr ""
 
 #: themes/default/templates/users/index.html.ep:33 themes/default/templates/users/index.html.ep:39
 msgid "Delete my account"
-msgstr ""
+msgstr "Eliminar a minha conta"
 
 #: themes/default/templates/js/i18n.js.ep:23 themes/default/templates/tags/index.html.ep:54 themes/default/templates/tags/show.html.ep:17
 msgid "Delete tag"
-msgstr ""
+msgstr "Eliminar etiqueta"
 
 #: themes/default/templates/js/i18n.js.ep:64
 msgid "Delete user"
-msgstr ""
+msgstr "Eliminar utilizador"
 
 #: themes/default/templates/partial/navbar.html.ep:8
 msgid "Deploy menu"
@@ -351,23 +354,23 @@ msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:85 themes/default/templates/dolos/show.html.ep:145 themes/default/templates/tags/show.html.ep:85
 msgid "Download datas in CSV format"
-msgstr ""
+msgstr "Transferir dados no formato CSV"
 
 #: themes/default/templates/misc/admin.html.ep:39
 msgid "Email"
-msgstr ""
+msgstr "Correio Eletrónico"
 
 #: themes/default/templates/misc/index.html.ep:49 themes/default/templates/misc/index.html.ep:50 themes/default/templates/users/index.html.ep:15 themes/default/templates/users/index.html.ep:16 themes/default/templates/users/send_mail.html.ep:10 themes/default/templates/users/send_mail.html.ep:20 themes/default/templates/users/send_mail.html.ep:21 themes/default/templates/users/send_mail.html.ep:9
 msgid "Email address"
-msgstr ""
+msgstr "Endereço de correio eletrónico"
 
 #: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:563
 msgid "Email address already used. Choose another one."
-msgstr ""
+msgstr "O endereço de correio eletrónico já existe. Escolha outro."
 
 #: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:376 lib/Dolomon/Controller/Users.pm:385 lib/Dolomon/Controller/Users.pm:407 lib/Dolomon/Controller/Users.pm:421 lib/Dolomon/Controller/Users.pm:438 lib/Dolomon/Controller/Users.pm:466 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:488 lib/Dolomon/Controller/Users.pm:511 lib/Dolomon/Controller/Users.pm:538 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:581 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: themes/default/templates/dolos/index.html.ep:22
 msgid "Expiration setting"
@@ -375,11 +378,11 @@ msgstr ""
 
 #: themes/default/templates/dolos/index.html.ep:21
 msgid "Expired"
-msgstr ""
+msgstr "Expirado"
 
 #: themes/default/templates/dolos/show.html.ep:44
 msgid "Expired?"
-msgstr ""
+msgstr "Expirado?"
 
 #: themes/default/templates/misc/dashboard.html.ep:78
 msgid "External tools that you allowed to use your Dolomon account"
@@ -387,24 +390,24 @@ msgstr ""
 
 #: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
-msgstr ""
+msgstr "Nome"
 
 #: themes/default/templates/categories/index.html.ep:67 themes/default/templates/categories/show.html.ep:100 themes/default/templates/dolos/index.html.ep:19 themes/default/templates/dolos/show.html.ep:46 themes/default/templates/dolos/show.html.ep:47 themes/default/templates/js/i18n.js.ep:42 themes/default/templates/tags/index.html.ep:71 themes/default/templates/tags/show.html.ep:100
 msgid "Free field"
-msgstr ""
+msgstr "Campo livre"
 
 #: themes/default/templates/misc/index.html.ep:27
 msgid "Go"
-msgstr ""
+msgstr "Ir"
 
 #. ($user->login)
 #: lib/Dolomon/Controller/Users.pm:356
 msgid "Hello %1,"
-msgstr ""
+msgstr "Olá %1,"
 
 #: themes/default/templates/js/i18n.js.ep:3
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: themes/default/templates/misc/about.html.ep:38
 msgid "How can I opt-out Dolomon?"
@@ -432,17 +435,18 @@ msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:65 themes/default/templates/users/send_mail.html.ep:15
 msgid "I forgot my password"
-msgstr ""
+msgstr "Eu esqueci-me da minha palavra-passe"
 
 #. ($c->url_for('renew_password', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:358
 msgid "If it's you, please click on this link: %1"
-msgstr ""
+msgstr "Se é você, por favor, clique nesta hiperligação: %1"
 
 #. ($c->url_for('confirm_delete', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:204
 msgid "If want to delete your account, please click on this link: %1"
 msgstr ""
+"Se pretende eliminar a sua conta, por favor, clique nesta hiperligação: %1"
 
 #: themes/default/templates/js/i18n.js.ep:65
 msgid "Impersonate user"
@@ -474,66 +478,66 @@ msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:359 lib/Dolomon/Controller/Users.pm:448 lib/Dolomon/Controller/Users.pm:632
 msgid "Kind regards\n"
-msgstr ""
+msgstr "Cumprimentos\n"
 
 #: themes/default/templates/misc/index.html.ep:10
 msgid "LDAP"
-msgstr ""
+msgstr "LDAP"
 
 #: themes/default/templates/partial/change_lang.html.ep:4
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:25 themes/default/templates/categories/show.html.ep:30 themes/default/templates/dolos/show.html.ep:85 themes/default/templates/dolos/show.html.ep:90 themes/default/templates/tags/show.html.ep:25 themes/default/templates/tags/show.html.ep:30
 msgid "Last %1 days"
-msgstr ""
+msgstr "Últimos %1 dias"
 
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:40 themes/default/templates/dolos/show.html.ep:100 themes/default/templates/tags/show.html.ep:40
 msgid "Last %1 months"
-msgstr ""
+msgstr "Últimos %1 meses"
 
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:35 themes/default/templates/dolos/show.html.ep:95 themes/default/templates/tags/show.html.ep:35
 msgid "Last %1 weeks"
-msgstr ""
+msgstr "Últimas %1 semanas"
 
 #: themes/default/templates/misc/admin.html.ep:41
 msgid "Last login"
-msgstr ""
+msgstr "Última autenticação"
 
 #: themes/default/templates/misc/admin.html.ep:38 themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
 msgid "Last name"
-msgstr ""
+msgstr "Sobrenome"
 
 #: themes/default/templates/misc/about.html.ep:55
 msgid "License"
-msgstr ""
+msgstr "Licença"
 
 #: themes/default/templates/misc/admin.html.ep:27
 msgid "Loading…"
-msgstr ""
+msgstr "A carregar…"
 
 #: themes/default/templates/misc/admin.html.ep:36 themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
 msgid "Login"
-msgstr ""
+msgstr "Iniciar sessão"
 
 #: lib/Dolomon/Controller/Users.pm:558
 msgid "Login already taken. Choose another one."
-msgstr ""
+msgstr "Nome de autenticação já existe. Escolha outro."
 
 #: themes/default/templates/misc/admin.html.ep:14
 msgid "Login or email"
-msgstr ""
+msgstr "Credencial ou correio eletrónico"
 
 #: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:115
 msgid "Logout"
-msgstr ""
+msgstr "Terminar sessão"
 
 #: themes/default/templates/misc/about.html.ep:61
 msgid "Make a donation to the author"
-msgstr ""
+msgstr "Doe para o autor"
 
 #: themes/default/templates/misc/about.html.ep:63
 msgid "Mascot"
@@ -565,7 +569,7 @@ msgstr ""
 
 #: themes/default/templates/applications/index.html.ep:16 themes/default/templates/categories/index.html.ep:66 themes/default/templates/categories/show.html.ep:99 themes/default/templates/dolos/index.html.ep:18 themes/default/templates/js/i18n.js.ep:40 themes/default/templates/tags/index.html.ep:70 themes/default/templates/tags/show.html.ep:99
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: lib/Dolomon/Controller/Applications.pm:140
 msgid "New application name blank or undefined. I refuse to rename the category."
@@ -581,11 +585,11 @@ msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:62
 msgid "Next"
-msgstr ""
+msgstr "Seguinte"
 
 #: themes/default/templates/dolos/index.html.ep:34 themes/default/templates/dolos/index.html.ep:41 themes/default/templates/dolos/show.html.ep:44 themes/default/templates/js/i18n.js.ep:60 themes/default/templates/partial/dolos_list.html.ep:10 themes/default/templates/partial/dolos_list.html.ep:105 themes/default/templates/partial/dolos_list.html.ep:106 themes/default/templates/partial/dolos_list.html.ep:11 themes/default/templates/partial/dolos_list.html.ep:132 themes/default/templates/partial/dolos_list.html.ep:48
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: themes/default/templates/js/i18n.js.ep:52
 msgid "Number of hits"
@@ -597,44 +601,44 @@ msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:20 themes/default/templates/misc/index.html.ep:21 themes/default/templates/misc/index.html.ep:55 themes/default/templates/misc/index.html.ep:56 themes/default/templates/users/send_mail.html.ep:31 themes/default/templates/users/send_mail.html.ep:32
 msgid "Password"
-msgstr ""
+msgstr "Palavra-passe"
 
 #: lib/Dolomon/Controller/Users.pm:355 themes/default/templates/users/send_mail.html.ep:29
 msgid "Password renewal"
-msgstr ""
+msgstr "Renovação da palavra-passe"
 
 #: themes/default/templates/misc/index.html.ep:57 themes/default/templates/misc/index.html.ep:58 themes/default/templates/users/send_mail.html.ep:33 themes/default/templates/users/send_mail.html.ep:34
 msgid "Password verification"
-msgstr ""
+msgstr "Verificação da palavra-passe"
 
 #: themes/default/templates/categories/show.html.ep:45 themes/default/templates/dolos/show.html.ep:105 themes/default/templates/tags/show.html.ep:45
 msgid "Per year"
-msgstr ""
+msgstr "Por ano"
 
 #. ($c->url_for('confirm', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:447 lib/Dolomon/Controller/Users.pm:631
 msgid "Please click on this link: %1"
-msgstr ""
+msgstr "Por favor, clique nesta hiperligação: %1"
 
 #: lib/Dolomon/Controller/Users.pm:445 lib/Dolomon/Controller/Users.pm:629
 msgid "Please confirm your email address"
-msgstr ""
+msgstr "Por favor, confirme o seu endereço de correio eletrónico"
 
 #: lib/Dolomon/Controller/Admin.pm:107
 msgid "Please contact the administrator."
-msgstr ""
+msgstr "Por favor, contacte o administrador."
 
 #: themes/default/templates/categories/show.html.ep:52 themes/default/templates/dolos/show.html.ep:112 themes/default/templates/tags/show.html.ep:52
 msgid "Please wait"
-msgstr ""
+msgstr "Por favor, aguarde"
 
 #: lib/Dolomon/Controller/Users.pm:163 lib/Dolomon/Controller/Users.pm:258 lib/Dolomon/Controller/Users.pm:575
 msgid "Please, choose a password with at least 8 characters."
-msgstr ""
+msgstr "Por favor, escolha uma palavra-passe com pelo menos 8 carateres."
 
 #: themes/default/templates/js/i18n.js.ep:61
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #: themes/default/templates/categories/show.html.ep:123 themes/default/templates/dolos/show.html.ep:154 themes/default/templates/tags/show.html.ep:123
 msgid "Referrer"
@@ -642,23 +646,23 @@ msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:14
 msgid "Register"
-msgstr ""
+msgstr "Registar"
 
 #: themes/default/templates/applications/index.html.ep:33 themes/default/templates/js/i18n.js.ep:30
 msgid "Rename application"
-msgstr ""
+msgstr "Renomear aplicação"
 
 #: themes/default/templates/categories/index.html.ep:42 themes/default/templates/categories/show.html.ep:14 themes/default/templates/js/i18n.js.ep:17
 msgid "Rename category"
-msgstr ""
+msgstr "Renomear categoria"
 
 #: themes/default/templates/js/i18n.js.ep:24 themes/default/templates/tags/index.html.ep:44 themes/default/templates/tags/show.html.ep:14
 msgid "Rename tag"
-msgstr ""
+msgstr "Renomear etiqueta"
 
 #: themes/default/templates/users/send_mail.html.ep:7
 msgid "Resend confirmation mail"
-msgstr ""
+msgstr "Reenviar mensagem de confirmação"
 
 #: themes/default/templates/misc/admin.html.ep:6
 msgid "See job queue"
@@ -678,7 +682,7 @@ msgstr ""
 
 #: themes/default/templates/categories/index.html.ep:34 themes/default/templates/js/i18n.js.ep:14
 msgid "Show category"
-msgstr ""
+msgstr "Mostrar categoria"
 
 #: themes/default/templates/partial/dolos_list.html.ep:15 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:17 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:18
 msgid "Show children"
@@ -690,11 +694,11 @@ msgstr ""
 
 #: themes/default/templates/categories/index.html.ep:22 themes/default/templates/js/i18n.js.ep:34 themes/default/templates/tags/index.html.ep:22
 msgid "Show more"
-msgstr ""
+msgstr "Mostrar mais"
 
 #: themes/default/templates/js/i18n.js.ep:21 themes/default/templates/tags/index.html.ep:34
 msgid "Show tag"
-msgstr ""
+msgstr "Mostrar etiqueta"
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:202
