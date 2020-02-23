@@ -4,15 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-02-24 23:08+0000\n"
+"Last-Translator: Balázs Úr <balazs@urbalazs.hu>\n"
+"Language-Team: Hungarian <https://weblate.framasoft.org/projects/dolomon/"
+"master/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-01 08:59+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
-"Language-Team: Hungarian\n"
-"Language: hu\n"
-"X-Generator: Zanata 4.4.5\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.11\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
@@ -69,7 +70,7 @@ msgstr "Fiók törlése"
 
 #: themes/default/templates/categories/index.html.ep:28 themes/default/templates/js/i18n.js.ep:63 themes/default/templates/partial/dolos_list.html.ep:112 themes/default/templates/partial/dolos_list.html.ep:23 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:104 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:25 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:26 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:89 themes/default/templates/tags/index.html.ep:28
 msgid "Actions"
-msgstr " Műveletek"
+msgstr "Műveletek"
 
 #: themes/default/templates/categories/index.html.ep:9 themes/default/templates/js/i18n.js.ep:15 themes/default/templates/partial/navbar.html.ep:57
 msgid "Add a category"
@@ -450,9 +451,8 @@ msgstr "Ugrás"
 
 #. ($user->login)
 #: lib/Dolomon/Controller/Users.pm:356
-#, fuzzy
 msgid "Hello %1,"
-msgstr "Hellò %1,"
+msgstr "Szia %1!"
 
 #: themes/default/templates/js/i18n.js.ep:3
 msgid "Help"
@@ -502,7 +502,7 @@ msgstr "Felhasználó megszemélyesítése"
 
 #: lib/Dolomon/Controller/Admin.pm:99
 msgid "Impersonating has been stopped"
-msgstr " A megszemélyesítés befejeződött"
+msgstr "A megszemélyesítés le lett állítva"
 
 #: themes/default/templates/js/i18n.js.ep:57
 msgid "In how many days after the first visit will it expire? (optional)"
@@ -785,7 +785,7 @@ msgstr "Sajnáljuk, ez az URL nem létezik."
 
 #: lib/Dolomon/Controller/Dolos.pm:536
 msgid "Sorry, this URL has expired"
-msgstr "Sajnáljuk, ez az URL lejárt."
+msgstr "Sajnáljuk, ez az URL lejárt"
 
 #: lib/Dolomon/Controller/Admin.pm:71
 msgid "Sorry, unable to impersonate this user. Contact the administrator."
@@ -1170,7 +1170,9 @@ msgstr "Nem található fiók ezzel a tokennel."
 
 #: lib/Dolomon/Controller/Categories.pm:263 lib/Dolomon/Controller/Dolos.pm:244 lib/Dolomon/Controller/Tags.pm:268
 msgid "Unable to generate the zip file. Please contact the administrator"
-msgstr "A zip fájl nem állítható elő. Lépj kapcsolatba az adminisztrátorral."
+msgstr ""
+"Nem sikerült előállítani a ZIP-fájlt. Vegye fel a kapcsolatot a "
+"rendszergazdával"
 
 #: lib/Dolomon/Controller/Users.pm:387 lib/Dolomon/Controller/Users.pm:468
 msgid "Unable to retrieve an account linked to that email address."
