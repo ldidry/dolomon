@@ -1,35 +1,38 @@
-# Luc Didry <luc@framasoft.org>, 2018. #zanata
-# Meskó Balázs <mesko.balazs@fsf.hu>, 2018. #zanata
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-02-24 23:08+0000\n"
-"Last-Translator: Balázs Úr <balazs@urbalazs.hu>\n"
-"Language-Team: Hungarian <https://weblate.framasoft.org/projects/dolomon/"
-"master/hu/>\n"
-"Language: hu\n"
+"PO-Revision-Date: 2020-01-19 15:15+0000\n"
+"Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
+"Language-Team: Portuguese (Portugal) <https://weblate.framasoft.org/projects/"
+"dolomon/master/pt_PT/>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
 msgid "%1 dolo(s)"
-msgstr "%1 dolo"
+msgstr ""
 
 #. ($dolo->count)
 #: themes/default/templates/dolos/show.html.ep:54
 msgid "%1 hits"
-msgstr "%1 megtekintés"
+msgstr ""
 
 #. ('3')
 #. (2)
 #: themes/default/templates/categories/show.html.ep:61 themes/default/templates/categories/show.html.ep:62 themes/default/templates/dolos/show.html.ep:121 themes/default/templates/dolos/show.html.ep:122 themes/default/templates/tags/show.html.ep:61 themes/default/templates/tags/show.html.ep:62
 msgid "%1 hours"
-msgstr "%1 óra"
+msgstr "%1 hora(s)"
 
 #. ('30')
 #. ('15')
@@ -37,497 +40,445 @@ msgstr "%1 óra"
 #. ('5')
 #: themes/default/templates/categories/show.html.ep:64 themes/default/templates/categories/show.html.ep:65 themes/default/templates/categories/show.html.ep:66 themes/default/templates/categories/show.html.ep:67 themes/default/templates/dolos/show.html.ep:124 themes/default/templates/dolos/show.html.ep:125 themes/default/templates/dolos/show.html.ep:126 themes/default/templates/dolos/show.html.ep:127 themes/default/templates/tags/show.html.ep:64 themes/default/templates/tags/show.html.ep:65 themes/default/templates/tags/show.html.ep:66 themes/default/templates/tags/show.html.ep:67
 msgid "%1 minutes"
-msgstr "%1 perc"
+msgstr "%1 minutos"
 
 #: themes/default/templates/js/i18n.js.ep:35
 msgid "0 dolo(s)"
-msgstr "0 dolo"
+msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:68 themes/default/templates/dolos/show.html.ep:128 themes/default/templates/tags/show.html.ep:68
 msgid "1 minute"
-msgstr "1 perc"
+msgstr "1 minuto"
 
 #. (config('counter_delay')
 #: themes/default/templates/misc/about.html.ep:44
-msgid ""
-"A cookie is set for %1 seconds for each dolo you visit, to prevent counting "
-"consecutive visits from the same person, unless you activated the <a href="
-"\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> "
-"header on your browser."
+msgid "A cookie is set for %1 seconds for each dolo you visit, to prevent counting consecutive visits from the same person, unless you activated the <a href=\"https://en.wikipedia.org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> header on your browser."
 msgstr ""
-"Egy süti kerül beállításra %1 másodpercig minden egyes dolo felkeresésekor, "
-"hogy megakadályozza ugyanazon személy egymást követő felkereséseinek "
-"számlálását, feltéve hogy nem állítottad be a <a href=\"https://en.wikipedia."
-"org/wiki/Do_Not_Track\"><em>Do-Not-Track</em></a> fejlécet a böngésződben."
 
 #: themes/default/templates/misc/about.html.ep:3 themes/default/templates/misc/about.html.ep:4 themes/default/templates/partial/navbar.html.ep:126 themes/default/templates/partial/navbar.html.ep:135
 msgid "About"
-msgstr "Névjegy"
+msgstr "Sobre"
 
 #: lib/Dolomon/Controller/Users.pm:202
 msgid "Account deletion"
-msgstr "Fiók törlése"
+msgstr "Eliminação da conta"
 
 #: themes/default/templates/categories/index.html.ep:28 themes/default/templates/js/i18n.js.ep:63 themes/default/templates/partial/dolos_list.html.ep:112 themes/default/templates/partial/dolos_list.html.ep:23 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:104 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:25 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:26 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:89 themes/default/templates/tags/index.html.ep:28
 msgid "Actions"
-msgstr "Műveletek"
+msgstr "Ações"
 
 #: themes/default/templates/categories/index.html.ep:9 themes/default/templates/js/i18n.js.ep:15 themes/default/templates/partial/navbar.html.ep:57
 msgid "Add a category"
-msgstr "Kategória hozzáadása"
+msgstr "Adicionar uma categoria"
 
 #: themes/default/templates/dolos/index.html.ep:9 themes/default/templates/js/i18n.js.ep:6 themes/default/templates/misc/dashboard.html.ep:32 themes/default/templates/partial/navbar.html.ep:38
 msgid "Add a dolo"
-msgstr "Dolo hozzáadása"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:22 themes/default/templates/partial/navbar.html.ep:76 themes/default/templates/tags/index.html.ep:9
 msgid "Add a tag"
-msgstr "Címke hozzáadása"
+msgstr "Adicionar uma etiqueta"
 
 #: themes/default/templates/applications/index.html.ep:9 themes/default/templates/js/i18n.js.ep:28 themes/default/templates/partial/navbar.html.ep:95
 msgid "Add an application"
-msgstr "Alkalmazás hozzáadása"
+msgstr "Adicionar uma aplicação"
 
 #: themes/default/templates/misc/admin.html.ep:3 themes/default/templates/misc/admin.html.ep:5 themes/default/templates/partial/navbar.html.ep:121
 msgid "Administration"
-msgstr "Adminisztráció"
+msgstr "Administração"
 
 #: themes/default/templates/js/i18n.js.ep:66
 msgid "Advanced settings"
-msgstr "Speciális beállítások"
+msgstr "Configurações avançadas"
 
 #: themes/default/templates/categories/show.html.ep:59 themes/default/templates/dolos/show.html.ep:119 themes/default/templates/tags/show.html.ep:59
 msgid "Aggregate data per"
-msgstr "Adatok aggregálása ennyi időnként:"
+msgstr ""
 
 #. ($user->mail)
 #: lib/Dolomon/Controller/Users.pm:216
 msgid "An email has been sent to %1 for your account deletion."
-msgstr "Egy fiók törlési e-mail lett kiküldve ide: %1."
+msgstr ""
 
 #. ($mail)
 #: lib/Dolomon/Controller/Users.pm:370 lib/Dolomon/Controller/Users.pm:459
 msgid "An email has been sent to %1 for your password renewal."
-msgstr "Egy jelszó megújító e-mail lett kiküldve ide: %1."
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:33
 msgid "Application name"
-msgstr "Alkalmazásnév"
+msgstr "Nome da aplicação"
 
 #: lib/Dolomon/Controller/Applications.pm:88
-msgid ""
-"Application name blank or undefined. I refuse to create an application "
-"without name."
+msgid "Application name blank or undefined. I refuse to create an application without name."
 msgstr ""
-"Az alkalmazásnév üres vagy nem definiált. Név nélkül nem lehet alkalmazást "
-"létrehozni."
 
 #: themes/default/templates/misc/dashboard.html.ep:82
 msgid "Application(s)"
-msgstr "Alkalmazások"
+msgstr "Aplicação(ões)"
 
 #: themes/default/templates/applications/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:84
 msgid "Applications"
-msgstr "Alkalmazások"
+msgstr "Aplicações"
 
 #: themes/default/templates/js/i18n.js.ep:31
 msgid "Are you sure you want to delete the application XXXX?"
-msgstr "Biztos törlöd a(z) XXXX alkalmazást?"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:18
 msgid "Are you sure you want to delete the category XXXX?"
-msgstr "Biztos törlöd a(z) XXXX kategóriát?"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:11
 msgid "Are you sure you want to delete the dolo XXXX?"
-msgstr "Biztos törlöd a(z) XXXX dolót?"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:25
 msgid "Are you sure you want to delete the tag XXXX?"
-msgstr "Biztos törlöd a(z) XXXX címkét?"
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:341 lib/Dolomon/Controller/Dolos.pm:443
-msgid ""
-"At least one of the tag you want to use for your dolo does not belong to you."
-""
+msgid "At least one of the tag you want to use for your dolo does not belong to you."
 msgstr ""
-"Legalább egy címke, amelyet a dolódhoz akarsz használni, nem hozzád tartozik."
-""
 
 #: themes/default/templates/misc/index.html.ep:3 themes/default/templates/misc/index.html.ep:7
 msgid "Authentication"
-msgstr "Hitelesítés"
+msgstr "Autenticação"
 
 #: themes/default/templates/misc/about.html.ep:59
 msgid "Author"
-msgstr "Szerző"
+msgstr "Autor"
 
 #: lib/Dolomon/Controller/Misc.pm:47 lib/Dolomon/Controller/Users.pm:240 lib/Dolomon/Controller/Users.pm:319 lib/Dolomon/Controller/Users.pm:409 lib/Dolomon/Controller/Users.pm:540 lib/Dolomon/Controller/Users.pm:82
 msgid "Bad CSRF token!"
-msgstr "Rossz CSRF token!"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:41
 msgid "But don't worry, Dolomon's statistics are really anonymous."
-msgstr "De ne aggódj, a Dolomon statisztikái tényleg anonimok."
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:12
 msgid "But you can also use it to track visits on a page."
-msgstr "De egy oldal látogatóinak számának követésére is használhatod."
+msgstr ""
 
 #: lib/Dolomon/Controller/Admin.pm:105 lib/Dolomon/Controller/Admin.pm:112
 msgid "Can't stop impersonating"
-msgstr "A megszemélyesítés nem állítható le"
+msgstr ""
 
 #: themes/default/templates/partial/addModal.html.ep:18 themes/default/templates/partial/modModal.html.ep:18 themes/default/templates/partial/rmModal.html.ep:13
 msgid "Cancel"
-msgstr "Mégse"
+msgstr "Cancelar"
 
 #: themes/default/templates/misc/dashboard.html.ep:56
 msgid "Categorie(s)"
-msgstr "Kategóriák"
+msgstr "Categoria(s)"
 
 #: themes/default/templates/categories/index.html.ep:3 themes/default/templates/categories/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:46
 msgid "Categories"
-msgstr "Kategóriák"
+msgstr "Categorias"
 
 #: themes/default/templates/categories/show.html.ep:8 themes/default/templates/dolos/show.html.ep:17 themes/default/templates/dolos/show.html.ep:18 themes/default/templates/js/i18n.js.ep:50
 msgid "Category"
-msgstr "Kategória"
+msgstr "Categoria"
 
 #: themes/default/templates/js/i18n.js.ep:20
 msgid "Category name"
-msgstr "Kategórianév"
+msgstr "Nome da categoria"
 
 #: lib/Dolomon/Controller/Categories.pm:319
-msgid ""
-"Category name blank or undefined. I refuse to create a category without name."
-""
+msgid "Category name blank or undefined. I refuse to create a category without name."
 msgstr ""
-"A kategórianév üres vagy nem definiált. Név nélkül nem lehet kategóriát "
-"létrehozni."
 
 #: themes/default/templates/partial/navbar.html.ep:109
 msgid "Change account details"
-msgstr "Fiókadatok módosítása"
+msgstr "Alterar detalhes da conta"
 
 #: themes/default/templates/users/index.html.ep:9
 msgid "Change details"
-msgstr "Részletek módosítása"
+msgstr "Alterar detalhes"
 
 #: themes/default/templates/users/index.html.ep:21
 msgid "Change my password"
-msgstr "Jelszó módosítása"
+msgstr "Alterar a minha palavra-passe"
 
 #: themes/default/templates/users/send_mail.html.ep:37
 msgid "Change password"
-msgstr "Jelszó módosítása"
+msgstr "Alterar palavra-passe"
 
 #: themes/default/templates/js/i18n.js.ep:13
-msgid ""
-"Check this to have Dolomon count visits on a website. Dolomon will provide "
-"you a code to add to your website (small transparent image)."
+msgid "Check this to have Dolomon count visits on a website. Dolomon will provide you a code to add to your website (small transparent image)."
 msgstr ""
-"Jelöld be, hogy a Dolomon számolja a webhely felkereséseit. A Dolomon egy "
-"rövid kódrészletet fog adni, melyet a weboldaladon használhatsz (egy kis, "
-"áttetsző képet)."
 
 #: themes/default/templates/dolos/show.html.ep:58
 msgid "Children"
-msgstr "Gyermekek"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:39
 msgid "Choose a custom address or leave empty to use a random one."
 msgstr ""
-"Válassz egy egyéni címet, vagy hagyd üresen egy véletlenszerű használatához."
 
 #: themes/default/templates/js/i18n.js.ep:41
 msgid "Choose a name that will help you to remember the purpose of this URL."
-msgstr "Válassz egy nevet, amely segít az URL céljának megjegyzésében."
+msgstr ""
 
 #: themes/default/templates/misc/admin.html.ep:18
 msgid "Clear input"
-msgstr "Bemenet törlése"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:4 themes/default/templates/layouts/default.html.ep:26 themes/default/templates/partial/addModal.html.ep:6 themes/default/templates/partial/modModal.html.ep:6 themes/default/templates/partial/rmModal.html.ep:6
 msgid "Close"
-msgstr "Bezárás"
+msgstr "Fechar"
 
 #: themes/default/templates/js/i18n.js.ep:43
 msgid "Complementary informations or comments."
-msgstr "Kiegészítő információk vagy megjegyzések."
+msgstr ""
 
 #: themes/default/templates/partial/addModal.html.ep:19 themes/default/templates/partial/modModal.html.ep:19 themes/default/templates/partial/rmModal.html.ep:14 themes/default/templates/users/index.html.ep:19 themes/default/templates/users/index.html.ep:31 themes/default/templates/users/send_mail.html.ep:12 themes/default/templates/users/send_mail.html.ep:23
 msgid "Confirm"
-msgstr "Megerősítés"
+msgstr "Confirmar"
 
 #: themes/default/templates/misc/admin.html.ep:40
 msgid "Confirmed"
-msgstr "Megerősítve"
+msgstr "Confirmado"
 
 #: themes/default/templates/js/i18n.js.ep:9 themes/default/templates/partial/dolos_list.html.ep:156 themes/default/templates/partial/dolos_list.html.ep:72 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:145 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:66 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:114 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:51
 msgid "Copy dolomon URL"
-msgstr "Dolomon URL másolása"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:10 themes/default/templates/partial/dolos_list.html.ep:164 themes/default/templates/partial/dolos_list.html.ep:80 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:153 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:74 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:122 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:59
 msgid "Copy image code"
-msgstr "Képkód másolása"
+msgstr ""
 
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:124 themes/default/templates/dolos/show.html.ep:155 themes/default/templates/tags/show.html.ep:124
 msgid "Count (on last %1 days)"
-msgstr "Számláló (az eltelt %1 napon)"
+msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:60
 msgid "Create account"
-msgstr "Fiók létrehozása"
+msgstr "Criar conta"
 
 #: themes/default/templates/misc/about.html.ep:31
-msgid ""
-"Create an application in Dolomon to get credentials to use in WP-Dolomon."
+msgid "Create an application in Dolomon to get credentials to use in WP-Dolomon."
 msgstr ""
-"Hozz létre egy alkalmazást a Dolomonban, hogy megkapd a WP-Dolomonban "
-"használandó hitelesítő adatokat."
 
 #: themes/default/templates/dolos/show.html.ep:39 themes/default/templates/dolos/show.html.ep:40
 msgid "Created at"
-msgstr "Létrehozva"
+msgstr "Criada às"
 
 #: themes/default/templates/misc/dashboard.html.ep:3 themes/default/templates/partial/navbar.html.ep:22
 msgid "Dashboard"
-msgstr "Vezérlőpult"
+msgstr "Painel"
 
 #: lib/Dolomon.pm:186 lib/Dolomon/Controller/Users.pm:615
 msgid "Default"
-msgstr "Alapértelmezett"
+msgstr "Predefinição"
 
 #: themes/default/templates/js/i18n.js.ep:56
-msgid ""
-"Delay after which the dolo stops redirecting visitors (inactive if empty or "
-"0)"
+msgid "Delay after which the dolo stops redirecting visitors (inactive if empty or 0)"
 msgstr ""
-"Késleltetés, mely után a dolo abbahagyja a látogatók átirányítását (inaktív "
-"ha üres vagy 0)"
 
 #: themes/default/templates/js/i18n.js.ep:58
-msgid ""
-"Delay, beginning after the first visit, after which the dolo stops "
-"redirecting visitors (inactive if empty or 0)"
+msgid "Delay, beginning after the first visit, after which the dolo stops redirecting visitors (inactive if empty or 0)"
 msgstr ""
-"Késleltetés az első látogatás után, mely után a dolo abbahagyja a látogatók "
-"átirányítását (inaktív ha üres vagy 0)"
 
 #: themes/default/templates/applications/index.html.ep:39 themes/default/templates/js/i18n.js.ep:29
 msgid "Delete application"
-msgstr "Alkalmazás törlése"
+msgstr "Eliminar aplicação"
 
 #: themes/default/templates/categories/index.html.ep:50 themes/default/templates/categories/show.html.ep:17 themes/default/templates/js/i18n.js.ep:16
 msgid "Delete category"
-msgstr "Kategória törlése"
+msgstr "Eliminar categoria"
 
 #: themes/default/templates/dolos/show.html.ep:77 themes/default/templates/js/i18n.js.ep:7 themes/default/templates/partial/dolos_list.html.ep:149 themes/default/templates/partial/dolos_list.html.ep:65 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:138 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:59 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:107 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:44
 msgid "Delete dolo"
-msgstr "Dolo törlése"
+msgstr ""
 
 #: themes/default/templates/users/index.html.ep:33 themes/default/templates/users/index.html.ep:39
 msgid "Delete my account"
-msgstr "Fiók törlése"
+msgstr "Eliminar a minha conta"
 
 #: themes/default/templates/js/i18n.js.ep:23 themes/default/templates/tags/index.html.ep:54 themes/default/templates/tags/show.html.ep:17
 msgid "Delete tag"
-msgstr "Címke törlése"
+msgstr "Eliminar etiqueta"
 
 #: themes/default/templates/js/i18n.js.ep:64
 msgid "Delete user"
-msgstr "Felhasználó törlése"
+msgstr "Eliminar utilizador"
 
 #: themes/default/templates/partial/navbar.html.ep:8
 msgid "Deploy menu"
-msgstr "Telepítési menü"
+msgstr ""
 
 #: themes/default/templates/misc/dashboard.html.ep:15
 msgid "Dolo(s)"
-msgstr "Dolók"
+msgstr ""
 
 #: themes/default/templates/categories/index.html.ep:65 themes/default/templates/categories/show.html.ep:98 themes/default/templates/dolos/index.html.ep:17 themes/default/templates/dolos/show.html.ep:34 themes/default/templates/dolos/show.html.ep:35 themes/default/templates/js/i18n.js.ep:38 themes/default/templates/tags/index.html.ep:69 themes/default/templates/tags/show.html.ep:98
 msgid "Dolomon URL"
-msgstr "Dolomon URL"
+msgstr ""
 
 #. (config('keep_hits')
 #: themes/default/templates/misc/about.html.ep:37
-msgid ""
-"Dolomon also keeps the <a href=\"https://en.wikipedia.org/wiki/"
-"HTTP_referer\"><em>Referer</em></a> header and the date and time of the "
-"visit for %1 days."
+msgid "Dolomon also keeps the <a href=\"https://en.wikipedia.org/wiki/HTTP_referer\"><em>Referer</em></a> header and the date and time of the visit for %1 days."
 msgstr ""
-"A Dolomon %1 napig megtartja a <a href=\"https://en.wikipedia.org/wiki/"
-"HTTP_referer\"><em>Referer</em></a> fejlécet, és a látogatás időpontját."
 
 #. (url_for('hit', {short => 'foo'})
 #: themes/default/templates/misc/about.html.ep:20
-msgid ""
-"Dolomon gives you an other URL like %1 (but you can choose the URL as long "
-"as it's not already taken)"
+msgid "Dolomon gives you an other URL like %1 (but you can choose the URL as long as it's not already taken)"
 msgstr ""
-"A Dolomon egy másik URL-t ad, mint: %1 (de megválaszhatod az URL-t, ha még "
-"nem foglalt)"
 
 #: themes/default/templates/misc/about.html.ep:34
 msgid "Dolomon increments counters at each visit."
-msgstr "A Dolomon minden egyes látogatásnál megnöveli a számlálót."
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:56
-msgid ""
-"Dolomon is licensed under the terms of the GNU AGPLv3, see the <a href="
-"\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a> file."
+msgid "Dolomon is licensed under the terms of the GNU AGPLv3, see the <a href=\"https://framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a> file."
 msgstr ""
-"A Dolomon a GNU AGPLv3 feltételei szerint licencelt, lásd a <a href=\"https:/"
-"/framagit.org/luc/dolomon/blob/master/LICENSE\">LICENSE</a> fájlt."
 
 #: themes/default/templates/misc/about.html.ep:9
 msgid "Dolomon tracks how many times a link was clicked on."
-msgstr "A Dolomon követi, hogy egy hivatkozásra hányszor kattintottak."
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:24
 msgid "Dolomon treats the jobs without impacting the redirection performances"
 msgstr ""
-"A Dolomon úgy kezeli a feladatokat, hogy az nem érinti az átirányítási "
-"teljesítményt"
 
 #: themes/default/templates/categories/show.html.ep:92 themes/default/templates/dolos/index.html.ep:3 themes/default/templates/dolos/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:27 themes/default/templates/tags/show.html.ep:92
 msgid "Dolos"
-msgstr "Dolók"
+msgstr ""
 
 #: themes/default/templates/misc/admin.html.ep:42
 msgid "Dolos number"
-msgstr "Dolók száma"
+msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:85 themes/default/templates/dolos/show.html.ep:145 themes/default/templates/tags/show.html.ep:85
 msgid "Download datas in CSV format"
-msgstr "Adatok letöltése CSV formátumban"
+msgstr "Transferir dados no formato CSV"
 
 #: themes/default/templates/misc/admin.html.ep:39
 msgid "Email"
-msgstr "E-mail"
+msgstr "Correio Eletrónico"
 
 #: themes/default/templates/misc/index.html.ep:49 themes/default/templates/misc/index.html.ep:50 themes/default/templates/users/index.html.ep:15 themes/default/templates/users/index.html.ep:16 themes/default/templates/users/send_mail.html.ep:10 themes/default/templates/users/send_mail.html.ep:20 themes/default/templates/users/send_mail.html.ep:21 themes/default/templates/users/send_mail.html.ep:9
 msgid "Email address"
-msgstr "E-mail cím"
+msgstr "Endereço de correio eletrónico"
 
 #: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:563
 msgid "Email address already used. Choose another one."
-msgstr "Az e-mail cím már foglalt. Válassz egy másikat."
+msgstr "O endereço de correio eletrónico já existe. Escolha outro."
 
 #: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:376 lib/Dolomon/Controller/Users.pm:385 lib/Dolomon/Controller/Users.pm:407 lib/Dolomon/Controller/Users.pm:421 lib/Dolomon/Controller/Users.pm:438 lib/Dolomon/Controller/Users.pm:466 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:488 lib/Dolomon/Controller/Users.pm:511 lib/Dolomon/Controller/Users.pm:538 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:581 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
-msgstr "Hiba"
+msgstr "Erro"
 
 #: themes/default/templates/dolos/index.html.ep:22
 msgid "Expiration setting"
-msgstr "Lejárati beállítás"
+msgstr ""
 
 #: themes/default/templates/dolos/index.html.ep:21
 msgid "Expired"
-msgstr "Lejárt"
+msgstr "Expirado"
 
 #: themes/default/templates/dolos/show.html.ep:44
 msgid "Expired?"
-msgstr "Lejárt?"
+msgstr "Expirado?"
 
 #: themes/default/templates/misc/dashboard.html.ep:78
 msgid "External tools that you allowed to use your Dolomon account"
-msgstr "Külső eszközök, melyek használhatják a Dolomon fiókodat"
+msgstr ""
 
 #: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
-msgstr "Utónév"
+msgstr "Nome"
 
 #: themes/default/templates/categories/index.html.ep:67 themes/default/templates/categories/show.html.ep:100 themes/default/templates/dolos/index.html.ep:19 themes/default/templates/dolos/show.html.ep:46 themes/default/templates/dolos/show.html.ep:47 themes/default/templates/js/i18n.js.ep:42 themes/default/templates/tags/index.html.ep:71 themes/default/templates/tags/show.html.ep:100
 msgid "Free field"
-msgstr "Szabad mező"
+msgstr "Campo livre"
 
 #: themes/default/templates/misc/index.html.ep:27
 msgid "Go"
-msgstr "Ugrás"
+msgstr "Ir"
 
 #. ($user->login)
 #: lib/Dolomon/Controller/Users.pm:356
 msgid "Hello %1,"
-msgstr "Szia %1!"
+msgstr "Olá %1,"
 
 #: themes/default/templates/js/i18n.js.ep:3
 msgid "Help"
-msgstr "Súgó"
+msgstr "Ajuda"
 
 #: themes/default/templates/misc/about.html.ep:38
 msgid "How can I opt-out Dolomon?"
-msgstr "Hogyan iratkozhatok le a Dolomonról?"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:46
 msgid "How do I contact the administrator of this instance?"
-msgstr "Hogyan vehetem fel a kapcsolatot az ezen példány adminisztrátorával?"
+msgstr ""
 
 #: themes/default/templates/misc/dashboard.html.ep:93
 msgid "How does it work?"
-msgstr "Hogyan működik?"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:14
 msgid "How does it works?"
-msgstr "Hogyan működik?"
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:339 lib/Dolomon/Controller/Dolos.pm:441
 msgid "I can't find at least one of the given tag."
-msgstr "A megadott címkék közül legalább egy nem található."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:322 lib/Dolomon/Controller/Dolos.pm:424
 msgid "I can't find the given category."
-msgstr "A megadott kategória nem található."
+msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:65 themes/default/templates/users/send_mail.html.ep:15
 msgid "I forgot my password"
-msgstr "Elfelejtettem a jelszavam"
+msgstr "Eu esqueci-me da minha palavra-passe"
 
 #. ($c->url_for('renew_password', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:358
 msgid "If it's you, please click on this link: %1"
-msgstr "Ha te vagy az, kattints erre a hivatkozásra: %1"
+msgstr "Se é você, por favor, clique nesta hiperligação: %1"
 
 #. ($c->url_for('confirm_delete', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:204
 msgid "If want to delete your account, please click on this link: %1"
-msgstr "Ha törölni akarod a fiókod, kattints erre a hivatkozásra: %1"
+msgstr ""
+"Se pretende eliminar a sua conta, por favor, clique nesta hiperligação: %1"
 
 #: themes/default/templates/js/i18n.js.ep:65
 msgid "Impersonate user"
-msgstr "Felhasználó megszemélyesítése"
+msgstr ""
 
 #: lib/Dolomon/Controller/Admin.pm:99
 msgid "Impersonating has been stopped"
-msgstr "A megszemélyesítés le lett állítva"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:57
 msgid "In how many days after the first visit will it expire? (optional)"
 msgstr ""
-"Az első látogatást követően hány nap múlva fog lejárni? (nem kötelező)"
 
 #: themes/default/templates/js/i18n.js.ep:55
 msgid "In how many days will it expires? (optional)"
-msgstr "Hány nap múlva fog lejárni? (nem kötelező)"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:49
 msgid "Initial counter"
-msgstr "Kezdeti számláló"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:7
 msgid "It means DOwnLOad MONitor."
-msgstr "A DOwnLOad MONitor szavakból képzett rövidítés."
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:16
 msgid "It's quite simple:"
-msgstr "Elég egyszerű:"
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:359 lib/Dolomon/Controller/Users.pm:448 lib/Dolomon/Controller/Users.pm:632
 msgid "Kind regards\n"
-msgstr "Üdvözlettel\n"
+msgstr "Cumprimentos\n"
 
 #: themes/default/templates/misc/index.html.ep:10
 msgid "LDAP"
@@ -535,859 +486,762 @@ msgstr "LDAP"
 
 #: themes/default/templates/partial/change_lang.html.ep:4
 msgid "Language"
-msgstr "Nyelv"
+msgstr "Idioma"
 
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:25 themes/default/templates/categories/show.html.ep:30 themes/default/templates/dolos/show.html.ep:85 themes/default/templates/dolos/show.html.ep:90 themes/default/templates/tags/show.html.ep:25 themes/default/templates/tags/show.html.ep:30
 msgid "Last %1 days"
-msgstr "Eltelt %1 nap"
+msgstr "Últimos %1 dias"
 
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:40 themes/default/templates/dolos/show.html.ep:100 themes/default/templates/tags/show.html.ep:40
 msgid "Last %1 months"
-msgstr "Eltelt %1 hónap"
+msgstr "Últimos %1 meses"
 
 #. (config('keep_hits')
 #: themes/default/templates/categories/show.html.ep:35 themes/default/templates/dolos/show.html.ep:95 themes/default/templates/tags/show.html.ep:35
 msgid "Last %1 weeks"
-msgstr "Eltelt %1 hét"
+msgstr "Últimas %1 semanas"
 
 #: themes/default/templates/misc/admin.html.ep:41
 msgid "Last login"
-msgstr "Legutóbbi bejelentkezés"
+msgstr "Última autenticação"
 
 #: themes/default/templates/misc/admin.html.ep:38 themes/default/templates/misc/index.html.ep:43 themes/default/templates/misc/index.html.ep:44 themes/default/templates/users/index.html.ep:13 themes/default/templates/users/index.html.ep:14
 msgid "Last name"
-msgstr "Családi név"
+msgstr "Sobrenome"
 
 #: themes/default/templates/misc/about.html.ep:55
 msgid "License"
-msgstr "Licenc"
+msgstr "Licença"
 
 #: themes/default/templates/misc/admin.html.ep:27
 msgid "Loading…"
-msgstr "Betöltés…"
+msgstr "A carregar…"
 
 #: themes/default/templates/misc/admin.html.ep:36 themes/default/templates/misc/index.html.ep:18 themes/default/templates/misc/index.html.ep:19 themes/default/templates/misc/index.html.ep:31 themes/default/templates/misc/index.html.ep:32
 msgid "Login"
-msgstr "Bejelentkezési név"
+msgstr "Iniciar sessão"
 
 #: lib/Dolomon/Controller/Users.pm:558
 msgid "Login already taken. Choose another one."
-msgstr "A bejelentkezési név már foglalt. Válassz egy másikat."
+msgstr "Nome de autenticação já existe. Escolha outro."
 
 #: themes/default/templates/misc/admin.html.ep:14
 msgid "Login or email"
-msgstr "Bejelentkezési név vagy e-mail"
+msgstr "Credencial ou correio eletrónico"
 
 #: lib/Dolomon/Controller/Misc.pm:93 themes/default/templates/partial/navbar.html.ep:115
 msgid "Logout"
-msgstr "Kijelentkezés"
+msgstr "Terminar sessão"
 
 #: themes/default/templates/misc/about.html.ep:61
 msgid "Make a donation to the author"
-msgstr "Adományozás a szerzőnek"
+msgstr "Doe para o autor"
 
 #: themes/default/templates/misc/about.html.ep:63
 msgid "Mascot"
-msgstr "Kabala"
+msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:74 themes/default/templates/js/i18n.js.ep:8 themes/default/templates/partial/dolos_list.html.ep:136 themes/default/templates/partial/dolos_list.html.ep:52 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:125 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:46 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:101 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:38
 msgid "Modify dolo"
-msgstr "Dolo módosítása"
+msgstr ""
 
 #: themes/default/templates/users/index.html.ep:3 themes/default/templates/users/index.html.ep:7
 msgid "My account"
-msgstr "Saját fiók"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:32
 msgid "My astonishing application"
-msgstr "A lenyűgöző alkalmazásom"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:19
 msgid "My awesome category"
-msgstr "A fantasztikus kategóriám"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:48
 msgid "My extraordinary dolo"
-msgstr "A rendkívüli dolóm"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:26
 msgid "My wonderful tag"
-msgstr "A csodálatos címkém"
+msgstr ""
 
 #: themes/default/templates/applications/index.html.ep:16 themes/default/templates/categories/index.html.ep:66 themes/default/templates/categories/show.html.ep:99 themes/default/templates/dolos/index.html.ep:18 themes/default/templates/js/i18n.js.ep:40 themes/default/templates/tags/index.html.ep:70 themes/default/templates/tags/show.html.ep:99
 msgid "Name"
-msgstr "Név"
+msgstr "Nome"
 
 #: lib/Dolomon/Controller/Applications.pm:140
-msgid ""
-"New application name blank or undefined. I refuse to rename the category."
+msgid "New application name blank or undefined. I refuse to rename the category."
 msgstr ""
-"Az új alkalmazásnév üres vagy nem definiált. Nem lehet átnevezni az "
-"alkalmazást."
 
 #: lib/Dolomon/Controller/Categories.pm:371
 msgid "New category name blank or undefined. I refuse to rename the category."
 msgstr ""
-"Az új kategórianév üres vagy nem definiált. Nem lehet átnevezni a kategóriát."
-""
 
 #: lib/Dolomon/Controller/Tags.pm:376
 msgid "New tag name blank or undefined. I refuse to rename the tag."
-msgstr "Az új címkenév üres vagy nem definiált. Nem lehet átnevezni a címkét."
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:62
 msgid "Next"
-msgstr "Következő"
+msgstr "Seguinte"
 
 #: themes/default/templates/dolos/index.html.ep:34 themes/default/templates/dolos/index.html.ep:41 themes/default/templates/dolos/show.html.ep:44 themes/default/templates/js/i18n.js.ep:60 themes/default/templates/partial/dolos_list.html.ep:10 themes/default/templates/partial/dolos_list.html.ep:105 themes/default/templates/partial/dolos_list.html.ep:106 themes/default/templates/partial/dolos_list.html.ep:11 themes/default/templates/partial/dolos_list.html.ep:132 themes/default/templates/partial/dolos_list.html.ep:48
 msgid "No"
-msgstr "Nem"
+msgstr "Não"
 
 #: themes/default/templates/js/i18n.js.ep:52
 msgid "Number of hits"
-msgstr "Megtekintések száma"
+msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:69
 msgid "Parent"
-msgstr "Szülő"
+msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:20 themes/default/templates/misc/index.html.ep:21 themes/default/templates/misc/index.html.ep:55 themes/default/templates/misc/index.html.ep:56 themes/default/templates/users/send_mail.html.ep:31 themes/default/templates/users/send_mail.html.ep:32
 msgid "Password"
-msgstr "Jelszó"
+msgstr "Palavra-passe"
 
 #: lib/Dolomon/Controller/Users.pm:355 themes/default/templates/users/send_mail.html.ep:29
 msgid "Password renewal"
-msgstr "Jelszó megújítása"
+msgstr "Renovação da palavra-passe"
 
 #: themes/default/templates/misc/index.html.ep:57 themes/default/templates/misc/index.html.ep:58 themes/default/templates/users/send_mail.html.ep:33 themes/default/templates/users/send_mail.html.ep:34
 msgid "Password verification"
-msgstr "Jelszó megerősítése"
+msgstr "Verificação da palavra-passe"
 
 #: themes/default/templates/categories/show.html.ep:45 themes/default/templates/dolos/show.html.ep:105 themes/default/templates/tags/show.html.ep:45
 msgid "Per year"
-msgstr "Évente"
+msgstr "Por ano"
 
 #. ($c->url_for('confirm', {token => $user->token})
 #: lib/Dolomon/Controller/Users.pm:447 lib/Dolomon/Controller/Users.pm:631
 msgid "Please click on this link: %1"
-msgstr "Kattints erre a hivatkozásra: %1"
+msgstr "Por favor, clique nesta hiperligação: %1"
 
 #: lib/Dolomon/Controller/Users.pm:445 lib/Dolomon/Controller/Users.pm:629
 msgid "Please confirm your email address"
-msgstr "Erősítsd meg az e-mail címed"
+msgstr "Por favor, confirme o seu endereço de correio eletrónico"
 
 #: lib/Dolomon/Controller/Admin.pm:107
 msgid "Please contact the administrator."
-msgstr "Lépj kapcsolatba az adminisztrátorral."
+msgstr "Por favor, contacte o administrador."
 
 #: themes/default/templates/categories/show.html.ep:52 themes/default/templates/dolos/show.html.ep:112 themes/default/templates/tags/show.html.ep:52
 msgid "Please wait"
-msgstr "Várj"
+msgstr "Por favor, aguarde"
 
 #: lib/Dolomon/Controller/Users.pm:163 lib/Dolomon/Controller/Users.pm:258 lib/Dolomon/Controller/Users.pm:575
 msgid "Please, choose a password with at least 8 characters."
-msgstr "Válassz egy legalább 8 karakteres jelszót."
+msgstr "Por favor, escolha uma palavra-passe com pelo menos 8 carateres."
 
 #: themes/default/templates/js/i18n.js.ep:61
 msgid "Previous"
-msgstr "Előző"
+msgstr "Anterior"
 
 #: themes/default/templates/categories/show.html.ep:123 themes/default/templates/dolos/show.html.ep:154 themes/default/templates/tags/show.html.ep:123
 msgid "Referrer"
-msgstr "Hivatkozó"
+msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:14
 msgid "Register"
-msgstr "Regisztráció"
+msgstr "Registar"
 
 #: themes/default/templates/applications/index.html.ep:33 themes/default/templates/js/i18n.js.ep:30
 msgid "Rename application"
-msgstr "Alkalmazás átnevezése"
+msgstr "Renomear aplicação"
 
 #: themes/default/templates/categories/index.html.ep:42 themes/default/templates/categories/show.html.ep:14 themes/default/templates/js/i18n.js.ep:17
 msgid "Rename category"
-msgstr "Kategória átnevezése"
+msgstr "Renomear categoria"
 
 #: themes/default/templates/js/i18n.js.ep:24 themes/default/templates/tags/index.html.ep:44 themes/default/templates/tags/show.html.ep:14
 msgid "Rename tag"
-msgstr "Címke átnevezése"
+msgstr "Renomear etiqueta"
 
 #: themes/default/templates/users/send_mail.html.ep:7
 msgid "Resend confirmation mail"
-msgstr "Megerősítő e-mail újraküldése"
+msgstr "Reenviar mensagem de confirmação"
 
 #: themes/default/templates/misc/admin.html.ep:6
 msgid "See job queue"
-msgstr "Feladatsor megtekintése"
+msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:70
 msgid "See parent"
-msgstr "Lásd a szülőt"
+msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:66 themes/default/templates/users/send_mail.html.ep:26 themes/default/templates/users/send_mail.html.ep:40
 msgid "Send me the confirmation mail again"
-msgstr "Újra küldje el nekem a megerősítő e-mailt"
+msgstr ""
 
 #: themes/default/templates/users/send_mail.html.ep:18
 msgid "Send password renewal mail"
-msgstr "Jelszó megújítási e-mail küldése"
+msgstr ""
 
 #: themes/default/templates/categories/index.html.ep:34 themes/default/templates/js/i18n.js.ep:14
 msgid "Show category"
-msgstr "Kategória megtekintése"
+msgstr "Mostrar categoria"
 
 #: themes/default/templates/partial/dolos_list.html.ep:15 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:17 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:18
 msgid "Show children"
-msgstr "Gyermekek megtekintése"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:5 themes/default/templates/partial/dolos_list.html.ep:118 themes/default/templates/partial/dolos_list.html.ep:29 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:110 themes/default/templates/partial/dolos_list_for_cat_and_tag.html.ep:31 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:32 themes/default/templates/partial/dolos_list_for_cat_and_tag_show.html.ep:95
 msgid "Show dolo"
-msgstr "Dolo megtekintése"
+msgstr ""
 
 #: themes/default/templates/categories/index.html.ep:22 themes/default/templates/js/i18n.js.ep:34 themes/default/templates/tags/index.html.ep:22
 msgid "Show more"
-msgstr "Több megjelenítése"
+msgstr "Mostrar mais"
 
 #: themes/default/templates/js/i18n.js.ep:21 themes/default/templates/tags/index.html.ep:34
 msgid "Show tag"
-msgstr "Címke megjelenítése"
+msgstr "Mostrar etiqueta"
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:202
 msgid "Someone asked to delete your account on %1.\n"
-msgstr "Valaki a(z) %1 fiókod törlését kérte.\n"
+msgstr ""
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:356
 msgid "Someone asked to renew your password on %1.\n"
-msgstr "Valaki a(z) %1 jelszavad megújítását kérte.\n"
+msgstr ""
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Applications.pm:132
 msgid "Something went wrong while renaming application %1 to %2"
-msgstr "Valami hiba történt a(z) %1 alkalmazás erre átnevezésekor: %2"
+msgstr ""
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Categories.pm:363
 msgid "Something went wrong while renaming category %1 to %2"
-msgstr "Valami hiba történt a(z) %1 kategória erre átnevezésekor: %2"
+msgstr ""
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Tags.pm:368
 msgid "Something went wrong while renaming tag %1 to %2"
-msgstr "Valami hiba történt a(z) %1 címke erre átnevezésekor: %2"
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:545
 msgid "Sorry, this URL does not exist."
-msgstr "Sajnáljuk, ez az URL nem létezik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:536
 msgid "Sorry, this URL has expired"
-msgstr "Sajnáljuk, ez az URL lejárt"
+msgstr ""
 
 #: lib/Dolomon/Controller/Admin.pm:71
 msgid "Sorry, unable to impersonate this user. Contact the administrator."
 msgstr ""
-"Sajnáljuk, nem lehet megszemélyesíteni ezt a felhasználót. Lépj kapcsolatba "
-"az adminisztrátorral."
 
 #: themes/default/templates/misc/about.html.ep:57
 msgid "Sources"
-msgstr "Források"
+msgstr ""
 
 #: themes/default/templates/misc/index.html.ep:13
 msgid "Standard"
-msgstr "Szokásos"
+msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:73 themes/default/templates/dolos/show.html.ep:133 themes/default/templates/tags/show.html.ep:73
 msgid "Start graph at"
-msgstr "Grafikon kezdete"
+msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:77 themes/default/templates/dolos/show.html.ep:137 themes/default/templates/tags/show.html.ep:77
 msgid "Stop graph at"
-msgstr "Grafikon vége"
+msgstr ""
 
 #: themes/default/templates/partial/navbar.html.ep:113
 msgid "Stop impersonating"
-msgstr "Megszemélyesítés leállítása"
+msgstr ""
 
 #: lib/Dolomon/Controller/Admin.pm:133
 msgid "Success"
-msgstr "Sikeres"
+msgstr ""
 
 #: themes/default/templates/tags/show.html.ep:8
 msgid "Tag"
-msgstr "Címke"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:27
 msgid "Tag name"
-msgstr "Címke neve"
+msgstr ""
 
 #: lib/Dolomon/Controller/Tags.pm:324
 msgid "Tag name blank or undefined. I refuse to create an tag without name."
 msgstr ""
-"A címkenév üres vagy nem definiált. Név nélkül nem lehet címkét létrehozni."
 
 #: themes/default/templates/js/i18n.js.ep:51 themes/default/templates/misc/dashboard.html.ep:69
 msgid "Tag(s)"
-msgstr "Címkék"
+msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:21 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/partial/navbar.html.ep:65 themes/default/templates/tags/index.html.ep:3 themes/default/templates/tags/show.html.ep:3
 msgid "Tags"
-msgstr "Címkék"
+msgstr ""
 
 #: themes/default/templates/categories/index.html.ep:64 themes/default/templates/categories/show.html.ep:97 themes/default/templates/dolos/index.html.ep:16 themes/default/templates/dolos/show.html.ep:31 themes/default/templates/dolos/show.html.ep:32 themes/default/templates/js/i18n.js.ep:36 themes/default/templates/tags/index.html.ep:68 themes/default/templates/tags/show.html.ep:97
 msgid "Target URL"
-msgstr "Cél URL"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:65
-msgid ""
-"The Dolomon mascot is called Zag. It has been initially designed by <a href="
-"\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> "
-"under the name of <a href=\"https://openclipart.org/detail/204548/"
-"Red%20Oso\">Red Oso</a>, have been proposed by <a href=\"http://cyrille."
-"largillier.org/\">Cyrille Largillier</a>, is in <a href=\"https://"
-"openclipart.org/share\">Public Domain</a> and has been slightly modified for "
-"Dolomon."
+msgid "The Dolomon mascot is called Zag. It has been initially designed by <a href=\"https://openclipart.org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> under the name of <a href=\"https://openclipart.org/detail/204548/Red%20Oso\">Red Oso</a>, have been proposed by <a href=\"http://cyrille.largillier.org/\">Cyrille Largillier</a>, is in <a href=\"https://openclipart.org/share\">Public Domain</a> and has been slightly modified for Dolomon."
 msgstr ""
-"A Dolomon kabaláját Zagnak hívják. Eredetileg <a href=\"https://openclipart."
-"org/user-detail/rMiszczak\">Renê Gustavo Miszczak</a> tervezte, <a href="
-"\"https://openclipart.org/detail/204548/Red%20Oso\">Red Oso</a> néven, majd "
-"<a href=\"http://cyrille.largillier.org/\">Cyrille Largillier</a> javasolta, "
-"<a href=\"https://openclipart.org/share\">közkinccsé lett téve</a>, és "
-"enyhén módosítva is lett a Dolomonhoz."
 
 #. ($user->login)
 #: lib/Dolomon/Controller/Admin.pm:135
 msgid "The account %1 will be deleted in a short time."
-msgstr "A(z) %1 fiók hamarosan törölve lesz."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:378
-msgid ""
-"The account linked to this email address is not confirmed. Please confirm "
-"the account."
+msgid "The account linked to this email address is not confirmed. Please confirm the account."
 msgstr ""
-"Az e-mail címhez kötött fiók nincs megerősítve. Először erősítsd meg a "
-"fiókot."
 
 #: lib/Dolomon/Controller/Users.pm:288
-msgid ""
-"The account linked to this token is not confirmed. Please confirm the "
-"account first."
+msgid "The account linked to this token is not confirmed. Please confirm the account first."
 msgstr ""
-"Az tokenhez kötött fiók nincs megerősítve. Először erősítsd meg a fiókot."
 
 #. (($app->name, $app->app_id, $app->app_secret)
 #: lib/Dolomon/Controller/Applications.pm:64
-msgid ""
-"The application %1 has been successfully created. Please note the "
-"credentials below: you won't be able to recover them.<br><ul><li>app_id: %2</"
-"li><li>app_secret: %3</li><ul>"
+msgid "The application %1 has been successfully created. Please note the credentials below: you won't be able to recover them.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>"
 msgstr ""
-"A(z) %1 alkalmazás sikeresen létrehozva. Figyelj a lenti hitelesítő adatokra:"
-" később nem fogod tudni helyreállítani.<br><ul><li>app_id:%2</"
-"li><li>app_secret: %3</li><ul>"
 
 #. ($app->name)
 #: lib/Dolomon/Controller/Applications.pm:166
 msgid "The application %1 has been successfully deleted."
-msgstr "A(z) %1 alkalmazás sikeresen törölve lett."
+msgstr ""
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Applications.pm:124
 msgid "The application %1 has been successfully renamed to %2"
-msgstr "A(z) %1 alkalmazás sikeresen át lett nevezve erre: %2"
+msgstr ""
 
 #: lib/Dolomon/Controller/Applications.pm:156
 msgid "The application you're trying to delete does not belong to you."
-msgstr "A törlendő alkalmazás nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Applications.pm:31
 msgid "The application you're trying to get does not belong to you."
-msgstr "A lekérendő alkalmazás nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Applications.pm:106
 msgid "The application you're trying to rename does not belong to you."
-msgstr "Az átnevezendő alkalmazás nem hozzád tartozik."
+msgstr ""
 
 #. ($cat->name)
 #: lib/Dolomon/Controller/Categories.pm:295
 msgid "The category %1 has been successfully created."
-msgstr "A(z) %1 kategória sikeresen létrejött."
+msgstr ""
 
 #. ($cat->name)
 #: lib/Dolomon/Controller/Categories.pm:405
 msgid "The category %1 has been successfully deleted."
-msgstr "A(z) %1 kategória sikeresen törölve lett."
+msgstr ""
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Categories.pm:355
 msgid "The category %1 has been successfully renamed to %2"
-msgstr "A(z) %1 kategória sikeresen át lett nevezve erre: %2"
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:325 lib/Dolomon/Controller/Dolos.pm:427
 msgid "The category you want to use for your dolo does not belong to you."
-msgstr "A dolódhoz használandó kategória nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Categories.pm:390
 msgid "The category you're trying to delete does not belong to you."
-msgstr "A törlendő kategória nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Categories.pm:185 lib/Dolomon/Controller/Categories.pm:30 lib/Dolomon/Controller/Categories.pm:95
 msgid "The category you're trying to get does not belong to you."
-msgstr "A lekérendő kategória nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Categories.pm:337
 msgid "The category you're trying to rename does not belong to you."
-msgstr "Az átnevezendő kategória nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Categories.pm:60
-msgid ""
-"The category you're trying to show does not belong to you or does not exist."
-msgstr "A megjelenítendő kategória nem hozzád tartozik, vagy nem létezik."
+msgid "The category you're trying to show does not belong to you or does not exist."
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:58
-msgid ""
-"The code of Dolomon is on <a href=\"https://framagit.org/luc/dolomon\">https:"
-"//framagit.org/luc/dolomon</a>."
+msgid "The code of Dolomon is on <a href=\"https://framagit.org/luc/dolomon\">https://framagit.org/luc/dolomon</a>."
 msgstr ""
-"A Dolomon forráskódja itt található: <a href=\"https://framagit.org/luc/"
-"dolomon\">https://framagit.org/luc/dolomon</a>."
 
 #: themes/default/templates/misc/about.html.ep:35
 msgid "The counters are just numbers: no IP address is kept."
-msgstr "A számlálók csak számok: nincs IP-cím tárolva."
+msgstr ""
 
 #. (($dolo->name || $dolo->url, $c->url_for('hit', short => $dolo->short)
 #: lib/Dolomon/Controller/Dolos.pm:379
 msgid "The dolo %1 has been successfully created.<br>Its dolomon URL is %2."
-msgstr "A(z) %1 dolo sikeresen létrehozva.<br>A dolomon URI-ja: %2."
+msgstr ""
 
 #. ($dolo->name)
 #: lib/Dolomon/Controller/Dolos.pm:500
 msgid "The dolo %1 has been successfully deleted."
-msgstr "A(z) %1 dolo sikeresen törölve lett."
+msgstr ""
 
 #. (($dolo->name || $dolo->url)
 #: lib/Dolomon/Controller/Dolos.pm:474
 msgid "The dolo %1 has been successfully modified."
-msgstr "A(z) %1 dolo sikeresen módosítva lett."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:407 lib/Dolomon/Controller/Dolos.pm:490
 msgid "The dolo you're trying to delete does not belong to you."
-msgstr "A törlendő dolo nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:166 lib/Dolomon/Controller/Dolos.pm:273 lib/Dolomon/Controller/Dolos.pm:76
 msgid "The dolo you're trying to get does not belong to you."
-msgstr "A lekérendő dolo nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:41
 msgid "The dolo you're trying to show does not belong to you."
-msgstr "A megjelenítendő dolo nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:319
 msgid "The initial counter must be an integer, superior or equal to 0."
-msgstr "A kezdeti számlálóértéknek pozitív egésznek vagy 0-nak kell lennie."
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:37
 msgid "The link you want to count the clicks on."
-msgstr "A hivatkozás, amely kattintásait számolni akarod."
+msgstr ""
 
 #: themes/default/templates/misc/dashboard.html.ep:11
 msgid "The links you want to count the clicks on."
-msgstr "A hivatkozások, amelyek kattintásait számolni akarod."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:304 lib/Dolomon/Controller/Dolos.pm:421
 msgid "The name %1 is already taken for the category you choose."
-msgstr "A(z) %1 név már foglalt a kiválasztott kategóriánál."
+msgstr ""
 
 #. ($name)
 #: lib/Dolomon/Controller/Applications.pm:114 lib/Dolomon/Controller/Categories.pm:345 lib/Dolomon/Controller/Tags.pm:350
 msgid "The new name is the same as the previous: %1."
-msgstr "Az új név ugyanaz, mint az előző: %1."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:159 lib/Dolomon/Controller/Users.pm:254 lib/Dolomon/Controller/Users.pm:571
 msgid "The passwords does not match."
-msgstr "A jelszavak nem egyeznek."
+msgstr ""
 
 #. ($tag->name)
 #: lib/Dolomon/Controller/Tags.pm:300
 msgid "The tag %1 has been successfully created."
-msgstr "A(z) %1 címke sikeresen létrejött."
+msgstr ""
 
 #. ($tag->name)
 #: lib/Dolomon/Controller/Tags.pm:402
 msgid "The tag %1 has been successfully deleted."
-msgstr "A(z) %1 címke sikeresen törölve lett."
+msgstr ""
 
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Tags.pm:360
 msgid "The tag %1 has been successfully renamed to %2"
-msgstr "A(z) %1 címke sikeresen át lett nevezve erre: %2"
+msgstr ""
 
 #: lib/Dolomon/Controller/Tags.pm:392
 msgid "The tag you're trying to delete does not belong to you."
-msgstr "A törlendő címke nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Tags.pm:100 lib/Dolomon/Controller/Tags.pm:190 lib/Dolomon/Controller/Tags.pm:35
 msgid "The tag you're trying to get does not belong to you."
-msgstr "A lekérendő címke nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Tags.pm:342
 msgid "The tag you're trying to rename does not belong to you."
-msgstr "Az átnevezendő címke nem hozzád tartozik."
+msgstr ""
 
 #: lib/Dolomon/Controller/Tags.pm:65
-msgid ""
-"The tag you're trying to show does not belong to you or does not exist."
-msgstr "A megjelenítendő címke nem hozzád tartozik, vagy nem létezik."
+msgid "The tag you're trying to show does not belong to you or does not exist."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:301 lib/Dolomon/Controller/Dolos.pm:418
 msgid "The url is not a valid http, https, ftp or ftps URL."
-msgstr "Az URL nem érvényes http, https, ftp vagy ftps URL."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:440 lib/Dolomon/Controller/Users.pm:490
 msgid "This account has already been confirmed."
-msgstr "A fiók már meg lett erősítve."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:109 lib/Dolomon/Controller/Users.pm:333 lib/Dolomon/Controller/Users.pm:423 lib/Dolomon/Controller/Users.pm:567
 msgid "This email address is not valid."
-msgstr "Az e-mail cím nem érvényes."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:19 lib/Dolomon/Controller/Users.pm:95
-msgid ""
-"This is a LDAP account, you can't change account details nor password here."
+msgid "This is a LDAP account, you can't change account details nor password here."
 msgstr ""
-"Ez egy LDAP fiók, nem változtathatod meg itt sem a fiókadatokat, sem a "
-"jelszavad."
 
 #: lib/Dolomon/Controller/Users.pm:264 lib/Dolomon/Controller/Users.pm:350
 msgid "This is a LDAP account, you can't change your password here."
-msgstr "Ez egy LDAP fiók, nem változtathatod meg itt a jelszavad."
+msgstr ""
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:445 lib/Dolomon/Controller/Users.pm:629
 msgid "This is the final step for your registration on %1.\n"
-msgstr "Ez a regisztráció utolsó lépése itt: %1.\n"
+msgstr ""
 
 #: themes/default/templates/misc/dashboard.html.ep:29
 msgid "This is where the journey begins."
-msgstr "Itt kezdődik az utazás."
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:11
-msgid ""
-"This means that it can tell you how many times a file was downloaded (it was "
-"designed for that purpose)."
+msgid "This means that it can tell you how many times a file was downloaded (it was designed for that purpose)."
 msgstr ""
-"Ez azt jelenti, hogy meg tudod mondani, hogy egy fájlt hányszor töltöttek le "
-"(erre a célra lett tervezve)."
 
 #: themes/default/templates/misc/dashboard.html.ep:65
 msgid "To identify similar dolos."
-msgstr "A hasonló dolók azonosításához."
+msgstr ""
 
 #: themes/default/templates/misc/dashboard.html.ep:52
 msgid "To sort and group dolos."
-msgstr "A dolók rendezéséhez és csoportosításához."
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:27
-msgid ""
-"To track visits on a page, create a dolo pointing to a small transparent "
-"image (Dolomon has a helper to do that) and insert the resulting URL as an "
-"image in your page."
+msgid "To track visits on a page, create a dolo pointing to a small transparent image (Dolomon has a helper to do that) and insert the resulting URL as an image in your page."
 msgstr ""
-"Egy lap látogatásainak követéséhez hott létre egy dolót, amely egy kis, "
-"átlátszó képre mutat (a Dolomonnak van erre egy segédje), és szúrd be "
-"képként a kapott URL-t az oldaladba."
 
 #: themes/default/templates/misc/dashboard.html.ep:41
 msgid "Total count of hits on your dolos"
-msgstr "A dolóid összesített számlálója"
+msgstr ""
 
 #: themes/default/templates/categories/index.html.ep:68 themes/default/templates/categories/show.html.ep:101 themes/default/templates/dolos/index.html.ep:20 themes/default/templates/dolos/show.html.ep:52 themes/default/templates/dolos/show.html.ep:53 themes/default/templates/js/i18n.js.ep:45 themes/default/templates/tags/index.html.ep:72 themes/default/templates/tags/show.html.ep:101
 msgid "Total hits"
-msgstr "Összes megtekintés"
+msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:10 themes/default/templates/tags/show.html.ep:10
 msgid "Total hits:"
-msgstr "Összes megtekintés:"
+msgstr ""
 
 #: lib/Dolomon/Controller/Misc.pm:75
 msgid "Unable to authenticate. Please check your credentials."
-msgstr "Nem sikerült hitelesíteni. Ellenőrizd a hitelesítő adatokat."
+msgstr ""
 
 #. ($name)
 #: lib/Dolomon/Controller/Applications.pm:80
-msgid ""
-"Unable to create application %1, this name is already taken. Choose another "
-"one."
+msgid "Unable to create application %1, this name is already taken. Choose another one."
 msgstr ""
-"A(z) %1 alkalmazás nem hozható létre, a név már foglalt. Válassz egy másikat."
-""
 
 #. ($name)
 #: lib/Dolomon/Controller/Applications.pm:72
 msgid "Unable to create application %1. Please contact the administrator."
 msgstr ""
-"A(z) %1 alkalmazás nem hozható létre. Lépj kapcsolatba az adminisztrátorral."
 
 #. ($name)
 #: lib/Dolomon/Controller/Categories.pm:311
-msgid ""
-"Unable to create category %1, this name is already taken. Choose another one."
-""
+msgid "Unable to create category %1, this name is already taken. Choose another one."
 msgstr ""
-"A(z) %1 kategória nem hozható létre, a név már foglalt. Válassz egy másikat."
 
 #. ($name)
 #: lib/Dolomon/Controller/Categories.pm:303
 msgid "Unable to create category %1. Please contact the administrator."
 msgstr ""
-"A(z) %1 kategória nem hozható létre. Lépj kapcsolatba az adminisztrátorral."
 
 #. ($name)
 #: lib/Dolomon/Controller/Tags.pm:316
-msgid ""
-"Unable to create tag %1, this name is already taken. Choose another one."
+msgid "Unable to create tag %1, this name is already taken. Choose another one."
 msgstr ""
-"A(z) %1 címke nem hozható létre, a név már foglalt. Válassz egy másikat."
 
 #. ($name)
 #: lib/Dolomon/Controller/Tags.pm:308
 msgid "Unable to create tag %1. Please contact the administrator."
 msgstr ""
-"A(z) %1 címke nem hozható létre. Lépj kapcsolatba az adminisztrátorral."
 
 #: lib/Dolomon/Controller/Admin.pm:141
 msgid "Unable to find an account with this id."
-msgstr "Nem található fiók ezzel az azonosítóval."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:291 lib/Dolomon/Controller/Users.pm:513 lib/Dolomon/Controller/Users.pm:59
 msgid "Unable to find an account with this token."
-msgstr "Nem található fiók ezzel a tokennel."
+msgstr ""
 
 #: lib/Dolomon/Controller/Categories.pm:263 lib/Dolomon/Controller/Dolos.pm:244 lib/Dolomon/Controller/Tags.pm:268
 msgid "Unable to generate the zip file. Please contact the administrator"
 msgstr ""
-"Nem sikerült előállítani a ZIP-fájlt. Vegye fel a kapcsolatot a "
-"rendszergazdával"
 
 #: lib/Dolomon/Controller/Users.pm:387 lib/Dolomon/Controller/Users.pm:468
 msgid "Unable to retrieve an account linked to that email address."
-msgstr "Az e-mail címhez kötött fiók nem kérhető le."
+msgstr ""
 
 #: themes/default/templates/dolos/show.html.ep:14
 msgid "Unnamed dolo"
-msgstr "Névtelen dolo"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:12
 msgid "Use a transparent gif as target"
-msgstr "Átlátszó gif használata célként"
+msgstr ""
 
 #: themes/default/templates/partial/navbar.html.ep:90
 msgid "View my applications"
-msgstr "Alkalmazások megtekintése"
+msgstr ""
 
 #: themes/default/templates/partial/navbar.html.ep:52
 msgid "View my categories"
-msgstr "Kategóriák megtekintése"
+msgstr ""
 
 #: themes/default/templates/partial/navbar.html.ep:33
 msgid "View my dolos"
-msgstr "Dolók megtekintése"
+msgstr ""
 
 #: themes/default/templates/partial/navbar.html.ep:71
 msgid "View my tags"
-msgstr "Címkék megtekintése"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:23
 msgid "Visitors are on the target URL"
-msgstr "A látogatók a cél URL-en vannak"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:6
 msgid "What Dolomon means?"
-msgstr "Mit jelent a Dolomon?"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:8
 msgid "What does it do?"
-msgstr "Mit csinál?"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:32
 msgid "What kind of data does Dolomon keep?"
-msgstr "Milyen adatokat tart meg a Dolomon?"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:22
-msgid ""
-"When people use that URL, Dolomon redirects them to the target URL and "
-"creates a job to increment the counters"
+msgid "When people use that URL, Dolomon redirects them to the target URL and creates a job to increment the counters"
 msgstr ""
-"Az URL használatakor a Dolomon átirányítja a felhasználókat a cél URL-re, és "
-"létrehoz egy feladatot a számlálók megnövelésére"
 
 #: themes/default/templates/misc/about.html.ep:29
 msgid "Wordpress integration"
-msgstr "Wordpress integráció"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:44
 msgid "Write whatever you want"
-msgstr "Írj amit csak akarsz"
+msgstr ""
 
 #: themes/default/templates/dolos/index.html.ep:35 themes/default/templates/dolos/index.html.ep:42 themes/default/templates/dolos/show.html.ep:44 themes/default/templates/js/i18n.js.ep:59 themes/default/templates/partial/dolos_list.html.ep:10 themes/default/templates/partial/dolos_list.html.ep:105 themes/default/templates/partial/dolos_list.html.ep:106 themes/default/templates/partial/dolos_list.html.ep:11 themes/default/templates/partial/dolos_list.html.ep:132 themes/default/templates/partial/dolos_list.html.ep:48
 msgid "Yes"
-msgstr "Igen"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:19
 msgid "You add an URL in Dolomon (it's called a dolo in Dolomon)"
-msgstr "A Dolomonban URL-t adsz hozzá (a Dolomonban dolónak hívják)"
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:311
 msgid "You already have a dolo which dolomon URL is %1."
-msgstr "Már van olyan dolód, amely Dolomon URL-e ez: %1."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:329 lib/Dolomon/Controller/Dolos.pm:431
 msgid "You already have that URL in the dolos of this category."
-msgstr "Már szerepel ez az URL a kategória dolói közt."
+msgstr ""
 
 #: lib/Dolomon.pm:338
 msgid "You are not authenticated or have not valid application credentials"
-msgstr "Nem vagy hitelesítve, vagy nem érvényesek az alkalmazásengedélyek"
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:50
-msgid ""
-"You are not logged in with the same account that you are trying to delete. "
-"Please, log out first."
+msgid "You are not logged in with the same account that you are trying to delete. Please, log out first."
 msgstr ""
-"Nem ugyanazzal a fiókkal vagy belépve, mint amit törölni akarsz. Először "
-"jelentkezz ki."
 
 #: themes/default/templates/misc/about.html.ep:30
-msgid ""
-"You can interact with a Dolomon server from Wordpress with the plugin <a "
-"href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
+msgid "You can interact with a Dolomon server from Wordpress with the plugin <a href=\"https://framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a>."
 msgstr ""
-"Együttműködhetsz a Dolomon kiszolgálóval a Wordpressből, a <a href=\"https://"
-"framagit.org/framasoft/wp-dolomon\">WP-Dolomon</a> bővítménnyel."
 
 #: themes/default/templates/misc/about.html.ep:62
-msgid ""
-"You can make a donation to the author on <a href=\"https://www.tipeee.com/"
-"fiat-tux\">Tipeee</a> or on <a href=\"https://liberapay.com/sky/"
-"\">Liberapay</a>."
+msgid "You can make a donation to the author on <a href=\"https://www.tipeee.com/fiat-tux\">Tipeee</a> or on <a href=\"https://liberapay.com/sky/\">Liberapay</a>."
 msgstr ""
-"A szerzőnek adományokat a <a href=\"https://www.tipeee.com/fiat-tux\">Tipeee-"
-"n</a> vagy a<a href=\"https://liberapay.com/sky/\">Liberapayen</a> küldhetsz."
-""
 
 #: lib/Dolomon/Controller/Categories.pm:419
-msgid ""
-"You can't delete this category: you need to have at least one category."
+msgid "You can't delete this category: you need to have at least one category."
 msgstr ""
-"Ezt a kategóriát nem törölheted: legalább egy kategóriának lennie kell."
 
 #: themes/default/templates/misc/about.html.ep:40
 msgid "You can't, sorry."
-msgstr "Nem teheted, sajnáljuk."
+msgstr ""
 
 #: lib/Dolomon/Controller/Misc.pm:60
 msgid "You have been successfully authenticated."
-msgstr "Sikeresen hitelesítve lettél."
+msgstr ""
 
 #: lib/Dolomon/Controller/Misc.pm:95
 msgid "You have been successfully disconnected."
-msgstr "Sikeresen bontottad a kapcsolatot."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:625
-msgid ""
-"You have been successfully registered. You will receive a mail containing a "
-"link to finish your registration."
+msgid "You have been successfully registered. You will receive a mail containing a link to finish your registration."
 msgstr ""
-"Sikeresen regisztráltál. Kapni fogsz egy e-mailt a hivatkozással, amellyel "
-"befejezheted a regisztrációt."
 
 #: lib/Dolomon/Controller/Admin.pm:101
 msgid "You have returned to your previous session."
-msgstr "Visszatértél az előző munkamenetedhez."
+msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:394
 msgid "You need to provide a dolo id!"
-msgstr "Meg kell adnod egy dolo azonosítót!"
+msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:21
-msgid ""
-"You use the Dolomon URL instead of the target URL in your web site, your "
-"flyers, your social networks…"
+msgid "You use the Dolomon URL instead of the target URL in your web site, your flyers, your social networks…"
 msgstr ""
-"A Dolomon URL-t használod a webhelyedre, szórólapodra vagy közösségi médiára "
-"mutató URL-jeid helyett."
 
 #: lib/Dolomon/Controller/Admin.pm:114
 msgid "You weren't impersonating anyone."
-msgstr "Nem személyesítettél meg senkit."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:136
 msgid "Your account details have been updated."
-msgstr "A fiókadataid frissítve lettek."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:499
 msgid "Your account is now confirmed. You can now login."
-msgstr "A fiókod most már megerősített. Bejelentkezhetsz."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:42
 msgid "Your account will be deleted in a short time."
-msgstr "A fiókod hamarosan törölve lesz."
+msgstr ""
 
 #: themes/default/templates/users/index.html.ep:23 themes/default/templates/users/index.html.ep:24 themes/default/templates/users/index.html.ep:35 themes/default/templates/users/index.html.ep:36
 msgid "Your current password"
-msgstr "A jelenlegi jelszavad"
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:155 lib/Dolomon/Controller/Users.pm:195
 msgid "Your current password is incorrect."
-msgstr "A jelenlegi jelszavad helytelen."
+msgstr ""
 
 #: themes/default/templates/users/index.html.ep:25 themes/default/templates/users/index.html.ep:26
 msgid "Your new password"
-msgstr "Az új jelszavad"
+msgstr ""
 
 #: themes/default/templates/users/index.html.ep:27 themes/default/templates/users/index.html.ep:28
 msgid "Your new password (again)"
-msgstr "Az új jelszavad (ismét)"
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:182
 msgid "Your password has been successfully changed."
-msgstr "A jelszavad sikeresen megváltozott."
+msgstr ""
 
 #: lib/Dolomon/Controller/Users.pm:269
-msgid ""
-"Your password has been updated. You can now login with your new password."
+msgid "Your password has been updated. You can now login with your new password."
 msgstr ""
-"A jelszavad frissítve lett. Most már bejelentkezhetsz az új jelszavaddal."
 
 #: themes/default/templates/misc/about.html.ep:5 themes/default/templates/misc/index.html.ep:68
 msgid "Zag, the Dolomon mascot"
-msgstr "Zag, a Dolomon kabalája"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:53
 msgid "[week] W, [year] YYYY"
-msgstr "[hét] W, [év] YYYY"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:47
 msgid "example-org-logo"
-msgstr "example-org-logo"
+msgstr ""
 
 #: themes/default/templates/applications/index.html.ep:19 themes/default/templates/categories/index.html.ep:72 themes/default/templates/categories/index.html.ep:73 themes/default/templates/categories/index.html.ep:74 themes/default/templates/categories/index.html.ep:75 themes/default/templates/categories/index.html.ep:76 themes/default/templates/categories/show.html.ep:105 themes/default/templates/categories/show.html.ep:106 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:46 themes/default/templates/tags/index.html.ep:76 themes/default/templates/tags/index.html.ep:77 themes/default/templates/tags/index.html.ep:78 themes/default/templates/tags/index.html.ep:79 themes/default/templates/tags/index.html.ep:80 themes/default/templates/tags/show.html.ep:105 themes/default/templates/tags/show.html.ep:106 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109
 msgid "filter"
-msgstr "szűrő"
+msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:63 themes/default/templates/dolos/show.html.ep:123 themes/default/templates/tags/show.html.ep:63
 msgid "hour"
-msgstr "óra"
+msgstr ""
 
 #: themes/default/templates/dolos/index.html.ep:33 themes/default/templates/dolos/index.html.ep:40
 msgid "no filter"
-msgstr "nincs szűrő"
+msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:54
 msgid "year"
-msgstr "év"
+msgstr ""
