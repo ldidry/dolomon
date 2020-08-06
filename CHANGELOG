@@ -1,5 +1,8 @@
 Revision history for Dolomon
 
+0.2  ????-??-??
+	- Add export/import of users’ data
+
 0.1  2017-?
 	- LDAP authentication
 	- Internal authentication (register, renew password, change account

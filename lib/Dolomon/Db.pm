@@ -171,9 +171,9 @@ sub map_attr_for_select {
 
     my @fields = ();
     my @values = ();
-    for my $key (@{$h}) {
+    for my $key (keys %{$h}) {
         push @fields, $key.' = ?';
-        push @values, $c->{$key};
+        push @values, $h->{$key};
     }
 
     return (join(' AND ', @fields), \@values);

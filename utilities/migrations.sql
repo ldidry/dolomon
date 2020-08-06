@@ -153,3 +153,14 @@ DROP FUNCTION IF EXISTS clean_week_stats(year integer, week integer);
 DROP FUNCTION IF EXISTS clean_day_stats(year integer, month integer, day integer);
 DROP FUNCTION IF EXISTS expire_dolos();
 DROP FUNCTION IF EXISTS increment_dolo_cascade(d_id integer, d_year integer, d_month integer, d_week integer, d_day integer, d_ts timestamp with time zone, d_referrer text);
+-- 3 up
+CREATE TABLE IF NOT EXISTS data_exports (
+    id serial PRIMARY KEY,
+    token uuid UNIQUE NOT NULL DEFAULT uuid_generate_v4(),
+    user_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    created_at timestamp NOT NULL DEFAULT NOW(),
+    finished_at timestamp,
+    expired boolean NOT NULL DEFAULT false
+);
+-- 3 down
+DROP TABLE IF EXISTS data_exports;

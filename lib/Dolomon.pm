@@ -3,15 +3,7 @@ use Mojo::Base 'Mojolicious';
 use Mojo::Collection 'c';
 use Dolomon::User;
 use Dolomon::Category;
-use Dolomon::Dolo;
-use Dolomon::DoloDay;
-use Dolomon::DoloWeek;
-use Dolomon::DoloMonth;
-use Dolomon::DoloYear;
-use Dolomon::DoloHit;
 use Net::LDAP;
-use DateTime;
-use DateTime::Format::Pg;
 use Mojo::JSON qw(true false);
 use Mojo::File;
 use Mojo::Util qw(decode);
@@ -23,6 +15,9 @@ sub startup {
     my $self = shift;
 
     push @{$self->commands->namespaces}, 'Dolomon::Command';
+
+    mkdir 'exports' unless -e 'exports';
+    mkdir 'imports' unless -e 'imports';
 
     my $config = $self->plugin('Config' => {
         default => {
@@ -237,78 +232,15 @@ sub startup {
     );
 
     ## Minion tasks
-    $self->app->minion->add_task(
-        clean_stats => sub {
-            my $job   = shift;
-            my $c     = $job->app;
-            my $time  = time;
-
-            # Expire dolos that need it
-            $c->pg->db->query('SELECT expire_dolos();');
-
-            # Months stats
-            my $dt = DateTime->from_epoch(epoch => $time);
-            $dt->subtract_duration(DateTime::Duration->new(months => $job->app->config('keep_hits')->{month_precision}));
-            $c->pg->db->query('SELECT clean_month_stats(?, ?)', ($dt->year(), $dt->month()));
-
-            # Weeks stats
-            $dt = DateTime->from_epoch(epoch => $time);
-            $dt->subtract_duration(DateTime::Duration->new(weeks => $job->app->config('keep_hits')->{week_precision}));
-            $c->pg->db->query('SELECT clean_week_stats(?, ?)', ($dt->year(), $dt->week_number()));
-
-            # Days stats
-            $dt = DateTime->from_epoch(epoch => $time);
-            $dt->subtract_duration(DateTime::Duration->new(days => $job->app->config('keep_hits')->{day_precision}));
-            $c->pg->db->query('SELECT clean_day_stats(?, ?, ?)', ($dt->year(), $dt->month(), $dt->day_of_month()));
-
-            # Uber precision stats
-            $c->pg->db->query("DELETE FROM dolos_hits WHERE ts < (CURRENT_TIMESTAMP - INTERVAL '".$job->app->config('keep_hits')->{uber_precision}." days')");
-        }
-    );
-    $self->app->minion->add_task(
-        hit => sub {
-            my $job   = shift;
-            my $short = shift;
-            my $date  = shift || time;
-            my $ref   = shift;
-
-            my $d  = Dolomon::Dolo->new(app => $job->app)->find_by_('short', $short);
-            my $dt = DateTime->from_epoch(epoch => $date);
-
-            $job->app->pg->db->query('SELECT increment_dolo_cascade(?, ?, ?, ?, ?, ?, ?)', ($d->id, $dt->year(), $dt->month(), $dt->week_number(), $dt->day(), DateTime::Format::Pg->format_timestamp_with_time_zone($dt), $ref));
-
-            if (defined $d->parent_id) {
-                $job->app->log->debug("INCREMENT PARENT ".$d->parent_id);
-                my $p = Dolomon::Dolo->new(app => $job->app, id => $d->parent_id);
-
-                $job->app->pg->db->query('SELECT increment_dolo_cascade(?, ?, ?, ?, ?, ?, ?)', ($p->id, $dt->year(), $dt->month(), $dt->week_number(), $dt->day(), DateTime::Format::Pg->format_timestamp_with_time_zone($dt), $ref));
-            }
-
-            if (defined($d->expires_after) && !defined($d->expires_at)) {
-                my $expires_at = DateTime->now()->add(days => $d->expires_after);
-                my $duration   = $expires_at->subtract_datetime(DateTime::Format::Pg->parse_timestamp_with_time_zone($d->created_at))->in_units('days');
-                $d->update({
-                    expires_at => $duration
-                });
-            }
-        }
-    );
-    $self->app->minion->add_task(
-        delete_user => sub {
-            my $job     = shift;
-            my $user_id = shift;
-
-            my $c = Dolomon::User->new(app => $job->app, id => $user_id)->delete_cascade();
-        }
-    );
+    $self->plugin('Dolomon::Plugin::MinionTasks');
 
     ## Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
-    if ($ENV{DOLOMON_DEV} && 0) {
-        $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(2);
+    if ($ENV{DOLOMON_DEV}) {
+        $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate($migrations->latest);
         $self->app->minion->reset;
     } else {
-        $migrations->from_file('utilities/migrations.sql')->migrate(2);
+        $migrations->from_file('utilities/migrations.sql')->migrate($migrations->latest);
     }
 
     ## Router
@@ -439,6 +371,25 @@ sub startup {
         over(authenticated_or_application => 1)->
         name('logout')->
         to('Misc#get_out');
+
+    $r->get('/export-import')->
+        over(authenticated_or_application => 1)->
+        name('export-import')->
+        to('Data#index');
+
+    $r->get('/export')->
+        over(authenticated_or_application => 1)->
+        name('export')->
+        to('Data#export');
+
+    $r->get('/data/:token')->
+        name('download_data')->
+        to('Data#download');
+
+    $r->post('/import')->
+        over(authenticated_or_application => 1)->
+        name('import')->
+        to('Data#import');
 
     $r->any('/api/ping')->
         over(authenticated_or_application => 1)->

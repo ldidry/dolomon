@@ -404,7 +404,7 @@ sub modify {
             success => false,
             errors  => {
                 id => [
-                    $c->l('The dolo you\'re trying to delete does not belong to you.')
+                    $c->l('The dolo you’re trying to modify does not belong to you.')
                 ]
             }
         }

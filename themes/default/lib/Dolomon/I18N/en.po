@@ -444,6 +444,11 @@ msgstr "Free field"
 msgid "Go"
 msgstr "Go"
 
+#. ($url)
+#: lib/Dolomon.pm:322
+msgid "Go on %1 to download your datas.\n"
+msgstr "Go on %1 to download your datas. Prout\n"
+
 #. ($user->login)
 #: lib/Dolomon/Controller/Users.pm:356
 msgid "Hello %1,"
