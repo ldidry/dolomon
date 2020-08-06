@@ -30,6 +30,7 @@ sub startup {
             admins               => [],
             theme                => 'default',
             no_register          => 0,
+            no_internal_accounts => 0,
             counter_delay        => 0,
             do_not_count_spiders => 0,
             mail      => {
@@ -82,6 +83,8 @@ sub startup {
     $self->plugin('DebugDumperHelper');
 
     $self->plugin('Dolomon::Plugin::Helpers');
+
+    $self->plugin('FiatTux::Helpers');
 
     $self->plugin('Minion' => { Pg => $self->pg_url($self->config->{minion_db}) });
 
@@ -141,12 +144,12 @@ sub startup {
 
                     my @entries = $mesg->entries;
                     my $entry   = $entries[0];
-                    my $res = $mesg->as_struct->{$entry->dn};
 
                     if (!defined $entry) {
-                        $c->app->log->info("[LDAP authentication failed] - User $username filtered out, IP: ".$c->ip);
+                        $c->app->log->info("[LDAP authentication failed] - User $username filtered out, IP: ".$extradata->{ip});
                         return undef;
                     }
+                    my $res = $mesg->as_struct->{$entry->dn};
 
                     # Now we know that the user exists
                     $mesg = $ldap->bind($entry->dn,
@@ -375,14 +378,16 @@ sub startup {
         name('admin')->
         to('Admin#index');
 
-    unless ($self->config('no_register')) {
+    unless ($self->config('no_register') || $self->config('no_internal_accounts')) {
         $r->post('/register')->
             to('Users#register');
 
         $r->get('/confirm/:token')->
             name('confirm')->
             to('Users#confirm');
+    }
 
+    unless ($self->config('no_internal_accounts')) {
         $r->get('/forgot_password' => sub {
             return shift->render(
                 template => 'users/send_mail',
@@ -610,7 +615,7 @@ sub startup {
         name('user')->
         to('Users#index');
 
-    unless ($self->config('no_register')) {
+    unless ($self->config('no_internal_accounts')) {
         $r->post('/user')->
             over(authenticated_or_application => 1)->
             to('Users#modify');

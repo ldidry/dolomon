@@ -89,8 +89,13 @@
     #    mail        => 'mail'
     #},
 
-    # Disable internal account system => no registration, only LDAP authentication
-    # Set to 1 to disable internal account system
+    # Disable internal account system => no registration, no internal authentication, only LDAP authentication
+    # Set to 1 to disable internal account system (authentication and registration)
+    # optional, default to 0
+    #no_internal_accounts => 0,
+
+    # Disable internal account system => no registration, only internal and LDAP authentication
+    # Set to 1 to disable account registration
     # optional, default to 0
     #no_register => 0,
 

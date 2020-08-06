@@ -5,6 +5,7 @@ requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::PgURLHelper';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::Mail';
+requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.12', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-helpers/-/archive/0.12/mojolicious-plugin-fiattux-helpers-0.12.tar.gz';
 requires 'Mojo::Pg';
 requires 'Minion';
 requires 'Net::LDAP';

@@ -9,8 +9,10 @@
         % if (defined config('ldap')) {
             <li role="presentation"<%== ($method eq 'ldap')     ? ' class="active"' : '' %>><a href="#" id="m_ldap"><%= l('LDAP') %></a></li>
         % }
-        % unless (config('no_register')) {
+        % unless (config('no_internal_accounts')) {
             <li role="presentation"<%== ($method eq 'standard') ? ' class="active"' : '' %>><a href="#" id="m_standard"><%= l('Standard') %></a></li>
+        % }
+        % unless (config('no_register') || config('no_internal_accounts')) {
             <li role="presentation"<%== ($method eq 'register') ? ' class="active"' : '' %>><a href="#" id="m_register"><%= l('Register') %></a></li>
         % }
         </ul>
@@ -26,32 +28,32 @@
             %= csrf_field
             <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Go') %></button>
         </form>
-    % unless (config('no_register')) {
+    % unless (config('no_register') || config('no_internal_accounts')) {
         <form action="/register" method="POST" id="signup"<%== ($method ne 'register') ? ' class="hidden"' : '' %>>
             <label for="inputLogin2" class="sr-only"><%= l('Login') %></label>
             <input type="text" id="inputLogin2" name="login" class="form-control first-input" required placeholder="<%= l('Login') %>"
-% if (defined(stash('login'))) {
-    value="<%= stash('login')%>"
-% }
->
+                % if (defined(stash('login'))) {
+                    value="<%= stash('login')%>"
+                % }
+                >
             <label for="inputFirstName" class="sr-only"><%= l('First name') %></label>
             <input type="text" id="inputFirstName" name="first_name" class="form-control" required placeholder="<%= l('First name') %>"
-% if (defined(stash('first_name'))) {
-    value="<%= stash('first_name')%>"
-% }
->
+                % if (defined(stash('first_name'))) {
+                    value="<%= stash('first_name')%>"
+                % }
+                >
             <label for="inputLastName" class="sr-only"><%= l('Last name') %></label>
             <input type="text" id="inputLastName" name="last_name" class="form-control" required placeholder="<%= l('Last name') %>"
-% if (defined(stash('last_name'))) {
-    value="<%= stash('last_name')%>"
-% }
->
+                % if (defined(stash('last_name'))) {
+                    value="<%= stash('last_name')%>"
+                % }
+                >
             <label for="inputMail2" class="sr-only"><%= l('Email address') %></label>
             <input type="email" id="inputMail2" name="mail" class="form-control" required placeholder="<%= l('Email address') %>"
-% if (defined(stash('mail'))) {
-    value="<%= stash('mail')%>"
-% }
->
+                % if (defined(stash('mail'))) {
+                    value="<%= stash('mail')%>"
+                % }
+                >
             <label for="inputPassword2" class="sr-only"><%= l('Password') %></label>
             <input type="password" id="inputPassword2" name="password" class="form-control" required placeholder="<%= l('Password') %>">
             <label for="inputPassword3" class="sr-only"><%= l('Password verification') %></label>

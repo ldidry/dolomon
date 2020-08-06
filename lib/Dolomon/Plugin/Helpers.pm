@@ -13,10 +13,7 @@ sub register {
 
     $app->helper(pg                 => \&_pg);
     $app->helper(active             => \&_active);
-    $app->helper(shortener          => \&_shortener);
-    $app->helper(available_langs    => \&_available_langs);
     $app->helper(time_to_clean      => \&_time_to_clean);
-    $app->helper(iso639_native_name => \&_iso639_native_name);
 
     $app->hook(
         before_dispatch => sub {
@@ -39,35 +36,6 @@ sub _active {
     return ($c->current_route eq $r) ? ' class="active"' : '';
 }
 
-sub _shortener {
-    my $c      = shift;
-    my $length = shift;
-
-    my @chars  = ('a'..'z','A'..'Z','0'..'9', '-', '_');
-    my $result = '';
-    foreach (1..$length) {
-        $result .= $chars[entropy_source->get_int(scalar(@chars))];
-    }
-    return $result;
-}
-
-sub _available_langs {
-    my $c      = shift;
-
-    state $langs = Mojo::Collection->new(
-        glob($c->app->home->rel_file('themes/'.$c->config('theme').'/lib/Dolomon/I18N/*po')),
-        glob($c->app->home->rel_file('themes/default/lib/Dolomon/I18N/*po'))
-    )->map(
-        sub {
-            Mojo::File->new($_)->basename('.po');
-        }
-    )->uniq->sort(
-        sub {
-            $c->l($a) cmp $c->l($b)
-        }
-    )->to_array;
-}
-
 sub _time_to_clean {
     my $c    = shift;
     my $time = time;
@@ -81,11 +49,6 @@ sub _time_to_clean {
 
     $last_cleaning = $time;
     return 1;
-}
-
-sub _iso639_native_name {
-    my $c = shift;
-    return ucfirst(decode 'UTF-8', get_iso639_1(shift)->{nativeName});
 }
 
 1;

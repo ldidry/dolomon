@@ -52,7 +52,7 @@ sub login {
             goto     => $goto,
             method   => $method
         );
-    } elsif ($c->authenticate($login, $pwd, { method => $method })) {
+    } elsif ($c->authenticate($login, $pwd, { method => $method, ip => $c->ip })) {
         $c->cookie(auth_method => $method);
         $c->stash(
             msg => {
