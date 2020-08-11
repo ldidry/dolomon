@@ -114,7 +114,7 @@ msgstr ""
 msgid "Application(s)"
 msgstr ""
 
-#: themes/default/templates/applications/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:84
+#: lib/Dolomon/Controller/Data.pm:72 themes/default/templates/applications/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:84
 msgid "Applications"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Categorie(s)"
 msgstr ""
 
-#: themes/default/templates/categories/index.html.ep:3 themes/default/templates/categories/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:46
+#: lib/Dolomon/Controller/Data.pm:70 themes/default/templates/categories/index.html.ep:3 themes/default/templates/categories/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:46
 msgid "Categories"
 msgstr ""
 
@@ -271,11 +271,11 @@ msgstr ""
 msgid "Data export"
 msgstr ""
 
-#: themes/default/templates/data/index.html.ep:21
+#: themes/default/templates/data/index.html.ep:38
 msgid "Data import"
 msgstr ""
 
-#: lib/Dolomon.pm:190 lib/Dolomon/Controller/Users.pm:615
+#: lib/Dolomon.pm:184 lib/Dolomon/Controller/Users.pm:615
 msgid "Default"
 msgstr ""
 
@@ -328,8 +328,12 @@ msgstr ""
 msgid "Dolomon also keeps the <a href=\"https://en.wikipedia.org/wiki/HTTP_referer\"><em>Referer</em></a> header and the date and time of the visit for %1 days."
 msgstr ""
 
-#: lib/Dolomon.pm:321
+#: lib/Dolomon/Controller/Data.pm:30
 msgid "Dolomon data export"
+msgstr ""
+
+#: lib/Dolomon/Controller/Data.pm:65
+msgid "Dolomon data import"
 msgstr ""
 
 #. (url_for('hit', {short => 'foo'})
@@ -355,6 +359,10 @@ msgstr ""
 
 #: themes/default/templates/categories/show.html.ep:92 themes/default/templates/dolos/index.html.ep:3 themes/default/templates/dolos/show.html.ep:3 themes/default/templates/partial/navbar.html.ep:27 themes/default/templates/tags/show.html.ep:92
 msgid "Dolos"
+msgstr ""
+
+#: lib/Dolomon/Controller/Data.pm:73
+msgid "Dolos (not renamed but the URL have changed)"
 msgstr ""
 
 #: themes/default/templates/misc/admin.html.ep:42
@@ -401,11 +409,15 @@ msgstr ""
 msgid "Export your data"
 msgstr ""
 
+#: themes/default/templates/data/index.html.ep:21
+msgid "Exports available to download:"
+msgstr ""
+
 #: themes/default/templates/misc/dashboard.html.ep:78
 msgid "External tools that you allowed to use your Dolomon account"
 msgstr ""
 
-#: themes/default/templates/data/index.html.ep:26
+#: themes/default/templates/data/index.html.ep:43
 msgid "File to import"
 msgstr ""
 
@@ -421,9 +433,9 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
-#. ($url)
-#: lib/Dolomon.pm:322
-msgid "Go on %1 to download your datas.\n"
+#. ($c->url_for('download_data', token => $export->token, format => 'json')
+#: lib/Dolomon/Controller/Data.pm:32
+msgid "Go on %1 to download your datas (link available one week)."
 msgstr ""
 
 #. ($user->login)
@@ -449,6 +461,10 @@ msgstr ""
 
 #: themes/default/templates/misc/about.html.ep:14
 msgid "How does it works?"
+msgstr ""
+
+#: lib/Dolomon/Controller/Data.pm:68
+msgid "However, some elements have been renamed:"
 msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:339 lib/Dolomon/Controller/Dolos.pm:441
@@ -481,8 +497,12 @@ msgstr ""
 msgid "Impersonating has been stopped"
 msgstr ""
 
-#: themes/default/templates/data/index.html.ep:32
+#: themes/default/templates/data/index.html.ep:49
 msgid "Import data"
+msgstr ""
+
+#: lib/Dolomon/Controller/Data.pm:101
+msgid "Improper data."
 msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:57
@@ -505,7 +525,7 @@ msgstr ""
 msgid "It's quite simple:"
 msgstr ""
 
-#: lib/Dolomon.pm:324 lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:359 lib/Dolomon/Controller/Users.pm:448 lib/Dolomon/Controller/Users.pm:632
+#: lib/Dolomon/Controller/Data.pm:33 lib/Dolomon/Controller/Data.pm:74 lib/Dolomon/Controller/Users.pm:205 lib/Dolomon/Controller/Users.pm:359 lib/Dolomon/Controller/Users.pm:448 lib/Dolomon/Controller/Users.pm:632
 msgid "Kind regards\n"
 msgstr ""
 
@@ -806,7 +826,7 @@ msgstr ""
 msgid "Tag(s)"
 msgstr ""
 
-#: themes/default/templates/dolos/show.html.ep:21 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/partial/navbar.html.ep:65 themes/default/templates/tags/index.html.ep:3 themes/default/templates/tags/show.html.ep:3
+#: lib/Dolomon/Controller/Data.pm:71 themes/default/templates/dolos/show.html.ep:21 themes/default/templates/dolos/show.html.ep:22 themes/default/templates/partial/navbar.html.ep:65 themes/default/templates/tags/index.html.ep:3 themes/default/templates/tags/show.html.ep:3
 msgid "Tags"
 msgstr ""
 
@@ -916,7 +936,7 @@ msgstr ""
 msgid "The dolo %1 has been successfully modified."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:407 lib/Dolomon/Controller/Dolos.pm:490
+#: lib/Dolomon/Controller/Dolos.pm:490
 msgid "The dolo you're trying to delete does not belong to you."
 msgstr ""
 
@@ -926,6 +946,14 @@ msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:41
 msgid "The dolo you're trying to show does not belong to you."
+msgstr ""
+
+#: lib/Dolomon/Controller/Dolos.pm:407
+msgid "The dolo you’re trying to modify does not belong to you."
+msgstr ""
+
+#: lib/Dolomon/Controller/Data.pm:103
+msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
 msgstr ""
 
 #: lib/Dolomon/Controller/Dolos.pm:319
@@ -1159,7 +1187,7 @@ msgstr ""
 msgid "You already have that URL in the dolos of this category."
 msgstr ""
 
-#: lib/Dolomon.pm:377
+#: lib/Dolomon.pm:273
 msgid "You are not authenticated or have not valid application credentials"
 msgstr ""
 
@@ -1216,7 +1244,11 @@ msgstr ""
 msgid "You weren't impersonating anyone."
 msgstr ""
 
-#: lib/Dolomon/Controller/Data.pm:33
+#: lib/Dolomon/Controller/Data.pm:95
+msgid "You will receive a mail once your file has been processed."
+msgstr ""
+
+#: lib/Dolomon/Controller/Data.pm:48
 msgid "You will receive a mail with a link to download your data once ready."
 msgstr ""
 
@@ -1240,12 +1272,21 @@ msgstr ""
 msgid "Your current password is incorrect."
 msgstr ""
 
-#: lib/Dolomon/Controller/Data.pm:31
+#: lib/Dolomon/Controller/Data.pm:46
 msgid "Your data export is about to be processed."
 msgstr ""
 
-#: lib/Dolomon.pm:322
-msgid "Your data export is ready for download."
+#: lib/Dolomon/Controller/Data.pm:30
+msgid "Your data export is ready for download.\n"
+msgstr ""
+
+#. ($c->url_for('/')
+#: lib/Dolomon/Controller/Data.pm:65
+msgid "Your data import has been processed, you should see your data on %1.\n"
+msgstr ""
+
+#: lib/Dolomon/Controller/Data.pm:93
+msgid "Your data import is about to be processed."
 msgstr ""
 
 #: themes/default/templates/users/index.html.ep:25 themes/default/templates/users/index.html.ep:26

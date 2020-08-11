@@ -1,5 +1,6 @@
 EXTRACTDIR=-D lib -D themes/default/templates
 POT=themes/default/lib/Dolomon/I18N/dolomon.pot
+PO=themes/default/lib/Dolomon/I18N/en.po
 XGETTEXT=carton exec local/bin/xgettext.pl
 CARTON=carton exec
 REAL_DOLOMON=script/dolomon
@@ -7,15 +8,7 @@ DOLOMON=script/mounter
 
 locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(POT) 2>/dev/null
-
-push-locales: locales
-	zanata-cli -q -B push
-
-pull-locales:
-	zanata-cli -q -B pull --min-doc-percent 50
-
-stats-locales:
-	zanata-cli -q stats
+	$(XGETTEXT) $(EXTRACTDIR) -o $(PO) 2>/dev/null
 
 dev:
 	MOJO_REVERSE_PROXY=1 $(CARTON) morbo $(DOLOMON) --listen http://127.0.0.1:8400 --watch themes/ --watch dolomon.conf --watch lib/
