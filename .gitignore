@@ -1,10 +1,14 @@
 dolomon.conf
+!t/dolomon.conf
 local
 last_cleaning_time.txt
 *.swp
+*.bak
 script/hypnotoad.pid
 themes/*
 !themes/default
 !themes/default/*
 .zanata-cache/
 exports/*
+imports/*
+cover_db/*

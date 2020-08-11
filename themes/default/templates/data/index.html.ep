@@ -25,7 +25,7 @@
     %     my ($e, $num) = @_;
     %     my $url = url_for('download_data', token => $e->token, format => 'json');
         <li>
-            <a href="<%= $url %>" id="<%= $e->token %>">
+            <a href="<%= $url %>" id="<%= $e->token %>" class="data-export-link">
                 %= $url->to_abs
             </a>
             (<span class="date-to-format"><%= $e->finished_at %>Z</span>)

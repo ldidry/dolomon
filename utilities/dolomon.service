@@ -1,6 +1,6 @@
 [Unit]
 Description=DOwnLOad MONitor
-Documentation=https://framagit.org/luc/dolomon
+Documentation=https://framagit.org/fiat-tux/hat-softwares/dolomon/
 Requires=network.target postgresql.service
 After=network.target postgresql.service
 

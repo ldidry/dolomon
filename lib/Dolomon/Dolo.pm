@@ -78,6 +78,14 @@ sub find_by_ {
     return $c;
 }
 
+sub suitable_for_parent {
+    my $c       = shift;
+    my $id      = shift;
+    my $user_id = shift;
+
+    return $c->app->pg->db->query('SELECT d.created_at FROM '.$c->table.' d JOIN categories c ON d.category_id = c.id WHERE d.id = ? AND c.user_id = ? AND d.parent_id IS NULL', $id, $user_id)->rows;
+}
+
 sub has_expired {
     my $c = shift;
 

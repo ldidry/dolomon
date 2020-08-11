@@ -126,7 +126,7 @@ sub remove_user {
     my $user    = Dolomon::User->new(app => $c->app, id => $id);
     my $success = false;
     my $msg;
-    if ($user) {
+    if ($user->login) {
         $c->app->minion->enqueue(delete_user => [$user->id]);
         $success = true;
         $msg     = {

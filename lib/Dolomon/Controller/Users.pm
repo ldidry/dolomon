@@ -9,14 +9,14 @@ sub index {
 
     if ($c->current_user->password) {
         return $c->render(
-                template   => 'users/index'
+            template => 'users/index'
         );
     } else {
         $c->stash(
             msg => {
                 title => $c->l('Error'),
                 class => 'alert-danger',
-                text  => $c->l('This is a LDAP account, you can\'t change account details nor password here.')
+                text  => $c->l('This is a LDAP account, you can’t change account details nor password here.')
             }
         );
         return $c->render(
@@ -29,38 +29,40 @@ sub confirm_delete {
     my $c     = shift;
     my $token = $c->param('token');
 
-    my $user = Dolomon::User->new(app => $c->app)->find_by_('token', $token);
-    if ($user->id) {
-        if (!defined($c->current_user) || $user->id == $c->current_user->id) {
-            $c->logout() if defined $c->current_user;
+    my $msg = {
+        title => $c->l('Error'),
+        class => 'alert-danger',
+        text  => $c->l('Unable to find an account with this token.')
+    };
 
-            $c->app->minion->enqueue(delete_user => [$user->id]);
+    if ($token =~ m#[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}#) {
+        my $user = Dolomon::User->new(app => $c->app)->find_by_('token', $token);
+        if ($user->id) {
+            if (!defined($c->current_user) || $user->id == $c->current_user->id) {
+                $c->logout() if defined $c->current_user;
 
-            $c->stash(
-                msg => {
+                $c->app->minion->enqueue(delete_user => [$user->id]);
+
+                $msg = {
                     class => 'alert-info',
                     text  => $c->l('Your account will be deleted in a short time.')
                 }
-            );
-        } else {
-            $c->stash(
-                msg => {
+            } else {
+                $msg = {
                     title => $c->l('Error'),
                     class => 'alert-danger',
                     text  => $c->l('You are not logged in with the same account that you are trying to delete. Please, log out first.')
-                }
-            );
-        }
-    } else {
-        $c->stash(
-            msg => {
-                title => $c->l('Error'),
-                class => 'alert-danger',
-                text  => $c->l('Unable to find an account with this token.')
+                };
             }
-        );
+        }
     }
 
+    if ($c->is_user_authenticated) {
+        $c->flash(msg => $msg);
+        return $c->redirect_to('dashboard');
+    }
+
+    $c->stash(msg => $msg);
     return $c->render(
         template => 'misc/index',
         goto     => 'dashboard',
@@ -72,9 +74,23 @@ sub modify {
     my $c      = shift;
     my $action = $c->param('action');
 
-    my $validation = $c->validation;
+    # LDAP user
+    unless ($c->current_user->password) {
+        $c->stash(
+            msg => {
+                title => $c->l('Error'),
+                class => 'alert-danger',
+                text  => $c->l('This is a LDAP account, you can\'t change account details nor password here.')
+            }
+        );
+        return $c->render(
+            template => 'misc/dashboard'
+        );
+    }
 
-    if ($validation->csrf_protect->has_error('csrf_token')) {
+    my $v = $c->validation;
+
+    if ($v->csrf_protect->has_error('csrf_token')) {
         $c->stash(
             msg => {
                 title => $c->l('Error'),
@@ -103,16 +119,14 @@ sub modify {
     my @texts = ();
 
     if ($action eq 'account_details') {
-        my $mail = $c->param('mail');
+        $v->optional('first_name', 'trim');
+        $v->optional('last_name',  'trim');
+        $v->required('mail', 'trim', 'not_empty')->valid_email;
 
-        if (!Email::Valid->address($mail)) {
-            push @texts, $c->l('This email address is not valid.');
-        }
+        push @texts, $c->l('This email address is not valid.') if $v->has_error('mail');
 
-        my $user = Dolomon::User->new(app => $c->app)->find_by_('mail', $mail);
-        if ($user->id && $user->mail ne $c->current_user->mail) {
-            push @texts, $c->l('Email address already used. Choose another one.');
-        }
+        $v->required('mail')->available_email;
+        push @texts, $c->l('Email address already used. Choose another one.') if $v->has_error('mail');
 
         if (scalar @texts) {
             $c->stash(
@@ -125,9 +139,9 @@ sub modify {
         } else {
             $c->current_user->update(
                 {
-                    first_name => $c->param('first_name'),
-                    last_name  => $c->param('last_name'),
-                    mail       => $c->param('mail'),
+                    first_name => $v->param('first_name'),
+                    last_name  => $v->param('last_name'),
+                    mail       => $v->param('mail'),
                 }
             );
             $c->stash(
@@ -209,7 +223,7 @@ sub modify {
                 to      => $c->current_user->mail,
                 subject => $subject,
                 data    => $data,
-            );
+            ) unless $ENV{CI};
             $c->stash(
                 msg => {
                     class => 'alert-info',
@@ -363,7 +377,7 @@ sub forgot_password {
                 to      => $mail,
                 subject => $subject,
                 data    => $data,
-            );
+            ) unless $ENV{CI};
             $c->stash(
                 msg => {
                     class => 'alert-info',
@@ -452,7 +466,7 @@ sub send_again {
                 to      => $mail,
                 subject => $subject,
                 data    => $data,
-            );
+            ) unless $ENV{CI};
             $c->stash(
                 msg => {
                     class => 'alert-info',
@@ -478,61 +492,58 @@ sub send_again {
 
 sub confirm {
     my $c     = shift;
-    my $token = $c->param('token');
 
-    my $user = Dolomon::User->new(app => $c->app)->find_by_('token', $token);
-    if ($user->id) {
-        if ($user->confirmed) {
-            $c->stash(
-                msg => {
-                    title => $c->l('Error'),
-                    class => 'alert-danger',
-                    text  => $c->l('This account has already been confirmed.')
-                }
-            );
-        } else {
-            $user->update({confirmed => 'true'});
-            $user->renew_token();
-            $c->stash(
-                msg => {
-                    class => 'alert-info',
-                    text  => $c->l('Your account is now confirmed. You can now login.')
-                }
+    my $v = $c->validation->input({token => $c->param('token')});
+
+    $v->required('token', 'trim', 'not_empty')->uuid_like;
+    $c->debug($v->has_error('token'));
+    if (!$v->has_error('token')) {
+        my $user = Dolomon::User->new(app => $c->app)->find_by_('token', $v->param('token'));
+        if ($user->id) {
+            if ($user->confirmed) {
+                $c->stash(
+                    msg => {
+                        title => $c->l('Error'),
+                        class => 'alert-danger',
+                        text  => $c->l('This account has already been confirmed.')
+                    }
+                );
+            } else {
+                $user->update({confirmed => 'true'});
+                $user->renew_token();
+                $c->stash(
+                    msg => {
+                        class => 'alert-info',
+                        text  => $c->l('Your account is now confirmed. You can now login.')
+                    }
+                );
+            }
+            return $c->render(
+                template => 'misc/index',
+                goto     => 'dashboard',
+                method   => 'standard',
             );
         }
-        return $c->render(
-            template => 'misc/index',
-            goto     => 'dashboard',
-            method   => 'standard',
-        );
-    } else {
-        $c->stash(
-            msg => {
-                title => $c->l('Error'),
-                class => 'alert-danger',
-                text  => $c->l('Unable to find an account with this token.')
-            }
-        );
-        return $c->render(
-            template => 'misc/index',
-            goto     => 'dashboard',
-            method   => 'register',
-        );
     }
+    $c->stash(
+        msg => {
+            title => $c->l('Error'),
+            class => 'alert-danger',
+            text  => $c->l('Unable to find an account with this token: %1', $v->param('token'))
+        }
+    );
+    return $c->render(
+        template => 'misc/index',
+        goto     => 'dashboard',
+        method   => 'register',
+    );
 }
 
 sub register {
     my $c     = shift;
-    my $login = $c->param('login');
-    my $fname = $c->param('first_name');
-    my $lname = $c->param('last_name');
-    my $mail  = $c->param('mail');
-    my $pwd   = $c->param('password');
-    my $pwd2  = $c->param('password2');
+    my $v = $c->validation;
 
-    my $validation = $c->validation;
-
-    if ($validation->csrf_protect->has_error('csrf_token')) {
+    if ($v->csrf_protect->has_error('csrf_token')) {
         $c->stash(
             msg => {
                 title => $c->l('Error'),
@@ -544,38 +555,34 @@ sub register {
             template   => 'misc/index',
             goto       => 'dashboard',
             method     => 'register',
-            login      => $login,
-            mail       => $mail,
-            first_name => $fname,
-            last_name  => $lname
+            login      => $c->param('login'),
+            mail       => $c->param('mail'),
+            first_name => $c->param('fname'),
+            last_name  => $c->param('lname')
         );
     }
 
     my @texts = ();
 
-    my $user = Dolomon::User->new(app => $c->app)->find_by_('login', $login);
-    if ($user->id) {
-        push @texts, $c->l('Login already taken. Choose another one.');
-    };
+    $v->required('login',      'trim', 'not_empty')->available_login;
+    push @texts, $c->l('Login already taken. Choose another one.') if $v->has_error('login');
 
-    $user = Dolomon::User->new(app => $c->app)->find_by_('mail', $mail);
-    if ($user->id) {
-        push @texts, $c->l('Email address already used. Choose another one.');
-    };
+    $v->required('mail',       'trim', 'not_empty')->available_email;
+    push @texts, $c->l('Email address already used. Choose another one.') if $v->has_error('mail');
 
-    if (!Email::Valid->address($mail)) {
-        push @texts, $c->l('This email address is not valid.');
-    }
+    $v->required('mail')->valid_email;
+    push @texts, $c->l('This email address is not valid.') if $v->has_error('mail');
 
-    if ($pwd ne $pwd2) {
-        push @texts, $c->l('The passwords does not match.');
-    }
+    $v->required('password',   'trim', 'not_empty')->size(8, undef);
+    push @texts, $c->l('Please, choose a password with at least 8 characters.') if $v->has_error('password');
 
-    if (length $pwd < 8) {
-        push @texts, $c->l('Please, choose a password with at least 8 characters.');
-    }
+    $v->required('password2',  'trim', 'not_empty')->equal_to('password');
+    push @texts, $c->l('The passwords does not match.') if $v->has_error('password2');
 
-    if (scalar(@texts)) {
+    $v->optional('first_name', 'trim', 'not_empty');
+    $v->optional('last_name',  'trim', 'not_empty');
+
+    if (scalar @texts) {
         $c->stash(
             msg => {
                 title => $c->l('Error'),
@@ -587,62 +594,68 @@ sub register {
             template   => 'misc/index',
             goto       => 'dashboard',
             method     => 'register',
-            login      => $login,
-            mail       => $mail,
-            first_name => $fname,
-            last_name  => $lname
-        );
-    } else {
-        my $pbkdf2 = Crypt::PBKDF2->new(
-            hash_class => 'HMACSHA2',
-            hash_args => {
-                sha_size => 512,
-            },
-            iterations => 10000,
-            salt_len => 10
-        );
-        my $user = Dolomon::User->new(app => $c->app)->create(
-            {
-                login      => $login,
-                first_name => $fname,
-                last_name  => $lname,
-                mail       => $mail,
-                password   => $pbkdf2->generate($pwd)
-            }
-        );
-        my $cat = Dolomon::Category->new(app => $c->app)->create(
-            {
-                name    => $c->l('Default'),
-                user_id => $user->id
-            }
-        );
-
-        $c->cookie(auth_method => 'standard');
-
-        $c->stash(
-            msg => {
-                class => 'alert-info',
-                text  => $c->l('You have been successfully registered. You will receive a mail containing a link to finish your registration.')
-            }
-        );
-
-        my $subject = $c->l('Please confirm your email address');
-        my $data    = $c->l("This is the final step for your registration on %1.\n", $c->url_for('/')->to_abs->to_string); 
-           $data   .= $c->l('Please click on this link: %1', $c->url_for('confirm', {token => $user->token})->to_abs->to_string);
-           $data   .= "\n-- \n";
-           $data   .= $c->l("Kind regards\n");
-           $data   .= $c->config('signature');
-        $c->mail(
-            to      => $mail,
-            subject => $subject,
-            data    => $data,
-        );
-        return $c->render(
-            template => 'misc/index',
-            goto     => 'dashboard',
-            method   => 'standard',
+            login      => $c->param('login'),
+            mail       => $c->param('mail'),
+            first_name => $c->param('fname'),
+            last_name  => $c->param('lname')
         );
     }
+
+    my $login = $v->param('login');
+    my $mail  = $v->param('mail');
+    my $pwd   = $v->param('password');
+    my $fname = $v->param('first_name');
+    my $lname = $v->param('last_name');
+
+    my $pbkdf2 = Crypt::PBKDF2->new(
+        hash_class => 'HMACSHA2',
+        hash_args => {
+            sha_size => 512,
+        },
+        iterations => 10000,
+        salt_len => 10
+    );
+    my $user = Dolomon::User->new(app => $c->app)->create(
+        {
+            login      => $login,
+            first_name => $fname,
+            last_name  => $lname,
+            mail       => $mail,
+            password   => $pbkdf2->generate($pwd)
+        }
+    );
+    my $cat = Dolomon::Category->new(app => $c->app)->create(
+        {
+            name    => $c->l('Default'),
+            user_id => $user->id
+        }
+    );
+
+    $c->cookie(auth_method => 'standard');
+
+    $c->stash(
+        msg => {
+            class => 'alert-info',
+            text  => $c->l('You have been successfully registered. You will receive a mail containing a link to finish your registration.')
+        }
+    );
+
+    my $subject = $c->l('Please confirm your email address');
+    my $data    = $c->l("This is the final step for your registration on %1.\n", $c->url_for('/')->to_abs->to_string); 
+       $data   .= $c->l('Please click on this link: %1', $c->url_for('confirm', {token => $user->token})->to_abs->to_string);
+       $data   .= "\n-- \n";
+       $data   .= $c->l("Kind regards\n");
+       $data   .= $c->config('signature');
+    $c->mail(
+        to      => $mail,
+        subject => $subject,
+        data    => $data,
+    ) unless $ENV{CI};
+    return $c->render(
+        template => 'misc/index',
+        goto     => 'dashboard',
+        method   => 'standard',
+    );
 }
 
 1;

@@ -839,7 +839,7 @@ msgid "Tag name"
 msgstr "Nom de l’étiquette"
 
 #: lib/Dolomon/Controller/Tags.pm:324
-msgid "Tag name blank or undefined. I refuse to create an tag without name."
+msgid "Tag name blank or undefined. I refuse to create a tag without name."
 msgstr ""
 "Le nom d’une étiquette ne peut être nul. Je refuse de créer une étiquette "
 "sans nom."

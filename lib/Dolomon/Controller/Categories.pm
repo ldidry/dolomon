@@ -23,7 +23,7 @@ sub get {
 
     if (defined $id) {
         my $cat = Dolomon::Category->new(app => $c->app, id => $id);
-        unless ($cat->user_id == $c->current_user->id) {
+        unless (defined($cat->user_id) && $cat->user_id == $c->current_user->id) {
             return $c->render(
                 json => {
                     success => false,
@@ -53,7 +53,7 @@ sub show {
 
     my ($msg, %agg_referrers);
     my $cat = Dolomon::Category->new(app => $c->app, id => $id);
-    unless (defined $cat->user_id && $cat->user_id == $c->current_user->id) {
+    unless (defined($cat->user_id) && $cat->user_id == $c->current_user->id) {
         $msg = {
             class => 'alert-warning',
             title => $c->l('Error'),
@@ -88,7 +88,7 @@ sub get_data {
        $agg    = 60 unless (defined $agg && 0 < $agg && $agg < 60*24);
 
     my $cat = Dolomon::Category->new(app => $c->app, id => $id);
-    unless (defined $cat->user_id && $cat->user_id == $c->current_user->id) {
+    unless (defined($cat->user_id) && $cat->user_id == $c->current_user->id) {
         return $c->render(
             json => {
                 success => false,
@@ -158,6 +158,8 @@ sub get_data {
         }
     }
 
+    @data = sort { $a->{x} <=> $b->{x} } @data;
+
     return $c->render(
         json => {
             success => true,
@@ -178,7 +180,7 @@ sub get_zip {
        $agg    = 60 unless (defined $agg && 0 < $agg && $agg < 60*24);
 
     my $cat = Dolomon::Category->new(app => $c->app, id => $id);
-    unless (defined $cat->user_id && $cat->user_id == $c->current_user->id) {
+    unless (defined($cat->user_id) && $cat->user_id == $c->current_user->id) {
         return $c->render(
             json => {
                 success => false,
@@ -330,7 +332,7 @@ sub rename {
     if (defined $newname && $newname ne '') {
         my $cat  = Dolomon::Category->new(app => $c->app, id => $id);
         my $name = $cat->name;
-        unless ($cat->user_id == $c->current_user->id) {
+        unless (defined($cat->user_id) && $cat->user_id == $c->current_user->id) {
             return $c->render(
                 json => {
                     success => false,

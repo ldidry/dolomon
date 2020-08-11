@@ -237,6 +237,7 @@ sub register {
                     $renamed++;
                 }
             });
+            my $total_hits = 0;
             c(@{$data->{dolos_year}})->each(sub {
                 my ($e, $num) = @_;
                 Dolomon::DoloYear->new(app => $c)->create({
@@ -244,6 +245,7 @@ sub register {
                     year    => $e->{year},
                     count   => $e->{count},
                 });
+                $total_hits += $e->{count};
             });
             c(@{$data->{dolos_month}})->each(sub {
                 my ($e, $num) = @_;
@@ -319,6 +321,7 @@ sub register {
             }
 
             my $user = Dolomon::User->new(app => $c, id => $user_id);
+            $user->update({ count => $user->count + $data->{user_count} });
             $c->mail(
                 to      => $user->mail,
                 subject => $subject,

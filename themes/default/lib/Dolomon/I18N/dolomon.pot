@@ -134,7 +134,7 @@ msgstr ""
 msgid "Are you sure you want to delete the tag XXXX?"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:341 lib/Dolomon/Controller/Dolos.pm:443
+#: lib/Dolomon/Controller/Dolos.pm:347 lib/Dolomon/Controller/Dolos.pm:449
 msgid "At least one of the tag you want to use for your dolo does not belong to you."
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 msgid "Email address already used. Choose another one."
 msgstr ""
 
-#: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:376 lib/Dolomon/Controller/Users.pm:385 lib/Dolomon/Controller/Users.pm:407 lib/Dolomon/Controller/Users.pm:421 lib/Dolomon/Controller/Users.pm:438 lib/Dolomon/Controller/Users.pm:466 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:488 lib/Dolomon/Controller/Users.pm:511 lib/Dolomon/Controller/Users.pm:538 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:581 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
+#: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:540 lib/Dolomon/Controller/Dolos.pm:549 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:376 lib/Dolomon/Controller/Users.pm:385 lib/Dolomon/Controller/Users.pm:407 lib/Dolomon/Controller/Users.pm:421 lib/Dolomon/Controller/Users.pm:438 lib/Dolomon/Controller/Users.pm:466 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:488 lib/Dolomon/Controller/Users.pm:511 lib/Dolomon/Controller/Users.pm:538 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:581 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
 msgstr ""
 
@@ -467,11 +467,11 @@ msgstr ""
 msgid "However, some elements have been renamed:"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:339 lib/Dolomon/Controller/Dolos.pm:441
+#: lib/Dolomon/Controller/Dolos.pm:345 lib/Dolomon/Controller/Dolos.pm:447
 msgid "I can't find at least one of the given tag."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:322 lib/Dolomon/Controller/Dolos.pm:424
+#: lib/Dolomon/Controller/Dolos.pm:328 lib/Dolomon/Controller/Dolos.pm:430
 msgid "I can't find the given category."
 msgstr ""
 
@@ -621,7 +621,7 @@ msgid "Name"
 msgstr ""
 
 #: lib/Dolomon/Controller/Applications.pm:140
-msgid "New application name blank or undefined. I refuse to rename the category."
+msgid "New application name blank or undefined. I refuse to rename the application."
 msgstr ""
 
 #: lib/Dolomon/Controller/Categories.pm:371
@@ -774,11 +774,11 @@ msgstr ""
 msgid "Something went wrong while renaming tag %1 to %2"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:545
+#: lib/Dolomon/Controller/Dolos.pm:551
 msgid "Sorry, this URL does not exist."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:536
+#: lib/Dolomon/Controller/Dolos.pm:542
 msgid "Sorry, this URL has expired"
 msgstr ""
 
@@ -819,7 +819,7 @@ msgid "Tag name"
 msgstr ""
 
 #: lib/Dolomon/Controller/Tags.pm:324
-msgid "Tag name blank or undefined. I refuse to create an tag without name."
+msgid "Tag name blank or undefined. I refuse to create a tag without name."
 msgstr ""
 
 #: themes/default/templates/js/i18n.js.ep:51 themes/default/templates/misc/dashboard.html.ep:69
@@ -893,7 +893,7 @@ msgstr ""
 msgid "The category %1 has been successfully renamed to %2"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:325 lib/Dolomon/Controller/Dolos.pm:427
+#: lib/Dolomon/Controller/Dolos.pm:331 lib/Dolomon/Controller/Dolos.pm:433
 msgid "The category you want to use for your dolo does not belong to you."
 msgstr ""
 
@@ -922,21 +922,21 @@ msgid "The counters are just numbers: no IP address is kept."
 msgstr ""
 
 #. (($dolo->name || $dolo->url, $c->url_for('hit', short => $dolo->short)
-#: lib/Dolomon/Controller/Dolos.pm:379
+#: lib/Dolomon/Controller/Dolos.pm:385
 msgid "The dolo %1 has been successfully created.<br>Its dolomon URL is %2."
 msgstr ""
 
 #. ($dolo->name)
-#: lib/Dolomon/Controller/Dolos.pm:500
+#: lib/Dolomon/Controller/Dolos.pm:506
 msgid "The dolo %1 has been successfully deleted."
 msgstr ""
 
 #. (($dolo->name || $dolo->url)
-#: lib/Dolomon/Controller/Dolos.pm:474
+#: lib/Dolomon/Controller/Dolos.pm:480
 msgid "The dolo %1 has been successfully modified."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:490
+#: lib/Dolomon/Controller/Dolos.pm:496
 msgid "The dolo you're trying to delete does not belong to you."
 msgstr ""
 
@@ -948,7 +948,7 @@ msgstr ""
 msgid "The dolo you're trying to show does not belong to you."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:407
+#: lib/Dolomon/Controller/Dolos.pm:413
 msgid "The dolo you’re trying to modify does not belong to you."
 msgstr ""
 
@@ -956,7 +956,7 @@ msgstr ""
 msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:319
+#: lib/Dolomon/Controller/Dolos.pm:325
 msgid "The initial counter must be an integer, superior or equal to 0."
 msgstr ""
 
@@ -968,7 +968,8 @@ msgstr ""
 msgid "The links you want to count the clicks on."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:304 lib/Dolomon/Controller/Dolos.pm:421
+#. ($name)
+#: lib/Dolomon/Controller/Dolos.pm:310 lib/Dolomon/Controller/Dolos.pm:427
 msgid "The name %1 is already taken for the category you choose."
 msgstr ""
 
@@ -1012,7 +1013,7 @@ msgstr ""
 msgid "The tag you're trying to show does not belong to you or does not exist."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:301 lib/Dolomon/Controller/Dolos.pm:418
+#: lib/Dolomon/Controller/Dolos.pm:307 lib/Dolomon/Controller/Dolos.pm:424
 msgid "The url is not a valid http, https, ftp or ftps URL."
 msgstr ""
 
@@ -1179,11 +1180,11 @@ msgstr ""
 msgid "You add an URL in Dolomon (it's called a dolo in Dolomon)"
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:311
+#: lib/Dolomon/Controller/Dolos.pm:317
 msgid "You already have a dolo which dolomon URL is %1."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:329 lib/Dolomon/Controller/Dolos.pm:431
+#: lib/Dolomon/Controller/Dolos.pm:335 lib/Dolomon/Controller/Dolos.pm:437
 msgid "You already have that URL in the dolos of this category."
 msgstr ""
 
@@ -1211,6 +1212,10 @@ msgstr ""
 msgid "You can't, sorry."
 msgstr ""
 
+#: lib/Dolomon/Controller/Dolos.pm:301
+msgid "You didn’t send an URL."
+msgstr ""
+
 #. ($self->stash('pending')
 #: themes/default/templates/data/index.html.ep:16
 msgid "You have %1 data export(s) waiting to be processed"
@@ -1232,7 +1237,7 @@ msgstr ""
 msgid "You have returned to your previous session."
 msgstr ""
 
-#: lib/Dolomon/Controller/Dolos.pm:394
+#: lib/Dolomon/Controller/Dolos.pm:400
 msgid "You need to provide a dolo id!"
 msgstr ""
 

@@ -85,6 +85,8 @@ sub startup {
 
     $self->plugin('Minion::Admin' => { return_to => '/admin', route => $self->routes->any('/admin/minion')->over(is_admin => 1) });
 
+    $self->plugin('CoverDb' => { route => 'c' });
+
     $self->plugin('authentication' =>
         {
             autoload_user => 1,
@@ -96,8 +98,9 @@ sub startup {
                 return undef unless defined $uid;
 
                 my $user = Dolomon::User->new(app => $c->app, 'id', $uid);
-                if (defined $c->config('admins')) {
-                    my $is_admin = c(@{$c->app->config('admins')})->grep(sub {$_ eq $user->login});
+                my $admins = c(@{$c->app->config('admins')});
+                if ($admins->size) {
+                    my $is_admin = $admins->grep(sub {$_ eq $user->login});
                     $user->{is_admin} = $is_admin->size;
                 } else {
                     $user->{is_admin} = 0;

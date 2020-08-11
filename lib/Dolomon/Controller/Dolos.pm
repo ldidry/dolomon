@@ -34,7 +34,7 @@ sub show {
 
     my ($msg, %agg_referrers);
     my $dolo = Dolomon::Dolo->new(app => $c->app, id => $id);
-    unless (defined $dolo->user_id && $dolo->user_id == $c->current_user->id) {
+    unless (defined($dolo->user_id) && $dolo->user_id == $c->current_user->id) {
         $msg = {
             class => 'alert-warning',
             title => $c->l('Error'),
@@ -69,7 +69,7 @@ sub get_data {
        $agg    = 60 unless (defined $agg && 0 < $agg && $agg < 60*24);
 
     my $dolo = Dolomon::Dolo->new(app => $c->app, id => $id);
-    unless (defined $dolo->user_id && $dolo->user_id == $c->current_user->id) {
+    unless (defined($dolo->user_id) && $dolo->user_id == $c->current_user->id) {
         return $c->render(
             json => {
                 success => false,
@@ -139,6 +139,8 @@ sub get_data {
         }
     }
 
+    @data = sort { $a->{x} <=> $b->{x} } @data;
+
     return $c->render(
         json => {
             success => true,
@@ -159,7 +161,7 @@ sub get_zip {
        $agg    = 60 unless (defined $agg && 0 < $agg && $agg < 60*24);
 
     my $dolo = Dolomon::Dolo->new(app => $c->app, id => $id);
-    unless (defined $dolo->user_id && $dolo->user_id == $c->current_user->id) {
+    unless (defined($dolo->user_id) && $dolo->user_id == $c->current_user->id) {
         return $c->render(
             json => {
                 success => false,
@@ -266,7 +268,7 @@ sub get {
 
     if (defined $id) {
         my $dolo = Dolomon::Dolo->new(app => $c->app, id => $id);
-        unless (defined $dolo->user_id && $dolo->user_id == $c->current_user->id) {
+        unless (defined($dolo->user_id) && $dolo->user_id == $c->current_user->id) {
             return $c->render(
                 json => {
                     success => false,
@@ -295,15 +297,21 @@ sub add {
     my $dolo = Dolomon::Dolo->new(app => $c->app);
     my %errors;
 
-    my $url  = $c->param('url');
+    my $validation = $c->validation;
+    $validation->required('url');
+    if ($validation->error('url')) {
+        $errors{doloUrl} = [$c->l('You didn’t send an URL.')];
+    }
+
+    my $url  = $c->param('url') // '';
     my $furl = $url;
        $furl =~ s/ftp/http/;
     $errors{doloUrl} = [$c->l('The url is not a valid http, https, ftp or ftps URL.')] unless (is_web_uri($url) || is_web_uri($furl));
 
     my $name = xml_escape($c->param('name'));
-    $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.')] if ($name && $dolo->is_name_taken($name, $c->param('cat_id'), 'category_id'));
+    $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.', $name)] if ($name && $dolo->is_name_taken($name, $c->param('cat_id'), 'category_id'));
 
-    my $short = slugify($c->param('short'));
+    my $short = slugify($c->param('short') // '');
     if ($short ne '') {
         if ($dolo->is_name_taken($short, 1, 1, 'short')) {
             $short = $c->current_user->id.$short;
@@ -333,15 +341,20 @@ sub add {
     my @tags;
     for my $tag_id (@{$tags_id}) {
         my $tag = Dolomon::Tag->new(app => $c->app, id => $tag_id);
-        unless (defined $tag->user_id && $tag->user_id == $c->current_user->id) {
+        unless (defined($tag->user_id) && $tag->user_id == $c->current_user->id) {
             $errors{tagList} = [] unless defined $errors{tagList};
-            if (!defined $tag->user_id) {
+            if (!defined($tag->user_id)) {
                 push @{$errors{tagList}}, $c->l('I can\'t find at least one of the given tag.');
             } else {
-                push @{$errors{tagList}}, $c->l('At least one of the tag you want to use for your dolo does not belong to you.') unless (defined $tag->user_id && $tag->user_id == $c->current_user->id);
+                push @{$errors{tagList}}, $c->l('At least one of the tag you want to use for your dolo does not belong to you.') unless (defined($tag->user_id) && $tag->user_id == $c->current_user->id);
             }
         }
         push @tags, $tag;
+    }
+
+    my $parent_id = $c->param('parent_id');
+    unless(!defined($parent_id) || $dolo->suitable_for_parent($parent_id, $c->current_user->id)) {
+        $errors{doloParent} = [$c->l('The parent_id you provided is not suitable for use: it does not belong to you or is already a child dolo.')];
     }
 
     return $c->render(
@@ -359,6 +372,7 @@ sub add {
         short         => $short,
         count         => $initial_count,
         initial_count => $initial_count,
+        parent_id     => $parent_id,
         expires_at    => (defined $c->param('expires_at')    && $c->param('expires_at'))    ? $c->param('expires_at')    : undef,
         expires_after => (defined $c->param('expires_after') && $c->param('expires_after')) ? $c->param('expires_after') : undef,
         category_id   => $cat->id,
@@ -408,25 +422,27 @@ sub modify {
                 ]
             }
         }
-    ) if ($dolo->user_id != $c->current_user->id);
+    ) if (!defined($dolo->user_id) || $dolo->user_id != $c->current_user->id);
 
     my %errors;
 
-    my $url  = $c->param('url');
+    my $url  = $c->param('url') // '';
     my $furl = $url;
        $furl =~ s/ftp/http/;
     $errors{doloUrl} = [$c->l('The url is not a valid http, https, ftp or ftps URL.')] unless (is_web_uri($url) || is_web_uri($furl));
 
     my $name = xml_escape($c->param('name'));
-    $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.')] if ($dolo->is_name_taken($name, $c->param('cat_id'), 'category_id') && $name ne $dolo->name);
+    $errors{doloName} = [$c->l('The name %1 is already taken for the category you choose.', $name)] if ($dolo->is_name_taken($name, $c->param('cat_id'), 'category_id') && $name ne $dolo->name);
 
-    my $cat = Dolomon::Category->new(app => $c->app, id => $c->param('cat_id'));
+    my $cat_id = $c->param('cat_id');
+    my $cat = Dolomon::Category->new(app => $c->app, id => $cat_id);
     $errors{catList} = [$c->l('I can\'t find the given category.')] unless (defined $cat->user_id);
     if (defined $cat->user_id && $cat->user_id != $c->current_user->id) {
         $errors{catList} = [] unless defined $errors{catList};
         push @{$errors{catList}}, $c->l('The category you want to use for your dolo does not belong to you.');
     }
-    if ($c->param('cat_id') != $dolo->category_id && $cat->dolos->grep(sub { $_->url eq $url })->size) {
+    my $filtered = $cat->dolos->grep(sub { $_->url eq $url });
+    if ($filtered->size && ($cat_id != $dolo->category_id || $filtered->grep(sub { $_->id != $id })->size)) {
         $errors{doloUrl} = [] unless defined $errors{doloUrl};
         push @{$errors{doloUrl}}, $c->l('You already have that URL in the dolos of this category.');
     }
@@ -435,15 +451,20 @@ sub modify {
     my @tags;
     for my $tag_id (@{$tags_id}) {
         my $tag = Dolomon::Tag->new(app => $c->app, id => $tag_id);
-        unless (defined $tag->user_id && $tag->user_id == $c->current_user->id) {
+        unless (defined($tag->user_id) && $tag->user_id == $c->current_user->id) {
             $errors{tagList} = [] unless defined $errors{tagList};
-            if (!defined $tag->user_id) {
+            if (!defined($tag->user_id)) {
                 push @{$errors{tagList}}, $c->l('I can\'t find at least one of the given tag.');
             } else {
-                push @{$errors{tagList}}, $c->l('At least one of the tag you want to use for your dolo does not belong to you.') unless (defined $tag->user_id && $tag->user_id == $c->current_user->id);
+                push @{$errors{tagList}}, $c->l('At least one of the tag you want to use for your dolo does not belong to you.') unless (defined($tag->user_id) && $tag->user_id == $c->current_user->id);
             }
         }
         push @tags, $tag;
+    }
+
+    my $parent_id = $c->param('parent_id');
+    unless(!defined($parent_id) || $dolo->suitable_for_parent($parent_id, $c->current_user->id)) {
+        $errors{doloParent} = [$c->l('The parent_id you provided is not suitable for use: it does not belong to you or is already a child dolo.')];
     }
 
     return $c->render(
@@ -457,6 +478,7 @@ sub modify {
         url           => $url,
         name          => $name,
         extra         => xml_escape($c->param('extra')),
+        parent_id     => $parent_id // $dolo->parent_id,
         expires_at    => (defined $c->param('expires_at')    && $c->param('expires_at') ne '')    ? $c->param('expires_at')    : undef,
         expires_after => (defined $c->param('expires_after') && $c->param('expires_after') ne '') ? $c->param('expires_after') : undef,
         category_id   => $cat->id,

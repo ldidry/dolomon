@@ -24,7 +24,7 @@ sub get {
 
     if (defined $id) {
         my $app = Dolomon::Application->new(app => $c->app, id => $id);
-        unless ($app->user_id == $c->current_user->id) {
+        unless (defined($app->user_id) && $app->user_id == $c->current_user->id) {
             return $c->render(
                 json => {
                     success => false,
@@ -42,7 +42,7 @@ sub get {
         return $c->render(
             json => {
                 success => true,
-                object  => $c->current_user->get_tags()->map(sub { $_->as_struct })->to_array
+                object  => $c->current_user->get_applications()->map(sub { $_->as_struct })->to_array
             }
         );
     }
@@ -99,7 +99,7 @@ sub rename {
     if (defined $newname && $newname ne '') {
         my $app  = Dolomon::Application->new(app => $c->app, id => $id);
         my $name = $app->name;
-        unless ($app->user_id == $c->current_user->id) {
+        unless (defined($app->user_id) && $app->user_id == $c->current_user->id) {
             return $c->render(
                 json => {
                     success => false,
@@ -137,7 +137,7 @@ sub rename {
         return $c->render(
             json => {
                 success => false,
-                msg     => $c->l('New application name blank or undefined. I refuse to rename the category.')
+                msg     => $c->l('New application name blank or undefined. I refuse to rename the application.')
             }
         );
     }

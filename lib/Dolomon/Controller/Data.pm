@@ -45,7 +45,7 @@ sub export {
         msg => {
             title => $c->l('Your data export is about to be processed.'),
             class => 'alert-info',
-            text  => $c->l('You will receive a mail with a link to download your data once ready.')
+            text  => $c->l('You will receive a mail with a link to download your data once ready. You will be able to retrieve the export on this page.')
         }
     );
 

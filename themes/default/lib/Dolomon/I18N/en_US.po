@@ -816,8 +816,8 @@ msgid "Tag name"
 msgstr "Tag name"
 
 #: lib/Dolomon/Controller/Tags.pm:324
-msgid "Tag name blank or undefined. I refuse to create an tag without name."
-msgstr "Tag name blank or undefined. I refuse to create an tag without name."
+msgid "Tag name blank or undefined. I refuse to create a tag without name."
+msgstr "Tag name blank or undefined. I refuse to create a tag without name."
 
 #: themes/default/templates/js/i18n.js.ep:51 themes/default/templates/misc/dashboard.html.ep:69
 msgid "Tag(s)"

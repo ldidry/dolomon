@@ -88,7 +88,9 @@ sub as_struct {
     delete $c->{app};
     delete $c->{db};
     delete $c->{table};
-    delete $c->{user_id} if defined $c->{user_id};
+    delete $c->{user_id}    if defined $c->{user_id};
+    delete $c->{app_id}     if defined $c->{app_id};
+    delete $c->{app_secret} if defined $c->{app_secret};
     my $struct = unbless($c);
 
     return $struct;

@@ -185,6 +185,7 @@ sub export_data {
     my $dolo_has_tags = $c->app->pg->db->query(
         'SELECT d.* FROM dolo_has_tags d JOIN tags t  ON d.tag_id = t.id                                            WHERE t.user_id = ? ORDER BY d.dolo_id', $c->id
     )->hashes->to_array;
+    my $user_count  = $c->app->pg->db->select($c->table, ['count'], { id => $c->id })->hash->{count};
     return {
         categories    => $categories, 
         tags          => $tags,
@@ -195,7 +196,8 @@ sub export_data {
         dolos_month   => $dolos_month,
         dolos_day     => $dolos_day,
         dolos_hits    => $dolos_hits,
-        dolo_has_tags => $dolo_has_tags
+        dolo_has_tags => $dolo_has_tags,
+        user_count    => $user_count
     };
 }
 
