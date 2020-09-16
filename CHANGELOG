@@ -2,6 +2,8 @@ Revision history for Dolomon
 
 0.2  ????-??-??
 	- Add export/import of users’ data
+	- BREAKING CHANGE! To improve security, you need to do this once:
+	  carton exec ./script/dolomon breakingchanges app_secret_migration
 
 0.1  2017-?
 	- LDAP authentication

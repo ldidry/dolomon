@@ -28,6 +28,8 @@ my $config_orig = $config_file->slurp;
 
 my $dates = {};
 
+my ($app_id, $app_secret);
+
 my $t = Test::Mojo->new('Dolomon');
 
 ## Let's go
@@ -66,6 +68,7 @@ test_app();
 test_dolo();
 
 test_logout();
+test_app_credentials();
 
 test_login('leela', 'leela');
 test_admin(1, 0);
@@ -768,7 +771,9 @@ sub test_api_app {
 
     $t->post_ok('/api/app', form => { name => 'baz' })
       ->status_is(200)
-      ->json_like('/msg' => qr@^The application baz has been successfully created\. Please note the credentials below: you won\'t be able to recover them\.<br><ul><li>app_id: [0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}</li><li>app_secret: [0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}</li><ul>@)
+      ->json_like('/msg'        => qr@^The application baz has been successfully created\. Please note the credentials below: you won\'t be able to recover them\.<br><ul><li>app_id: [0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}</li><li>app_secret: [0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}</li><ul>@)
+      ->json_like('/app_id'     => qr@^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}@)
+      ->json_like('/app_secret' => qr@^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}@)
       ->json_is('/object'  => { id => 1, name => 'baz' })
       ->json_is('/success' => true);
 
@@ -870,11 +875,17 @@ sub test_api_app {
         success => true
     });
 
-    $t->post_ok('/api/app', form => { name => 'grault' })
+    my $json = $t->post_ok('/api/app', form => { name => 'grault' })
       ->status_is(200)
       ->json_like('/msg' => qr@^The application grault has been successfully created\. Please note the credentials below: you won\'t be able to recover them\.<br><ul><li>app_id: [0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}</li><li>app_secret: [0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}</li><ul>@)
+      ->json_like('/app_id'     => qr@^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}@)
+      ->json_like('/app_secret' => qr@^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}@)
       ->json_is('/object'  => { id => 2, name => 'grault' })
-      ->json_is('/success' => true);
+      ->json_is('/success' => true)
+      ->tx->res->json;
+
+    $app_id     = $json->{app_id};
+    $app_secret = $json->{app_secret};
 }
 
 sub test_api_dolo {
@@ -1536,6 +1547,32 @@ sub test_api_dolo {
       ->header_is('Content-Disposition' => 'attachment;filename=export-dolo-1.zip');
 }
 
+sub test_app_credentials {
+    $t->get_ok('/api/app' => {'XDolomon-App-Id' => $app_id, 'XDolomon-App-Secret' => $app_secret.'1'})
+      ->status_is(200)
+      ->json_is({
+        msg     => 'You are not authenticated or have not valid application credential',
+        success => false
+    });
+
+    $t->get_ok('/api/app' => {'XDolomon-App-Id' => $app_id.'1', 'XDolomon-App-Secret' => $app_secret})
+      ->status_is(200)
+      ->json_is({
+        msg     => 'You are not authenticated or have not valid application credential',
+        success => false
+    });
+
+    $t->get_ok('/api/app' => {'XDolomon-App-Id' => $app_id, 'XDolomon-App-Secret' => $app_secret} => form => { id => 2 })
+      ->status_is(200)
+      ->json_is({
+        object => {
+            id    => 2,
+            name  => 'grault'
+        },
+        success => true
+      });
+}
+
 sub test_import_export {
     $t->app->minion->enqueue('clean_stats');
     $t->app->minion->perform_jobs;
@@ -1571,7 +1608,7 @@ sub test_import_export {
     $t->get_ok($data_export_link)
       ->status_is(200)
       ->json_like('/applications/0/app_id'     => qr@[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}@)
-      ->json_like('/applications/0/app_secret' => qr@[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}@)
+      ->json_like('/applications/0/app_secret' => qr@^\{X-PBKDF2\}@)
       ->json_is('/applications/0/id'           => 2)
       ->json_is('/applications/0/name'         => 'grault')
       ->json_is('/applications/0/user_id'      => 1)

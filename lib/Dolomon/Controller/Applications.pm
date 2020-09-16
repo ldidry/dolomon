@@ -1,5 +1,6 @@
 package Dolomon::Controller::Applications;
 use Mojo::Base 'Mojolicious::Controller';
+use Crypt::PBKDF2;
 use Dolomon::Application;
 use Mojo::JSON qw(true false);
 use Mojo::Util qw(xml_escape);
@@ -55,13 +56,24 @@ sub add {
     if (defined $name && $name ne '') {
         my $app = Dolomon::Application->new(app => $c->app);
         unless ($app->is_name_taken($name, $c->current_user->id)) {
-            $app->create({user_id => $c->current_user->id, name => $name});
+            my $pbkdf2 = Crypt::PBKDF2->new(
+                hash_class => 'HMACSHA2',
+                hash_args => {
+                    sha_size => 512,
+                },
+                iterations => 10000,
+                salt_len => 10
+            );
+            my $uuid = $app->generate_uuid_v4();
+            $app->create({user_id => $c->current_user->id, name => $name, app_secret => $pbkdf2->generate($uuid)});
 
             if (defined $app) {
                 return $c->render(
                     json => {
                         success    => true,
-                        msg        => $c->l('The application %1 has been successfully created. Please note the credentials below: you won\'t be able to recover them.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>', ($app->name, $app->app_id, $app->app_secret)),
+                        msg        => $c->l('The application %1 has been successfully created. Please note the credentials below: you won\'t be able to recover them.<br><ul><li>app_id: %2</li><li>app_secret: %3</li><ul>', ($app->name, $app->app_id, $uuid)),
+                        app_id     => $app->app_id,
+                        app_secret => $uuid,
                         object     => $app->as_struct
                     }
                 );

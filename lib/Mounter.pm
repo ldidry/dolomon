@@ -2,6 +2,7 @@ package Mounter;
 use Mojo::Base 'Mojolicious';
 use FindBin qw($Bin);
 use File::Spec qw(catfile);
+use Dolomon::DefaultConfig qw($default_config);
 
 # This method will run once at server start
 sub startup {
@@ -12,25 +13,7 @@ sub startup {
     my $config = $self->plugin('Config' =>
         {
             file    => File::Spec->catfile($Bin, '..' ,'dolomon.conf'),
-            default => {
-                prefix               => '/',
-                admins               => [],
-                theme                => 'default',
-                no_register          => 0,
-                counter_delay        => 0,
-                do_not_count_spiders => 0,
-                mail      => {
-                    how  => 'sendmail',
-                    from => 'noreply@dolomon.org'
-                },
-                signature => 'Dolomon',
-                keep_hits => {
-                    uber_precision  => 3,
-                    day_precision   => 90,
-                    week_precision  => 12,
-                    month_precision => 36,
-                }
-            }
+            default => $default_config
         }
     );
 

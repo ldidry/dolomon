@@ -43,10 +43,10 @@ clear-db:
 	pkill --signal SIGCONT -f "$(DOLOMON)" && exit 0
 
 test:
-	@PERL5OPT='-Ilib/' HARNESS_PERL_SWITCHES='-MDevel::Cover=+ignore,^(local|t)/' MOJO_CONFIG=t/dolomon.conf $(CARTON) -- prove -l --failures
+	DOLOMON_TEST=1 PERL5OPT='-Ilib/' HARNESS_PERL_SWITCHES='-MDevel::Cover=+ignore,^(local|t)/' MOJO_CONFIG=t/dolomon.conf $(CARTON) -- prove -l --failures
 
 test-junit-output:
-	@PERL5OPT='-Ilib/' HARNESS_PERL_SWITCHES='-MDevel::Cover=+ignore,^(local|t)/' MOJO_CONFIG=t/dolomon.conf $(CARTON) -- prove -l --failures --formatter TAP::Formatter::JUnit > tap.xml
+	DOLOMON_TEST=1 PERL5OPT='-Ilib/' HARNESS_PERL_SWITCHES='-MDevel::Cover=+ignore,^(local|t)/' MOJO_CONFIG=t/dolomon.conf $(CARTON) -- prove -l --failures --formatter TAP::Formatter::JUnit > tap.xml
 
 clear-and-test: clear-db test
 

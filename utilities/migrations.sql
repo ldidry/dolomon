@@ -164,3 +164,13 @@ CREATE TABLE IF NOT EXISTS data_exports (
 );
 -- 3 down
 DROP TABLE IF EXISTS data_exports;
+-- 4 up
+ALTER TABLE applications ALTER COLUMN app_secret TYPE text;
+CREATE TABLE IF NOT EXISTS breakingchanges (
+       change text PRIMARY KEY,
+       ack    boolean NOT NULL DEFAULT false
+);
+INSERT INTO breakingchanges (change, ack) VALUES ('app_secret_migration', false);
+-- 4 down
+DROP TABLE IF EXISTS breakingchanges;
+ALTER TABLE applications ALTER COLUMN app_secret TYPE uuid USING app_secret::uuid;

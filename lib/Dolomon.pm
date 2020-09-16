@@ -3,6 +3,8 @@ use Mojo::Base 'Mojolicious';
 use Mojo::Collection 'c';
 use Dolomon::User;
 use Dolomon::Category;
+use Dolomon::BreakingChange;
+use Dolomon::DefaultConfig qw($default_config);
 use Net::LDAP;
 use Mojo::JSON qw(true false);
 use Mojo::File;
@@ -20,26 +22,7 @@ sub startup {
     mkdir 'imports' unless -e 'imports';
 
     my $config = $self->plugin('Config' => {
-        default => {
-            prefix               => '/',
-            admins               => [],
-            theme                => 'default',
-            no_register          => 0,
-            no_internal_accounts => 0,
-            counter_delay        => 0,
-            do_not_count_spiders => 0,
-            mail      => {
-                how  => 'sendmail',
-                from => 'noreply@dolomon.org'
-            },
-            signature => 'Dolomon',
-            keep_hits => {
-                uber_precision  => 3,
-                day_precision   => 90,
-                week_precision  => 12,
-                month_precision => 36,
-            }
-        }
+        default => $default_config
     });
 
     die "You need to provide a contact information in dolomon.conf !" unless (defined($config->{contact}));
@@ -246,6 +229,27 @@ sub startup {
         $migrations->from_file('utilities/migrations.sql')->migrate($migrations->latest);
     }
 
+    ## Handle breaking changes… but not when using the breakingchanges command line 😉
+    if ((scalar(@ARGV) == 0 || $ARGV[0] ne 'breakingchanges') && !$ENV{DOLOMON_TEST}) {
+        my $bc = Dolomon::BreakingChange->new(app => $self, change => 'app_secret_migration');
+        if (!$bc->ack) {
+            print <<EOF;
+==========================================================================
+==                       WARNING! BREAKING CHANGE                       ==
+==========================================================================
+==                                                                      ==
+== You need to execute this command before being able to start Dolomon: ==
+==                                                                      ==
+== carton exec ./script/dolomon breakingchanges app_secret_migration    ==
+==                                                                      ==
+== Please note that you won't be able to revert the changes!            ==
+==                                                                      ==
+==========================================================================
+EOF
+            exit 1;
+        }
+    }
+
     ## Router
     my $r = $self->routes;
 
@@ -254,14 +258,20 @@ sub startup {
         my $res = (!$required || $c->is_user_authenticated) ? 1 : 0;
 
         if (!$res && defined $c->req->headers->header('XDolomon-App-Id') && defined $c->req->headers->header('XDolomon-App-Secret')) {
-            my $rows = $c->pg->db->query('SELECT user_id FROM applications WHERE app_id::text = ? AND app_secret::text = ?',
-                ($c->req->headers->header('XDolomon-App-Id'), $c->req->headers->header('XDolomon-App-Secret'))
+            my $rows = $c->pg->db->query(
+                'SELECT user_id, app_secret FROM applications WHERE app_id::text = ?',
+                $c->req->headers->header('XDolomon-App-Id')
             );
             if ($rows->rows == 1) {
-                $c->stash('__authentication__' => {
-                    user => Dolomon::User->new(app => $c->app, 'id', $rows->hash->{user_id})
-                });
-                $res = 1;
+                my $pbkdf2 = Crypt::PBKDF2->new;
+
+                my $app = $rows->hash;
+                if ($pbkdf2->validate($app->{app_secret}, $c->req->headers->header('XDolomon-App-Secret'))) {
+                    $c->stash('__authentication__' => {
+                        user => Dolomon::User->new(app => $c->app, 'id', $app->{user_id})
+                    });
+                    $res = 1;
+                }
             }
             if (!$res) {
                 $c->stash('format' => 'json') unless scalar @{$c->accepts};

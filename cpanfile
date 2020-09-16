@@ -16,6 +16,7 @@ requires 'DateTime';
 requires 'DateTime::Format::Pg';
 requires 'HTTP::BrowserDetect';
 requires 'Data::Structure::Util';
+requires 'Term::ProgressBar';
 requires 'Text::Slugify';
 requires 'Text::Unaccent::PurePerl';
 requires 'Data::Validate::URI';

@@ -181,4 +181,10 @@ sub map_attr_for_select {
     return (join(' AND ', @fields), \@values);
 }
 
+sub generate_uuid_v4 {
+    my $c = shift;
+
+    return $c->app->pg->db->query('SELECT uuid_generate_v4() AS uuid;')->hash->{uuid};
+}
+
 1;
