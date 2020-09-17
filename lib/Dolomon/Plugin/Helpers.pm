@@ -1,10 +1,12 @@
 package Dolomon::Plugin::Helpers;
-use Mojo::Base 'Mojolicious::Plugin';
+use Mojo::Base 'Mojolicious::Plugin', -signatures;
 use Data::Entropy qw(entropy_source);
 use Mojo::Collection;
 use Mojo::File;
 use Mojo::Util qw(decode);
 use ISO::639_1;
+use Email::Valid;
+use Dolomon::User;
 
 sub register {
     my ($self, $app) = @_;
@@ -21,6 +23,21 @@ sub register {
             $c->languages($c->cookie('dolomon_lang')) if $c->cookie('dolomon_lang');
         }
     );
+
+    $app->validator->add_check(valid_email => sub ($v, $name, $email) {
+        return !Email::Valid->address($email);
+    });
+    $app->validator->add_check(available_login => sub ($v, $name, $login) {
+        my $user = Dolomon::User->new(app => $app)->find_by_('login', $login);
+        return ($user->id) ? 1 : undef;
+    });
+    $app->validator->add_check(available_email => sub ($v, $name, $mail) {
+        my $user = Dolomon::User->new(app => $app)->find_by_('mail', $mail);
+        return ($user->id) ? 1 : undef;
+    });
+    $app->validator->add_check(uuid_like => sub ($v, $name, $uuid) {
+        return ($uuid !~ m#^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$#);
+    });
 }
 
 sub _pg {

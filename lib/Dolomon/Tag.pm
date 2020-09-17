@@ -70,11 +70,19 @@ sub new {
     return $c;
 }
 
+sub bind_tag_to {
+    my $c       = shift;
+    my $tag_id  = shift;
+    my $dolo_id = shift;
+
+    $c->app->pg->db->query('INSERT INTO dolo_has_tags (tag_id, dolo_id) VALUES (?, ?) ON CONFLICT DO NOTHING', ($tag_id, $dolo_id));
+}
+
 sub bind_to {
     my $c       = shift;
     my $dolo_id = shift;
 
-    $c->app->pg->db->query('INSERT INTO dolo_has_tags (tag_id, dolo_id) VALUES (?, ?)', ($c->id, $dolo_id));
+    $c->app->pg->db->query('INSERT INTO dolo_has_tags (tag_id, dolo_id) VALUES (?, ?) ON CONFLICT DO NOTHING', ($c->id, $dolo_id));
 }
 
 sub unbind_FROM {

@@ -1,6 +1,6 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Dolomon::Command::theme;
-use Mojo::Base 'Mojolicious::Commands';
+use Mojo::Base 'Mojolicious::Commands', -signatures;
 use FindBin qw($Bin);
 use File::Spec qw(catfile cat dir);
 use File::Path qw(make_path);
@@ -10,12 +10,10 @@ has usage => sub { shift->extract_usage };
 has message    => sub { shift->extract_usage . "\nCreate new theme skeleton:\n" };
 has namespaces => sub { ['Dolomon::Command::theme'] };
 
-sub run {
-    my $c    = shift;
-    my $name = shift;
-
-    unless (defined $name) {
+sub run ($c, $name = '', $test = 0) {
+    if ($name eq '') {
         say $c->extract_usage;
+        return 'Undefined or empty name' if $test;
         exit 1;
     }
 
@@ -41,14 +39,14 @@ use Locale::Maketext::Lexicon {
     _style  => 'gettext',
     '*' => [
         Gettext => dirname(__FILE__) . '/I18N/*.po',
-        Gettext => $app_dir . 'themes/default/lib/Dolomon/I18N/*.po',
+        Gettext => \$app_dir . 'themes/default/lib/Dolomon/I18N/*.po',
     ]
 };
 
-use vars qw($app_dir);
+use vars qw(\$app_dir);
 BEGIN {
     use Cwd;
-    my $app_dir = getcwd;
+    my \$app_dir = getcwd;
 }
 
 1;
@@ -79,8 +77,13 @@ EOF
         open $f, '>', File::Spec->catfile($home, 'Makefile') or die "Unable to open $home/Makefile: $!";
         print $f $makefile;
         close $f;
+
+        return 'OK' if $test;
+        exit 0;
     } else {
-        say "$name theme already exists. Aborting.";
+        my $msg = "$name theme already exists. Aborting.";
+        return $msg if $test;
+        say $msg;
         exit 1;
     }
 }

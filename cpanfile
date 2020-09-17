@@ -5,6 +5,7 @@ requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::PgURLHelper';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::Mail';
+requires 'Mojolicious::Plugin::CoverDb';
 requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.12', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-helpers/-/archive/0.12/mojolicious-plugin-fiattux-helpers-0.12.tar.gz';
 requires 'Mojo::Pg';
 requires 'Minion';
@@ -15,6 +16,7 @@ requires 'DateTime';
 requires 'DateTime::Format::Pg';
 requires 'HTTP::BrowserDetect';
 requires 'Data::Structure::Util';
+requires 'Term::ProgressBar';
 requires 'Text::Slugify';
 requires 'Text::Unaccent::PurePerl';
 requires 'Data::Validate::URI';
@@ -27,3 +29,8 @@ requires 'IO::Socket::INET6';
 requires 'IO::Socket::SSL';
 requires 'Net::SSLeay', '>= 1.81';
 requires 'ISO::639_1';
+
+feature 'test' => sub {
+    requires 'Devel::Cover';
+    requires 'Try::Tiny';
+};

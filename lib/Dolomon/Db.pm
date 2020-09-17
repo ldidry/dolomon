@@ -88,7 +88,9 @@ sub as_struct {
     delete $c->{app};
     delete $c->{db};
     delete $c->{table};
-    delete $c->{user_id} if defined $c->{user_id};
+    delete $c->{user_id}    if defined $c->{user_id};
+    delete $c->{app_id}     if defined $c->{app_id};
+    delete $c->{app_secret} if defined $c->{app_secret};
     my $struct = unbless($c);
 
     return $struct;
@@ -171,12 +173,18 @@ sub map_attr_for_select {
 
     my @fields = ();
     my @values = ();
-    for my $key (@{$h}) {
+    for my $key (keys %{$h}) {
         push @fields, $key.' = ?';
-        push @values, $c->{$key};
+        push @values, $h->{$key};
     }
 
     return (join(' AND ', @fields), \@values);
+}
+
+sub generate_uuid_v4 {
+    my $c = shift;
+
+    return $c->app->pg->db->query('SELECT uuid_generate_v4() AS uuid;')->hash->{uuid};
 }
 
 1;

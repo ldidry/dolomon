@@ -1,0 +1,51 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $self->l('Export or import data').' · Dolomon';
+
+<h1>
+    <%= l('Data export') %>
+</h1>
+<p>
+    <a class="btn btn-default" href="<%= url_for('export') %>">
+        <span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+        %= l('Export your data')
+    </a>
+</p>
+% if ($self->stash('pending')) {
+<p>
+    %= l('You have %1 data export(s) waiting to be processed', $self->stash('pending'))
+</p>
+% }
+% if ($self->stash('finished') && $self->stash('finished')->size) {
+<h2>
+    %= l('Exports available to download:')
+</h2>
+<ul>
+    % $self->stash('finished')->each(sub {
+    %     my ($e, $num) = @_;
+    %     my $url = url_for('download_data', token => $e->token, format => 'json');
+        <li>
+            <a href="<%= $url %>" id="<%= $e->token %>" class="data-export-link">
+                %= $url->to_abs
+            </a>
+            (<span class="date-to-format"><%= $e->finished_at %>Z</span>)
+        </li>
+    % });
+</ul>
+% }
+<hr>
+<h1>
+    <%= l('Data import') %>
+</h1>
+<form method="post" action="<%= url_for('import') %>" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="import-file">
+            %= l('File to import')
+        </label>
+        <input type="file" id="import-file" name="file" accept="application/json" required>
+    </div>
+    <button type="submit" class="btn btn-default">
+        <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
+        %= l('Import data')
+    </button>
+</form>

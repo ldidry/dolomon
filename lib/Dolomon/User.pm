@@ -108,6 +108,18 @@ sub get_applications {
     return Mojo::Collection->new(@apps);
 }
 
+sub get_exports {
+    my $c = shift;
+
+    my $r = $c->app->pg->db->query('SELECT id FROM data_exports WHERE user_id = ? ORDER BY id', $c->id);
+    my @exports = ();
+    while (my $next = $r->hash) {
+        push @exports, Dolomon::Export->new(app => $c->app, id => $next->{id});
+    }
+
+    return Mojo::Collection->new(@exports);
+}
+
 sub get_stats {
     my $c = shift;
 
@@ -138,6 +150,55 @@ sub get_app_nb {
 sub get_dolo_nb {
     my $c = shift;
     return $c->app->pg->db->query('SELECT count(d.id) FROM dolos d JOIN categories c ON d.category_id = c.id WHERE c.user_id = ?', $c->id)->array->[0];
+}
+
+sub export_data {
+    my $c = shift;
+
+    my $categories    = $c->app->pg->db->query(
+        'SELECT * FROM categories   WHERE user_id = ? ORDER BY id', $c->id
+    )->hashes->to_array;
+    my $tags          = $c->app->pg->db->query(
+        'SELECT * FROM tags         WHERE user_id = ? ORDER BY id', $c->id
+    )->hashes->to_array;
+    my $applications  = $c->app->pg->db->query(
+        'SELECT * FROM applications WHERE user_id = ? ORDER BY id', $c->id
+    )->hashes->to_array;
+    my $dolos         = $c->app->pg->db->query(
+        'SELECT d.* FROM dolos d                                        JOIN categories c ON d.category_id = c.id WHERE c.user_id = ? ORDER BY d.id', $c->id
+    )->hashes->to_array;
+    my $dolos_year    = $c->app->pg->db->query(
+        'SELECT y.* FROM dolos_year    y JOIN dolos d ON y.dolo_id = d.id JOIN categories c ON d.category_id = c.id WHERE c.user_id = ? ORDER BY y.id', $c->id
+    )->hashes->to_array;
+    my $dolos_week    = $c->app->pg->db->query(
+        'SELECT y.* FROM dolos_week    y JOIN dolos d ON y.dolo_id = d.id JOIN categories c ON d.category_id = c.id WHERE c.user_id = ? ORDER BY y.id', $c->id
+    )->hashes->to_array;
+    my $dolos_month   = $c->app->pg->db->query(
+        'SELECT y.* FROM dolos_month   y JOIN dolos d ON y.dolo_id = d.id JOIN categories c ON d.category_id = c.id WHERE c.user_id = ? ORDER BY y.id', $c->id
+    )->hashes->to_array;
+    my $dolos_day     = $c->app->pg->db->query(
+        'SELECT y.* FROM dolos_day     y JOIN dolos d ON y.dolo_id = d.id JOIN categories c ON d.category_id = c.id WHERE c.user_id = ? ORDER BY y.id', $c->id
+    )->hashes->to_array;
+    my $dolos_hits    = $c->app->pg->db->query(
+        'SELECT y.* FROM dolos_hits    y JOIN dolos d ON y.dolo_id = d.id JOIN categories c ON d.category_id = c.id WHERE c.user_id = ? ORDER BY y.id', $c->id
+    )->hashes->to_array;
+    my $dolo_has_tags = $c->app->pg->db->query(
+        'SELECT d.* FROM dolo_has_tags d JOIN tags t  ON d.tag_id = t.id                                            WHERE t.user_id = ? ORDER BY d.dolo_id', $c->id
+    )->hashes->to_array;
+    my $user_count  = $c->app->pg->db->select($c->table, ['count'], { id => $c->id })->hash->{count};
+    return {
+        categories    => $categories, 
+        tags          => $tags,
+        applications  => $applications,
+        dolos         => $dolos,
+        dolos_year    => $dolos_year,
+        dolos_week    => $dolos_week,
+        dolos_month   => $dolos_month,
+        dolos_day     => $dolos_day,
+        dolos_hits    => $dolos_hits,
+        dolo_has_tags => $dolo_has_tags,
+        user_count    => $user_count
+    };
 }
 
 1;

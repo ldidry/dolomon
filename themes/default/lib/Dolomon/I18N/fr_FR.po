@@ -457,6 +457,11 @@ msgstr "Champ libre"
 msgid "Go"
 msgstr "Allons-y"
 
+#. ($url)
+#: lib/Dolomon.pm:322
+msgid "Go on %1 to download your datas.\n"
+msgstr "Allez sur %1 pour télécharger vos données.\n"
+
 #. ($user->login)
 #: lib/Dolomon/Controller/Users.pm:356
 msgid "Hello %1,"
@@ -833,7 +838,7 @@ msgid "Tag name"
 msgstr "Nom de l’étiquette"
 
 #: lib/Dolomon/Controller/Tags.pm:324
-msgid "Tag name blank or undefined. I refuse to create an tag without name."
+msgid "Tag name blank or undefined. I refuse to create a tag without name."
 msgstr ""
 "Le nom d’une étiquette ne peut être nul. Je refuse de créer une étiquette "
 "sans nom."

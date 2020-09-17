@@ -1,0 +1,111 @@
+image: hatsoftwares/dolomon-test-ci:latest
+stages:
+  # - publish_changelog
+  # - pouet_it
+  - carton
+  - tests
+  - cover
+variables:
+  POSTGRES_DB: dolomon_test_db
+  POSTGRES_USER: dolomon_test_user
+  POSTGRES_PASSWORD: dolo
+  POSTGRES_HOST_AUTH_METHOD: md5
+  PGPASSWORD: dolo
+
+### Jobs templates
+##
+#
+.retry: &retry
+  retry: 2
+  except:
+    - tags
+
+### Publish tag changelog and create a toot
+##
+#
+#include:
+#  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/publish_changelog.gitlab-ci.yml'
+#  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/pouet-it-from-ci.gitlab-ci.yml'
+
+
+### Install dependencies
+##
+#
+carton:
+  <<: *retry
+  stage: carton
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    paths:
+      - local/
+    policy: push
+  script:
+    - carton install --deployment
+  when: always
+
+### Syntax
+##
+#
+syntax:
+  <<: *retry
+  script:
+    - make check-syntax
+  stage: tests
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    paths:
+      - local/
+    policy: pull
+  needs:
+    - carton
+
+### PostgreSQL tests
+##
+#
+postgresql:
+  <<: *retry
+  before_script:
+    - echo 'CREATE DATABASE dolomon_minion_test_db WITH OWNER dolomon_test_user;' | psql -h postgres -U dolomon_test_user dolomon_test_db
+    - echo 'CREATE EXTENSION "uuid-ossp";' | psql -h postgres -U dolomon_test_user dolomon_test_db
+  script:
+    - make test
+  after_script:
+    - echo 'TRUNCATE users CASCADE;' | psql -h postgres -U dolomon_test_user dolomon_test_db
+    - for i in applications_id_seq categories_id_seq data_exports_id_seq dolos_day_id_seq dolos_hits_id_seq dolos_id_seq dolos_month_id_seq dolos_week_id_seq dolos_year_id_seq tags_id_seq users_id_seq; do echo "ALTER SEQUENCE $i RESTART WITH 1;" | psql -h postgres -U dolomon_test_user dolomon_test_db; done
+    - make test-junit-output
+  stage: tests
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    paths:
+      - local/
+      - cover_db/
+      - tap.xml
+  needs:
+    - carton
+  services:
+    - name: postgres:11
+      alias: postgres
+    - name: rroemhild/test-openldap
+      alias: rroemhild-test-openldap
+
+### Code coverage
+##
+#
+cover:
+  stage: cover
+  script:
+    - make cover
+  coverage: '/Total .*  (\d+\.\d+)$/'
+  needs:
+    - postgresql
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    paths:
+      - local/
+      - cover_db/
+    policy: pull
+  artifacts:
+    reports:
+      junit: tap.xml
+  except:
+    - tags

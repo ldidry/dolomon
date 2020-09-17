@@ -1,13 +1,13 @@
 [Unit]
 Description=DOwnLOad MONitor job queue
-Documentation=https://framagit.org/luc/dolomon
+Documentation=https://framagit.org/fiat-tux/hat-softwares/dolomon/
 After=dolomon.service
 
 [Service]
 Type=simple
 User=www-data
 WorkingDirectory=/var/www/dolomon/
-ExecStart=/usr/local/bin/carton exec script/dolomon minion worker -m production
+ExecStart=/usr/local/bin/carton exec script/dolomon minion worker -m production -j %i
 SyslogIdentifier=dolomon-minion
 
 [Install]

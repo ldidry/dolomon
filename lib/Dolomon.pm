@@ -3,15 +3,9 @@ use Mojo::Base 'Mojolicious';
 use Mojo::Collection 'c';
 use Dolomon::User;
 use Dolomon::Category;
-use Dolomon::Dolo;
-use Dolomon::DoloDay;
-use Dolomon::DoloWeek;
-use Dolomon::DoloMonth;
-use Dolomon::DoloYear;
-use Dolomon::DoloHit;
+use Dolomon::BreakingChange;
+use Dolomon::DefaultConfig qw($default_config);
 use Net::LDAP;
-use DateTime;
-use DateTime::Format::Pg;
 use Mojo::JSON qw(true false);
 use Mojo::File;
 use Mojo::Util qw(decode);
@@ -24,27 +18,11 @@ sub startup {
 
     push @{$self->commands->namespaces}, 'Dolomon::Command';
 
+    mkdir 'exports' unless -e 'exports';
+    mkdir 'imports' unless -e 'imports';
+
     my $config = $self->plugin('Config' => {
-        default => {
-            prefix               => '/',
-            admins               => [],
-            theme                => 'default',
-            no_register          => 0,
-            no_internal_accounts => 0,
-            counter_delay        => 0,
-            do_not_count_spiders => 0,
-            mail      => {
-                how  => 'sendmail',
-                from => 'noreply@dolomon.org'
-            },
-            signature => 'Dolomon',
-            keep_hits => {
-                uber_precision  => 3,
-                day_precision   => 90,
-                week_precision  => 12,
-                month_precision => 36,
-            }
-        }
+        default => $default_config
     });
 
     die "You need to provide a contact information in dolomon.conf !" unless (defined($config->{contact}));
@@ -90,6 +68,8 @@ sub startup {
 
     $self->plugin('Minion::Admin' => { return_to => '/admin', route => $self->routes->any('/admin/minion')->over(is_admin => 1) });
 
+    $self->plugin('CoverDb' => { route => 'c' });
+
     $self->plugin('authentication' =>
         {
             autoload_user => 1,
@@ -101,8 +81,9 @@ sub startup {
                 return undef unless defined $uid;
 
                 my $user = Dolomon::User->new(app => $c->app, 'id', $uid);
-                if (defined $c->config('admins')) {
-                    my $is_admin = c(@{$c->app->config('admins')})->grep(sub {$_ eq $user->login});
+                my $admins = c(@{$c->app->config('admins')});
+                if ($admins->size) {
+                    my $is_admin = $admins->grep(sub {$_ eq $user->login});
                     $user->{is_admin} = $is_admin->size;
                 } else {
                     $user->{is_admin} = 0;
@@ -237,78 +218,36 @@ sub startup {
     );
 
     ## Minion tasks
-    $self->app->minion->add_task(
-        clean_stats => sub {
-            my $job   = shift;
-            my $c     = $job->app;
-            my $time  = time;
-
-            # Expire dolos that need it
-            $c->pg->db->query('SELECT expire_dolos();');
-
-            # Months stats
-            my $dt = DateTime->from_epoch(epoch => $time);
-            $dt->subtract_duration(DateTime::Duration->new(months => $job->app->config('keep_hits')->{month_precision}));
-            $c->pg->db->query('SELECT clean_month_stats(?, ?)', ($dt->year(), $dt->month()));
-
-            # Weeks stats
-            $dt = DateTime->from_epoch(epoch => $time);
-            $dt->subtract_duration(DateTime::Duration->new(weeks => $job->app->config('keep_hits')->{week_precision}));
-            $c->pg->db->query('SELECT clean_week_stats(?, ?)', ($dt->year(), $dt->week_number()));
-
-            # Days stats
-            $dt = DateTime->from_epoch(epoch => $time);
-            $dt->subtract_duration(DateTime::Duration->new(days => $job->app->config('keep_hits')->{day_precision}));
-            $c->pg->db->query('SELECT clean_day_stats(?, ?, ?)', ($dt->year(), $dt->month(), $dt->day_of_month()));
-
-            # Uber precision stats
-            $c->pg->db->query("DELETE FROM dolos_hits WHERE ts < (CURRENT_TIMESTAMP - INTERVAL '".$job->app->config('keep_hits')->{uber_precision}." days')");
-        }
-    );
-    $self->app->minion->add_task(
-        hit => sub {
-            my $job   = shift;
-            my $short = shift;
-            my $date  = shift || time;
-            my $ref   = shift;
-
-            my $d  = Dolomon::Dolo->new(app => $job->app)->find_by_('short', $short);
-            my $dt = DateTime->from_epoch(epoch => $date);
-
-            $job->app->pg->db->query('SELECT increment_dolo_cascade(?, ?, ?, ?, ?, ?, ?)', ($d->id, $dt->year(), $dt->month(), $dt->week_number(), $dt->day(), DateTime::Format::Pg->format_timestamp_with_time_zone($dt), $ref));
-
-            if (defined $d->parent_id) {
-                $job->app->log->debug("INCREMENT PARENT ".$d->parent_id);
-                my $p = Dolomon::Dolo->new(app => $job->app, id => $d->parent_id);
-
-                $job->app->pg->db->query('SELECT increment_dolo_cascade(?, ?, ?, ?, ?, ?, ?)', ($p->id, $dt->year(), $dt->month(), $dt->week_number(), $dt->day(), DateTime::Format::Pg->format_timestamp_with_time_zone($dt), $ref));
-            }
-
-            if (defined($d->expires_after) && !defined($d->expires_at)) {
-                my $expires_at = DateTime->now()->add(days => $d->expires_after);
-                my $duration   = $expires_at->subtract_datetime(DateTime::Format::Pg->parse_timestamp_with_time_zone($d->created_at))->in_units('days');
-                $d->update({
-                    expires_at => $duration
-                });
-            }
-        }
-    );
-    $self->app->minion->add_task(
-        delete_user => sub {
-            my $job     = shift;
-            my $user_id = shift;
-
-            my $c = Dolomon::User->new(app => $job->app, id => $user_id)->delete_cascade();
-        }
-    );
+    $self->plugin('Dolomon::Plugin::MinionTasks');
 
     ## Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
-    if ($ENV{DOLOMON_DEV} && 0) {
-        $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(2);
+    if ($ENV{DOLOMON_DEV}) {
+        $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate($migrations->latest);
         $self->app->minion->reset;
     } else {
-        $migrations->from_file('utilities/migrations.sql')->migrate(2);
+        $migrations->from_file('utilities/migrations.sql')->migrate($migrations->latest);
+    }
+
+    ## Handle breaking changes… but not when using the breakingchanges command line 😉
+    if ((scalar(@ARGV) == 0 || $ARGV[0] ne 'breakingchanges') && !$ENV{DOLOMON_TEST}) {
+        my $bc = Dolomon::BreakingChange->new(app => $self, change => 'app_secret_migration');
+        if (!$bc->ack) {
+            print <<EOF;
+==========================================================================
+==                       WARNING! BREAKING CHANGE                       ==
+==========================================================================
+==                                                                      ==
+== You need to execute this command before being able to start Dolomon: ==
+==                                                                      ==
+== carton exec ./script/dolomon breakingchanges app_secret_migration    ==
+==                                                                      ==
+== Please note that you won't be able to revert the changes!            ==
+==                                                                      ==
+==========================================================================
+EOF
+            exit 1;
+        }
     }
 
     ## Router
@@ -319,14 +258,20 @@ sub startup {
         my $res = (!$required || $c->is_user_authenticated) ? 1 : 0;
 
         if (!$res && defined $c->req->headers->header('XDolomon-App-Id') && defined $c->req->headers->header('XDolomon-App-Secret')) {
-            my $rows = $c->pg->db->query('SELECT user_id FROM applications WHERE app_id::text = ? AND app_secret::text = ?',
-                ($c->req->headers->header('XDolomon-App-Id'), $c->req->headers->header('XDolomon-App-Secret'))
+            my $rows = $c->pg->db->query(
+                'SELECT user_id, app_secret FROM applications WHERE app_id::text = ?',
+                $c->req->headers->header('XDolomon-App-Id')
             );
             if ($rows->rows == 1) {
-                $c->stash('__authentication__' => {
-                    user => Dolomon::User->new(app => $c->app, 'id', $rows->hash->{user_id})
-                });
-                $res = 1;
+                my $pbkdf2 = Crypt::PBKDF2->new;
+
+                my $app = $rows->hash;
+                if ($pbkdf2->validate($app->{app_secret}, $c->req->headers->header('XDolomon-App-Secret'))) {
+                    $c->stash('__authentication__' => {
+                        user => Dolomon::User->new(app => $c->app, 'id', $app->{user_id})
+                    });
+                    $res = 1;
+                }
             }
             if (!$res) {
                 $c->stash('format' => 'json') unless scalar @{$c->accepts};
@@ -439,6 +384,25 @@ sub startup {
         over(authenticated_or_application => 1)->
         name('logout')->
         to('Misc#get_out');
+
+    $r->get('/export-import')->
+        over(authenticated_or_application => 1)->
+        name('export-import')->
+        to('Data#index');
+
+    $r->get('/export')->
+        over(authenticated_or_application => 1)->
+        name('export')->
+        to('Data#export');
+
+    $r->get('/data/:token')->
+        name('download_data')->
+        to('Data#download');
+
+    $r->post('/import')->
+        over(authenticated_or_application => 1)->
+        name('import')->
+        to('Data#import');
 
     $r->any('/api/ping')->
         over(authenticated_or_application => 1)->
