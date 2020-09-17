@@ -1,11 +1,11 @@
 Revision history for Dolomon
 
-0.2  ????-??-??
+0.2.0  2020-09-17
 	- Add export/import of users’ data
 	- BREAKING CHANGE! To improve security, you need to do this once:
 	  carton exec ./script/dolomon breakingchanges app_secret_migration
 
-0.1  2017-?
+0.1.0  2017-?
 	- LDAP authentication
 	- Internal authentication (register, renew password, change account
 	details, delete account)

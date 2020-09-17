@@ -1,7 +1,7 @@
 image: hatsoftwares/dolomon-test-ci:latest
 stages:
-  # - publish_changelog
-  # - pouet_it
+  - publish_changelog
+  - pouet_it
   - carton
   - tests
   - cover
@@ -23,9 +23,9 @@ variables:
 ### Publish tag changelog and create a toot
 ##
 #
-#include:
-#  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/publish_changelog.gitlab-ci.yml'
-#  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/pouet-it-from-ci.gitlab-ci.yml'
+include:
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/publish_changelog.gitlab-ci.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/pouet-it-from-ci.gitlab-ci.yml'
 
 
 ### Install dependencies
