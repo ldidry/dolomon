@@ -1,5 +1,8 @@
 Revision history for Dolomon
 
+0.2.1  2020-09-21
+	- 🌐 Update translations
+
 0.2.0  2020-09-17
 	- Add export/import of users’ data
 	- BREAKING CHANGE! To improve security, you need to do this once:
