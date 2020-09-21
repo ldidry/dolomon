@@ -3,15 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-09-21 12:05+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Language-Team: English <https://weblate.framasoft.org/projects/dolomon/"
+"master/en/>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-01 08:55+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
-"Language-Team: English\n"
-"Language: en\n"
-"X-Generator: Zanata 4.4.5\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
@@ -267,11 +268,11 @@ msgstr "Dashboard"
 
 #: themes/default/templates/data/index.html.ep:6
 msgid "Data export"
-msgstr ""
+msgstr "Data export"
 
 #: themes/default/templates/data/index.html.ep:38
 msgid "Data import"
-msgstr ""
+msgstr "Data import"
 
 #: lib/Dolomon.pm:170 lib/Dolomon/Controller/Users.pm:629
 msgid "Default"
@@ -328,11 +329,11 @@ msgstr "Dolomon also keeps the <a href=\"https://en.wikipedia.org/wiki/HTTP_refe
 
 #: lib/Dolomon/Controller/Data.pm:30
 msgid "Dolomon data export"
-msgstr ""
+msgstr "Dolomon data export"
 
 #: lib/Dolomon/Controller/Data.pm:65
 msgid "Dolomon data import"
-msgstr ""
+msgstr "Dolomon data import"
 
 #. (url_for('hit', {short => 'foo'})
 #: themes/default/templates/misc/about.html.ep:20
@@ -361,7 +362,7 @@ msgstr "Dolos"
 
 #: lib/Dolomon/Controller/Data.pm:73
 msgid "Dolos (not renamed but the URL have changed)"
-msgstr ""
+msgstr "Dolos (not renamed but the URL have changed)"
 
 #: themes/default/templates/misc/admin.html.ep:42
 msgid "Dolos number"
@@ -401,15 +402,15 @@ msgstr "Expired?"
 
 #: themes/default/templates/data/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:114
 msgid "Export or import data"
-msgstr ""
+msgstr "Export or import data"
 
 #: themes/default/templates/data/index.html.ep:11
 msgid "Export your data"
-msgstr ""
+msgstr "Export your data"
 
 #: themes/default/templates/data/index.html.ep:21
 msgid "Exports available to download:"
-msgstr ""
+msgstr "Exports available to download:"
 
 #: themes/default/templates/misc/dashboard.html.ep:78
 msgid "External tools that you allowed to use your Dolomon account"
@@ -417,7 +418,7 @@ msgstr "External tools that you allowed to use your Dolomon account"
 
 #: themes/default/templates/data/index.html.ep:43
 msgid "File to import"
-msgstr ""
+msgstr "File to import"
 
 #: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:39 themes/default/templates/misc/index.html.ep:40 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
@@ -434,7 +435,7 @@ msgstr "Go"
 #. ($c->url_for('download_data', token => $export->token, format => 'json')
 #: lib/Dolomon/Controller/Data.pm:32
 msgid "Go on %1 to download your datas (link available one week)."
-msgstr ""
+msgstr "Go on %1 to download your datas (link available one week)."
 
 #:
 msgid "Go on %1 to download your datas.\n"
@@ -467,7 +468,7 @@ msgstr "How does it works?"
 
 #: lib/Dolomon/Controller/Data.pm:68
 msgid "However, some elements have been renamed:"
-msgstr ""
+msgstr "However, some elements have been renamed:"
 
 #: lib/Dolomon/Controller/Dolos.pm:347 lib/Dolomon/Controller/Dolos.pm:457
 msgid "I can't find at least one of the given tag."
@@ -501,11 +502,11 @@ msgstr "Impersonating has been stopped"
 
 #: themes/default/templates/data/index.html.ep:49
 msgid "Import data"
-msgstr ""
+msgstr "Import data"
 
 #: lib/Dolomon/Controller/Data.pm:101
 msgid "Improper data."
-msgstr ""
+msgstr "Improper data."
 
 #: themes/default/templates/js/i18n.js.ep:57
 msgid "In how many days after the first visit will it expire? (optional)"
@@ -952,11 +953,13 @@ msgstr "The dolo you're trying to show does not belong to you."
 
 #: lib/Dolomon/Controller/Dolos.pm:421
 msgid "The dolo you’re trying to modify does not belong to you."
-msgstr ""
+msgstr "The dolo you’re trying to modify does not belong to you."
 
 #: lib/Dolomon/Controller/Data.pm:103
 msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
 msgstr ""
+"The file you want to import doesn’t seem to contain valid JSON. It will not "
+"be processed"
 
 #: lib/Dolomon/Controller/Dolos.pm:327
 msgid "The initial counter must be an integer, superior or equal to 0."
@@ -983,6 +986,8 @@ msgstr "The new name is the same as the previous: %1."
 #: lib/Dolomon/Controller/Dolos.pm:357 lib/Dolomon/Controller/Dolos.pm:467
 msgid "The parent_id you provided is not suitable for use: it does not belong to you or is already a child dolo."
 msgstr ""
+"The parent_id you provided is not suitable for use: it does not belong to "
+"you or is already a child dolo."
 
 #: lib/Dolomon/Controller/Users.pm:173 lib/Dolomon/Controller/Users.pm:268 lib/Dolomon/Controller/Users.pm:580
 msgid "The passwords does not match."
@@ -1042,6 +1047,7 @@ msgstr "This is a LDAP account, you can't change your password here."
 #: lib/Dolomon/Controller/Users.pm:19
 msgid "This is a LDAP account, you can’t change account details nor password here."
 msgstr ""
+"This is a LDAP account, you can’t change account details nor password here."
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:459 lib/Dolomon/Controller/Users.pm:643
@@ -1125,7 +1131,7 @@ msgstr "Unable to find an account with this token."
 #. ($v->param('token')
 #: lib/Dolomon/Controller/Users.pm:532
 msgid "Unable to find an account with this token: %1"
-msgstr ""
+msgstr "Unable to find an account with this token: %1"
 
 #: lib/Dolomon/Controller/Categories.pm:265 lib/Dolomon/Controller/Dolos.pm:246 lib/Dolomon/Controller/Tags.pm:270
 msgid "Unable to generate the zip file. Please contact the administrator"
@@ -1229,12 +1235,12 @@ msgstr "You can't, sorry."
 
 #: lib/Dolomon/Controller/Dolos.pm:303
 msgid "You didn’t send an URL."
-msgstr ""
+msgstr "You didn’t send an URL."
 
 #. ($self->stash('pending')
 #: themes/default/templates/data/index.html.ep:16
 msgid "You have %1 data export(s) waiting to be processed"
-msgstr ""
+msgstr "You have %1 data export(s) waiting to be processed"
 
 #: lib/Dolomon/Controller/Misc.pm:60
 msgid "You have been successfully authenticated."
@@ -1266,11 +1272,13 @@ msgstr "You weren't impersonating anyone."
 
 #: lib/Dolomon/Controller/Data.pm:95
 msgid "You will receive a mail once your file has been processed."
-msgstr ""
+msgstr "You will receive a mail once your file has been processed."
 
 #: lib/Dolomon/Controller/Data.pm:48
 msgid "You will receive a mail with a link to download your data once ready. You will be able to retrieve the export on this page."
 msgstr ""
+"You will receive a mail with a link to download your data once ready. You "
+"will be able to retrieve the export on this page."
 
 #: lib/Dolomon/Controller/Users.pm:150
 msgid "Your account details have been updated."
@@ -1294,20 +1302,20 @@ msgstr "Your current password is incorrect."
 
 #: lib/Dolomon/Controller/Data.pm:46
 msgid "Your data export is about to be processed."
-msgstr ""
+msgstr "Your data export is about to be processed."
 
 #: lib/Dolomon/Controller/Data.pm:30
 msgid "Your data export is ready for download.\n"
-msgstr ""
+msgstr " Your data export is ready for download.\n"
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Data.pm:65
 msgid "Your data import has been processed, you should see your data on %1.\n"
-msgstr ""
+msgstr " Your data import has been processed, you should see your data on %1.\n"
 
 #: lib/Dolomon/Controller/Data.pm:93
 msgid "Your data import is about to be processed."
-msgstr ""
+msgstr "Your data import is about to be processed."
 
 #: themes/default/templates/users/index.html.ep:25 themes/default/templates/users/index.html.ep:26
 msgid "Your new password"
