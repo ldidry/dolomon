@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-09-21 12:05+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Language-Team: French (France) <https://weblate.framasoft.org/projects/"
+"dolomon/master/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-01 08:56+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: fr_FR\n"
-"X-Generator: Zanata 4.4.5\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.1\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
@@ -311,7 +312,7 @@ msgid ""
 "0)"
 msgstr ""
 "Délai après lequel le dolo cesse de rediriger les utilisateurs (inactif si "
-"vide ou 0)."
+"vide ou 0)"
 
 #: themes/default/templates/js/i18n.js.ep:58
 msgid ""
@@ -319,7 +320,7 @@ msgid ""
 "redirecting visitors (inactive if empty or 0)"
 msgstr ""
 "Délai courant après la première visite et après lequel le dolo cesse de "
-"rediriger les utilisateurs (inactif si vide ou 0)."
+"rediriger les utilisateurs (inactif si vide ou 0)"
 
 #: themes/default/templates/applications/index.html.ep:39 themes/default/templates/js/i18n.js.ep:29
 msgid "Delete application"
@@ -422,7 +423,7 @@ msgstr "Courriel"
 #: lib/Dolomon/Controller/Users.pm:114 lib/Dolomon/Controller/Users.pm:563
 msgid "Email address already used. Choose another one."
 msgstr ""
-"Cette adresse de courriel est déjà utilisée. Veuillez en choisir une autre"
+"Cette adresse de courriel est déjà utilisée. Veuillez en choisir une autre."
 
 #: lib/Dolomon/Controller/Admin.pm:139 lib/Dolomon/Controller/Categories.pm:59 lib/Dolomon/Controller/Dolos.pm:40 lib/Dolomon/Controller/Dolos.pm:534 lib/Dolomon/Controller/Dolos.pm:543 lib/Dolomon/Controller/Misc.pm:45 lib/Dolomon/Controller/Misc.pm:73 lib/Dolomon/Controller/Tags.pm:64 lib/Dolomon/Controller/Users.pm:120 lib/Dolomon/Controller/Users.pm:169 lib/Dolomon/Controller/Users.pm:17 lib/Dolomon/Controller/Users.pm:193 lib/Dolomon/Controller/Users.pm:238 lib/Dolomon/Controller/Users.pm:296 lib/Dolomon/Controller/Users.pm:317 lib/Dolomon/Controller/Users.pm:331 lib/Dolomon/Controller/Users.pm:348 lib/Dolomon/Controller/Users.pm:376 lib/Dolomon/Controller/Users.pm:385 lib/Dolomon/Controller/Users.pm:407 lib/Dolomon/Controller/Users.pm:421 lib/Dolomon/Controller/Users.pm:438 lib/Dolomon/Controller/Users.pm:466 lib/Dolomon/Controller/Users.pm:48 lib/Dolomon/Controller/Users.pm:488 lib/Dolomon/Controller/Users.pm:511 lib/Dolomon/Controller/Users.pm:538 lib/Dolomon/Controller/Users.pm:57 lib/Dolomon/Controller/Users.pm:581 lib/Dolomon/Controller/Users.pm:80 lib/Dolomon/Controller/Users.pm:93 themes/default/templates/error.html.ep:3
 msgid "Error"
@@ -443,7 +444,7 @@ msgstr "Expiré ?"
 #: themes/default/templates/misc/dashboard.html.ep:78
 msgid "External tools that you allowed to use your Dolomon account"
 msgstr ""
-"Les outils externes que vous avez autorisé à utiliser votre compte Dolomon."
+"Les outils externes que vous avez autorisé à utiliser votre compte Dolomon"
 
 #: themes/default/templates/misc/admin.html.ep:37 themes/default/templates/misc/index.html.ep:37 themes/default/templates/misc/index.html.ep:38 themes/default/templates/users/index.html.ep:11 themes/default/templates/users/index.html.ep:12
 msgid "First name"
@@ -902,8 +903,8 @@ msgid ""
 "li><li>app_secret: %3</li><ul>"
 msgstr ""
 "L’application %1 a été créée avec succès. Notez les identifiants ci-dessous :"
-" il ne vous sera pas possible de les réafficher.<br><ul><li>app_id: %2</"
-"li><li>app_secret: %3</li><ul>"
+" il ne vous sera pas possible de les réafficher.<br><ul><li>app_id : %2</"
+"li><li>app_secret : %3</li><ul>"
 
 #. ($app->name)
 #: lib/Dolomon/Controller/Applications.pm:166
@@ -913,7 +914,7 @@ msgstr "L’application %1 a été supprimée avec succès."
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Applications.pm:124
 msgid "The application %1 has been successfully renamed to %2"
-msgstr "L’application %1 a été renommée avec succès en %2."
+msgstr "L’application %1 a été renommée avec succès en %2"
 
 #: lib/Dolomon/Controller/Applications.pm:156
 msgid "The application you're trying to delete does not belong to you."
@@ -1045,7 +1046,7 @@ msgstr "L’étiquette %1 a été supprimée avec succès."
 #. (($name, $newname)
 #: lib/Dolomon/Controller/Tags.pm:360
 msgid "The tag %1 has been successfully renamed to %2"
-msgstr "L’étiquette %1 a été renommée en %2 avec succès."
+msgstr "L’étiquette %1 a été renommée en %2 avec succès"
 
 #: lib/Dolomon/Controller/Tags.pm:392
 msgid "The tag you're trying to delete does not belong to you."
@@ -1096,7 +1097,7 @@ msgstr "Ceci est la dernière étape pour votre enregistrement sur %1.\n"
 
 #: themes/default/templates/misc/dashboard.html.ep:29
 msgid "This is where the journey begins."
-msgstr "C’est ici que tout commence…"
+msgstr "C’est ici que tout commence."
 
 #: themes/default/templates/misc/about.html.ep:11
 msgid ""
@@ -1195,7 +1196,7 @@ msgstr "Impossible de trouver un compte avec ce jeton."
 #: lib/Dolomon/Controller/Categories.pm:263 lib/Dolomon/Controller/Dolos.pm:244 lib/Dolomon/Controller/Tags.pm:268
 msgid "Unable to generate the zip file. Please contact the administrator"
 msgstr ""
-"Impossible de générer le fichier zip. Veuillez contacter l’administrateur."
+"Impossible de générer le fichier zip. Veuillez contacter l’administrateur"
 
 #: lib/Dolomon/Controller/Users.pm:387 lib/Dolomon/Controller/Users.pm:468
 msgid "Unable to retrieve an account linked to that email address."
@@ -1402,7 +1403,7 @@ msgstr "[semaine] W, [année] YYYY"
 
 #: themes/default/templates/js/i18n.js.ep:47
 msgid "example-org-logo"
-msgstr "example-org-logo"
+msgstr "logo-exemple-org"
 
 #: themes/default/templates/applications/index.html.ep:19 themes/default/templates/categories/index.html.ep:72 themes/default/templates/categories/index.html.ep:73 themes/default/templates/categories/index.html.ep:74 themes/default/templates/categories/index.html.ep:75 themes/default/templates/categories/index.html.ep:76 themes/default/templates/categories/show.html.ep:105 themes/default/templates/categories/show.html.ep:106 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:46 themes/default/templates/tags/index.html.ep:76 themes/default/templates/tags/index.html.ep:77 themes/default/templates/tags/index.html.ep:78 themes/default/templates/tags/index.html.ep:79 themes/default/templates/tags/index.html.ep:80 themes/default/templates/tags/show.html.ep:105 themes/default/templates/tags/show.html.ep:106 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109
 msgid "filter"
@@ -1419,3 +1420,126 @@ msgstr "pas de filtre"
 #: themes/default/templates/js/i18n.js.ep:54
 msgid "year"
 msgstr "année"
+
+#: lib/Dolomon/Controller/Data.pm:93
+msgid "Your data import is about to be processed."
+msgstr "Votre import de données sera bientôt traité."
+
+#. ($c->url_for('/')
+#: lib/Dolomon/Controller/Data.pm:65
+msgid "Your data import has been processed, you should see your data on %1.\n"
+msgstr ""
+" Votre import de données a été traité, vous devriez voir vos données sur %1."
+"\n"
+
+#: lib/Dolomon/Controller/Data.pm:30
+msgid "Your data export is ready for download.\n"
+msgstr " Votre export de données est prêt à être téléchargé.\n"
+
+#: lib/Dolomon/Controller/Data.pm:46
+msgid "Your data export is about to be processed."
+msgstr "Votre export de données sera bientôt traité."
+
+#: lib/Dolomon/Controller/Data.pm:48
+msgid "You will receive a mail with a link to download your data once ready. You will be able to retrieve the export on this page."
+msgstr ""
+"Vous recevrez un courriel avec un lien pour télécharger vos données une fois "
+"qu’elles seront prêtes. Vous pourrez retrouver l’export sur cette page."
+
+#: lib/Dolomon/Controller/Data.pm:95
+msgid "You will receive a mail once your file has been processed."
+msgstr "Vous recevrez un courriel une fois votre fichier traité."
+
+#. ($self->stash('pending')
+#: themes/default/templates/data/index.html.ep:16
+msgid "You have %1 data export(s) waiting to be processed"
+msgstr "Vous avez %1 export(s) de données attendant d’être traités"
+
+#: lib/Dolomon/Controller/Dolos.pm:303
+msgid "You didn’t send an URL."
+msgstr "Vous n’avez pas envoyé d’URL."
+
+#. ($v->param('token')
+#: lib/Dolomon/Controller/Users.pm:532
+msgid "Unable to find an account with this token: %1"
+msgstr "Impossible de trouver un compte avec ce jeton : %1"
+
+#: lib/Dolomon/Controller/Users.pm:19
+msgid "This is a LDAP account, you can’t change account details nor password here."
+msgstr ""
+"Ceci est un compte LDAP, vous ne pouvez changer les détails du compte ou son "
+"mot de passe ici."
+
+#: lib/Dolomon/Controller/Dolos.pm:357 lib/Dolomon/Controller/Dolos.pm:467
+msgid "The parent_id you provided is not suitable for use: it does not belong to you or is already a child dolo."
+msgstr ""
+"Le parent_id que vous avez fourni n’est pas utilisable : il ne vous "
+"appartient pas où est déjà un dolo enfant."
+
+#: lib/Dolomon/Controller/Data.pm:103
+msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
+msgstr ""
+"Le fichier que vous souhaitez importer n’a pas l’air de contenir des données "
+"JSON valides. Il ne sera pas traité"
+
+#: lib/Dolomon/Controller/Dolos.pm:421
+msgid "The dolo you’re trying to modify does not belong to you."
+msgstr "Le dolo que vous essayez de modifier ne vous appartient pas."
+
+#: lib/Dolomon/Controller/Applications.pm:152
+msgid "New application name blank or undefined. I refuse to rename the application."
+msgstr "Nouveau nom de l’application nul. Je refuse de renommer l’application."
+
+#: lib/Dolomon/Controller/Data.pm:101
+msgid "Improper data."
+msgstr "Données incorrectes."
+
+#: themes/default/templates/data/index.html.ep:49
+msgid "Import data"
+msgstr "Importer des données"
+
+#: lib/Dolomon/Controller/Data.pm:68
+msgid "However, some elements have been renamed:"
+msgstr "Cependant, certains éléments ont été renommés :"
+
+#. ($c->url_for('download_data', token => $export->token, format => 'json')
+#: lib/Dolomon/Controller/Data.pm:32
+msgid "Go on %1 to download your datas (link available one week)."
+msgstr ""
+"Allez sur %1 pour télécharger vos données (lien disponible une semaine)."
+
+#: themes/default/templates/data/index.html.ep:43
+msgid "File to import"
+msgstr "Fichier à importer"
+
+#: themes/default/templates/data/index.html.ep:21
+msgid "Exports available to download:"
+msgstr "Exports disponibles au téléchargement :"
+
+#: themes/default/templates/data/index.html.ep:11
+msgid "Export your data"
+msgstr "Exporter vos données"
+
+#: themes/default/templates/data/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:114
+msgid "Export or import data"
+msgstr "Exporter ou importer des données"
+
+#: lib/Dolomon/Controller/Data.pm:73
+msgid "Dolos (not renamed but the URL have changed)"
+msgstr "Dolos (non renommés mais l’URL a changé)"
+
+#: lib/Dolomon/Controller/Data.pm:65
+msgid "Dolomon data import"
+msgstr "Import des données de Dolomon"
+
+#: lib/Dolomon/Controller/Data.pm:30
+msgid "Dolomon data export"
+msgstr "Export des données de Dolomon"
+
+#: themes/default/templates/data/index.html.ep:38
+msgid "Data import"
+msgstr "Import de données"
+
+#: themes/default/templates/data/index.html.ep:6
+msgid "Data export"
+msgstr "Export de données"
