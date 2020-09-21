@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-09-21 12:05+0000\n"
+"PO-Revision-Date: 2020-09-21 12:10+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: French (France) <https://weblate.framasoft.org/projects/"
 "dolomon/master/fr_FR/>\n"
@@ -1429,12 +1429,11 @@ msgstr "Votre import de données sera bientôt traité."
 #: lib/Dolomon/Controller/Data.pm:65
 msgid "Your data import has been processed, you should see your data on %1.\n"
 msgstr ""
-" Votre import de données a été traité, vous devriez voir vos données sur %1."
-"\n"
+"Votre import de données a été traité, vous devriez voir vos données sur %1.\n"
 
 #: lib/Dolomon/Controller/Data.pm:30
 msgid "Your data export is ready for download.\n"
-msgstr " Votre export de données est prêt à être téléchargé.\n"
+msgstr "Votre export de données est prêt à être téléchargé.\n"
 
 #: lib/Dolomon/Controller/Data.pm:46
 msgid "Your data export is about to be processed."
