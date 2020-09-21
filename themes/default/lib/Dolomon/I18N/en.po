@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-09-21 12:05+0000\n"
+"PO-Revision-Date: 2020-09-21 12:10+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: English <https://weblate.framasoft.org/projects/dolomon/"
 "master/en/>\n"
@@ -1306,12 +1306,12 @@ msgstr "Your data export is about to be processed."
 
 #: lib/Dolomon/Controller/Data.pm:30
 msgid "Your data export is ready for download.\n"
-msgstr " Your data export is ready for download.\n"
+msgstr "Your data export is ready for download.\n"
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Data.pm:65
 msgid "Your data import has been processed, you should see your data on %1.\n"
-msgstr " Your data import has been processed, you should see your data on %1.\n"
+msgstr "Your data import has been processed, you should see your data on %1.\n"
 
 #: lib/Dolomon/Controller/Data.pm:93
 msgid "Your data import is about to be processed."
