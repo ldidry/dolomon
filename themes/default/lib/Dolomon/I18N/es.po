@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-03-06 17:08+0000\n"
-"Last-Translator: Berto Te <ateira@3fpj.com>\n"
+"PO-Revision-Date: 2020-09-22 12:36+0000\n"
+"Last-Translator: T. S. <tesales@pm.me>\n"
 "Language-Team: Spanish <https://weblate.framasoft.org/projects/dolomon/"
 "master/es/>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11.2\n"
+"X-Generator: Weblate 4.1\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
@@ -1326,3 +1326,11 @@ msgstr "sin filtro"
 #: themes/default/templates/js/i18n.js.ep:54
 msgid "year"
 msgstr "año"
+
+#: themes/default/templates/data/index.html.ep:38
+msgid "Data import"
+msgstr "Importar datos"
+
+#: themes/default/templates/data/index.html.ep:6
+msgid "Data export"
+msgstr "Exportar datos"
