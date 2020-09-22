@@ -16,7 +16,7 @@
             <li role="presentation"<%== ($method eq 'register') ? ' class="active"' : '' %>><a href="#" id="m_register"><%= l('Register') %></a></li>
         % }
         </ul>
-        <form action="/" method="POST" id="signin"<%== ($method eq 'register') ? 'class="hidden"' : '' %>>
+        <form action="<%= url_for('/') %>" method="POST" id="signin"<%== ($method eq 'register') ? 'class="hidden"' : '' %>>
             <label for="inputLogin" class="sr-only"><%= l('Login') %></label>
             <input type="text" id="inputLogin" name="login" class="form-control first-input" required autofocus placeholder="<%= l('Login') %>">
             <label for="inputPassword" class="sr-only"><%= l('Password') %></label>
@@ -29,7 +29,7 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit"><%= l('Go') %></button>
         </form>
     % unless (config('no_register') || config('no_internal_accounts')) {
-        <form action="/register" method="POST" id="signup"<%== ($method ne 'register') ? ' class="hidden"' : '' %>>
+        <form action="<%= url_for('/register') %>" method="POST" id="signup"<%== ($method ne 'register') ? ' class="hidden"' : '' %>>
             <label for="inputLogin2" class="sr-only"><%= l('Login') %></label>
             <input type="text" id="inputLogin2" name="login" class="form-control first-input" required placeholder="<%= l('Login') %>"
                 % if (defined(stash('login'))) {
