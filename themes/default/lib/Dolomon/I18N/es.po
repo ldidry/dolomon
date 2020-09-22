@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-09-22 12:36+0000\n"
-"Last-Translator: T. S. <tesales@pm.me>\n"
+"PO-Revision-Date: 2020-09-23 21:51+0000\n"
+"Last-Translator: Berto Te <ateira@3fpj.com>\n"
 "Language-Team: Spanish <https://weblate.framasoft.org/projects/dolomon/"
 "master/es/>\n"
 "Language: es\n"
@@ -1309,7 +1309,7 @@ msgstr "[semana] W, [año] AAAA"
 
 #: themes/default/templates/js/i18n.js.ep:47
 msgid "example-org-logo"
-msgstr "example-org-logo"
+msgstr "logo- ejemplo -org"
 
 #: themes/default/templates/applications/index.html.ep:19 themes/default/templates/categories/index.html.ep:72 themes/default/templates/categories/index.html.ep:73 themes/default/templates/categories/index.html.ep:74 themes/default/templates/categories/index.html.ep:75 themes/default/templates/categories/index.html.ep:76 themes/default/templates/categories/show.html.ep:105 themes/default/templates/categories/show.html.ep:106 themes/default/templates/categories/show.html.ep:107 themes/default/templates/categories/show.html.ep:108 themes/default/templates/categories/show.html.ep:109 themes/default/templates/dolos/index.html.ep:26 themes/default/templates/dolos/index.html.ep:27 themes/default/templates/dolos/index.html.ep:28 themes/default/templates/dolos/index.html.ep:29 themes/default/templates/dolos/index.html.ep:30 themes/default/templates/js/i18n.js.ep:46 themes/default/templates/tags/index.html.ep:76 themes/default/templates/tags/index.html.ep:77 themes/default/templates/tags/index.html.ep:78 themes/default/templates/tags/index.html.ep:79 themes/default/templates/tags/index.html.ep:80 themes/default/templates/tags/show.html.ep:105 themes/default/templates/tags/show.html.ep:106 themes/default/templates/tags/show.html.ep:107 themes/default/templates/tags/show.html.ep:108 themes/default/templates/tags/show.html.ep:109
 msgid "filter"
@@ -1334,3 +1334,122 @@ msgstr "Importar datos"
 #: themes/default/templates/data/index.html.ep:6
 msgid "Data export"
 msgstr "Exportar datos"
+
+#: lib/Dolomon/Controller/Data.pm:93
+msgid "Your data import is about to be processed."
+msgstr "Su importación de datos está a punto de ser procesada."
+
+#. ($c->url_for('/')
+#: lib/Dolomon/Controller/Data.pm:65
+msgid "Your data import has been processed, you should see your data on %1.\n"
+msgstr ""
+"Su importación de datos ha sido procesada, debería ver sus datos en %1.\n"
+
+#: lib/Dolomon/Controller/Data.pm:30
+msgid "Your data export is ready for download.\n"
+msgstr "Su exportación de datos está lista para descargar.\n"
+
+#: lib/Dolomon/Controller/Data.pm:46
+msgid "Your data export is about to be processed."
+msgstr "Su exportación de datos está a punto de ser procesada."
+
+#: lib/Dolomon/Controller/Data.pm:48
+msgid "You will receive a mail with a link to download your data once ready. You will be able to retrieve the export on this page."
+msgstr ""
+"Recibirás un correo con un enlace para descargar tus datos una vez que estén "
+"listos. Podrá recuperar la exportación en esta página."
+
+#: lib/Dolomon/Controller/Data.pm:95
+msgid "You will receive a mail once your file has been processed."
+msgstr "Recibirá un correo una vez que su archivo haya sido procesado."
+
+#. ($self->stash('pending')
+#: themes/default/templates/data/index.html.ep:16
+msgid "You have %1 data export(s) waiting to be processed"
+msgstr "Tiene %1 exportación (es) de datos esperando ser procesadas"
+
+#: lib/Dolomon/Controller/Dolos.pm:303
+msgid "You didn’t send an URL."
+msgstr "No enviaste una URL."
+
+#. ($v->param('token')
+#: lib/Dolomon/Controller/Users.pm:532
+msgid "Unable to find an account with this token: %1"
+msgstr "No se puede encontrar una cuenta con este token: %1"
+
+#: lib/Dolomon/Controller/Users.pm:19
+msgid "This is a LDAP account, you can’t change account details nor password here."
+msgstr ""
+"El archivo que desea importar no parece contener JSON válido. No será "
+"procesado."
+
+#: lib/Dolomon/Controller/Dolos.pm:357 lib/Dolomon/Controller/Dolos.pm:467
+msgid "The parent_id you provided is not suitable for use: it does not belong to you or is already a child dolo."
+msgstr ""
+"El archivo que desea importar no parece contener JSON válido. No será "
+"procesado."
+
+#: lib/Dolomon/Controller/Data.pm:103
+msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
+msgstr ""
+"El archivo que desea importar no parece contener JSON válido. No será "
+"procesado"
+
+#: lib/Dolomon/Controller/Dolos.pm:421
+msgid "The dolo you’re trying to modify does not belong to you."
+msgstr "El dolo que intentas modificar no te pertenece."
+
+#: lib/Dolomon/Controller/Applications.pm:152
+msgid "New application name blank or undefined. I refuse to rename the application."
+msgstr ""
+"El nombre de la nueva aplicación está en blanco o sin definir. Me niego a "
+"cambiar el nombre de la aplicación."
+
+#: lib/Dolomon/Controller/Data.pm:101
+msgid "Improper data."
+msgstr "Datos incorrectos."
+
+#: themes/default/templates/data/index.html.ep:49
+msgid "Import data"
+msgstr "Datos de importacion"
+
+#: lib/Dolomon/Controller/Data.pm:68
+msgid "However, some elements have been renamed:"
+msgstr "Sin embargo, se ha cambiado el nombre de algunos elementos:"
+
+#:
+msgid "Go on %1 to download your datas.\n"
+msgstr "Vaya a %1 para descargar sus datos.\n"
+
+#. ($c->url_for('download_data', token => $export->token, format => 'json')
+#: lib/Dolomon/Controller/Data.pm:32
+msgid "Go on %1 to download your datas (link available one week)."
+msgstr "Vaya a %1 para descargar sus datos (enlace disponible una semana)."
+
+#: themes/default/templates/data/index.html.ep:43
+msgid "File to import"
+msgstr "Archivo para importar"
+
+#: themes/default/templates/data/index.html.ep:21
+msgid "Exports available to download:"
+msgstr "Exportaciones disponibles para descargar:"
+
+#: themes/default/templates/data/index.html.ep:11
+msgid "Export your data"
+msgstr "Exporta tus datos"
+
+#: themes/default/templates/data/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:114
+msgid "Export or import data"
+msgstr "Exportar o importar datos"
+
+#: lib/Dolomon/Controller/Data.pm:73
+msgid "Dolos (not renamed but the URL have changed)"
+msgstr "Dolos (sin renombrar, pero la URL ha cambiado)"
+
+#: lib/Dolomon/Controller/Data.pm:30
+msgid "Dolomon data export"
+msgstr "Exportación de datos Dolomon"
+
+#: lib/Dolomon/Controller/Data.pm:65
+msgid "Dolomon data import"
+msgstr "Importar datos de Dolomon"
