@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-10-28 15:51+0000\n"
+"PO-Revision-Date: 2020-10-29 06:40+0000\n"
 "Last-Translator: Balázs Meskó <mesko.balazs@fsf.hu>\n"
 "Language-Team: Hungarian <https://weblate.framasoft.org/projects/dolomon/"
 "master/hu/>\n"
@@ -1427,3 +1427,36 @@ msgstr "Adat importálása"
 #: themes/default/templates/data/index.html.ep:6
 msgid "Data export"
 msgstr "Adat exportálása"
+
+#: lib/Dolomon/Controller/Data.pm:103
+msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
+msgstr ""
+"Az importálandó fájl úgy tűnik, hogy nem érvényes JSON-t tartalmaz. Nem lesz "
+"feldolgozva."
+
+#: lib/Dolomon/Controller/Dolos.pm:421
+msgid "The dolo you’re trying to modify does not belong to you."
+msgstr "A módosítandó dolo nem az Öné."
+
+#: lib/Dolomon/Controller/Applications.pm:152
+msgid "New application name blank or undefined. I refuse to rename the application."
+msgstr ""
+"Az új alkalmazás neve üres vagy nem meghatározott. Átnevezés megszakítva."
+
+#: lib/Dolomon/Controller/Data.pm:101
+msgid "Improper data."
+msgstr "Nem megfelelő adatok."
+
+#: themes/default/templates/data/index.html.ep:49
+msgid "Import data"
+msgstr "Adatok importálása"
+
+#: lib/Dolomon/Controller/Data.pm:68
+msgid "However, some elements have been renamed:"
+msgstr "Viszont néhány elem át lett nevezve:"
+
+#. ($c->url_for('download_data', token => $export->token, format => 'json')
+#: lib/Dolomon/Controller/Data.pm:32
+msgid "Go on %1 to download your datas (link available one week)."
+msgstr ""
+"Ugorjon ide az adatok letöltéséhez: %1 (a hivatkozás egy hétig érvényes)."
