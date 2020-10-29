@@ -1417,13 +1417,9 @@ msgstr "Datos de importacion"
 msgid "However, some elements have been renamed:"
 msgstr "Sin embargo, se ha cambiado el nombre de algunos elementos:"
 
-#:
-msgid "Go on %1 to download your datas.\n"
-msgstr "Vaya a %1 para descargar sus datos.\n"
-
 #. ($c->url_for('download_data', token => $export->token, format => 'json')
 #: lib/Dolomon/Controller/Data.pm:32
-msgid "Go on %1 to download your datas (link available one week)."
+msgid "Go on %1 to download your data (link available for one week)."
 msgstr "Vaya a %1 para descargar sus datos (enlace disponible una semana)."
 
 #: themes/default/templates/data/index.html.ep:43

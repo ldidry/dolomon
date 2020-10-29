@@ -29,7 +29,7 @@ sub export {
     my $export = Dolomon::Export->new(app => $c)->create({ user_id => $user_id });
     my $subject = $c->l('Dolomon data export');
     my $body    = $c->l("Your data export is ready for download.\n");
-       $body   .= $c->l('Go on %1 to download your datas (link available one week).', $c->url_for('download_data', token => $export->token, format => 'json')->to_abs);
+       $body   .= $c->l('Go on %1 to download your data (link available for one week).', $c->url_for('download_data', token => $export->token, format => 'json')->to_abs);
        $body   .= "\n-- \n";
        $body   .= $c->l("Kind regards\n");
        $body   .= $c->config('signature');

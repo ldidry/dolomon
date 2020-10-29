@@ -434,12 +434,8 @@ msgstr "Go"
 
 #. ($c->url_for('download_data', token => $export->token, format => 'json')
 #: lib/Dolomon/Controller/Data.pm:32
-msgid "Go on %1 to download your datas (link available one week)."
-msgstr "Go on %1 to download your datas (link available one week)."
-
-#:
-msgid "Go on %1 to download your datas.\n"
-msgstr "Go on %1 to download your datas. Prout\n"
+msgid "Go on %1 to download your data (link available for one week)."
+msgstr "Go on %1 to download your data (link available for one week)."
 
 #. ($user->login)
 #: lib/Dolomon/Controller/Users.pm:370
@@ -957,9 +953,7 @@ msgstr "The dolo you’re trying to modify does not belong to you."
 
 #: lib/Dolomon/Controller/Data.pm:103
 msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
-msgstr ""
-"The file you want to import doesn’t seem to contain valid JSON. It will not "
-"be processed"
+msgstr "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
 
 #: lib/Dolomon/Controller/Dolos.pm:327
 msgid "The initial counter must be an integer, superior or equal to 0."
@@ -985,9 +979,7 @@ msgstr "The new name is the same as the previous: %1."
 
 #: lib/Dolomon/Controller/Dolos.pm:357 lib/Dolomon/Controller/Dolos.pm:467
 msgid "The parent_id you provided is not suitable for use: it does not belong to you or is already a child dolo."
-msgstr ""
-"The parent_id you provided is not suitable for use: it does not belong to "
-"you or is already a child dolo."
+msgstr "The parent_id you provided is not suitable for use: it does not belong to you or is already a child dolo."
 
 #: lib/Dolomon/Controller/Users.pm:173 lib/Dolomon/Controller/Users.pm:268 lib/Dolomon/Controller/Users.pm:580
 msgid "The passwords does not match."
@@ -1046,8 +1038,7 @@ msgstr "This is a LDAP account, you can't change your password here."
 
 #: lib/Dolomon/Controller/Users.pm:19
 msgid "This is a LDAP account, you can’t change account details nor password here."
-msgstr ""
-"This is a LDAP account, you can’t change account details nor password here."
+msgstr "This is a LDAP account, you can’t change account details nor password here."
 
 #. ($c->url_for('/')
 #: lib/Dolomon/Controller/Users.pm:459 lib/Dolomon/Controller/Users.pm:643
@@ -1276,9 +1267,7 @@ msgstr "You will receive a mail once your file has been processed."
 
 #: lib/Dolomon/Controller/Data.pm:48
 msgid "You will receive a mail with a link to download your data once ready. You will be able to retrieve the export on this page."
-msgstr ""
-"You will receive a mail with a link to download your data once ready. You "
-"will be able to retrieve the export on this page."
+msgstr "You will receive a mail with a link to download your data once ready. You will be able to retrieve the export on this page."
 
 #: lib/Dolomon/Controller/Users.pm:150
 msgid "Your account details have been updated."
