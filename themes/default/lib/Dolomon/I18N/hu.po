@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-02-24 23:08+0000\n"
-"Last-Translator: Balázs Úr <balazs@urbalazs.hu>\n"
+"PO-Revision-Date: 2020-10-29 06:40+0000\n"
+"Last-Translator: Balázs Meskó <mesko.balazs@fsf.hu>\n"
 "Language-Team: Hungarian <https://weblate.framasoft.org/projects/dolomon/"
 "master/hu/>\n"
 "Language: hu\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11\n"
+"X-Generator: Weblate 4.1\n"
 
 #. ($e->dolos->size)
 #: themes/default/templates/categories/index.html.ep:23 themes/default/templates/tags/index.html.ep:23
@@ -1391,3 +1391,72 @@ msgstr "nincs szűrő"
 #: themes/default/templates/js/i18n.js.ep:54
 msgid "year"
 msgstr "év"
+
+#: themes/default/templates/data/index.html.ep:43
+msgid "File to import"
+msgstr "Importálandó fájl"
+
+#: themes/default/templates/data/index.html.ep:21
+msgid "Exports available to download:"
+msgstr "Letölthető exportálások:"
+
+#: themes/default/templates/data/index.html.ep:11
+msgid "Export your data"
+msgstr "Adatok exportálása"
+
+#: themes/default/templates/data/index.html.ep:3 themes/default/templates/partial/navbar.html.ep:114
+msgid "Export or import data"
+msgstr "Adatok exportálása vagy importálása"
+
+#: lib/Dolomon/Controller/Data.pm:73
+msgid "Dolos (not renamed but the URL have changed)"
+msgstr "Dolók (nincs átnevezve, de az URL megváltozott)"
+
+#: lib/Dolomon/Controller/Data.pm:65
+msgid "Dolomon data import"
+msgstr "Dolomon adatok importálása"
+
+#: lib/Dolomon/Controller/Data.pm:30
+msgid "Dolomon data export"
+msgstr "Dolomon adatok exportálása"
+
+#: themes/default/templates/data/index.html.ep:38
+msgid "Data import"
+msgstr "Adat importálása"
+
+#: themes/default/templates/data/index.html.ep:6
+msgid "Data export"
+msgstr "Adat exportálása"
+
+#: lib/Dolomon/Controller/Data.pm:103
+msgid "The file you want to import doesn’t seem to contain valid JSON. It will not be processed"
+msgstr ""
+"Az importálandó fájl úgy tűnik, hogy nem érvényes JSON-t tartalmaz. Nem lesz "
+"feldolgozva."
+
+#: lib/Dolomon/Controller/Dolos.pm:421
+msgid "The dolo you’re trying to modify does not belong to you."
+msgstr "A módosítandó dolo nem az Öné."
+
+#: lib/Dolomon/Controller/Applications.pm:152
+msgid "New application name blank or undefined. I refuse to rename the application."
+msgstr ""
+"Az új alkalmazás neve üres vagy nem meghatározott. Átnevezés megszakítva."
+
+#: lib/Dolomon/Controller/Data.pm:101
+msgid "Improper data."
+msgstr "Nem megfelelő adatok."
+
+#: themes/default/templates/data/index.html.ep:49
+msgid "Import data"
+msgstr "Adatok importálása"
+
+#: lib/Dolomon/Controller/Data.pm:68
+msgid "However, some elements have been renamed:"
+msgstr "Viszont néhány elem át lett nevezve:"
+
+#. ($c->url_for('download_data', token => $export->token, format => 'json')
+#: lib/Dolomon/Controller/Data.pm:32
+msgid "Go on %1 to download your data (link available for one week)."
+msgstr ""
+"Ugorjon ide az adatok letöltéséhez: %1 (a hivatkozás egy hétig érvényes)."

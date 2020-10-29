@@ -1503,7 +1503,7 @@ msgstr "Cependant, certains éléments ont été renommés :"
 
 #. ($c->url_for('download_data', token => $export->token, format => 'json')
 #: lib/Dolomon/Controller/Data.pm:32
-msgid "Go on %1 to download your datas (link available one week)."
+msgid "Go on %1 to download your data (link available for one week)."
 msgstr ""
 "Allez sur %1 pour télécharger vos données (lien disponible une semaine)."
 

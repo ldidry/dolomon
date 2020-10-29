@@ -2,6 +2,10 @@ Revision history for Dolomon
 
 0.3.0  ????-??-??
 
+0.2.3  ????-??-??
+	- 🌐 Fix bad english sentence (thx Balázs Meskó for noticing)
+	- 🌐 Update translations
+
 0.2.2  2020-09-22
 	- 🐛 Fix bad URL when using a URL prefix
 
