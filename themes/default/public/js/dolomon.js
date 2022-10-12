@@ -685,7 +685,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                     '                    </li>',
                                     '                    <li>',
                                     '                        <a class="action-copy" href="#"',
-                                    '                            data-text="', url.base_url, data.object.short.replace('/', ''), '">',
+                                    '                            data-text="', url.base_url, 'h/', data.object.short.replace('/', ''), '">',
                                     '                            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>',
                                                                  i18n.copyDolo,
                                     '                        </a>',
@@ -701,7 +701,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                         [
                                             '<tr id="dolo_id_', data.object.id, '">',
                                             '    <td class="url">', data.object.url, '</td>',
-                                            '    <td class="durl">', url.base_url, data.object.short.replace('/', ''), '</td>',
+                                            '    <td class="durl">', url.base_url, 'h/', data.object.short.replace('/', ''), '</td>',
                                             '    <td class="name">', data.object.name, '</td>',
                                             '    <td class="extra">', data.object.extra, '</td>',
                                             '    <td class="hits">', data.object.count, '</td>',
@@ -716,7 +716,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                         [
                                             '<tr id="dolo_id_', data.object.id, '">',
                                             '    <td class="url">', data.object.url, '</td>',
-                                            '    <td class="durl">', url.base_url, data.object.short.replace('/', ''), '</td>',
+                                            '    <td class="durl">', url.base_url, 'h/', data.object.short.replace('/', ''), '</td>',
                                             '    <td class="name">', data.object.name, '</td>',
                                             '    <td class="extra">', data.object.extra, '</td>',
                                             '    <td class="hits">',
@@ -736,7 +736,7 @@ $('#addModal').on('show.bs.modal', function(event) {
                                             [
                                                 '<tr id="dolo_id_', data.object.id, '">',
                                                 '    <td class="url">', data.object.url, '</td>',
-                                                '    <td class="durl">', url.base_url, data.object.short.replace('/', ''), '</td>',
+                                                '    <td class="durl">', url.base_url, 'h/', data.object.short.replace('/', ''), '</td>',
                                                 '    <td class="name">', data.object.name, '</td>',
                                                 '    <td class="extra">', data.object.extra, '</td>',
                                                 '    <td class="hits">',
