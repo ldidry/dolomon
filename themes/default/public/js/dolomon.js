@@ -319,9 +319,15 @@ function aModify(event) {
                         var c = 'alert-danger';
                         if (data.success) {
                             c = 'alert-success';
+                            addAlert(c, data.msg);
+                        } else {
+                            Object.keys(data.errors).forEach(function(element, index, array) {
+                                data.errors[element].forEach(function(e, i, a) {
+                                    addAlert(c, e);
+                                });
+                            });
                         }
                         modal.modal('hide');
-                        addAlert(c, data.msg);
                         title.text(data.object.name);
                         $($(button.parents('tr')[0]).find('.url')['0']).text(data.object.url);
                         $($(button.parents('tr')[0]).find('.extra')['0']).text(data.object.extra);
