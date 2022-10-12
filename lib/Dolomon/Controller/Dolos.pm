@@ -441,10 +441,12 @@ sub modify {
         $errors{catList} = [] unless defined $errors{catList};
         push @{$errors{catList}}, $c->l('The category you want to use for your dolo does not belong to you.');
     }
-    my $filtered = $cat->dolos->grep(sub { $_->url eq $url });
-    if ($filtered->size && ($cat_id != $dolo->category_id || $filtered->grep(sub { $_->id != $id })->size)) {
-        $errors{doloUrl} = [] unless defined $errors{doloUrl};
-        push @{$errors{doloUrl}}, $c->l('You already have that URL in the dolos of this category.');
+    if ($url ne $c->url_for('/1px.gif')->to_abs) {
+        my $filtered = $cat->dolos->grep(sub { $_->url eq $url });
+        if ($filtered->size && ($cat_id != $dolo->category_id || $filtered->grep(sub { $_->id != $id })->size)) {
+            $errors{doloUrl} = [] unless defined $errors{doloUrl};
+            push @{$errors{doloUrl}}, $c->l('You already have that URL in the dolos of this category.');
+        }
     }
 
     my $tags_id = $c->every_param('tags[]');
